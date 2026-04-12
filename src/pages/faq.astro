@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'How long does assembly really take?',
+    a: 'Each individual cabinet assembles in under 2 minutes. A full 10-piece system typically takes under an hour. No tools required — our unique connector system locks panels together with a simple press.',
+  },
+  {
+    q: 'Do I really need zero tools?',
+    a: 'Zero. None. Not a single screwdriver. The Klovo connector system is entirely tool-free. The only exception: if you want to wall-mount the cabinets (optional), you\'ll need a drill for the wall anchors.',
+  },
+  {
+    q: 'How much weight can the shelves hold?',
+    a: 'Each shelf in our tall and base cabinets holds up to 500 lbs. We\'ve tested it. They didn\'t flinch. Wall cabinet shelves hold up to 200 lbs.',
+  },
+  {
+    q: 'Are the cabinets waterproof?',
+    a: 'Our cabinets are moisture-resistant, not waterproof. They\'re built with 19mm Thermally Fused Laminate (TFL) panels that handle garage humidity — temperature swings, condensation, the works. They\'re designed for real garage conditions and will last decades.',
+  },
+  {
+    q: 'Where are Klovo cabinets made?',
+    a: 'Every Klovo cabinet is built in our manufacturing facility in Georgia, USA. Door Kraft, our parent company, has produced over a million cabinets. American-made quality with precision CNC drilling and automated edge-banding.',
+  },
+  {
+    q: 'Can I buy directly from Klovo?',
+    a: 'Klovo cabinets are available through our retail partners including Amazon, Wayfair, and select dealers. Visit our Where to Buy page to find the retailer that works best for you.',
+  },
+  {
+    q: 'What\'s the warranty?',
+    a: 'Klovo cabinets come with a 10-year warranty covering defects in materials and workmanship. We stand behind what we build.',
+  },
+  {
+    q: 'Can I disassemble and move the cabinets?',
+    a: 'Yes! The same connector system that makes assembly tool-free also makes disassembly easy. If you move, your Klovo cabinets move with you. Storage that adapts to your life.',
+  },
+  {
+    q: 'What finishes are available?',
+    a: 'We currently offer our cabinets in a clean, modern white finish that complements any garage aesthetic. Additional finishes are in development.',
+  },
+  {
+    q: 'How is Klovo different from metal garage cabinets?',
+    a: 'Metal cabinets are utilitarian — they look like shop equipment, not home furniture. Klovo cabinets have a premium, furniture-grade finish with TFL panels that resist moisture and scratches. They look like an extension of your home, not an industrial toolbox.',
+  },
+];
+---
+
+<BaseLayout title="FAQ" description="Frequently asked questions about Klovo garage cabinets. Assembly, weight capacity, materials, warranty, and more.">
+
+  <section class="py-16 lg:py-24 bg-warm-white">
+    <div class="section-container">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16 reveal">
+          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">FAQ</p>
+          <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4">Got questions?</h1>
+          <p class="text-lg text-klovo-grey">We've got answers. If yours isn't here, <a href="/contact/" class="text-klovo-blue hover:text-klovo-blue-dark underline">reach out</a>.</p>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map((faq, i) => (
+            <details class="group bg-warm-neutral rounded-lg reveal" style={`transition-delay: ${i * 50}ms`}>
+              <summary class="flex items-center justify-between cursor-pointer p-6 text-lg font-semibold text-charcoal hover:text-klovo-blue transition-colors list-none">
+                <span>{faq.q}</span>
+                <svg class="w-5 h-5 text-klovo-grey flex-shrink-0 ml-4 group-open:rotate-180 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-charcoal/70 leading-relaxed">
+                {faq.a}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 lg:py-16 bg-warm-neutral">
+    <div class="section-container text-center reveal">
+      <h2 class="text-2xl font-bold text-charcoal mb-4">Still have questions?</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/contact/" class="btn-primary">Contact Us</a>
+        <a href="/where-to-buy/" class="btn-secondary">Where to Buy</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

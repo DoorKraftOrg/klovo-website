@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
+  <!-- Speed lines -->
+  <line x1="10" y1="30" x2="55" y2="30" stroke="#F7C948" stroke-width="4" stroke-linecap="round"/>
+  <line x1="5" y1="42" x2="55" y2="42" stroke="#F7C948" stroke-width="4" stroke-linecap="round"/>
+  <line x1="15" y1="54" x2="55" y2="54" stroke="#0E4C8B" stroke-width="3" stroke-linecap="round"/>
+  <!-- K -->
+  <text x="60" y="72" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="#0E4C8B" letter-spacing="-2">KLOVO</text>
+  <!-- V accent -->
+  <line x1="268" y1="18" x2="285" y2="72" stroke="#F7C948" stroke-width="8" stroke-linecap="round"/>
+</svg>

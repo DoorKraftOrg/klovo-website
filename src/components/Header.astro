@@ -1,0 +1,136 @@
+---
+import navigation from '../data/navigation.json';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-warm-white/95 backdrop-blur-sm border-b border-warm-neutral/50 transition-all duration-300" id="site-header">
+  <div class="section-container flex items-center justify-between h-[72px]">
+    <!-- Logo -->
+    <a href="/" class="flex-shrink-0" aria-label="Klovo Home">
+      <img
+        src="/images/klovo-logo.svg"
+        alt="Klovo"
+        class="h-8 w-auto"
+        width="120"
+        height="32"
+      />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+      {navigation.main.map((item) => (
+        <a
+          href={item.href}
+          class="text-[15px] font-medium text-charcoal hover:text-klovo-blue transition-colors duration-150 tracking-wide"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- CTA + Mobile Toggle -->
+    <div class="flex items-center gap-4">
+      <a href={navigation.cta.href} class="btn-primary hidden sm:inline-flex">
+        {navigation.cta.label} <span aria-hidden="true">&rarr;</span>
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button
+        type="button"
+        class="lg:hidden flex items-center justify-center w-10 h-10 text-charcoal"
+        aria-label="Open menu"
+        id="mobile-menu-btn"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div
+    class="fixed inset-0 z-50 hidden"
+    id="mobile-menu"
+    aria-label="Mobile navigation"
+  >
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-charcoal/50 backdrop-blur-sm" id="mobile-menu-backdrop"></div>
+
+    <!-- Drawer -->
+    <div class="absolute right-0 top-0 bottom-0 w-[300px] bg-warm-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-out" id="mobile-menu-drawer">
+      <div class="flex items-center justify-between p-6 border-b border-warm-neutral">
+        <span class="text-lg font-semibold text-charcoal">Menu</span>
+        <button
+          type="button"
+          class="flex items-center justify-center w-10 h-10 text-charcoal"
+          aria-label="Close menu"
+          id="mobile-menu-close"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="p-6 flex flex-col gap-1">
+        {navigation.main.map((item) => (
+          <a
+            href={item.href}
+            class="block py-3 px-4 text-[17px] font-medium text-charcoal hover:text-klovo-blue hover:bg-warm-neutral/50 rounded-lg transition-all duration-150"
+          >
+            {item.label}
+          </a>
+        ))}
+        <div class="mt-4 pt-4 border-t border-warm-neutral">
+          <a href={navigation.cta.href} class="btn-primary w-full justify-center">
+            {navigation.cta.label} <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- Header height spacer -->
+<div class="h-[72px]"></div>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const drawer = document.getElementById('mobile-menu-drawer');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
+
+  function openMenu() {
+    menu?.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      drawer?.classList.remove('translate-x-full');
+    });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    drawer?.classList.add('translate-x-full');
+    setTimeout(() => {
+      menu?.classList.add('hidden');
+    }, 300);
+    document.body.style.overflow = '';
+  }
+
+  menuBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  backdrop?.addEventListener('click', closeMenu);
+
+  // Shrink header on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('shadow-sm');
+    } else {
+      header?.classList.remove('shadow-sm');
+    }
+  });
+</script>

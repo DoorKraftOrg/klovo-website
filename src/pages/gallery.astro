@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Placeholder gallery items — replace with real customer photos
+const galleryItems = [
+  { src: '/images/hero/garage-hero.png', alt: 'Modern garage with Klovo white cabinet system', caption: 'Full system install — 10 cabinets, 1 hour' },
+  { src: '/images/hero/garage-hero.png', alt: 'Klovo base cabinets with countertop workspace', caption: 'Workbench setup with base cabinets' },
+  { src: '/images/hero/garage-hero.png', alt: 'Before and after garage transformation', caption: 'From chaos to calm in one afternoon' },
+  { src: '/images/hero/garage-hero.png', alt: 'Klovo tall cabinets in a two-car garage', caption: 'Two-car garage with tall cabinet wall' },
+  { src: '/images/hero/garage-hero.png', alt: 'Close-up of Klovo cabinet finish quality', caption: 'Furniture-grade finish detail' },
+  { src: '/images/hero/garage-hero.png', alt: 'Family garage organized with Klovo', caption: 'Family-friendly garage organization' },
+];
+---
+
+<BaseLayout title="Gallery" description="See real Klovo garage transformations. Before and after photos of garages organized with premium Klovo cabinets.">
+
+  <!-- Hero -->
+  <section class="py-16 lg:py-24 bg-warm-white">
+    <div class="section-container text-center">
+      <div class="max-w-2xl mx-auto reveal">
+        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
+          Real Garages. Real Results.
+        </p>
+        <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4 leading-tight">
+          See the transformation.
+        </h1>
+        <p class="text-lg text-klovo-grey leading-relaxed">
+          Real homes. Real garages. Real Klovo cabinets doing what they do best.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-8 lg:py-12 bg-warm-white">
+    <div class="section-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        {galleryItems.map((item, i) => (
+          <div class={`reveal ${i === 0 || i === 3 ? 'md:col-span-2 lg:col-span-1' : ''}`} style={`transition-delay: ${i * 80}ms`}>
+            <div class="img-zoom-container rounded-lg aspect-[4/3] bg-warm-neutral">
+              <img
+                src={item.src}
+                alt={item.alt}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <p class="mt-3 text-sm text-klovo-grey">{item.caption}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Share Your Garage -->
+  <section class="py-16 lg:py-24 bg-warm-neutral">
+    <div class="section-container text-center reveal">
+      <h2 class="text-3xl font-bold text-charcoal mb-4">Got a Klovo garage? Show it off.</h2>
+      <p class="text-lg text-klovo-grey max-w-lg mx-auto mb-8">
+        Tag us on Instagram @klovostorage or email your photos to be featured.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://www.instagram.com/klovostorage/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Follow on Instagram
+        </a>
+        <a href="/contact/" class="btn-secondary">
+          Submit Your Photos
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

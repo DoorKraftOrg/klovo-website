@@ -1,0 +1,37 @@
+{
+  "main": [
+    { "label": "Cabinets", "href": "/cabinets/" },
+    { "label": "How It Works", "href": "/how-it-works/" },
+    { "label": "Gallery", "href": "/gallery/" },
+    { "label": "About", "href": "/about/" },
+    { "label": "For Retailers", "href": "/for-retailers/" }
+  ],
+  "cta": {
+    "label": "Where to Buy",
+    "href": "/where-to-buy/"
+  },
+  "footer": {
+    "company": [
+      { "label": "About Klovo", "href": "/about/" },
+      { "label": "For Retailers", "href": "/for-retailers/" },
+      { "label": "Contact", "href": "/contact/" },
+      { "label": "FAQ", "href": "/faq/" }
+    ],
+    "products": [
+      { "label": "All Cabinets", "href": "/cabinets/" },
+      { "label": "How It Works", "href": "/how-it-works/" },
+      { "label": "Gallery", "href": "/gallery/" },
+      { "label": "Where to Buy", "href": "/where-to-buy/" }
+    ],
+    "legal": [
+      { "label": "Warranty", "href": "/warranty/" },
+      { "label": "Privacy Policy", "href": "/privacy/" },
+      { "label": "Terms of Service", "href": "/terms/" }
+    ]
+  },
+  "social": [
+    { "label": "Instagram", "href": "https://www.instagram.com/klovostorage/", "icon": "instagram" },
+    { "label": "X", "href": "https://x.com/KlovoStorage", "icon": "x" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/klovo/", "icon": "linkedin" }
+  ]
+}

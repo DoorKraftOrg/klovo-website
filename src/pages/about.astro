@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About" description="Klovo is garage storage reimagined. Built in Georgia by Door Kraft, makers of over a million cabinets. Premium quality at a fraction of custom prices.">
+
+  <!-- Hero -->
+  <section class="py-16 lg:py-24 bg-warm-white">
+    <div class="section-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="reveal">
+          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
+            Our Story
+          </p>
+          <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-6 leading-tight">
+            We believed garage storage<br/>could be better.
+          </h1>
+          <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
+            Klovo was born from a simple frustration: why does organizing your garage have to mean choosing between ugly metal boxes and a $10,000 custom install?
+          </p>
+          <p class="text-lg text-charcoal/70 leading-relaxed">
+            We're Door Kraft, a Georgia-based manufacturer with over a million cabinets behind us. We took everything we know about building quality cabinetry and designed a system that anyone can assemble in minutes, not hours. No tools. No contractors. No compromises.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="rounded-lg overflow-hidden shadow-xl">
+            <img
+              src="/images/hero/garage-hero.png"
+              alt="Klovo manufacturing facility in Georgia"
+              class="w-full h-auto"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 lg:py-28 bg-warm-neutral">
+    <div class="section-container">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">What drives us.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-1">
+          <div class="w-12 h-12 bg-klovo-amber/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-klovo-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-charcoal mb-2">Respect Your Time</h3>
+          <p class="text-klovo-grey text-[15px] leading-relaxed">
+            Assembly should take minutes, not your entire Saturday. We designed Klovo around speed.
+          </p>
+        </div>
+
+        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-2">
+          <div class="w-12 h-12 bg-klovo-amber/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-klovo-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-charcoal mb-2">Build to Last</h3>
+          <p class="text-klovo-grey text-[15px] leading-relaxed">
+            500 lbs per shelf. Moisture-resistant TFL. 10-year warranty. We don't cut corners.
+          </p>
+        </div>
+
+        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-3">
+          <div class="w-12 h-12 bg-klovo-amber/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-klovo-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-charcoal mb-2">Design for Everyone</h3>
+          <p class="text-klovo-grey text-[15px] leading-relaxed">
+            Tool-free means anyone can build it. No grip strength required. No experience needed.
+          </p>
+        </div>
+
+        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-4">
+          <div class="w-12 h-12 bg-klovo-amber/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-klovo-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-charcoal mb-2">Made in Georgia</h3>
+          <p class="text-klovo-grey text-[15px] leading-relaxed">
+            Every panel is precision-drilled and edge-banded in our facility. American quality, not imported guesswork.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manufacturing -->
+  <section class="py-20 lg:py-28 bg-warm-white">
+    <div class="section-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="order-2 lg:order-1 reveal">
+          <div class="rounded-lg overflow-hidden shadow-xl">
+            <img
+              src="/images/hero/garage-hero.png"
+              alt="Inside the Door Kraft manufacturing facility"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 reveal reveal-delay-1">
+          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
+            Made in Georgia
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-6 leading-tight">
+            Over a million cabinets.<br/>One standard: excellence.
+          </h2>
+          <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
+            Klovo is built by Door Kraft, a manufacturing company with deep expertise in cabinetry. Our Georgia facility uses precision CNC drilling, automated edge-banding, and quality control processes refined over years of production.
+          </p>
+          <p class="text-lg text-charcoal/70 leading-relaxed">
+            Every Klovo cabinet that leaves our facility has been inspected, tested, and packed to arrive at your door ready to build in minutes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manifesto -->
+  <section class="py-20 lg:py-28 bg-warm-neutral">
+    <div class="section-container">
+      <div class="max-w-3xl mx-auto text-center reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-10">What we believe.</h2>
+        <div class="space-y-4 text-xl md:text-2xl text-charcoal/80 leading-relaxed font-light">
+          <p>Your garage shouldn't be the room you avoid.</p>
+          <p>It shouldn't take a full weekend to organize.</p>
+          <p>It shouldn't require a drill, a diagram, and a prayer.</p>
+          <p class="pt-4 font-medium text-charcoal">
+            Klovo exists because we believed storage could be simpler, stronger, and faster.
+          </p>
+        </div>
+        <p class="mt-10 text-klovo-blue font-semibold italic text-xl">
+          Build less. Live more.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 bg-warm-white">
+    <div class="section-container text-center reveal">
+      <h2 class="text-3xl font-bold text-charcoal mb-4">Ready to see what Klovo can do?</h2>
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
+        <a href="/cabinets/" class="btn-amber">Explore the Collection <span aria-hidden="true">&rarr;</span></a>
+        <a href="/where-to-buy/" class="btn-secondary">Where to Buy</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

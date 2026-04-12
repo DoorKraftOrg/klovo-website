@@ -1,0 +1,128 @@
+---
+import navigation from '../data/navigation.json';
+---
+
+<footer class="bg-warm-neutral border-t border-warm-neutral">
+  <!-- Main Footer -->
+  <div class="section-container py-16 lg:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+      <!-- Brand Column -->
+      <div class="lg:col-span-4">
+        <a href="/" class="inline-block mb-6">
+          <img
+            src="/images/klovo-logo.svg"
+            alt="Klovo"
+            class="h-8 w-auto"
+            width="120"
+            height="32"
+          />
+        </a>
+        <p class="text-charcoal/70 text-[15px] leading-relaxed mb-6 max-w-[320px]">
+          Premium garage cabinets that assemble in minutes, not hours. Built in Georgia. Designed for real life.
+        </p>
+        <p class="font-semibold text-klovo-blue text-lg italic">
+          Build less. Live more.
+        </p>
+      </div>
+
+      <!-- Company Links -->
+      <div class="lg:col-span-2 lg:col-start-6">
+        <h3 class="text-sm font-semibold text-charcoal uppercase tracking-wider mb-4">Company</h3>
+        <ul class="space-y-3">
+          {navigation.footer.company.map((item) => (
+            <li>
+              <a href={item.href} class="text-[15px] text-charcoal/70 hover:text-klovo-blue transition-colors duration-150">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Products Links -->
+      <div class="lg:col-span-2">
+        <h3 class="text-sm font-semibold text-charcoal uppercase tracking-wider mb-4">Products</h3>
+        <ul class="space-y-3">
+          {navigation.footer.products.map((item) => (
+            <li>
+              <a href={item.href} class="text-[15px] text-charcoal/70 hover:text-klovo-blue transition-colors duration-150">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="lg:col-span-4">
+        <h3 class="text-sm font-semibold text-charcoal uppercase tracking-wider mb-4">Stay in the loop</h3>
+        <p class="text-[15px] text-charcoal/70 mb-4">
+          Garage tips, new products, and the occasional dad joke. No spam.
+        </p>
+        <form class="flex gap-2" action="#" method="POST">
+          <input
+            type="email"
+            placeholder="Your email"
+            required
+            class="flex-1 px-4 py-3 bg-pure-white border border-warm-neutral rounded text-[15px] text-charcoal placeholder:text-klovo-grey focus:outline-none focus:border-klovo-blue focus:ring-1 focus:ring-klovo-blue transition-colors"
+            aria-label="Email address"
+          />
+          <button type="submit" class="btn-primary !px-6">
+            Join
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-charcoal/10">
+    <div class="section-container py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-klovo-grey">
+        &copy; {new Date().getFullYear()} Klovo Storage by Door Kraft. All rights reserved.
+      </p>
+
+      <!-- Social Links -->
+      <div class="flex items-center gap-5">
+        {navigation.social.map((item) => (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-klovo-grey hover:text-klovo-blue transition-colors duration-150"
+            aria-label={item.label}
+          >
+            {item.icon === 'instagram' && (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              </svg>
+            )}
+            {item.icon === 'x' && (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            )}
+            {item.icon === 'linkedin' && (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            )}
+          </a>
+        ))}
+      </div>
+
+      <!-- Legal Links -->
+      <div class="flex items-center gap-4">
+        {navigation.footer.legal.map((item) => (
+          <a href={item.href} class="text-sm text-klovo-grey hover:text-klovo-blue transition-colors duration-150">
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

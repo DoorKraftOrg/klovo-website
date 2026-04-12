@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+/* ============================================
+   KLOVO Design System — Tailwind v4 Theme
+   ============================================ */
+
+@theme {
+  /* Brand Colors */
+  --color-klovo-blue: #0E4C8B;
+  --color-klovo-blue-dark: #0A3A6B;
+  --color-klovo-amber: #F7C948;
+  --color-klovo-amber-dark: #E5B530;
+  --color-charcoal: #272727;
+  --color-dark-charcoal: #3C4144;
+  --color-warm-white: #F8F5F0;
+  --color-warm-neutral: #E8E2D9;
+  --color-pure-white: #FFFFFF;
+  --color-klovo-grey: #858485;
+  --color-light-gray: #F2F2F2;
+
+  /* Functional Colors */
+  --color-success: #708E5C;
+  --color-alert: #E37E16;
+  --color-error: #C0392B;
+
+  /* Typography */
+  --font-primary: 'Jost', system-ui, -apple-system, sans-serif;
+  --font-accent: 'Orbitron', monospace;
+  --font-tech: 'Oxanium', sans-serif;
+
+  /* Spacing (8px base) */
+  --spacing-micro: 4px;
+  --spacing-sm: 8px;
+  --spacing-base: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 80px;
+  --spacing-4xl: 120px;
+
+  /* Content widths */
+  --width-content: 1440px;
+  --width-narrow: 960px;
+  --width-text: 720px;
+
+  /* Animation */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-warm-white);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Links */
+a {
+  color: var(--color-klovo-blue);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+a:hover {
+  color: var(--color-klovo-blue-dark);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+/* Section container */
+.section-container {
+  max-width: var(--width-content);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+@media (max-width: 1024px) {
+  .section-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Narrow container for text content */
+.narrow-container {
+  max-width: var(--width-narrow);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Stat numbers (Orbitron) */
+.stat-number {
+  font-family: var(--font-accent);
+  font-weight: 700;
+  color: var(--color-klovo-amber);
+  line-height: 1;
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background-color: var(--color-klovo-blue);
+  color: var(--color-pure-white);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-klovo-blue-dark);
+  color: var(--color-pure-white);
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background-color: transparent;
+  color: var(--color-klovo-blue);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 4px;
+  border: 1px solid var(--color-klovo-blue);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-klovo-blue);
+  color: var(--color-pure-white);
+  transform: scale(1.02);
+}
+
+.btn-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background-color: var(--color-klovo-amber);
+  color: var(--color-charcoal);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  text-decoration: none;
+}
+
+.btn-amber:hover {
+  background-color: var(--color-klovo-amber-dark);
+  transform: scale(1.02);
+}
+
+/* ============================================
+   Scroll Reveal Animations
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-slow) var(--ease-smooth),
+              transform var(--duration-slow) var(--ease-smooth);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+
+/* ============================================
+   Image hover zoom for product cards
+   ============================================ */
+
+.img-zoom-container {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.img-zoom-container img {
+  transition: transform var(--duration-slow) var(--ease-smooth);
+}
+
+.img-zoom-container:hover img {
+  transform: scale(1.05);
+}

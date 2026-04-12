@@ -1,0 +1,20 @@
+{
+  "online": [
+    {
+      "name": "Amazon",
+      "href": "https://www.amazon.com/stores/KLOVO/page/E6BC5D68-D02A-48E6-B7F3-1F25C3B5A5B6",
+      "logo": "/images/retailers/amazon.svg"
+    },
+    {
+      "name": "Wayfair",
+      "href": "https://www.wayfair.com/brand/bnd/klovo-b68075.html",
+      "logo": "/images/retailers/wayfair.svg"
+    },
+    {
+      "name": "Lowe's",
+      "href": "https://www.lowes.com",
+      "logo": "/images/retailers/lowes.svg"
+    }
+  ],
+  "physical": []
+}
