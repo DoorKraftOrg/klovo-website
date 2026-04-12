@@ -2,7 +2,7 @@
 title: "36\" Base Cabinet"
 collection: base
 description: "Workbench-height storage with countertop-ready top. Drawers and doors for organized access."
-image: /images/hero/garage-hero.png
+image: /images/hero/garage-hero.jpg
 specs:
   width: "36\""
   height: "36\""

@@ -66,7 +66,7 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
       "@type": "Organization",
       "name": "Klovo",
       "url": "https://www.klovo.com",
-      "logo": "https://www.klovo.com/images/klovo-logo.svg",
+      "logo": "https://www.klovo.com/images/klovo-logo-official.png",
       "description": "Premium garage cabinets with tool-free assembly. Built in Georgia.",
       "sameAs": [
         "https://www.instagram.com/klovostorage/",
@@ -82,8 +82,11 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
     <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-klovo-blue focus:text-pure-white focus:rounded focus:text-sm focus:font-semibold">
+      Skip to content
+    </a>
     <Header />
-    <main class="flex-1">
+    <main id="main-content" class="flex-1">
       <slot />
     </main>
     <Footer />

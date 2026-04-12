@@ -2,6 +2,6 @@
 title: Tall Cabinets
 slug: tall
 description: Floor-to-ceiling storage powerhouses. 500 lbs per shelf, tool-free assembly, moisture-resistant TFL construction.
-image: /images/hero/garage-hero.png
+image: /images/hero/garage-hero.jpg
 order: 1
 ---

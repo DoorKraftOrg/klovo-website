@@ -2,7 +2,7 @@
 title: "24\" Tall Cabinet"
 collection: tall
 description: "Slim profile, full strength. Perfect for tighter spaces without sacrificing capacity."
-image: /images/hero/garage-hero.png
+image: /images/hero/garage-hero.jpg
 specs:
   width: "24\""
   height: "72\""

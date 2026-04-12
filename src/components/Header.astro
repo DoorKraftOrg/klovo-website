@@ -1,5 +1,6 @@
 ---
 import navigation from '../data/navigation.json';
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-warm-white/95 backdrop-blur-sm border-b border-warm-neutral/50 transition-all duration-300" id="site-header">
@@ -7,7 +8,7 @@ import navigation from '../data/navigation.json';
     <!-- Logo -->
     <a href="/" class="flex-shrink-0" aria-label="Klovo Home">
       <img
-        src="/images/klovo-logo.svg"
+        src="/images/klovo-logo-official.png"
         alt="Klovo"
         class="h-8 w-auto"
         width="120"
@@ -20,7 +21,8 @@ import navigation from '../data/navigation.json';
       {navigation.main.map((item) => (
         <a
           href={item.href}
-          class="text-[15px] font-medium text-charcoal hover:text-klovo-blue transition-colors duration-150 tracking-wide"
+          class={`text-[15px] font-medium hover:text-klovo-blue transition-colors duration-150 tracking-wide ${currentPath.startsWith(item.href) && item.href !== '/' ? 'text-klovo-blue' : 'text-charcoal'}`}
+          aria-current={currentPath.startsWith(item.href) && item.href !== '/' ? 'page' : undefined}
         >
           {item.label}
         </a>

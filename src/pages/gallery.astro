@@ -3,12 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Placeholder gallery items — replace with real customer photos
 const galleryItems = [
-  { src: '/images/hero/garage-hero.png', alt: 'Modern garage with Klovo white cabinet system', caption: 'Full system install — 10 cabinets, 1 hour' },
-  { src: '/images/hero/garage-hero.png', alt: 'Klovo base cabinets with countertop workspace', caption: 'Workbench setup with base cabinets' },
-  { src: '/images/hero/garage-hero.png', alt: 'Before and after garage transformation', caption: 'From chaos to calm in one afternoon' },
-  { src: '/images/hero/garage-hero.png', alt: 'Klovo tall cabinets in a two-car garage', caption: 'Two-car garage with tall cabinet wall' },
-  { src: '/images/hero/garage-hero.png', alt: 'Close-up of Klovo cabinet finish quality', caption: 'Furniture-grade finish detail' },
-  { src: '/images/hero/garage-hero.png', alt: 'Family garage organized with Klovo', caption: 'Family-friendly garage organization' },
+  { src: '/images/hero/hero-main.jpg', alt: 'Klovo white cabinet system — clean product render', caption: 'The full Klovo system — tall, base, wall, and drawer cabinets' },
+  { src: '/images/hero/hero-secondary.png', alt: 'Klovo white cabinets in a bright modern garage', caption: 'Bright, organized garage with bicycle and golf gear' },
+  { src: '/images/lifestyle/new-homeowners.png', alt: 'Young couple using their Klovo garage workspace', caption: 'New homeowners setting up their dream garage' },
+  { src: '/images/lifestyle/gardening.png', alt: 'Organized gardening station with Klovo cabinets', caption: 'Gardening tools organized in a Klovo system' },
+  { src: '/images/lifestyle/extra.png', alt: 'Couple in a fully organized Klovo garage', caption: 'A garage you actually want to spend time in' },
+  { src: '/images/hero/garage-hero.jpg', alt: 'Klovo cabinets in Venetian oak finish', caption: 'Premium Venetian oak finish option' },
 ];
 ---
 
@@ -36,7 +36,7 @@ const galleryItems = [
     <div class="section-container">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         {galleryItems.map((item, i) => (
-          <div class={`reveal ${i === 0 || i === 3 ? 'md:col-span-2 lg:col-span-1' : ''}`} style={`transition-delay: ${i * 80}ms`}>
+          <div class="reveal" style={`transition-delay: ${i * 80}ms`}>
             <div class="img-zoom-container rounded-lg aspect-[4/3] bg-warm-neutral">
               <img
                 src={item.src}
