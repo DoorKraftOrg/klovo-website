@@ -18,11 +18,6 @@ features:
   - "Adjustable shelves"
   - "Soft-close hinges"
   - "Made in Georgia"
-retailers:
-  - name: Amazon
-    url: "https://www.amazon.com"
-  - name: Wayfair
-    url: "https://www.wayfair.com"
 order: 1
 ---
 

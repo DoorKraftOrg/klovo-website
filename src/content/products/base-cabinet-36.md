@@ -19,9 +19,6 @@ features:
   - "3 soft-close drawers"
   - "Moisture-resistant TFL panels"
   - "Made in Georgia"
-retailers:
-  - name: Amazon
-    url: "https://www.amazon.com"
 order: 1
 ---
 

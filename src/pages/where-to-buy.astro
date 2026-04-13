@@ -1,53 +1,43 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import retailers from '../data/retailers.json';
 ---
 
-<BaseLayout title="Where to Buy" description="Find Klovo garage cabinets at trusted retailers online. Available on Amazon, Wayfair, and more.">
+<BaseLayout title="Where to Buy" description="Klovo premium garage cabinets are coming soon to trusted retailers near you.">
 
   <!-- Hero -->
   <section class="py-16 lg:py-24 bg-warm-white">
     <div class="section-container text-center">
       <div class="max-w-2xl mx-auto reveal">
         <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-          Shop Klovo
+          Coming Soon
         </p>
         <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4 leading-tight">
-          Find Klovo near you.
+          Klovo is almost here.
         </h1>
         <p class="text-lg text-klovo-grey leading-relaxed">
-          Klovo cabinets are available through trusted retail partners. Shop online or find a dealer in your area.
+          We're finalizing partnerships with trusted retailers to bring Klovo cabinets to you. Sign up below to be the first to know when we launch.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Online Retailers -->
+  <!-- Coming Soon -->
   <section class="py-16 lg:py-24 bg-warm-neutral">
     <div class="section-container">
-      <div class="text-center mb-12 reveal">
-        <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-2">Shop Online</h2>
-        <p class="text-klovo-grey">Order Klovo cabinets from these trusted retailers.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        {retailers.online.map((retailer, i) => (
-          <a
-            href={retailer.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group bg-pure-white rounded-xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 reveal"
-            style={`transition-delay: ${i * 100}ms`}
-          >
-            <div class="h-12 flex items-center justify-center mb-6">
-              <span class="text-2xl font-bold text-charcoal group-hover:text-klovo-blue transition-colors lowercase">{retailer.name}</span>
-            </div>
-            <p class="text-klovo-grey text-sm mb-4">Shop Klovo on {retailer.name}</p>
-            <span class="text-klovo-blue font-semibold text-sm inline-flex items-center gap-1">
-              Visit Store <span aria-hidden="true">&rarr;</span>
-            </span>
-          </a>
-        ))}
+      <div class="max-w-2xl mx-auto text-center reveal">
+        <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-4">Get notified at launch.</h2>
+        <p class="text-klovo-grey mb-8">Drop your email and we'll let you know the moment Klovo cabinets are available to order.</p>
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="#" method="POST">
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            required
+            class="flex-1 px-4 py-3 bg-pure-white border border-warm-neutral rounded text-charcoal placeholder:text-klovo-grey focus:outline-none focus:border-klovo-blue focus:ring-1 focus:ring-klovo-blue transition-colors"
+            aria-label="Email address"
+          />
+          <button type="submit" class="btn-primary">Notify Me</button>
+        </form>
       </div>
     </div>
   </section>
