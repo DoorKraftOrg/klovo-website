@@ -68,15 +68,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
         <!-- Option 1: Metal cabinets -->
         <div class="text-center reveal reveal-delay-1">
-          <div class="bg-warm-neutral rounded-lg p-8 mb-6 aspect-[4/3] flex items-center justify-center">
-            <div class="text-center">
-              <svg class="mx-auto mb-4 text-klovo-grey/50" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="4" width="20" height="16" rx="1" />
-                <line x1="12" y1="4" x2="12" y2="20" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-              </svg>
-              <p class="text-klovo-grey text-sm">Industrial metal cabinets</p>
-            </div>
+          <div class="rounded-lg mb-6 aspect-[4/3] overflow-hidden">
+            <img
+              src="/images/competitors/metal-cabinets.jpeg"
+              alt="Ugly industrial metal garage cabinets in a messy garage"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
           <p class="text-xl font-bold text-charcoal/40 mb-2">Not this.</p>
           <p class="text-klovo-grey text-[15px]">
@@ -86,14 +84,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <!-- Option 2: Custom install -->
         <div class="text-center reveal reveal-delay-2">
-          <div class="bg-warm-neutral rounded-lg p-8 mb-6 aspect-[4/3] flex items-center justify-center">
-            <div class="text-center">
-              <svg class="mx-auto mb-4 text-klovo-grey/50" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="9" />
-                <text x="6" y="16" font-size="10" fill="currentColor" stroke="none" font-family="Arial">$$$</text>
-              </svg>
-              <p class="text-klovo-grey text-sm">$5K&ndash;$10K custom install</p>
-            </div>
+          <div class="rounded-lg mb-6 aspect-[4/3] overflow-hidden">
+            <img
+              src="/images/competitors/custom-install.jpeg"
+              alt="Expensive custom garage cabinet installation by contractors"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
           <p class="text-xl font-bold text-charcoal/40 mb-2">Not this either.</p>
           <p class="text-klovo-grey text-[15px]">
@@ -130,8 +127,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="reveal">
           <div class="relative rounded-lg overflow-hidden aspect-video bg-charcoal shadow-xl">
             <img
-              src="/images/hero/garage-hero.jpg"
-              alt="Klovo cabinet assembly demonstration"
+              src="/images/scenes/base-wall-pegboard.png"
+              alt="Klovo white cabinet workspace with pegboard and tools"
               class="w-full h-full object-cover"
               loading="lazy"
             />
@@ -205,8 +202,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a href="/cabinets/tall/" class="group reveal reveal-delay-1">
           <div class="img-zoom-container rounded-lg mb-4 aspect-[3/4] bg-warm-neutral">
             <img
-              src="/images/hero/garage-hero.jpg"
-              alt="Klovo Tall Cabinets"
+              src="/images/scenes/tall-row-studio.png"
+              alt="Klovo Tall Cabinets — floor-to-ceiling white storage"
               class="w-full h-full object-cover"
               loading="lazy"
             />
@@ -223,8 +220,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a href="/cabinets/base/" class="group reveal reveal-delay-2">
           <div class="img-zoom-container rounded-lg mb-4 aspect-[3/4] bg-warm-neutral">
             <img
-              src="/images/hero/garage-hero.jpg"
-              alt="Klovo Base Cabinets"
+              src="/images/scenes/workspace-pegboard.png"
+              alt="Klovo Base Cabinets — workbench-height workspace"
               class="w-full h-full object-cover"
               loading="lazy"
             />
@@ -241,8 +238,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a href="/cabinets/wall/" class="group reveal reveal-delay-3">
           <div class="img-zoom-container rounded-lg mb-4 aspect-[3/4] bg-warm-neutral">
             <img
-              src="/images/hero/garage-hero.jpg"
-              alt="Klovo Wall Cabinets"
+              src="/images/scenes/wall-cabinets-mounted.png"
+              alt="Klovo Wall Cabinets — overhead storage"
               class="w-full h-full object-cover"
               loading="lazy"
             />
@@ -329,8 +326,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="reveal reveal-delay-1">
           <div class="rounded-lg overflow-hidden shadow-xl">
             <img
-              src="/images/hero/garage-hero.jpg"
-              alt="Close-up of Klovo cabinet construction quality"
+              src="/images/scenes/workspace-track-lights.png"
+              alt="Klovo white cabinet system with track lighting and organized tools"
               class="w-full h-auto"
               loading="lazy"
             />

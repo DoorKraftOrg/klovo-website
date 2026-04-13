@@ -2,7 +2,7 @@
 title: "36\" Wall Cabinet"
 collection: wall
 description: "Overhead storage that mounts above your base cabinets or workbench. Maximizes vertical space."
-image: /images/hero/garage-hero.jpg
+image: /images/products/wall-cabinet-solo.png
 specs:
   width: "36\""
   height: "24\""

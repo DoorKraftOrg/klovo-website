@@ -2,7 +2,7 @@
 title: "36\" Tall Cabinet"
 collection: tall
 description: "The workhorse of the Klovo system. Two adjustable shelves, full-height doors, and 500 lbs of capacity per shelf."
-image: /images/hero/garage-hero.jpg
+image: /images/products/tall-cabinet-solo.png
 specs:
   width: "36\""
   height: "72\""
