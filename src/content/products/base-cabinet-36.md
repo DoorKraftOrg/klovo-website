@@ -8,16 +8,16 @@ specs:
   height: "36\""
   depth: "24\""
   weight: "110 lbs"
-  shelfCapacity: "500 lbs"
-  material: "19mm Moisture-Resistant TFL"
+  shelfCapacity: "500 lbs per cabinet"
+  material: "Scratch-resistant laminate, 1mm PVC edgebanding"
   shelves: 1
   drawers: 3
 features:
-  - "500 lbs per shelf capacity"
-  - "Tool-free assembly"
+  - "500 lbs per cabinet capacity"
+  - "Near-tool-free assembly"
   - "Countertop-ready design"
   - "3 soft-close drawers"
-  - "Moisture-resistant TFL panels"
+  - "Moisture-proof sealed edgebanding"
   - "Made in Georgia"
 order: 1
 ---

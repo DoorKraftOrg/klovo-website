@@ -8,17 +8,17 @@ specs:
   height: "72\""
   depth: "20\""
   weight: "120 lbs"
-  shelfCapacity: "500 lbs"
-  material: "19mm Moisture-Resistant TFL"
+  shelfCapacity: "500 lbs per cabinet"
+  material: "Scratch-resistant laminate, 1mm PVC edgebanding"
   shelves: 2
 features:
-  - "500 lbs per shelf capacity"
-  - "Tool-free assembly in under 2 minutes"
-  - "Moisture-resistant TFL panels"
+  - "500 lbs per cabinet capacity"
+  - "Near-tool-free assembly"
+  - "Moisture-proof sealed edgebanding"
   - "Adjustable shelves"
   - "Soft-close hinges"
   - "Made in Georgia"
 order: 2
 ---
 
-The 24" Tall Cabinet fits into tighter garage layouts while delivering the same 500-lb shelf capacity and moisture-resistant construction as its wider siblings.
+The 24" Tall Cabinet fits into tighter garage layouts while delivering the same 500-lb cabinet capacity and moisture-proof construction as its wider siblings.
