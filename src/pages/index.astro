@@ -69,8 +69,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a href="/sets/#width-4ft" class="group reveal reveal-delay-1">
           <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
             <img
-              src="/images/sets/coming-soon.svg"
-              alt="4 ft Klovo set in a compact garage corner"
+              src="/images/sets/set-4ft-two-tall-duo.jpg"
+              alt="4 ft Klovo set — two tall cabinets in a compact garage corner"
               class="w-full h-full object-cover"
               loading="lazy"
             />
@@ -144,21 +144,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="section-container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div class="reveal">
-          <div class="relative rounded-lg overflow-hidden aspect-video bg-charcoal shadow-xl">
+          <button
+            type="button"
+            class="group relative w-full rounded-lg overflow-hidden aspect-video bg-charcoal shadow-xl cursor-pointer"
+            data-video-open
+            aria-label="Play assembly video"
+          >
             <img
               src="/images/assembly/hands-pressing.png"
               alt="Klovo cabinet assembly — panels pushing together"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
-            <div class="absolute inset-0 flex items-center justify-center">
-              <button class="w-20 h-20 bg-klovo-blue/90 hover:bg-klovo-blue rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" aria-label="Play assembly video">
+            <span class="absolute inset-0 flex items-center justify-center">
+              <span class="w-20 h-20 bg-klovo-blue/90 group-hover:bg-klovo-blue rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-lg">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
                   <polygon points="8,5 19,12 8,19" />
                 </svg>
-              </button>
-            </div>
-          </div>
+              </span>
+            </span>
+          </button>
         </div>
 
         <div class="reveal reveal-delay-1">
@@ -388,5 +393,67 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  <!-- Video Modal (Vimeo) -->
+  <div
+    id="video-modal"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-charcoal/90 backdrop-blur-sm p-4"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Assembly video"
+  >
+    <div class="relative w-full max-w-[min(90vw,45vh)] mx-auto">
+      <button
+        type="button"
+        class="absolute -top-12 right-0 text-white hover:text-klovo-amber transition-colors"
+        data-video-close
+        aria-label="Close video"
+      >
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <div class="relative bg-black rounded-lg overflow-hidden shadow-2xl" style="aspect-ratio: 9 / 16;">
+        <div id="video-iframe-container" class="absolute inset-0"></div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      const modal = document.getElementById('video-modal');
+      const container = document.getElementById('video-iframe-container');
+      const openBtns = document.querySelectorAll('[data-video-open]');
+      const closeBtns = document.querySelectorAll('[data-video-close]');
+      const vimeoSrc = 'https://player.vimeo.com/video/1131081541?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479';
+
+      function open() {
+        if (!modal || !container) return;
+        container.innerHTML = '<iframe src="' + vimeoSrc + '" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Modular Garage Cabinet System — 500 lb Strength, Quick Install"></iframe>';
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        if (!modal || !container) return;
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        modal.setAttribute('aria-hidden', 'true');
+        container.innerHTML = '';
+        document.body.style.overflow = '';
+      }
+
+      openBtns.forEach(function (b) { b.addEventListener('click', open); });
+      closeBtns.forEach(function (b) { b.addEventListener('click', close); });
+      modal && modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) close();
+      });
+    })();
+  </script>
 
 </BaseLayout>
