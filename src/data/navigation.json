@@ -1,7 +1,8 @@
 {
   "main": [
-    { "label": "Cabinets", "href": "/cabinets/" },
-    { "label": "How It Works", "href": "/how-it-works/" },
+    { "label": "Sets", "href": "/sets/" },
+    { "label": "Assembly", "href": "/assembly/" },
+    { "label": "Specs", "href": "/specs/" },
     { "label": "Gallery", "href": "/gallery/" },
     { "label": "About", "href": "/about/" },
     { "label": "For Retailers", "href": "/for-retailers/" }
@@ -18,8 +19,9 @@
       { "label": "FAQ", "href": "/faq/" }
     ],
     "products": [
-      { "label": "All Cabinets", "href": "/cabinets/" },
-      { "label": "How It Works", "href": "/how-it-works/" },
+      { "label": "All Sets", "href": "/sets/" },
+      { "label": "Assembly", "href": "/assembly/" },
+      { "label": "Specs", "href": "/specs/" },
       { "label": "Gallery", "href": "/gallery/" },
       { "label": "Where to Buy", "href": "/where-to-buy/" }
     ],

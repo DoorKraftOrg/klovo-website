@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allSets = await getCollection('sets');
+const sets = allSets.sort((a, b) => a.data.order - b.data.order);
+
+// Group by width bucket for the "Shop by Width" section
+// Width buckets: 4ft = 2-4, 8ft = 6-8, 16ft = 10-16
+const widthBucket = (w: number) => {
+  if (w <= 4) return '4ft';
+  if (w <= 8) return '8ft';
+  return '16ft';
+};
+
+// Featured example per bucket (first one in each bucket with an image, fallback to first)
+const bucketsOrdered: Array<'4ft' | '8ft' | '16ft'> = ['4ft', '8ft', '16ft'];
+const bucketLabel = { '4ft': '4 feet', '8ft': '8 feet', '16ft': '16 feet' };
+const bucketBlurb = {
+  '4ft': 'A starter set. Perfect for a children\'s playroom corner, a mudroom drop zone, or a home gym accessory wall.',
+  '8ft': 'A full wall. Big enough for a home office, a dedicated workshop, or most of a home gym.',
+  '16ft': 'The maximum setup. A complete family hub, full workshop with worktop, or a pro-level home gym.',
+};
+
+const bucketFeatured: Record<string, any> = {};
+for (const b of bucketsOrdered) {
+  const matching = sets.filter(s => widthBucket(s.data.widthFt) === b);
+  bucketFeatured[b] = matching.find(s => s.data.imagesAvailable) || matching[0];
+}
+
+const fmtPrice = (n: number) => `$${n.toLocaleString('en-US')}`;
+---
+
+<BaseLayout
+  title="Sets"
+  description="Pre-designed Klovo garage cabinet sets from 2 ft to 16 ft. 500 lbs per cabinet, moisture-resistant, 100% Made in USA."
+>
+
+  <!-- Hero -->
+  <section class="py-16 lg:py-24 bg-warm-white">
+    <div class="section-container">
+      <div class="max-w-2xl reveal">
+        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-3">
+          The Collection
+        </p>
+        <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4 leading-tight">
+          Cabinet sets for every garage.
+        </h1>
+        <p class="text-lg text-klovo-grey leading-relaxed">
+          Pre-designed sets. Home gym, home office, workshop, family hub — and every kind of garage in between. 500 lbs per cabinet, moisture-resistant, 100% Made in USA.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop by Width -->
+  <section id="shop-by-width" class="py-16 lg:py-24 bg-warm-neutral">
+    <div class="section-container">
+      <div class="text-center mb-12 reveal">
+        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-3">
+          Shop by Width
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Find your size.</h2>
+        <p class="text-lg text-klovo-grey max-w-xl mx-auto">
+          Klovo sets run from 2 to 16 feet. Pick the width that fits your wall.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {bucketsOrdered.map((b, i) => (
+          <a
+            href={`#width-${b}`}
+            class="group bg-pure-white rounded-lg overflow-hidden reveal"
+            style={`transition-delay: ${i * 100}ms`}
+          >
+            <div class="img-zoom-container aspect-[4/3] bg-warm-neutral">
+              <img
+                src={bucketFeatured[b]?.data.image || '/images/sets/coming-soon.svg'}
+                alt={`${bucketLabel[b]} Klovo set`}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-2">
+                {bucketLabel[b]}
+              </h3>
+              <p class="text-[15px] text-klovo-grey leading-relaxed mb-4">
+                {bucketBlurb[b]}
+              </p>
+              <span class="text-klovo-blue font-semibold text-sm inline-flex items-center gap-1">
+                Shop {bucketLabel[b]} sets <span aria-hidden="true">&rarr;</span>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- All Sets — grouped by width bucket -->
+  <section class="py-16 lg:py-24 bg-warm-white">
+    <div class="section-container">
+      <div class="text-center mb-12 reveal">
+        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-3">
+          All Sets
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Every Klovo set.</h2>
+        <p class="text-lg text-klovo-grey">Every Klovo set, from 2 ft to 16 ft.</p>
+      </div>
+
+      {bucketsOrdered.map((b) => {
+        const bucketSets = sets.filter(s => widthBucket(s.data.widthFt) === b);
+        if (bucketSets.length === 0) return null;
+        return (
+          <div id={`width-${b}`} class="mb-16 last:mb-0 reveal">
+            <h3 class="text-2xl font-bold text-charcoal mb-6">{bucketLabel[b]} sets</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {bucketSets.map((s) => (
+                <a href={`/sets/${s.id}/`} class="group">
+                  <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
+                    <img
+                      src={s.data.image}
+                      alt={s.data.title}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h4 class="text-lg font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
+                    {s.data.title}
+                  </h4>
+                  <p class="text-klovo-grey text-[15px] mb-2">
+                    {s.data.widthFt} ft · {s.data.pieces} pieces
+                  </p>
+                  <p class="text-klovo-blue font-semibold">{fmtPrice(s.data.msrp)}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 lg:py-20 bg-warm-neutral">
+    <div class="section-container text-center reveal">
+      <h2 class="text-3xl font-bold text-charcoal mb-4">Ready to transform your garage?</h2>
+      <a href="/where-to-buy/" class="btn-primary">Find a Retailer <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+</BaseLayout>

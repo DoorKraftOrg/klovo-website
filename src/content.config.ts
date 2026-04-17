@@ -1,40 +1,28 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const products = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/products' }),
+const sets = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/sets' }),
   schema: z.object({
+    sku: z.string(),
     title: z.string(),
-    collection: z.string(),
-    description: z.string(),
-    image: z.string(),
-    price: z.string().optional(),
-    specs: z.object({
-      width: z.string(),
-      height: z.string(),
-      depth: z.string(),
-      weight: z.string(),
-      shelfCapacity: z.string(),
-      material: z.string(),
-      shelves: z.number().optional(),
-      drawers: z.number().optional(),
-    }),
+    longTitle: z.string(),
+    widthFt: z.number(),
+    widthIn: z.number(),
+    heightIn: z.number().default(84),
+    depthIn: z.number().default(18),
+    pieces: z.number(),
+    drawers: z.number().default(0),
+    msrp: z.number(),
+    shortDescription: z.string(),
+    includedComponents: z.string(),
     features: z.array(z.string()),
-    retailers: z.array(z.object({
-      name: z.string(),
-      url: z.string(),
-    })).optional(),
-    order: z.number().default(0),
-  }),
-});
-
-const cabinetCollections = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/collections' }),
-  schema: z.object({
-    title: z.string(),
-    slug: z.string(),
-    description: z.string(),
+    specialFeatures: z.array(z.string()).optional(),
+    keywords: z.string().optional(),
     image: z.string(),
+    angleImages: z.array(z.string()).optional(),
+    imagesAvailable: z.boolean().default(false),
+    useCaseTags: z.array(z.string()).optional(),
     order: z.number().default(0),
   }),
 });
@@ -50,4 +38,4 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { products, cabinetCollections, blog };
+export const collections = { sets, blog };

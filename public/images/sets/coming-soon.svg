@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#E8E2D9"/>
+  <g fill="#858485" font-family="system-ui, -apple-system, Arial, sans-serif" text-anchor="middle">
+    <text x="400" y="260" font-size="48" font-weight="700" fill="#272727">KLOVO</text>
+    <text x="400" y="310" font-size="20" font-weight="500" letter-spacing="3" fill="#0E4C8B">IMAGE COMING SOON</text>
+    <text x="400" y="350" font-size="16" fill="#858485">Product render in development</text>
+  </g>
+  <g stroke="#858485" stroke-width="2" fill="none" opacity="0.3">
+    <rect x="220" y="180" width="360" height="240" rx="8"/>
+  </g>
+</svg>

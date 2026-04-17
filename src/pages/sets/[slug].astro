@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const sets = await getCollection('sets');
+  return sets.map(set => ({
+    params: { slug: set.id },
+    props: { set },
+  }));
+}
+
+const { set } = Astro.props;
+const { Content } = await render(set);
+const {
+  title,
+  longTitle,
+  shortDescription,
+  includedComponents,
+  widthFt,
+  widthIn,
+  heightIn,
+  depthIn,
+  pieces,
+  drawers,
+  msrp,
+  features,
+  specialFeatures,
+  image,
+  angleImages,
+} = set.data;
+
+// Related sets: same width first, then adjacent widths
+const allSets = (await getCollection('sets')).sort((a, b) => a.data.order - b.data.order);
+const sameWidth = allSets.filter(s => s.data.widthFt === widthFt && s.id !== set.id);
+const adjacentWidth = allSets.filter(s =>
+  s.data.widthFt !== widthFt &&
+  s.id !== set.id &&
+  Math.abs(s.data.widthFt - widthFt) <= 2
+);
+const related = [...sameWidth, ...adjacentWidth].slice(0, 3);
+
+const fmtPrice = (n: number) => `$${n.toLocaleString('en-US')}`;
+
+// Parse included components into a list (split on commas if it's one blob)
+const includedList = includedComponents
+  .split(/,(?![^(]*\))/)
+  .map(s => s.trim())
+  .filter(Boolean);
+---
+
+<BaseLayout title={title} description={shortDescription.slice(0, 160)}>
+
+  <section class="py-12 lg:py-20 bg-warm-white">
+    <div class="section-container">
+      <!-- Breadcrumb -->
+      <nav class="mb-8 text-sm text-klovo-grey" aria-label="Breadcrumb">
+        <a href="/sets/" class="hover:text-klovo-blue transition-colors">Sets</a>
+        <span class="mx-2">/</span>
+        <span class="text-charcoal">{title}</span>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <!-- Images -->
+        <div class="reveal">
+          <div class="rounded-lg overflow-hidden bg-warm-neutral aspect-[4/3] mb-4">
+            <img
+              src={image}
+              alt={title}
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+          {angleImages && angleImages.length > 0 && (
+            <div class="grid grid-cols-2 gap-4">
+              {angleImages.map(a => (
+                <div class="rounded-lg overflow-hidden bg-warm-neutral aspect-[4/3]">
+                  <img src={a} alt={`${title} — alternate view`} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <!-- Details -->
+        <div class="reveal reveal-delay-1">
+          <h1 class="text-3xl md:text-4xl font-bold text-charcoal mb-3">{title}</h1>
+          <p class="text-xl text-klovo-blue font-semibold mb-4">{fmtPrice(msrp)}</p>
+          <p class="text-lg text-charcoal/70 leading-relaxed mb-8">{shortDescription}</p>
+
+          <!-- Key Stats -->
+          <div class="grid grid-cols-3 gap-4 mb-8 p-6 bg-warm-neutral rounded-lg">
+            <div class="text-center">
+              <p class="stat-number text-2xl md:text-3xl mb-1">500</p>
+              <p class="text-xs text-klovo-grey uppercase tracking-wider">lbs / cabinet</p>
+            </div>
+            <div class="text-center border-x border-charcoal/10">
+              <p class="stat-number text-2xl md:text-3xl mb-1">2-3</p>
+              <p class="text-xs text-klovo-grey uppercase tracking-wider">min / box</p>
+            </div>
+            <div class="text-center">
+              <p class="stat-number text-2xl md:text-3xl mb-1">&lt;1</p>
+              <p class="text-xs text-klovo-grey uppercase tracking-wider">hr full set</p>
+            </div>
+          </div>
+
+          <!-- Where to Buy CTA -->
+          <div class="mb-8">
+            <a href="/where-to-buy/" class="btn-primary w-full justify-center">
+              Find a Retailer <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+          <!-- What's Included -->
+          <div class="mb-8">
+            <h2 class="text-sm font-semibold text-charcoal uppercase tracking-wider mb-3">What's Included</h2>
+            <p class="text-[15px] text-charcoal/80 leading-relaxed mb-3">{includedComponents}</p>
+            <p class="text-[15px] text-klovo-grey">
+              {pieces} modular piece{pieces === 1 ? '' : 's'}{drawers > 0 ? ` · ${drawers} drawer${drawers === 1 ? '' : 's'}` : ''} · All hardware and assembly guide
+            </p>
+          </div>
+
+          <!-- Dimensions -->
+          <div class="mb-8">
+            <h2 class="text-sm font-semibold text-charcoal uppercase tracking-wider mb-3">Dimensions</h2>
+            <p class="text-[15px] text-charcoal/80">
+              Total wall width: {widthFt} ft ({widthIn}")   ·   Depth: {depthIn}"   ·   Height: {heightIn}"
+            </p>
+          </div>
+
+          <!-- Features -->
+          {features && features.length > 0 && (
+            <div class="mb-8">
+              <h2 class="text-sm font-semibold text-charcoal uppercase tracking-wider mb-3">Features</h2>
+              <ul class="space-y-2">
+                {features.map(f => (
+                  <li class="flex items-start gap-2 text-[15px] text-charcoal/80">
+                    <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {specialFeatures && specialFeatures.length > 0 && (
+            <div class="mb-8">
+              <h2 class="text-sm font-semibold text-charcoal uppercase tracking-wider mb-3">Special Features</h2>
+              <ul class="flex flex-wrap gap-2">
+                {specialFeatures.map(sf => (
+                  <li class="inline-block px-3 py-1 bg-warm-neutral rounded-full text-[13px] text-charcoal/80">{sf}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Related Sets -->
+      {related.length > 0 && (
+        <div class="mt-20 reveal">
+          <h2 class="text-2xl font-bold text-charcoal mb-8">You might also like</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {related.map(r => (
+              <a href={`/sets/${r.id}/`} class="group">
+                <div class="img-zoom-container rounded-lg mb-3 aspect-[4/3] bg-warm-neutral">
+                  <img src={r.data.image} alt={r.data.title} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <h3 class="font-semibold text-charcoal group-hover:text-klovo-blue transition-colors">{r.data.title}</h3>
+                <p class="text-sm text-klovo-grey">{r.data.widthFt} ft · {r.data.pieces} pieces</p>
+                <p class="text-sm text-klovo-blue font-semibold mt-1">{fmtPrice(r.data.msrp)}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+</BaseLayout>

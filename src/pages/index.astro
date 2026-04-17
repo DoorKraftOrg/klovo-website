@@ -2,39 +2,36 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Home" description="Premium garage cabinets that assemble in under an hour. Scratch-resistant, moisture-proof, and built in Georgia.">
+<BaseLayout title="Home" description="Cabinet sets for the modern garage. Pre-designed systems, sized for your wall. Assemble a full set in under an hour. 500 lbs per cabinet. 100% Made in USA.">
 
   <!-- ============================================
-       SECTION 1: HERO (Dark — the ONE allowed)
+       SECTION 1: HERO
        ============================================ -->
   <section class="relative min-h-[85vh] flex items-center bg-charcoal overflow-hidden">
-    <!-- Background Image -->
     <div class="absolute inset-0">
       <img
         src="/images/hero/white-set.webp"
-        alt="Premium Klovo white garage cabinet system in a modern dark garage"
+        alt="Premium Klovo white garage cabinet set in a modern garage"
         class="w-full h-full object-cover"
         loading="eager"
       />
       <div class="absolute inset-0 bg-gradient-to-r from-charcoal/70 via-charcoal/40 to-transparent"></div>
     </div>
 
-    <!-- Content -->
     <div class="section-container relative z-10 py-24 lg:py-32">
       <div class="max-w-2xl">
         <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4 reveal">
-          Garage Storage. Reimagined.
+          Premium garage cabinets
         </p>
         <h1 class="text-4xl md:text-5xl lg:text-[56px] font-bold text-pure-white leading-[1.1] mb-6 reveal reveal-delay-1">
-          Your garage deserves<br/>
-          <span class="text-klovo-amber">better.</span>
+          Cabinet sets for the modern garage.
         </h1>
         <p class="text-lg md:text-xl text-pure-white/80 leading-relaxed mb-10 max-w-lg reveal reveal-delay-2">
-          500 lbs per cabinet. Assemble a full set in under an hour. Built in Georgia. A fraction of custom cabinet prices.
+          Pre-designed systems, sized for your wall. Assemble a full set in under an hour. Load capacity of 500 lbs per cabinet. 100% Made in USA.
         </p>
         <div class="flex flex-wrap gap-4 reveal reveal-delay-3">
-          <a href="/cabinets/" class="btn-amber">
-            See the Collection <span aria-hidden="true">&rarr;</span>
+          <a href="/sets/" class="btn-amber">
+            See our Preset Collection <span aria-hidden="true">&rarr;</span>
           </a>
           <a href="/where-to-buy/" class="btn-secondary !border-pure-white !text-pure-white hover:!bg-pure-white hover:!text-charcoal">
             Where to Buy
@@ -43,7 +40,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
 
-    <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.5">
         <polyline points="6 9 12 15 18 9" />
@@ -52,87 +48,109 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- ============================================
-       SECTION 2: PROBLEM / SOLUTION STRIP
+       SECTION 2: THE COLLECTION (WIDTH CARDS)
        ============================================ -->
   <section class="py-20 lg:py-28 bg-warm-white">
     <div class="section-container">
       <div class="text-center mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-          There's a better way to organize your garage.
+        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
+          The Collection
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4 leading-tight">
+          Pre-designed systems from 2 feet to 16 feet.<br/>Sized for your wall.
         </h2>
         <p class="text-lg text-klovo-grey max-w-2xl mx-auto">
-          You shouldn't have to choose between ugly metal boxes and a $10,000 custom install.
+          Whatever your garage is — a home office, family hub, children's playroom, workshop, or home gym — there's a Klovo set that fits.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-        <!-- Option 1: Metal cabinets -->
-        <div class="text-center reveal reveal-delay-1">
-          <div class="rounded-lg mb-6 aspect-[4/3] overflow-hidden">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- 4 feet -->
+        <a href="/sets/#width-4ft" class="group reveal reveal-delay-1">
+          <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
             <img
-              src="/images/competitors/metal-cabinets.jpeg"
-              alt="Ugly industrial metal garage cabinets in a messy garage"
+              src="/images/sets/coming-soon.svg"
+              alt="4 ft Klovo set in a compact garage corner"
               class="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
-          <p class="text-xl font-bold text-charcoal/40 mb-2">Not this.</p>
-          <p class="text-klovo-grey text-[15px]">
-            Utilitarian. Cold. Designed for mechanics, not homes.
+          <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
+            4 feet
+          </h3>
+          <p class="text-klovo-grey text-[15px] mb-3">
+            A starter set for compact spaces. Perfect for a children's playroom corner, a mudroom drop zone, or a home gym accessory wall.
           </p>
-        </div>
+          <span class="text-klovo-blue font-semibold text-sm inline-flex items-center gap-1">
+            Shop 4 ft sets <span aria-hidden="true">&rarr;</span>
+          </span>
+        </a>
 
-        <!-- Option 2: Custom install -->
-        <div class="text-center reveal reveal-delay-2">
-          <div class="rounded-lg mb-6 aspect-[4/3] overflow-hidden">
+        <!-- 8 feet -->
+        <a href="/sets/#width-8ft" class="group reveal reveal-delay-2">
+          <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
             <img
-              src="/images/competitors/custom-install.jpeg"
-              alt="Expensive custom garage cabinet installation by contractors"
+              src="/images/sets/set-08-hero.jpg"
+              alt="8 ft Klovo set as a full wall of storage"
               class="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
-          <p class="text-xl font-bold text-charcoal/40 mb-2">Not this either.</p>
-          <p class="text-klovo-grey text-[15px]">
-            Weeks of waiting. Permanent. Costs a small fortune.
+          <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
+            8 feet
+          </h3>
+          <p class="text-klovo-grey text-[15px] mb-3">
+            A full wall. Big enough for a home office, a dedicated workshop, or most of a home gym.
           </p>
-        </div>
+          <span class="text-klovo-blue font-semibold text-sm inline-flex items-center gap-1">
+            Shop 8 ft sets <span aria-hidden="true">&rarr;</span>
+          </span>
+        </a>
 
-        <!-- Option 3: Klovo -->
-        <div class="text-center reveal reveal-delay-3">
-          <div class="img-zoom-container rounded-lg mb-6 aspect-[4/3] overflow-hidden">
+        <!-- 16 feet -->
+        <a href="/sets/#width-16ft" class="group reveal reveal-delay-3">
+          <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
             <img
-              src="/images/scenes/klovo-bright-garage.png"
-              alt="Klovo white cabinets in a bright modern garage with bike and stairs"
+              src="/images/sets/set-16-hero.jpg"
+              alt="16 ft Klovo set spanning a two-car garage wall"
               class="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
-          <p class="text-xl font-bold text-klovo-blue mb-2">This.</p>
-          <p class="text-charcoal text-[15px] font-medium">
-            Premium finish. Near-tool-free assembly. A fraction of the price.
+          <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
+            16 feet
+          </h3>
+          <p class="text-klovo-grey text-[15px] mb-3">
+            The maximum setup. A complete family hub, full workshop with worktop, or a pro-level home gym.
           </p>
-        </div>
+          <span class="text-klovo-blue font-semibold text-sm inline-flex items-center gap-1">
+            Shop 16 ft sets <span aria-hidden="true">&rarr;</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="/sets/" class="btn-primary">
+          View All Sets <span aria-hidden="true">&rarr;</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       SECTION 3: ASSEMBLY SPEED DEMO
+       SECTION 3: FAST ASSEMBLY
        ============================================ -->
   <section class="py-20 lg:py-28 bg-warm-neutral">
     <div class="section-container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <!-- Video / Image Side -->
         <div class="reveal">
           <div class="relative rounded-lg overflow-hidden aspect-video bg-charcoal shadow-xl">
             <img
-              src="/images/hero/garage-hero.jpg"
-              alt="Klovo garage cabinet system in Venetian oak finish"
+              src="/images/assembly/hands-pressing.png"
+              alt="Klovo cabinet assembly — panels pushing together"
               class="w-full h-full object-cover"
               loading="lazy"
             />
-            <!-- Play button overlay -->
             <div class="absolute inset-0 flex items-center justify-center">
               <button class="w-20 h-20 bg-klovo-blue/90 hover:bg-klovo-blue rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" aria-label="Play assembly video">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
@@ -143,34 +161,97 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
 
-        <!-- Text Side -->
         <div class="reveal reveal-delay-1">
           <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-            Fast Assembly
+            Video / Fast Assembly
           </p>
           <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-6 leading-tight">
-            Less stress.<br/>
-            No wasted weekend.
+            Flat box to fully assembled<br/>in under 3 minutes a cabinet.
           </h2>
           <p class="text-lg text-charcoal/70 leading-relaxed mb-8">
-            Our unique connector system locks panels into place with a simple press — no drills, no cam locks, no Allen wrenches. Just click, lock, and secure the back panel. A full set assembled in under an hour.
+            Panels lock together with a simple push — no drills, no cam locks, no Allen wrenches. A full set in less than 1 hour. The only tool you'll need: a screwdriver to secure the back panel.
           </p>
 
-          <!-- Assembly Stats -->
-          <div class="grid grid-cols-2 gap-6">
+          <div class="grid grid-cols-3 gap-4 mb-8">
             <div>
-              <p class="stat-number text-4xl md:text-5xl mb-1">&lt;1</p>
-              <p class="text-sm text-klovo-grey font-medium uppercase tracking-wider">Hour for a full set</p>
+              <p class="stat-number text-3xl md:text-4xl mb-1">3 min</p>
+              <p class="text-xs text-klovo-grey font-medium uppercase tracking-wider">per cabinet</p>
             </div>
             <div>
-              <p class="stat-number text-4xl md:text-5xl mb-1">500</p>
-              <p class="text-sm text-klovo-grey font-medium uppercase tracking-wider">lbs per cabinet</p>
+              <p class="stat-number text-3xl md:text-4xl mb-1">&lt;1 hr</p>
+              <p class="text-xs text-klovo-grey font-medium uppercase tracking-wider">full set</p>
+            </div>
+            <div>
+              <p class="stat-number text-3xl md:text-4xl mb-1">500</p>
+              <p class="text-xs text-klovo-grey font-medium uppercase tracking-wider">lbs / cabinet</p>
             </div>
           </div>
 
+          <a href="/assembly/" class="btn-primary">
+            See How It Works <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECTION 4: WHY KLOVO
+       ============================================ -->
+  <section class="py-20 lg:py-28 bg-warm-white">
+    <div class="section-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="reveal">
+          <div class="rounded-lg overflow-hidden shadow-xl aspect-square">
+            <img
+              src="/images/assembly/edge-closeup.png"
+              alt="Macro close-up of Klovo cabinet panel edge with PVC edgebanding"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
+            Why Klovo
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-6 leading-tight">
+            Built for garages. Not kitchens.
+          </h2>
+          <p class="text-lg text-charcoal/70 leading-relaxed mb-8">
+            Klovo is engineered for garage conditions from the first panel up.
+          </p>
+
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span class="text-charcoal">18-inch depth — built for garages, not kitchens</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span class="text-charcoal">Sealed with 1mm PVC edgebanding on all exposed edges — moisture-resistant</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span class="text-charcoal">Scratch-resistant laminate — takes extreme daily use, not dents</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span class="text-charcoal">Push-to-open drawers and doors — no handles that take up space</span>
+            </li>
+          </ul>
+
           <div class="mt-8">
-            <a href="/how-it-works/" class="btn-primary">
-              See How It Works <span aria-hidden="true">&rarr;</span>
+            <a href="/specs/" class="btn-primary">
+              See All Specs <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </div>
@@ -179,178 +260,95 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- ============================================
-       SECTION 4: PRODUCT SHOWCASE (Editorial Cards)
-       ============================================ -->
-  <section class="py-20 lg:py-28 bg-warm-white">
-    <div class="section-container">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 reveal">
-        <div>
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-3">
-            The Collection
-          </p>
-          <h2 class="text-3xl md:text-4xl font-bold text-charcoal">
-            Storage that looks like furniture.
-          </h2>
-        </div>
-        <a href="/cabinets/" class="btn-secondary mt-4 md:mt-0">
-          View All Cabinets <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        <!-- Card 1: Tall Cabinets -->
-        <a href="/cabinets/tall/" class="group reveal reveal-delay-1">
-          <div class="img-zoom-container rounded-lg mb-4 aspect-[3/4] bg-warm-neutral">
-            <img
-              src="/images/scenes/tall-row-studio.png"
-              alt="Klovo Tall Cabinets — floor-to-ceiling white storage"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
-            Tall Cabinets
-          </h3>
-          <p class="text-klovo-grey text-[15px]">
-            Floor-to-ceiling storage. 500 lbs per cabinet.
-          </p>
-        </a>
-
-        <!-- Card 2: Base Cabinets -->
-        <a href="/cabinets/base/" class="group reveal reveal-delay-2">
-          <div class="img-zoom-container rounded-lg mb-4 aspect-[3/4] bg-warm-neutral">
-            <img
-              src="/images/products/base-cabinet-solo.png"
-              alt="Klovo Base Cabinet — white with center drawers"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
-            Base Cabinets
-          </h3>
-          <p class="text-klovo-grey text-[15px]">
-            Workbench-height with countertop-ready designs.
-          </p>
-        </a>
-
-        <!-- Card 3: Wall Cabinets -->
-        <a href="/cabinets/wall/" class="group reveal reveal-delay-3">
-          <div class="img-zoom-container rounded-lg mb-4 aspect-[3/4] bg-warm-neutral">
-            <img
-              src="/images/scenes/wall-cabinets-mounted.png"
-              alt="Klovo Wall Cabinets — overhead storage"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
-            Wall Cabinets
-          </h3>
-          <p class="text-klovo-grey text-[15px]">
-            Overhead storage that maximizes every inch.
-          </p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SECTION 5: PROOF POINTS (Orbitron Stats)
+       SECTION 5: STATS BAR
        ============================================ -->
   <section class="py-16 lg:py-20 bg-warm-neutral">
     <div class="section-container">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">
+          Built for the way garages are actually used.
+        </h2>
+      </div>
+
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 text-center">
         <div class="reveal">
-          <p class="stat-number text-4xl md:text-5xl lg:text-6xl mb-2">500</p>
-          <p class="text-sm text-charcoal font-medium uppercase tracking-wider">lbs per cabinet</p>
+          <p class="stat-number text-3xl md:text-4xl lg:text-5xl mb-2">&lt;1%</p>
+          <p class="text-sm text-charcoal leading-snug">of garages already finished</p>
         </div>
         <div class="reveal reveal-delay-1">
-          <p class="stat-number text-4xl md:text-5xl lg:text-6xl mb-2">&lt;1</p>
-          <p class="text-sm text-charcoal font-medium uppercase tracking-wider">hour full set</p>
+          <p class="stat-number text-3xl md:text-4xl lg:text-5xl mb-2">68%</p>
+          <p class="text-sm text-charcoal leading-snug">of urban homeowners say they don't have enough storage</p>
         </div>
         <div class="reveal reveal-delay-2">
-          <p class="stat-number text-4xl md:text-5xl lg:text-6xl mb-2">500+</p>
-          <p class="text-sm text-charcoal font-medium uppercase tracking-wider">configurations</p>
+          <p class="stat-number text-3xl md:text-4xl lg:text-5xl mb-2">78M</p>
+          <p class="text-sm text-charcoal leading-snug">Americans with home fitness equipment</p>
         </div>
         <div class="reveal reveal-delay-3">
-          <p class="stat-number text-4xl md:text-5xl lg:text-6xl mb-2">GA</p>
-          <p class="text-sm text-charcoal font-medium uppercase tracking-wider">Made in Georgia</p>
+          <p class="stat-number text-3xl md:text-4xl lg:text-5xl mb-2">55%</p>
+          <p class="text-sm text-charcoal leading-snug">of Americans work on garage projects weekly</p>
         </div>
       </div>
+
+      <p class="text-center text-xs text-klovo-grey mt-10 reveal">
+        Sources: Houzz, Fortune Business Insights, Grand View Research, Mordor Intelligence
+      </p>
     </div>
   </section>
 
   <!-- ============================================
-       SECTION 6: QUALITY & CRAFTSMANSHIP
+       SECTION 6: REAL GARAGES
        ============================================ -->
   <section class="py-20 lg:py-28 bg-warm-white">
     <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <!-- Text Side -->
-        <div class="reveal">
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-            Built to Last Decades
-          </p>
-          <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-6 leading-tight">
-            Industrial strength.<br/>
-            Furniture-grade finish.
-          </h2>
-          <p class="text-lg text-charcoal/70 leading-relaxed mb-8">
-            Every Klovo cabinet is built with scratch-resistant laminate panels, precision-drilled and sealed with 1mm PVC edgebanding on all edges in our Georgia facility. The result? Moisture-proof cabinets that handle garage conditions for decades, not seasons.
-          </p>
+      <div class="text-center mb-12 reveal">
+        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-3">
+          Real Garages
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-charcoal">
+          See what's possible.
+        </h2>
+      </div>
 
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-charcoal"><strong>Moisture-proof design</strong> &mdash; sealed 1mm PVC edgebanding on all edges</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-charcoal"><strong>500 lbs per cabinet</strong> &mdash; we tested them, they didn't flinch</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-charcoal"><strong>Scratch-resistant laminate</strong> &mdash; built to handle real garage life</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-charcoal"><strong>Push-to-open hardware</strong> &mdash; no handles needed, clean seamless look</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-charcoal"><strong>10-year warranty</strong> &mdash; because we mean it</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Image Side -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
         <div class="reveal reveal-delay-1">
-          <div class="rounded-lg overflow-hidden shadow-xl">
+          <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
             <img
-              src="/images/scenes/workspace-track-lights.png"
-              alt="Klovo white cabinet system with track lighting and organized tools"
-              class="w-full h-auto"
+              src="/images/scenes/couple-bike-sports.png"
+              alt="Klovo garage system with bike, golf bag, and sports gear"
+              class="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
+          <p class="text-charcoal text-[15px]">
+            The full Klovo system — Sports gear, toys, gym accessories, tools, everything in its place
+          </p>
         </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
+            <img
+              src="/images/lifestyle/new-homeowners.png"
+              alt="Family garage with kids' gear and organized storage"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <p class="text-charcoal text-[15px]">
+            A garage the whole family can enjoy
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="/gallery/" class="btn-secondary">
+          See the Gallery <span aria-hidden="true">&rarr;</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       SECTION 7: WHERE TO BUY TEASER
+       SECTION 7: SHOP KLOVO (RETAILERS)
        ============================================ -->
   <section class="py-16 lg:py-20 bg-warm-neutral">
     <div class="section-container text-center reveal">
@@ -358,16 +356,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Shop Klovo
       </p>
       <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-        Available at retailers you trust.
+        Available at select retailers.
       </h2>
-      <p class="text-lg text-klovo-grey mb-10 max-w-xl mx-auto">
-        Find Klovo cabinets online or at a store near you.
+      <p class="text-lg text-klovo-grey mb-8 max-w-xl mx-auto">
+        Find Klovo at a growing list of retail partners.
       </p>
-
-      <p class="text-klovo-amber font-semibold text-lg italic mb-8">Coming soon.</p>
-
       <a href="/where-to-buy/" class="btn-primary">
-        Learn More <span aria-hidden="true">&rarr;</span>
+        Find a Retailer <span aria-hidden="true">&rarr;</span>
       </a>
     </div>
   </section>
@@ -378,23 +373,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="py-20 lg:py-28 bg-warm-white">
     <div class="section-container text-center reveal">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-6 leading-tight">
-        Your garage shouldn't be the room<br class="hidden md:block"/>
-        you pretend doesn't exist.
+        Find the set that fits your garage.
       </h2>
       <p class="text-lg text-klovo-grey max-w-xl mx-auto mb-10">
-        Klovo cabinets go from box to built in under an hour. Push-to-open doors and drawers — no hardware needed. Just storage that actually works.
+        15+ pre-designed sets. One for how you actually use the space.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/cabinets/" class="btn-amber">
-          Explore the Collection <span aria-hidden="true">&rarr;</span>
+        <a href="/sets/" class="btn-amber">
+          View Sets <span aria-hidden="true">&rarr;</span>
         </a>
-        <a href="/how-it-works/" class="btn-secondary">
-          See How It Works
+        <a href="/sets/" class="btn-secondary">
+          Find Your Set
         </a>
       </div>
-      <p class="mt-8 text-klovo-blue font-semibold italic text-lg">
-        Build less. Live more.
-      </p>
     </div>
   </section>
 
