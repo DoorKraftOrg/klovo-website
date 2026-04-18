@@ -15,7 +15,8 @@ const widthBucket = (w: number) => {
 
 // Featured example per bucket (first one in each bucket with an image, fallback to first)
 const bucketsOrdered: Array<'4ft' | '8ft' | '16ft'> = ['4ft', '8ft', '16ft'];
-const bucketLabel = { '4ft': '4 feet', '8ft': '8 feet', '16ft': '16 feet' };
+const bucketLabel = { '4ft': '2 to 4 feet', '8ft': '6 to 8 feet', '16ft': '10 to 16 feet' };
+const bucketLabelShort = { '4ft': '2–4 ft', '8ft': '6–8 ft', '16ft': '10–16 ft' };
 const bucketBlurb = {
   '4ft': 'A starter set. Perfect for a children\'s playroom corner, a mudroom drop zone, or a home gym accessory wall.',
   '8ft': 'A full wall. Big enough for a home office, a dedicated workshop, or most of a home gym.',
@@ -89,7 +90,7 @@ const fmtPrice = (n: number) => `$${n.toLocaleString('en-US')}`;
                 {bucketBlurb[b]}
               </p>
               <span class="text-klovo-blue font-semibold text-sm inline-flex items-center gap-1">
-                Shop {bucketLabel[b]} sets <span aria-hidden="true">&rarr;</span>
+                Shop {bucketLabelShort[b]} sets <span aria-hidden="true">&rarr;</span>
               </span>
             </div>
           </a>
