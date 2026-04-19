@@ -238,7 +238,11 @@ const defaultWall = 8;
                   <img src={s.image} alt={s.title} class="w-full h-full object-cover" loading="lazy" />
                 </div>
               ) : (
-                <div class="px-4" style="height: 140px;" set:html={diagramSvg(s, { maxFt: 16, accent: true, compact: true })} />
+                <div class="aspect-[16/10] flex items-center justify-center bg-warm-neutral">
+                  <span class="text-[11px] uppercase text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+                    Image coming soon
+                  </span>
+                </div>
               )}
               <div class="p-5 pt-3 border-t flex-1 flex flex-col" style="border-color: #E8E2D9;">
                 <div class="flex items-baseline justify-between gap-4 mb-1">
@@ -306,7 +310,11 @@ const defaultWall = 8;
                   <img src={s.image} alt={s.title} class="w-full h-full object-cover" loading="lazy" />
                 </div>
               ) : (
-                <div class="px-4" style="height: 120px;" set:html={diagramSvg(s, { maxFt: 16, compact: true })} />
+                <div class="aspect-[16/10] flex items-center justify-center bg-warm-neutral">
+                  <span class="text-[11px] uppercase text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+                    Image coming soon
+                  </span>
+                </div>
               )}
               <div class="p-5 pt-3 border-t" style="border-color: #E8E2D9;">
                 <div class="flex items-baseline justify-between gap-4 mb-1">

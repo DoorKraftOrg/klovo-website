@@ -1,197 +1,441 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const SPECS = [
+  { letter: 'A', group: 'Construction', title: 'Panels',
+    detail: '5/8" moisture-resistant, scratch-resistant engineered wood panels, edged with 1 mm PVC.' },
+  { letter: 'B', group: 'Construction', title: 'Shelves, Doors & Drawer Fronts',
+    detail: 'Flat panel, 3/4" engineered wood, edged with 1 mm PVC.' },
+  { letter: 'C', group: 'Construction', title: 'Interchangeability',
+    detail: 'Our doors and drawer kits (3, 4 or 5) can be swapped while keeping the same box. Applicable to 24" wide Base/Tall SKUs.' },
+  { letter: 'D', group: 'Hardware & Drawer', title: 'Drawer Glides',
+    detail: 'Push-to-open ball-bearing drawer glides (no hardware needed).' },
+  { letter: 'E', group: 'Hardware & Drawer', title: 'Hinges',
+    detail: 'Soft-close hinges, push-to-open hardware also provided for doors.' },
+  { letter: 'F', group: 'Support & Stability', title: 'Folding Plastic Leg',
+    detail: 'Waterproof plastic leg levelers 3 ½" H to 6" H adjustment range.' },
+  { letter: 'G', group: 'Support & Stability', title: 'Waterproof Toe Kick',
+    detail: 'Clip-on system with extruded aluminum finish and made of polypropylene and a rubber gasket, 4" high.' },
+  { letter: 'H', group: 'Support & Stability', title: '90° Connector Fitting & End Cap',
+    detail: '4" H matching aluminum foil finish.' },
+];
+
+// Callout positions in percentage of the 3-drawer.png viewport.
+// Tweak these after visual check — leader line goes from (x,y) to (bx,by).
+const CALLOUTS = [
+  { letter: 'A', x: 22, y: 42, bx: 6,  by: 42 },   // left side panel
+  { letter: 'B', x: 50, y: 14, bx: 50, by: 2  },   // top / back / shelf
+  { letter: 'C', x: 72, y: 58, bx: 94, by: 58 },   // interchangeable drawer kit
+  { letter: 'D', x: 38, y: 66, bx: 6,  by: 70 },   // drawer glide
+  { letter: 'E', x: 58, y: 62, bx: 94, by: 30 },   // hinge
+  { letter: 'F', x: 28, y: 92, bx: 8,  by: 96 },   // leg
+  { letter: 'G', x: 50, y: 96, bx: 50, by: 99 },   // toe kick
+  { letter: 'H', x: 74, y: 94, bx: 94, by: 96 },   // end cap
+];
+
+const GROUPS = ['Construction', 'Hardware & Drawer', 'Support & Stability'] as const;
 ---
 
 <BaseLayout
   title="Specifications"
-  description="Every spec that goes into a Klovo cabinet. Built for garages, not kitchens. Moisture-resistant engineered wood, 1mm PVC edgebanding, 500 lbs per cabinet, 100% Made in USA."
+  description="Every part of a Klovo cabinet — materials, hardware, support, and interchangeability. One page. No marketing fluff."
 >
-
-  <!-- Hero -->
-  <section class="py-16 lg:py-24 bg-warm-white">
+  <!-- 1. Hero intro -->
+  <section class="py-14 lg:py-24 bg-warm-white">
     <div class="section-container">
-      <div class="max-w-3xl reveal">
-        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-          Specs
+      <div class="mb-4">
+        <span class="spec-mono inline-block text-[11px] font-semibold px-2 py-1" style="color: #272727; background: #F7C948;">
+          SPEC SHEET · REV 2026
+        </span>
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-charcoal mb-5 leading-[1.02]" style="letter-spacing: -0.03em; text-wrap: balance;">
+        Built for garages.<br/>
+        <span class="amber-underline">Not kitchens.</span>
+      </h1>
+      <p class="text-base md:text-xl text-dark-charcoal leading-relaxed max-w-[640px]">
+        Every part of a Klovo cabinet — what it's made of, how it holds, and why it survives the worst weekend of your life. One page. No marketing fluff.
+      </p>
+
+      <!-- Stat ribbon -->
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 py-4 md:py-5" style="border-top: 1px solid #E8E2D9; border-bottom: 1px solid #E8E2D9;">
+        {[
+          ['500', 'lb / cabinet'],
+          ['99', 'lb / drawer'],
+          ['3', 'min assembly'],
+          ['100%', 'made in USA'],
+        ].map(([n, l], i) => (
+          <div class={`px-0 md:px-5 ${i < 3 ? 'md:border-r' : ''}`} style="border-color: #E8E2D9;">
+            <div class="text-klovo-blue leading-none" style="font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: clamp(28px, 5vw, 40px);">
+              {n}
+            </div>
+            <div class="spec-mono text-[10px] text-klovo-grey mt-1.5">{l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Anatomy / Exploded view with callouts -->
+  <section class="pt-14 lg:pt-24 pb-8 lg:pb-10 bg-pure-white">
+    <div class="section-container">
+      <div class="spec-kicker mb-4">
+        <span class="spec-kicker-num">01</span>
+        <span class="spec-kicker-label">Anatomy</span>
+      </div>
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <h2 class="text-2xl md:text-4xl font-bold text-charcoal leading-[1.05] max-w-[700px]" style="letter-spacing: -0.02em;">
+          Eight parts. One cabinet.
+        </h2>
+        <p class="spec-mono text-[11px] text-klovo-grey">
+          Reference: DB324 · 24″ Drawer Base
         </p>
-        <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4 leading-tight">
-          What makes a Klovo cabinet.
-        </h1>
-        <p class="text-lg text-klovo-grey leading-relaxed">
-          Built for garages, not kitchens. Every spec that goes into a Klovo cabinet — on one page.
-        </p>
+      </div>
+    </div>
+
+    <div class="bg-warm-white py-6 md:py-10">
+      <div class="relative mx-auto w-full" style="max-width: 980px; padding: 0 16px;">
+        <img
+          src="/images/specs/cabinet-anatomy.png"
+          alt="Exploded view of a Klovo drawer base cabinet with parts labeled A through H"
+          class="block w-full h-auto"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
 
-  <!-- Construction -->
-  <section class="py-16 lg:py-20 bg-warm-neutral">
+  <!-- 3. Legend -->
+  <section class="py-8 lg:py-12 bg-pure-white">
     <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div class="reveal">
-          <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-6">Construction</h2>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3 text-charcoal/80">
-              <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-              <span><strong>Panels:</strong> 5/8" moisture-resistant, scratch-resistant engineered wood panels, edged with 1 mm PVC.</span>
-            </li>
-            <li class="flex items-start gap-3 text-charcoal/80">
-              <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-              <span><strong>Shelves, Doors & Drawer Fronts:</strong> Flat panel, 3/4" engineered wood, edged with 1 mm PVC.</span>
-            </li>
-            <li class="flex items-start gap-3 text-charcoal/80">
-              <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-              <span><strong>Interchangeability:</strong> Our doors and drawer kits (3, 4 or 5) can be swapped while keeping the same box. Applicable to 24" wide Base/Tall SKUs.</span>
-            </li>
-          </ul>
+      {GROUPS.map((g) => (
+        <div class="mb-6 md:mb-10 last:mb-0">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="spec-tick-rule flex-1"></div>
+            <span class="spec-mono text-[11px] font-semibold text-charcoal">{g}</span>
+            <div class="spec-tick-rule flex-1"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {SPECS.filter((s) => s.group === g).map((s) => (
+              <div class="flex gap-3 p-4 rounded bg-pure-white" style="border: 1px solid #E8E2D9;">
+                <span class="callout-badge-static shrink-0" style={`width: 34px; height: 34px; font-size: 15px; ${s.group === 'Construction' ? 'background: #F7C948; color: #272727;' : 'background: #F7C948; color: #272727;'}`}>
+                  {s.letter}
+                </span>
+                <div class="min-w-0">
+                  <div class="spec-mono text-[10px] font-semibold mb-1" style={`color: ${s.group === 'Construction' ? '#0E4C8B' : s.group === 'Hardware & Drawer' ? '#3C4144' : '#272727'};`}>
+                    {s.group}
+                  </div>
+                  <div class="font-semibold text-charcoal leading-tight text-[15px] md:text-[17px]">
+                    {s.title}
+                  </div>
+                  <div class="text-[13.5px] mt-1 leading-relaxed" style="color: #3C4144;">
+                    {s.detail}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div class="reveal reveal-delay-1">
-          <div class="rounded-lg overflow-hidden bg-pure-white p-6 shadow-sm">
-            <img
-              src="/images/specs/3-drawer.png"
-              alt="Klovo 3-drawer base cabinet"
-              class="w-full h-auto object-contain"
-              loading="lazy"
-            />
+      ))}
+    </div>
+  </section>
+
+  <!-- 4. Interchangeability -->
+  <section class="py-14 lg:py-24 bg-warm-neutral">
+    <div class="section-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center">
+        <div>
+          <div class="spec-kicker mb-4">
+            <span class="spec-kicker-num">02</span>
+            <span class="spec-kicker-label">Interchangeability</span>
+          </div>
+          <h2 class="text-2xl md:text-4xl font-bold text-charcoal leading-[1.05] mb-4" style="letter-spacing: -0.02em;">
+            Same box.<br/>Different insides.
+          </h2>
+          <p class="text-[15px] md:text-lg leading-relaxed mb-4" style="color: #3C4144;">
+            Every 24″ Base or Tall SKU accepts an open shelf, a full-height door, or a 3, 4, or 5-drawer kit. Change the setup without changing the cabinet.
+          </p>
+          <div class="spec-mono text-[11px] inline-block text-klovo-blue bg-pure-white" style="padding: 6px 10px; border: 1px solid #0E4C8B; border-radius: 2px;">
+            Applies to 24″ Base / Tall
+          </div>
+        </div>
+        <div>
+          <div class="flex items-start justify-center gap-1 md:gap-2">
+            {[
+              { label: 'B24-OS', caption: 'Open + shelf', kind: 'shelf' },
+              { label: 'B24',    caption: 'Door',         kind: 'door' },
+              { label: 'DB324',  caption: '3 drawers',    kind: 'drawers', count: 3 },
+              { label: 'DB424',  caption: '4 drawers',    kind: 'drawers', count: 4 },
+              { label: 'DB524',  caption: '5 drawers',    kind: 'drawers', count: 5 },
+            ].map((b, i, arr) => (
+              <>
+                <div class="flex flex-col items-center flex-1 min-w-0">
+                  <div class="spec-mono text-[10px] text-klovo-grey mb-2">{b.label}</div>
+                  <div class="interchange-box">
+                    <div class="absolute inset-[3px]">
+                      {b.kind === 'drawers' && (
+                        <div class="h-full w-full flex flex-col" style="gap: 3px;">
+                          {Array.from({ length: b.count! }).map(() => (
+                            <div class="flex items-center justify-center" style="flex: 1; background: #F8F5F0; border: 1px solid #E8E2D9; border-radius: 1px;">
+                              <div style="width: 18px; height: 2px; background: #272727; opacity: 0.5;"></div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {b.kind === 'door' && (
+                        <div class="h-full w-full relative" style="background: #F8F5F0; border: 1px solid #E8E2D9; border-radius: 1px;">
+                          <div style="position: absolute; top: 6px; bottom: 6px; left: 50%; width: 0; border-left: 1px dashed #E8E2D9;"></div>
+                          <div style="position: absolute; right: 8px; top: 50%; width: 3px; height: 3px; border-radius: 50%; background: #272727; opacity: 0.5;"></div>
+                        </div>
+                      )}
+                      {b.kind === 'shelf' && (
+                        <div class="h-full w-full flex flex-col" style="gap: 3px;">
+                          <div style="flex: 1; border: 1px dashed #E8E2D9; border-radius: 1px;"></div>
+                          <div style="height: 4px; background: #272727; opacity: 0.85; border-radius: 1px;"></div>
+                          <div style="flex: 1; border: 1px dashed #E8E2D9; border-radius: 1px;"></div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div class="mt-2 text-[11px] md:text-[12px] font-semibold text-charcoal text-center" style="font-family: 'Orbitron', sans-serif;">
+                    {b.caption}
+                  </div>
+                </div>
+                {i < arr.length - 1 && (
+                  <div class="self-center pt-7 md:pt-10">
+                    <svg width="20" height="16" viewBox="0 0 32 20" aria-hidden="true">
+                      <path d="M0 10 H32 M24 4 L32 10 L24 16" stroke="#0E4C8B" stroke-width="1.5" fill="none" />
+                    </svg>
+                  </div>
+                )}
+              </>
+            ))}
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Hardware & Drawer -->
-  <section class="py-16 lg:py-20 bg-warm-white">
+  <!-- 5. Materials table -->
+  <section class="py-14 lg:py-24 bg-warm-white">
     <div class="section-container">
-      <div class="max-w-3xl reveal">
-        <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-6">Hardware & Drawer</h2>
-        <ul class="space-y-4">
-          <li class="flex items-start gap-3 text-charcoal/80">
-            <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            <span><strong>Drawer Glides:</strong> Push-to-open ball-bearing drawer glides (no hardware needed).</span>
-          </li>
-          <li class="flex items-start gap-3 text-charcoal/80">
-            <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            <span><strong>Hinges:</strong> Soft-close hinges, push-to-open hardware also provided for doors.</span>
-          </li>
-        </ul>
+      <div class="spec-kicker mb-4">
+        <span class="spec-kicker-num">03</span>
+        <span class="spec-kicker-label">Materials</span>
       </div>
-    </div>
-  </section>
-
-  <!-- Support & Stability -->
-  <section class="py-16 lg:py-20 bg-warm-neutral">
-    <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div class="reveal lg:order-2">
-          <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-6">Support & Stability</h2>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3 text-charcoal/80">
-              <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-              <span><strong>Folding Plastic Leg:</strong> Waterproof plastic leg levelers 3½" H to 6" H adjustment range.</span>
-            </li>
-            <li class="flex items-start gap-3 text-charcoal/80">
-              <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-              <span><strong>Waterproof Toe Kick:</strong> Clip-on system with extruded aluminum finish and made of polypropylene and a rubber gasket, 4" high.</span>
-            </li>
-            <li class="flex items-start gap-3 text-charcoal/80">
-              <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-              <span><strong>90° Connector Fitting & End Cap:</strong> 4" H matching aluminum foil finish.</span>
-            </li>
-          </ul>
-        </div>
-        <div class="reveal reveal-delay-1 lg:order-1">
-          <div class="rounded-lg overflow-hidden bg-pure-white p-6 shadow-sm">
-            <img
-              src="/images/products/base-cabinet-solo.png"
-              alt="Assembled Klovo base cabinet showing leg levelers and toe kick in a finished, fully joined configuration"
-              class="w-full h-auto object-contain"
-              loading="lazy"
-            />
+      <h2 class="text-2xl md:text-4xl font-bold text-charcoal leading-[1.05] mb-5 md:mb-8" style="letter-spacing: -0.02em;">
+        Every measurement, once.
+      </h2>
+      <div class="bg-pure-white overflow-x-auto" style="border: 1px solid #E8E2D9; border-radius: 4px;">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th class="hidden md:table-cell">Material</th>
+              <th>Thickness</th>
+              <th>Edge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Panels (sides, bottom, top)</td><td class="hidden md:table-cell">Moisture-resistant engineered wood</td><td class="num">5/8″</td><td>1 mm PVC</td></tr>
+            <tr><td>Shelves</td><td class="hidden md:table-cell">Engineered wood</td><td class="num">3/4″</td><td>1 mm PVC</td></tr>
+            <tr><td>Doors</td><td class="hidden md:table-cell">Flat-panel engineered wood</td><td class="num">3/4″</td><td>1 mm PVC</td></tr>
+            <tr><td>Drawer fronts</td><td class="hidden md:table-cell">Flat-panel engineered wood</td><td class="num">3/4″</td><td>1 mm PVC</td></tr>
+            <tr><td>Toe kick</td><td class="hidden md:table-cell">Polypropylene + rubber gasket</td><td class="num">4″ H</td><td>Aluminum foil finish</td></tr>
+            <tr><td>Leg leveler</td><td class="hidden md:table-cell">Waterproof plastic</td><td class="num">3½″–6″</td><td>—</td></tr>
+            <tr><td>End cap / 90° fit</td><td class="hidden md:table-cell">Polypropylene + aluminum finish</td><td class="num">—</td><td>Matching foil</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Color -->
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 items-center p-4 md:p-5 bg-pure-white" style="border: 1px solid #E8E2D9; border-radius: 4px;">
+        <div class="flex items-center gap-3">
+          <div style="width: 48px; height: 48px; background: #F5F2EC; border: 1px solid #E8E2D9; border-radius: 2px;"></div>
+          <div>
+            <div class="spec-mono text-[10px] text-klovo-grey">Finish</div>
+            <div class="font-semibold text-charcoal text-[16px]">Perfect White</div>
           </div>
+        </div>
+        <div class="text-sm" style="color: #3C4144;">
+          One color, done right. Slab doors & drawers, engineered-wood core, ships flat with all hardware.
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Capacity -->
-  <section class="py-16 lg:py-20 bg-warm-white">
+  <!-- 6. Origin + Warranty -->
+  <section class="py-14 lg:py-24" style="background: #272727; color: #F8F5F0;">
     <div class="section-container">
-      <div class="max-w-3xl reveal">
-        <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-8">Capacity</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div class="bg-warm-neutral rounded-lg p-8 text-center">
-            <p class="stat-number text-5xl mb-2">500</p>
-            <p class="text-sm text-charcoal font-medium uppercase tracking-wider">lbs per cabinet</p>
+      <div class="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-8 md:gap-14 items-center">
+        <div>
+          <span class="spec-mono text-[11px] font-semibold" style="color: #F7C948;">ORIGIN · WARRANTY</span>
+          <h2 class="text-2xl md:text-4xl font-bold leading-[1.05] mt-3 mb-4" style="color: #fff; letter-spacing: -0.02em;">
+            Made in Georgia.<br/>Built to last.
+          </h2>
+          <div class="grid grid-cols-3 gap-4" style="max-width: 520px;">
+            {[
+              ['20+', 'yrs by Door Kraft'],
+              ['100%', 'USA made'],
+              ['1 yr', 'limited warranty'],
+            ].map(([n, l]) => (
+              <div style="border-left: 2px solid #F7C948; padding-left: 12px;">
+                <div style="font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: clamp(22px, 3vw, 28px); color: #fff; line-height: 1;">{n}</div>
+                <div class="spec-mono text-[10px] mt-1.5" style="color: #F7C948;">{l}</div>
+              </div>
+            ))}
           </div>
-          <div class="bg-warm-neutral rounded-lg p-8 text-center">
-            <p class="stat-number text-5xl mb-2">99</p>
-            <p class="text-sm text-charcoal font-medium uppercase tracking-wider">lbs per drawer</p>
-          </div>
+        </div>
+        <div>
+          <div class="spec-mono text-[11px] mb-3" style="color: #F7C948;">DOWNLOADS</div>
+          {[
+            ['Retail brochure (PDF)', '4 pages · 2 MB', '/downloads/klovo-brochure.pdf'],
+          ].map(([t, meta, href]) => (
+            <a href={href} class="flex items-center justify-between py-3 px-4 text-[15px]" style="border-bottom: 1px solid rgba(248,245,240,0.12); color: #fff;">
+              <div>
+                <div style="font-weight: 600;">{t}</div>
+                <div class="spec-mono text-[10px] mt-0.5" style="color: rgba(248,245,240,0.5);">{meta}</div>
+              </div>
+              <span style="color: #F7C948; font-size: 18px;">↓</span>
+            </a>
+          ))}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Assembly -->
-  <section class="py-16 lg:py-20 bg-warm-neutral">
-    <div class="section-container">
-      <div class="max-w-3xl reveal">
-        <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-6">Assembly</h2>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-3 text-charcoal/80">
-            <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            Panels interlock into a secure, weight-bearing construction
-          </li>
-          <li class="flex items-start gap-3 text-charcoal/80">
-            <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            Only tool required: screwdriver to secure the back panel
-          </li>
-          <li class="flex items-start gap-3 text-charcoal/80">
-            <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            A single cabinet box assembles in about 2-3 minutes
-          </li>
-          <li class="flex items-start gap-3 text-charcoal/80">
-            <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            A full set assembles in less than 1 hour
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Manufacturing & Warranty -->
-  <section class="py-16 lg:py-20 bg-warm-white">
-    <div class="section-container">
-      <div class="max-w-3xl reveal">
-        <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-6">Manufacturing & Warranty</h2>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-3 text-charcoal/80">
-            <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            100% Made in USA
-          </li>
-          <li class="flex items-start gap-3 text-charcoal/80">
-            <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            20 years of manufacturing experience (Door Kraft)
-          </li>
-          <li class="flex items-start gap-3 text-charcoal/80">
-            <svg class="w-5 h-5 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            1-year limited warranty
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-16 lg:py-24 bg-warm-neutral">
-    <div class="section-container text-center reveal">
-      <h2 class="text-3xl font-bold text-charcoal mb-8">See the full collection.</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="/sets/" class="btn-primary">View Sets <span aria-hidden="true">&rarr;</span></a>
-        <a href="/downloads/klovo-brochure.pdf" download class="btn-amber">Download Brochure <span aria-hidden="true">&darr;</span></a>
+  <!-- 7. CTA -->
+  <section class="py-14 lg:py-24 bg-warm-neutral">
+    <div class="section-container text-center">
+      <h2 class="text-2xl md:text-4xl font-bold text-charcoal leading-[1.05] mb-6 md:mb-7" style="letter-spacing: -0.02em; text-wrap: balance;">
+        Specs read. Now build.
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="/sets/" class="btn-primary">View Sets →</a>
         <a href="/where-to-buy/" class="btn-secondary">Find a Retailer</a>
       </div>
     </div>
   </section>
+
+  <style>
+    .spec-mono {
+      font-family: 'Oxanium', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+    .amber-underline {
+      background-image: linear-gradient(to right, #F7C948 0 100%);
+      background-size: 100% 6px;
+      background-repeat: no-repeat;
+      background-position: 0 95%;
+      padding: 0 4px 2px 0;
+    }
+    .spec-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .spec-kicker-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: #F7C948;
+      color: #272727;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      border-radius: 2px;
+    }
+    .spec-kicker-label {
+      font-family: 'Oxanium', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #272727;
+    }
+    .spec-tick-rule {
+      background-image: linear-gradient(to right, #272727 1px, transparent 1px);
+      background-size: 12px 100%;
+      background-repeat: repeat-x;
+      background-position: 0 center;
+      height: 8px;
+      opacity: 0.4;
+    }
+    .callout-badge {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #F7C948;
+      color: #272727;
+      border: 1.2px solid #272727;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 120ms, color 120ms, transform 120ms;
+    }
+    .callout-badge:hover,
+    .callout-badge.active {
+      background: #0E4C8B;
+      color: #fff;
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+    .callout-badge-static {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    @media (min-width: 768px) {
+      .spec-table { font-size: 15px; }
+    }
+    .spec-table th,
+    .spec-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #E8E2D9;
+    }
+    .spec-table th {
+      font-family: 'Oxanium', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #858485;
+      font-weight: 600;
+      background: #F8F5F0;
+    }
+    .spec-table td.num {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      color: #272727;
+    }
+    .spec-table tbody tr:hover { background: rgba(247, 201, 72, 0.08); }
+    .interchange-box {
+      width: 100%;
+      max-width: 120px;
+      background: #fff;
+      border: 1.5px solid #272727;
+      border-radius: 2px;
+      aspect-ratio: 3/4;
+      position: relative;
+    }
+  </style>
 
 </BaseLayout>
