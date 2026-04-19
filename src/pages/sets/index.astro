@@ -146,38 +146,41 @@ const clientSets = sets.map((s) => ({
 }));
 
 const defaultWall = 8;
-const defaultMatch =
-  clientSets.slice().sort((a, b) => Math.abs(a.widthFt - defaultWall) - Math.abs(b.widthFt - defaultWall))[0];
-const defaultMatchFull = sets.find((s) => s.id === defaultMatch.id)!;
 ---
 
 <BaseLayout
   title="Sets"
   description="Pre-designed Klovo garage cabinet sets from 2 ft to 16 ft. 500 lbs per cabinet, moisture-resistant, 100% Made in USA."
 >
-  <!-- Hero / Configurator -->
-  <section class="py-12 lg:py-20 bg-warm-white">
+  <!-- Hero -->
+  <section class="pt-12 lg:pt-20 pb-8 lg:pb-10 bg-warm-white">
     <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-10 lg:gap-16 items-start">
-        <div>
-          <p class="text-klovo-amber font-semibold text-sm uppercase mb-3" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-            The Collection
-          </p>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-5 leading-[1.05]" style="letter-spacing: -0.02em;">
-            Start with your wall.
-          </h1>
-          <p class="text-lg text-klovo-grey leading-relaxed max-w-lg mb-8">
-            Klovo sets run from 2 to 16 feet in 2-foot increments. Drag the ruler to match your wall — we'll show you the closest set.
-          </p>
+      <div class="max-w-3xl">
+        <p class="text-klovo-amber font-semibold text-sm uppercase mb-3" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+          The Collection
+        </p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-5 leading-[1.05]" style="letter-spacing: -0.02em;">
+          Start with your wall.
+        </h1>
+        <p class="text-lg text-klovo-grey leading-relaxed max-w-2xl">
+          Klovo sets run from 2 to 16 feet in 2-foot increments. Drag the ruler to match your wall — we'll show you every set that fits.
+        </p>
+      </div>
+    </div>
+  </section>
 
-          <!-- Width scrubber -->
-          <div class="mb-8">
-            <div class="flex items-baseline gap-3 mb-3">
-              <span id="wall-ft-label" class="text-6xl font-bold text-charcoal" style="font-family: 'Orbitron', sans-serif; line-height: 1;">
-                {defaultWall}
-              </span>
-              <span class="text-xl text-klovo-grey" style="font-family: 'Oxanium', monospace;">ft wall</span>
-            </div>
+  <!-- Width scrubber (full-width row) -->
+  <section class="pb-6 lg:pb-10 bg-warm-white">
+    <div class="section-container">
+      <div class="rounded-lg p-6 md:p-10 bg-pure-white" style="border: 1px solid #E8E2D9;">
+        <div class="grid grid-cols-1 md:grid-cols-[auto_minmax(0,1fr)] gap-6 md:gap-10 items-center">
+          <div class="flex items-baseline gap-3">
+            <span id="wall-ft-label" class="text-6xl md:text-7xl font-bold text-charcoal" style="font-family: 'Orbitron', sans-serif; line-height: 1;">
+              {defaultWall}
+            </span>
+            <span class="text-xl text-klovo-grey" style="font-family: 'Oxanium', monospace;">ft wall</span>
+          </div>
+          <div>
             <input
               id="wall-ft-input"
               type="range"
@@ -188,78 +191,74 @@ const defaultMatchFull = sets.find((s) => s.id === defaultMatch.id)!;
               class="klovo-range w-full"
               aria-label="Wall width in feet"
             />
-            <div id="wall-ft-ticks" class="flex justify-between mt-2 text-[11px] uppercase" style="font-family: 'Oxanium', monospace; color: #858485; letter-spacing: 0.12em;">
+            <div id="wall-ft-ticks" class="flex justify-between mt-3 text-[11px] uppercase" style="font-family: 'Oxanium', monospace; color: #858485; letter-spacing: 0.12em;">
               {[2,4,6,8,10,12,14,16].map((n) => (
                 <span data-ft={n} class={n === defaultWall ? 'text-klovo-blue font-semibold' : ''}>{n}′</span>
               ))}
             </div>
           </div>
-
-          <!-- Closest match -->
-          <div class="border-l-2 pl-5" style="border-color: #F7C948;">
-            <div class="text-[11px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-              Closest match
-            </div>
-            <div id="match-title" class="text-2xl font-semibold text-charcoal mb-1">{defaultMatch.title}</div>
-            <div id="match-meta" class="text-klovo-grey mb-3">
-              {defaultMatch.pieces} pieces · {defaultMatch.widthFt} ft wide · {fmtPrice(defaultMatch.msrp)}
-            </div>
-            <a id="match-cta" href={`/sets/${defaultMatch.id}/`} class="btn-primary">Configure this set <span aria-hidden="true">→</span></a>
-          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Live preview, to-scale within a 16ft envelope -->
-        <div class="rounded-lg p-6 lg:p-10 relative bg-pure-white" style="border: 1px solid #E8E2D9;">
-          <div class="flex items-start justify-between mb-6">
-            <div>
-              <div class="text-[11px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-                To scale · 16 ft envelope
+  <!-- Matching sets at selected width -->
+  <section class="py-10 lg:py-16 bg-warm-white">
+    <div class="section-container">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+        <div>
+          <p class="text-klovo-amber font-semibold text-sm uppercase mb-2" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+            Fits your wall
+          </p>
+          <h2 class="text-2xl md:text-3xl font-bold text-charcoal" style="letter-spacing: -0.02em;">
+            <span id="match-count">0</span> sets at <span id="match-ft">{defaultWall}</span> ft
+          </h2>
+        </div>
+        <p id="match-fallback" class="hidden spec-mono text-[11px] text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;"></p>
+      </div>
+
+      <div id="match-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        {sets.map((s) => (
+          <a
+            href={`/sets/${s.id}/`}
+            class="match-card group block"
+            data-match-width={s.widthFt}
+          >
+            <div class="bg-pure-white rounded-lg overflow-hidden h-full flex flex-col transition-shadow group-hover:shadow-lg" style="border: 1px solid #E8E2D9;">
+              <div class="p-4 pb-2 flex items-center justify-between">
+                <span class="text-[11px] uppercase text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+                  {s.widthFt} ft · {s.pieces} pc
+                </span>
+                <span class="text-[11px] uppercase text-klovo-blue font-semibold" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+                  {primaryTagLabel(s)}
+                </span>
               </div>
-              <div id="preview-title" class="text-lg font-semibold text-charcoal">{defaultMatch.title}</div>
+              {s.imagesAvailable ? (
+                <div class="img-zoom-container aspect-[16/10] bg-warm-neutral">
+                  <img src={s.image} alt={s.title} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+              ) : (
+                <div class="px-4" style="height: 140px;" set:html={diagramSvg(s, { maxFt: 16, accent: true, compact: true })} />
+              )}
+              <div class="p-5 pt-3 border-t flex-1 flex flex-col" style="border-color: #E8E2D9;">
+                <div class="flex items-baseline justify-between gap-4 mb-1">
+                  <h3 class="text-lg font-semibold text-charcoal group-hover:text-klovo-blue transition-colors leading-tight">
+                    {s.title}
+                  </h3>
+                  <span class="text-klovo-blue font-bold shrink-0" style="font-family: 'Orbitron', sans-serif;">
+                    {fmtPrice(s.msrp)}
+                  </span>
+                </div>
+                <p class="text-[14px] text-klovo-grey leading-snug mb-4">
+                  {(s.specialFeatures ?? []).slice(0, 2).join(' · ') || (s.imagesAvailable ? '' : 'Image coming soon')}
+                </p>
+                <span class="mt-auto inline-flex items-center gap-1 text-klovo-blue font-semibold text-sm">
+                  View this set <span aria-hidden="true">→</span>
+                </span>
+              </div>
             </div>
-            <div class="text-right">
-              <div class="text-[11px] uppercase text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">MSRP</div>
-              <div id="preview-price" class="text-2xl font-bold text-klovo-blue" style="font-family: 'Orbitron', sans-serif;">{fmtPrice(defaultMatch.msrp)}</div>
-            </div>
-          </div>
-
-          <!-- Photo (hidden by default; only shown if imagesAvailable) -->
-          <div id="preview-photo-wrap" class="hidden mb-4 rounded overflow-hidden bg-warm-neutral aspect-[16/9]">
-            <img id="preview-photo" src={defaultMatchFull.image} alt={defaultMatch.title} class="w-full h-full object-cover" loading="lazy" />
-          </div>
-
-          <!-- Schematic -->
-          <div id="preview-diagram-wrap" class="aspect-[16/9]">
-            {/* prerendered hidden diagrams, keyed by set id; JS toggles visibility */}
-            {sets.map((s) => (
-              <div
-                data-preview-id={s.id}
-                class={s.id === defaultMatch.id ? 'w-full h-full' : 'hidden w-full h-full'}
-                set:html={diagramSvg(s, { maxFt: 16, accent: true })}
-              />
-            ))}
-          </div>
-
-          <!-- Specs band -->
-          <div class="grid grid-cols-4 gap-4 mt-6 pt-6 border-t" style="border-color: #E8E2D9;">
-            <div>
-              <div class="text-[10px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">Width</div>
-              <div id="spec-width" class="text-lg font-semibold text-charcoal" style="font-family: 'Orbitron', sans-serif;">{defaultMatch.widthFt} ft</div>
-            </div>
-            <div>
-              <div class="text-[10px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">Height</div>
-              <div class="text-lg font-semibold text-charcoal" style="font-family: 'Orbitron', sans-serif;">7 ft</div>
-            </div>
-            <div>
-              <div class="text-[10px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">Pieces</div>
-              <div id="spec-pieces" class="text-lg font-semibold text-charcoal" style="font-family: 'Orbitron', sans-serif;">{defaultMatch.pieces}</div>
-            </div>
-            <div>
-              <div class="text-[10px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">Per-cab</div>
-              <div class="text-lg font-semibold text-charcoal" style="font-family: 'Orbitron', sans-serif;">500 lb</div>
-            </div>
-          </div>
-        </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -389,24 +388,28 @@ const defaultMatchFull = sets.find((s) => s.id === defaultMatch.id)!;
       const $ = (id) => document.getElementById(id);
       const fmtPrice = (n) => '$' + n.toLocaleString('en-US');
 
-      function nearest() {
-        const pool = activeTag === 'all' ? sets : sets.filter((s) => s.tags.includes(activeTag));
-        if (pool.length === 0) return sets[0];
-        return pool.slice().sort((a, b) => Math.abs(a.widthFt - wallFt) - Math.abs(b.widthFt - wallFt))[0];
-      }
-
       function updateMatch() {
-        const m = nearest();
-        $('match-title').textContent = m.title;
-        $('match-meta').textContent = `${m.pieces} pieces · ${m.widthFt} ft wide · ${fmtPrice(m.msrp)}`;
-        $('match-cta').setAttribute('href', `/sets/${m.id}/`);
-        $('preview-title').textContent = m.title;
-        $('preview-price').textContent = fmtPrice(m.msrp);
-        $('spec-width').textContent = `${m.widthFt} ft`;
-        $('spec-pieces').textContent = m.pieces;
-        document.querySelectorAll('[data-preview-id]').forEach((el) => {
-          el.classList.toggle('hidden', el.getAttribute('data-preview-id') !== m.id);
+        // Exact matches at current wallFt
+        let matches = sets.filter((s) => s.widthFt === wallFt);
+        let fallback = '';
+        if (matches.length === 0) {
+          // No exact match — find nearest widthFt that has sets
+          const widths = [...new Set(sets.map((s) => s.widthFt))];
+          const nearestFt = widths.slice().sort((a, b) => Math.abs(a - wallFt) - Math.abs(b - wallFt))[0];
+          matches = sets.filter((s) => s.widthFt === nearestFt);
+          fallback = `No ${wallFt} ft sets — showing closest (${nearestFt} ft)`;
+        }
+        const matchIds = new Set(matches.map((m) => m.id));
+        document.querySelectorAll('.match-card').forEach((card) => {
+          const w = Number(card.getAttribute('data-match-width'));
+          const visible = matches.some((m) => m.widthFt === w);
+          card.classList.toggle('hidden', !visible);
         });
+        $('match-count').textContent = matches.length;
+        $('match-ft').textContent = wallFt;
+        const fb = $('match-fallback');
+        if (fallback) { fb.textContent = fallback; fb.classList.remove('hidden'); }
+        else { fb.classList.add('hidden'); }
       }
 
       function updateTicks() {
@@ -442,9 +445,10 @@ const defaultMatchFull = sets.find((s) => s.id === defaultMatch.id)!;
           btn.classList.add('on');
           activeTag = btn.getAttribute('data-tag');
           filterGrid();
-          updateMatch();
         });
       });
+
+      updateMatch();
     })();
   </script>
 </BaseLayout>
