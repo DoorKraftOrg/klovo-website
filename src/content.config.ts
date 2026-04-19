@@ -34,7 +34,11 @@ const blog = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     image: z.string().optional(),
+    imageAlt: z.string().optional(),
     author: z.string().default('Klovo Team'),
+    tags: z.array(z.string()).default([]),
+    canonical: z.string().optional(),
+    draft: z.boolean().default(false),
   }),
 });
 
