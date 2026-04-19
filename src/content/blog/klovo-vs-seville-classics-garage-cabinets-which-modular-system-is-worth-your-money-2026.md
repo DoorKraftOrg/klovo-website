@@ -12,10 +12,12 @@ If you're shopping for modular garage cabinets that you can assemble yourself, t
 
 KLOVO builds kitchen-grade engineered wood cabinets with the patent-pending GlideLock assembly system in Georgia, USA. Seville Classics is a California-based brand best known for its steel and stainless-steel garage storage products, widely available on Amazon, Costco, and Home Depot. This comparison breaks down both brands honestly so you can decide which system fits your garage — and your expectations.
 
-## Head-to-Head Comparison | Feature | KLOVO | Seville Classics |
+## Head-to-Head Comparison
+
+| Feature | KLOVO | Seville Classics |
 | -| -| -|
 | Material | Engineered wood with TFL (Thermally Fused Laminate) finish, 1mm PVC edge-banding | Powder-coated steel or stainless steel (varies by line) |
-| Shelf Capacity | 300 lbs per fixed shelf | 75–100 lbs per shelf (varies by model) |
+| Cabinet Capacity | 500 lbs per cabinet | 75–100 lbs per shelf (varies by model) |
 | Assembly Time | \~90 seconds per cabinet (GlideLock, no tools) | 30–90 minutes per unit (bolts, screws, wrenches) |
 | Assembly Method | Patent-pending GlideLock: panels slide together, lock by hand, 4 screws for back panel | Traditional bolt-together with screws, nuts, and Allen keys |
 | Finish Quality | Kitchen-grade TFL, moisture-resistant, scratch-resistant | Powder-coated steel or brushed stainless steel |
@@ -24,13 +26,16 @@ KLOVO builds kitchen-grade engineered wood cabinets with the patent-pending Glid
 | Manufacturing | Georgia, USA | Designed in California, manufactured overseas |
 | Price Range | $1,052–$7,216 (complete systems) | $200–$2,500 (individual units and sets) |
 | Warranty | 1-year limited warranty | Limited warranty (varies by product line) |
-| Portability | Fully reversible — disassemble and move to new home | Can be disassembled but bolt-together design is less convenient | ## Materials and Build Quality
+| Portability | Fully reversible — disassemble and move to new home | Can be disassembled but bolt-together design is less convenient |
+
+
+## Materials and Build Quality
 
 This is where the two brands diverge most significantly. KLOVO uses moisture-resistant engineered wood with a thermally fused laminate surface — the same material standard found in kitchen cabinetry. Every panel gets 1mm PVC edge-banding to seal cut edges against humidity, preventing the swelling and delamination that plague cheaper particle board in garage environments. The result is a cabinet that looks and feels like built-in cabinetry.
 
 Seville Classics takes the steel route. Their garage cabinets use powder-coated or stainless steel construction. Steel has the advantage of being inherently moisture-proof, but it comes with trade-offs: dents are permanent, scratches expose bare metal to rust, and the industrial aesthetic is not for every homeowner. Seville's stainless steel line offers a premium look, but the cost climbs quickly.
 
-On shelf capacity, the gap is substantial. KLOVO's fixed shelves are rated to hold 300 pounds each — enough for heavy automotive supplies, full tool collections, and stacked storage bins without concern. Seville Classics shelves typically rate between 75 and 100 pounds per shelf depending on the product line, which is adequate for lighter items but limiting for serious garage storage.
+On shelf capacity, the gap is substantial. KLOVO cabinets are rated to hold 500 pounds each — enough for heavy automotive supplies, full tool collections, and stacked storage bins without concern. Seville Classics shelves typically rate between 75 and 100 pounds per shelf depending on the product line, which is adequate for lighter items but limiting for serious garage storage.
 
 ## Assembly Experience
 
@@ -54,7 +59,7 @@ The value equation also shifts when you factor in longevity. KLOVO's kitchen-gra
 
 ## Who Should Choose KLOVO
 
-Choose KLOVO if you want a premium, finished look in your garage that resembles built-in cabinetry. If you need heavy-duty 300 lb shelves for tools, equipment, and heavy storage. If you value a fast, frustration-free assembly experience (90 seconds per cabinet). If you want a truly modular system you can expand over time. If domestic manufacturing (Made in Georgia, USA) matters to you. If you plan to take your cabinets with you when you move.
+Choose KLOVO if you want a premium, finished look in your garage that resembles built-in cabinetry. If you need heavy-duty 500 lb per-cabinet capacity for tools, equipment, and heavy storage. If you value a fast, frustration-free assembly experience (90 seconds per cabinet). If you want a truly modular system you can expand over time. If domestic manufacturing (Made in Georgia, USA) matters to you. If you plan to take your cabinets with you when you move.
 
 ## Who Should Choose Seville Classics
 
@@ -64,7 +69,7 @@ Choose Seville Classics if your budget is under $1,000 for garage storage. If yo
 
 ### Are KLOVO cabinets more durable than Seville Classics?
 
-For heavy-duty use, yes. KLOVO's 300 lb shelf rating significantly exceeds Seville Classics' 75–100 lb range. KLOVO's TFL finish resists moisture, scratches, and humidity without the dent vulnerability of steel. For light-duty storage, both brands are adequate.
+For heavy-duty use, yes. KLOVO's 500 lb per-cabinet rating significantly exceeds Seville Classics' 75–100 lb per-shelf range. KLOVO's TFL finish resists moisture, scratches, and humidity without the dent vulnerability of steel. For light-duty storage, both brands are adequate.
 
 ### Can I mix KLOVO and Seville Classics in the same garage?
 

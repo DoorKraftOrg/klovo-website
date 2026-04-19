@@ -20,7 +20,7 @@ If you want one number to work with, here's the range: | Tier | Cost Per Linear 
 | -| -| -|
 | **Budget** | $33–$80/ft | Thin steel or particle board, 40–75 lb shelves, basic hardware |
 | **Mid-Range** | $100–$200/ft | Heavier steel, better finishes, some soft-close hardware |
-| **Premium Modular** | $175–$360/ft | Kitchen-grade materials, 300 lb shelves, tool-free assembly |
+| **Premium Modular** | $175–$360/ft | Kitchen-grade materials, 500 lb per-cabinet capacity, tool-free assembly |
 | **True Custom** | $500–$1,200+/ft | Built from scratch to your specs, professionally installed | For most homeowners doing 8–12 feet of cabinets, you're looking at:
 
 * Budget: $264–$960
@@ -80,7 +80,7 @@ This is where KLOVO lives — alongside the top-end configurations from establis
 
 KLOVO cabinets are built from kitchen-grade engineered wood with a Thermally Fused Laminate (TFL) finish — the same material used in high-end kitchen renovations. Here's what that means for your garage:
 
-* **300 lb shelf capacity** — Load up power tools, automotive parts, cases of paint, and heavy equipment. This is 4–6x the capacity of budget shelves.
+* **500 lb per-cabinet capacity** — Load up power tools, automotive parts, cases of paint, and heavy equipment. This is several times the capacity of budget cabinets.
 * **GlideLock assembly** — Patent-pending system. Each cabinet assembles in about 90 seconds. Panels glide into place and lock — no cam locks, no Allen wrenches, no tools.
 * **Soft-close everything** — Doors close quietly. Push-to-open drawers with 99 lb ball-bearing glides.
 * **Moisture-resistant** — TFL finish plus 1mm PVC edge-banding seals against garage humidity.
@@ -101,9 +101,9 @@ Free shipping on orders over $2,499 means no surprise delivery charges for most 
 
 ### Why the Premium Tier Saves Money Long-Term
 
-A KLOVO 12ft system costs roughly the same as a mid-range Gladiator Premier setup — but gives you 300 lb shelves (vs. 50 lb), kitchen-grade finish (vs. hammered steel), and 90-second assembly (vs. pre-assembled steel that's heavy and awkward to mount). And because KLOVO is modular and portable, it moves with you — protecting your investment even if you sell the house.
+A KLOVO 12ft system costs roughly the same as a mid-range Gladiator Premier setup — but gives you 500 lb per-cabinet capacity (vs. 50 lb shelves), kitchen-grade finish (vs. hammered steel), and 90-second assembly (vs. pre-assembled steel that's heavy and awkward to mount). And because KLOVO is modular and portable, it moves with you — protecting your investment even if you sell the house.
 
-[link](https://klovo.com/collections/kits-bundles) — See all KLOVO configurations and pricing
+[link](/sets/) — See all KLOVO configurations and pricing
 
 ## True Custom Tier: $500–$1,200+ Per Linear Foot
 
@@ -159,7 +159,7 @@ Here's a practical framework based on how you use your garage:
 
 **Light storage (seasonal items, cleaning supplies):** Budget tier is fine. Spend $400–$800.
 
-**Active garage (tools, automotive, sports gear):** Premium modular. Spend $1,500–$4,500 on a KLOVO system. The 300 lb shelves and moisture-resistant finish will handle everything you throw at them.
+**Active garage (tools, automotive, sports gear):** Premium modular. Spend $1,500–$4,500 on a KLOVO system. The 500 lb per-cabinet capacity and moisture-resistant finish will handle everything you throw at them.
 
 **Dream garage (workshop, car enthusiast, "show-off" space):** Premium modular for the main storage, possibly custom for a specialized workbench area. Spend $3,000–$7,500 on KLOVO, and budget for finishing touches like countertop lighting and floor coating.
 
@@ -169,12 +169,12 @@ Here's a practical framework based on how you use your garage:
 
 Garage cabinets cost anywhere from $33 to $1,200+ per linear foot, and the price doesn't always correlate with quality. Some $100/ft options outperform $300/ft options on durability and capacity.
 
-The sweet spot for most homeowners is the premium modular tier — specifically a system like KLOVO that delivers kitchen-grade materials, 300 lb shelves, and genuine tool-free assembly at $175–$360 per linear foot. You avoid the frustration of budget quality, the sticker shock of true custom, and the contractor dependency of both.
+The sweet spot for most homeowners is the premium modular tier — specifically a system like KLOVO that delivers kitchen-grade materials, 500 lb per-cabinet capacity, and genuine tool-free assembly at $175–$360 per linear foot. You avoid the frustration of budget quality, the sticker shock of true custom, and the contractor dependency of both.
 
-[link](https://klovo.com/collections/kits-bundles) — **Shop KLOVO Configurations** — See real pricing for every size from 6ft to 20ft.
+[link](/sets/) — **Shop KLOVO Configurations** — See real pricing for every size from 6ft to 20ft.
 
-[link](https://klovo.com/blog/custom-garage-cabinets-vs-pre-built) — **Custom vs. Pre-Built: The Full Comparison** — Deep dive into all three tiers.
+[link](/blogs/news/custom-garage-cabinets-vs-pre-built) — **Custom vs. Pre-Built: The Full Comparison** — Deep dive into all three tiers.
 
-[link](https://klovo.com/pages/glidelock-assembly) — **How GlideLock Assembly Works** — 90 seconds per cabinet, no tools required.
+[link](/pages/glidelock-assembly) — **How GlideLock Assembly Works** — 90 seconds per cabinet, no tools required.
 
 _Internal linking notes for Soham:_\- Link to pillar post (Custom vs. Pre-Built) prominently — this is a supporting cluster post - Link to Custom Garage Cabinets landing page - Link to GlideLock landing page - Link to individual product kit pages with specific pricing - This post targets "People Also Ask" queries — consider adding a FAQ section if Google shows PAA for the target keywords - Great candidate for Google's featured snippet (the cost-per-linear-foot table)

@@ -14,7 +14,7 @@ Most homeowners treat garage organization as a once-a-decade event. They spend a
 
 Seasonal garage organization works because it aligns your storage layout with how you actually use your garage throughout the year. Winter gear comes forward in November, lawn care equipment rotates to the front in April, and holiday decorations cycle in and out on a predictable schedule. When your cabinet system supports this rotation — rather than fighting it — maintenance drops to minutes per season instead of days per year.
 
-A modular cabinet system like KLOVO makes seasonal rotation practical because you can dedicate specific cabinets to specific seasons. The 300 lb shelf capacity means you're not limited to lightweight bins — you can store heavy items like tile saws, pressure washers, and bulk supplies on any shelf without worrying about sagging or failure.
+A modular cabinet system like KLOVO makes seasonal rotation practical because you can dedicate specific cabinets to specific seasons. The 500 lb per-cabinet capacity means you're not limited to lightweight bins — you can store heavy items like tile saws, pressure washers, and bulk supplies in any cabinet without worrying about sagging or failure.
 
 ## The Spring Cleaning Garage Checklist: 7 Steps in Order
 
@@ -46,7 +46,10 @@ Organize remaining items into functional zones rather than arbitrary categories:
 | Lawn & Garden Zone | Mower supplies, fertilizer, garden tools, hoses, planters | Base cabinet near garage door for easy outdoor access |
 | Sports & Recreation | Bikes, balls, camping gear, fishing equipment | Tall cabinet or open shelving near entry |
 | Auto Care Zone | Oil, filters, car wash supplies, tire gauge, jumper cables | Wall cabinet near vehicle parking area |
-| Seasonal Swap Zone | Off-season items (rotates quarterly) | Upper wall cabinets or back-of-garage base cabinet | ### Step 7: Label and Document
+| Seasonal Swap Zone | Off-season items (rotates quarterly) | Upper wall cabinets or back-of-garage base cabinet |
+
+
+### Step 7: Label and Document
 
 Label every cabinet shelf and bin. Take a quick phone photo of each cabinet's contents. This takes 5 minutes and saves hours of searching later. When fall comes, you'll know exactly where winter gear is stored without opening every door.
 
@@ -57,7 +60,10 @@ Once your spring reset is complete, maintaining the system is simple. Here's the
 | Spring (March-April) | Garden tools, outdoor furniture, sports gear | Snow equipment, winter sports, salt/sand | 2 hours |
 | Summer (June) | Pool/patio supplies, camping gear, car wash | Spring planting supplies, heavy garden tools | 30 minutes |
 | Fall (September-October) | Leaf blower, Halloween decor, weatherizing supplies | Pool items, camping gear, summer sports | 1 hour |
-| Winter (November-December) | Snow tools, holiday decorations, winter sports | Lawn equipment, outdoor furniture, garden tools | 1.5 hours | ## Why Modular Cabinets Make Seasonal Organization Effortless
+| Winter (November-December) | Snow tools, holiday decorations, winter sports | Lawn equipment, outdoor furniture, garden tools | 1.5 hours |
+
+
+## Why Modular Cabinets Make Seasonal Organization Effortless
 
 The biggest advantage of a modular cabinet system for seasonal organization is flexibility. Unlike fixed garage shelving or standalone wire racks, modular cabinets let you:
 
@@ -67,7 +73,7 @@ The biggest advantage of a modular cabinet system for seasonal organization is f
 * **Protect against moisture and pests** — enclosed cabinets with moisture-resistant TFL finishes keep seasonal items clean and dry between uses
 * **Scale as needs change** — add cabinets when your family grows or hobbies expand, without replacing the entire system
 
-KLOVO's modular garage cabinet system is designed specifically for this kind of seasonal flexibility. Each cabinet holds up to 300 lbs per shelf, assembles in under 90 seconds with the GlideLock system (no tools required), and uses thermally fused laminate that resists moisture, scratches, and temperature swings — all manufactured in Georgia, USA.
+KLOVO's modular garage cabinet system is designed specifically for this kind of seasonal flexibility. Each cabinet holds up to 500 lbs, assembles in under 90 seconds with the GlideLock system (no tools required), and uses thermally fused laminate that resists moisture, scratches, and temperature swings — all manufactured in Georgia, USA.
 
 ## 5 Spring Cleaning Mistakes That Undo Your Hard Work
 

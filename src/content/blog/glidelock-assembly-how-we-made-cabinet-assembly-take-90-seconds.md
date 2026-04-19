@@ -84,4 +84,4 @@ Ready to plan your system? [Use our free garage planning tool](/pages/plan-your-
 
 ---
 
-**About KLOVO:** KLOVO makes premium modular garage cabinets with the patent-pending GlideLock assembly system. Built in Georgia, USA. 300 lb shelves, moisture-resistant TFL finish, soft-close hardware. Systems from 6ft to 20ft. [Shop all cabinet sets](/collections/all)
+**About KLOVO:** KLOVO makes premium modular garage cabinets with the patent-pending GlideLock assembly system. Built in Georgia, USA. 500 lb per-cabinet capacity, moisture-resistant TFL finish, soft-close hardware. Systems from 6ft to 20ft. [Shop all cabinet sets](/sets/)

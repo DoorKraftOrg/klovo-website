@@ -38,12 +38,12 @@ KLOVO sits squarely in this tier, alongside brands like Gladiator Premier and se
 
 **What you get:**Modular systems offer a range of cabinet types (base, wall, tall, drawer units) that are designed to align and combine seamlessly. Better brands in this tier use kitchen-grade materials, heavy-duty hardware, and engineered assembly systems that make DIY installation genuinely easy.
 
-**KLOVO specs (the benchmark in this tier):**\- Materials: kitchen-grade engineered wood with TFL (Thermally Fused Laminate) finish - Shelf capacity: 300 lbs per shelf - Assembly: 90 seconds per cabinet (GlideLock patent-pending system — no tools) - Sizes: configurations from 6ft to 20ft - Hardware: soft-close doors, push-to-open drawers, 99 lb ball-bearing glides, 100,000-cycle hinges - Finish: moisture-resistant, scratch-resistant, 1mm PVC edge-banding - Made in Georgia, USA
+**KLOVO specs (the benchmark in this tier):**\- Materials: kitchen-grade engineered wood with TFL (Thermally Fused Laminate) finish - Cabinet capacity: 500 lbs per cabinet - Assembly: 90 seconds per cabinet (GlideLock patent-pending system — no tools) - Sizes: configurations from 6ft to 20ft - Hardware: soft-close doors, push-to-open drawers, 99 lb ball-bearing glides, 100,000-cycle hinges - Finish: moisture-resistant, scratch-resistant, 1mm PVC edge-banding - Made in Georgia, USA
 
 **How KLOVO compares to other Tier 2 options:** | Feature | KLOVO | Gladiator Premier | NewAge Bold/Pro |
 | -| -| -| -|
 | Material | Engineered wood + TFL | 20-gauge welded steel | 18–24 gauge steel |
-| Shelf Capacity | 300 lbs | 50 lbs per shelf (200 lbs total) | Varies by line |
+| Cabinet Capacity | 500 lbs per cabinet | 50 lbs per shelf (200 lbs total) | Varies by line |
 | Assembly | 90 seconds (GlideLock, no tools) | Pre-assembled (minimal setup) | 30–60 min per cabinet |
 | Per-Cabinet Assembly | Tool-free | Attach feet/casters only | Allen wrenches + bolts |
 | Aesthetic | Kitchen-grade wood finish | Industrial hammered steel | Modern steel/glass |
@@ -55,7 +55,7 @@ KLOVO sits squarely in this tier, alongside brands like Gladiator Premier and se
 
 **Best for:** Homeowners who want a premium garage without the premium price tag. DIYers who value quality materials but don't want to hire a contractor. Anyone who might expand their system or move in the future.
 
-[link](https://klovo.com/pages/custom-garage-cabinets) — See all KLOVO configurations from 6ft to 20ft
+[link](/pages/custom-garage-cabinets) — See all KLOVO configurations from 6ft to 20ft
 
 ### Tier 3: True Custom ($5,000–$20,000+)
 
@@ -98,7 +98,7 @@ Let's put real numbers side by side for the most common garage cabinet project: 
 
 **Choose Budget Pre-Built if:**\- Your budget is under $800 - You need light-duty storage only (cleaning supplies, holiday boxes) - You're renting or not staying in the home long-term - You don't mind a utilitarian look
 
-**Choose KLOVO Modular if:**\- You want a custom look without paying custom prices - You need heavy-duty shelves (300 lbs) for tools, equipment, and gear - You value DIY installation but don't want a frustrating assembly experience - You might expand, reconfigure, or move your cabinets in the future - You want kitchen-grade quality in your garage - Your budget is $1,000–$7,500
+**Choose KLOVO Modular if:**\- You want a custom look without paying custom prices - You need heavy-duty cabinets (500 lbs per cabinet) for tools, equipment, and gear - You value DIY installation but don't want a frustrating assembly experience - You might expand, reconfigure, or move your cabinets in the future - You want kitchen-grade quality in your garage - Your budget is $1,000–$7,500
 
 **Choose True Custom if:**\- Your garage has unusual dimensions or permanent obstacles - You want a specific exotic material or finish not available elsewhere - Budget is not a primary concern ($5K–$20K+) - You're building your forever home and want a one-of-a-kind garage - You prefer professional installation with zero DIY work
 
@@ -112,19 +112,19 @@ Homeowners often compare KLOVO against three well-known brands. Here's an honest
 
 Gladiator is the most recognized name in garage storage. Their Premier line uses 20-gauge welded steel and ships pre-assembled — a genuine advantage. However, Gladiator's shelf capacity tops out at about 50 lbs per shelf (200 lbs total per unit), and their industrial hammered-steel aesthetic isn't for everyone. Their Premier and RTA lines also don't line up on the same mounting track, which creates headaches if you mix product lines.
 
-[link](https://klovo.com/blog/klovo-vs-gladiator) — Full KLOVO vs. Gladiator comparison
+[link](/blogs/news/klovo-vs-gladiator-garage-cabinets-an-honest-side-by-side-comparison) — Full KLOVO vs. Gladiator comparison
 
 ### NewAge Products
 
 NewAge offers two steel lines (Bold and Pro) that look modern and clean. The Pro series uses heavier 18-gauge welded steel. However, assembly is more involved than KLOVO (30–60 minutes per cabinet with bolts and Allen wrenches), and most NewAge products are manufactured overseas.
 
-[link](https://klovo.com/blog/klovo-vs-newage) — Full KLOVO vs. NewAge comparison
+[link](/blogs/news/klovo-vs-newage-products-premium-garage-cabinets-compared) — Full KLOVO vs. NewAge comparison
 
 ### Husky (Home Depot)
 
 Husky is Home Depot's house brand for garage storage. It's priced as a budget-to-midrange option and is convenient to pick up in-store. However, Husky doesn't match KLOVO on shelf capacity, material quality, or assembly speed. It's a reasonable choice for light-duty storage but falls short for serious garage organization.
 
-[link](https://klovo.com/blog/klovo-vs-husky) — Full KLOVO vs. Husky comparison
+[link](/blogs/news/klovo-vs-husky-garage-cabinets-which-is-worth-your-money) — Full KLOVO vs. Husky comparison
 
 ## The Bottom Line
 
@@ -134,8 +134,8 @@ The garage cabinet market has three lanes, and the right one depends on your nee
 
 If you're the kind of homeowner who wants your garage to feel as intentional as the rest of your home — without spending $10,000+ to get there — a modular system is almost certainly the right choice.
 
-[link](https://klovo.com/collections/kits-bundles) — **Browse KLOVO Configurations** — From 6ft starter sets to 20ft complete systems.
+[link](/sets/) — **Browse KLOVO Configurations** — From 6ft starter sets to 20ft complete systems.
 
-[link](https://klovo.com/pages/custom-garage-cabinets) — **See How KLOVO Compares to Custom** — Side-by-side breakdown with real pricing.
+[link](/pages/custom-garage-cabinets) — **See How KLOVO Compares to Custom** — Side-by-side breakdown with real pricing.
 
-[link](https://klovo.com/pages/glidelock-assembly) — **Learn About GlideLock** — 90-second assembly, no tools required.
+[link](/pages/glidelock-assembly) — **Learn About GlideLock** — 90-second assembly, no tools required.

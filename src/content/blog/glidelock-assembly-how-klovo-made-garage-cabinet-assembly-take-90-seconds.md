@@ -4,7 +4,7 @@ description: "# GlideLock Assembly: How KLOVO Made Garage Cabinet Assembly Take 
 date: 2026-04-10T09:12:13Z
 author: "Door Kraft Accounts"
 tags: ["DIY garage cabinets", "easy assemble cabinets", "garage cabinet assembly", "GlideLock", "KLOVO", "RTA cabinets", "tool-free assembly"]
-canonical: "https://www.klovo.com/blogs/news/glidelock-assembly-how-we-made-cabinet-assembly-take-90-seconds"
+canonical: "/blogs/news/glidelock-assembly-how-we-made-cabinet-assembly-take-90-seconds"
 ---
 
 # GlideLock Assembly: How KLOVO Made Garage Cabinet Assembly Take 90 Seconds
@@ -53,11 +53,13 @@ GlideLock's simplicity is the result of deliberate material engineering:
 
 **PVC edge-banding.** Every exposed edge is sealed with PVC edge-banding, preventing moisture from entering the substrate. This is the same edge treatment used in commercial laboratory and hospital cabinetry.
 
-**300 lb shelf capacity.** Each fixed shelf supports 300 lbs of evenly distributed weight. The shelf-pin system uses hardened steel pins seated in reinforced bore holes. Adjustable shelves can be repositioned without any change in load rating.
+**500 lb per-cabinet capacity.** Each cabinet supports 500 lbs of evenly distributed weight across its shelves. The shelf-pin system uses hardened steel pins seated in reinforced bore holes. Adjustable shelves can be repositioned without any change in cabinet load rating.
 
 **Soft-close hinges.** Every door uses integrated soft-close mechanisms — the same Blum-style hinges found in premium kitchen installations. The hinge clip system used in GlideLock doors is rated for 50,000+ open-close cycles.
 
-## GlideLock vs. Traditional Assembly: Head-to-Head | Dimension | KLOVO GlideLock | Cam-Lock (Gladiator, NewAge) | Steel Tab (Husky) |
+## GlideLock vs. Traditional Assembly: Head-to-Head
+
+| Dimension | KLOVO GlideLock | Cam-Lock (Gladiator, NewAge) | Steel Tab (Husky) |
 | -| -| -| -|
 | Assembly time per cabinet | \~90 seconds | 45–90 minutes | 30–60 minutes |
 | Tools required | None | Phillips screwdriver, mallet | Phillips screwdriver |
@@ -65,7 +67,10 @@ GlideLock's simplicity is the result of deliberate material engineering:
 | Disassembly without damage | Yes — designed for it | Partial — holes wear | Yes — but panels dent |
 | Joint integrity over time | No loosening (mechanical lock) | Loosens with temp cycles | Stable (welded joints) |
 | Reconfigurable | Fully | Limited | Limited |
-| Pre-assembly level | Partially pre-assembled | Fully flat-pack | Partially pre-assembled | ## Real-World Assembly Scenarios
+| Pre-assembly level | Partially pre-assembled | Fully flat-pack | Partially pre-assembled |
+
+
+## Real-World Assembly Scenarios
 
 **Weekend warrior garage (4 cabinets):** With traditional RTA, plan for 4–6 hours of assembly. With KLOVO GlideLock, all four cabinets are assembled in under 10 minutes — leaving the rest of your Saturday for actually organizing the garage.
 
@@ -93,4 +98,4 @@ None for cabinet assembly. The GlideLock system is completely tool-free. You wil
 
 ### Is GlideLock as sturdy as traditional cam-lock assembly?
 
-GlideLock joints are mechanically locked at three points and do not loosen over time, unlike cam-lock joints which can work loose with temperature cycling common in garages. Each KLOVO shelf holds up to 300 lbs of evenly distributed weight.
+GlideLock joints are mechanically locked at three points and do not loosen over time, unlike cam-lock joints which can work loose with temperature cycling common in garages. Each KLOVO cabinet holds up to 500 lbs of evenly distributed weight.

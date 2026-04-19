@@ -78,7 +78,7 @@ Garage cabinets must be mounted into wall studs — drywall anchors alone cannot
 
 Standard stud spacing is 16 inches on center. Some garages (especially in attached garages built after 2000) use 24-inch spacing. Mark studs with painter's tape so you can see the mounting points when you're ready to install.
 
-For concrete or cinder block walls (common in detached garages), you'll need concrete anchors rated for the total weight of the loaded cabinet. A fully loaded KLOVO wall cabinet can weigh up to 350 lbs (50 lb cabinet + 300 lb shelf load). Use 3/8-inch concrete wedge anchors minimum.
+For concrete or cinder block walls (common in detached garages), you'll need concrete anchors rated for the total weight of the loaded cabinet. A fully loaded KLOVO wall cabinet can weigh up to 550 lbs (50 lb cabinet + 500 lb capacity load). Use 3/8-inch concrete wedge anchors minimum.
 
 ## Step 7: Calculate Your Configuration
 

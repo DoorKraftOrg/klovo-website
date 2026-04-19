@@ -27,7 +27,10 @@ Epoxy is the most popular garage floor upgrade and for good reason. A properly a
 | Cure time | 3-7 days | 2-5 days | 24 hours (one-day install) |
 | Durability | 3-5 years | 10-15 years | 15-20+ years |
 | Hot tire pickup | Common issue | Minimal with quality product | No hot tire issues |
-| UV stability | May yellow | Better UV resistance | Excellent UV stability | ### Interlocking Tiles
+| UV stability | May yellow | Better UV resistance | Excellent UV stability |
+
+
+### Interlocking Tiles
 
 Garage floor tiles snap together without adhesive and can be installed in a few hours. They're the most DIY-friendly option and can be removed if you move. Cost ranges from $2.50-$6.00 per square foot ($1,000-$2,400 for a 2-car garage). They don't require concrete prep beyond sweeping, and they provide excellent drainage and cushioning.
 
@@ -81,7 +84,9 @@ The installation process:
 4. **Mount wall cabinets** — secure to wall studs at 54-60 inch height using included mounting hardware
 5. **Add accessories** — shelves adjust to any height, soft-close doors and drawers come pre-installed
 
-## Complete Garage Makeover: Total Cost Breakdown | Component | Budget Option | Mid-Range | Premium |
+## Complete Garage Makeover: Total Cost Breakdown
+
+| Component | Budget Option | Mid-Range | Premium |
 | -| -| -| -|
 | Flooring (2-car garage) | $600 (DIY epoxy) | $2,000 (pro epoxy) | $4,000 (polyaspartic) |
 | Cabinets (6-8 unit setup) | $2,500 (KLOVO base config) | $4,000 (KLOVO mid config) | $7,000+ (KLOVO full workshop) |
@@ -89,7 +94,9 @@ The installation process:
 | Organization extras | $50 (labels + bins) | $200 (slatwall + hooks + bins) | $500+ (full wall system) |
 | **Total** | **$3,250** | **$6,500** | **$12,300+** | Compare this to a professional "garage makeover company" quote, which typically runs $15,000-$30,000 for a 2-car garage. A DIY/semi-DIY approach with quality components like KLOVO cabinets delivers comparable or better results at 25-50% of the cost.
 
-## The 5-Day Garage Makeover Timeline | Day | Task | Time Required |
+## The 5-Day Garage Makeover Timeline
+
+| Day | Task | Time Required |
 | -| -| -|
 | Day 1 | Clear garage, clean concrete, repair cracks, moisture test | 3-4 hours |
 | Day 2 | Profile concrete (acid etch or grind), apply first coat of epoxy/polyaspartic | 4-6 hours |

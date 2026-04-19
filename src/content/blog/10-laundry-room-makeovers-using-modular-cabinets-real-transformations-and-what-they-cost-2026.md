@@ -16,7 +16,7 @@ The laundry room has quietly become one of the most-renovated spaces in American
 
 **Approximate cost:** $800–$1,200
 
-Perfect for apartments and townhomes with side-by-side or stacked washer-dryer units. The tall cabinet stores detergent, cleaning supplies, and linens behind closed doors — no more cluttered shelving. The base cabinet with worktop creates a folding surface right where you need it. KLOVO's 300 lb shelves handle heavy detergent jugs and bulk supplies easily.
+Perfect for apartments and townhomes with side-by-side or stacked washer-dryer units. The tall cabinet stores detergent, cleaning supplies, and linens behind closed doors — no more cluttered shelving. The base cabinet with worktop creates a folding surface right where you need it. KLOVO's 500 lb per-cabinet capacity handles heavy detergent jugs and bulk supplies easily.
 
 ## Makeover 2: The Full-Wall Laundry Command Center (8ft Wall)
 
@@ -56,7 +56,7 @@ Many homes combine the laundry room with a mudroom entry. This makeover dedicate
 
 **Approximate cost:** $1,200–$1,800
 
-Pet owners generate extra laundry: pet beds, towels, blankets, and grooming supplies. This setup dedicates one tall cabinet to pet supplies and one base cabinet to a washing prep area with a countertop for folding and sorting. The 300 lb shelves handle bulk dog food bags and heavy pet supply containers that would buckle lighter shelving.
+Pet owners generate extra laundry: pet beds, towels, blankets, and grooming supplies. This setup dedicates one tall cabinet to pet supplies and one base cabinet to a washing prep area with a countertop for folding and sorting. The 500 lb per-cabinet capacity handles bulk dog food bags and heavy pet supply containers that would buckle lighter shelving.
 
 ## Makeover 7: The Rental Property Upgrade (6ft Wall)
 
@@ -88,7 +88,7 @@ Basement laundry areas are typically the most neglected storage spaces in the ho
 
 **Approximate cost:** $600–$900
 
-Many newer homes hide the laundry in a first-floor closet. Space is extremely limited, but a single tall KLOVO cabinet placed adjacent to the closet opening effectively doubles available storage. The 300 lb shelves store detergent, cleaning supplies, and linens that would otherwise crowd the closet interior. The cabinet's finished appearance means it can face a hallway without looking out of place.
+Many newer homes hide the laundry in a first-floor closet. Space is extremely limited, but a single tall KLOVO cabinet placed adjacent to the closet opening effectively doubles available storage. The 500 lb per-cabinet capacity stores detergent, cleaning supplies, and linens that would otherwise crowd the closet interior. The cabinet's finished appearance means it can face a hallway without looking out of place.
 
 ## What These Makeovers Have in Common
 

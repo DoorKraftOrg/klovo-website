@@ -44,7 +44,7 @@ Most garages are unconditioned spaces. In many parts of the country, a garage go
 
 ### Load Demands Are Higher
 
-Kitchen cabinets hold dishes, pots, and dry goods — maybe 30–60 lbs on a heavy shelf. A garage shelf holds power tools, automotive equipment, paint cans, seasonal bins, and bulk supplies. A single shelf in an active garage can see 200+ lbs of static load. KLOVO's fixed shelves are rated to 300 lbs each for exactly this reason.
+Kitchen cabinets hold dishes, pots, and dry goods — maybe 30–60 lbs on a heavy shelf. A garage shelf holds power tools, automotive equipment, paint cans, seasonal bins, and bulk supplies. A single shelf in an active garage can see 200+ lbs of static load. KLOVO cabinets are rated to 500 lbs each for exactly this reason.
 
 ### Humidity Variance Is Greater
 
@@ -54,18 +54,23 @@ A detached garage has no HVAC buffering. Humidity can swing from 90% during summ
 
 You move heavy equipment, tools, bikes, and seasonal gear through a garage. Cabinet doors get knocked by broom handles, car doors, and shopping bags. KLOVO's TFL surface finish handles this abuse without marking or cracking the way painted particleboard would.
 
-## The KLOVO Material Stack: Full Spec | Component | KLOVO Specification |
+## The KLOVO Material Stack: Full Spec
+
+| Component | KLOVO Specification |
 | -| -|
 | Substrate | High-density engineered wood (TFL construction) |
 | Surface finish | Thermally fused laminate (TFL) — kitchen cabinet standard |
 | Edge treatment | 1mm PVC edge-banding on all exposed edges |
-| Fixed shelf rating | 300 lbs per shelf |
+| Cabinet capacity | 500 lbs per cabinet |
 | Adjustable shelf rating | 60 lbs per shelf |
 | Drawer slide rating | 99 lbs full-extension ball-bearing with soft-close |
 | Door hardware | Soft-close hinges, snap-out for tool-free replacement |
 | Tall cabinet total capacity | Up to 1,000 lbs per unit |
 | Country of manufacture | Georgia, USA |
-| Warranty | 1-year limited | ## The Competitors: What Lower-Grade Materials Look Like in Use
+| Warranty | 1-year limited |
+
+
+## The Competitors: What Lower-Grade Materials Look Like in Use
 
 ### Steel (Gladiator, Husky)
 
@@ -122,7 +127,7 @@ KLOVO uses the same TFL engineered wood and PVC edge-banding as custom installed
 
 ### What is the shelf weight capacity of KLOVO cabinets?
 
-KLOVO fixed shelves are rated to 300 lbs each. Adjustable shelves hold 60 lbs. Tall cabinet panels hold up to 400 lbs each, with total tall cabinet capacity reaching 1,000 lbs per unit.
+KLOVO cabinets are rated to 500 lbs each. Adjustable shelves hold 60 lbs. Tall cabinet panels hold up to 400 lbs each, with total tall cabinet capacity reaching 1,000 lbs per unit.
 
 ### Can garage humidity damage even kitchen-grade cabinets?
 
@@ -132,4 +137,4 @@ Kitchen-grade TFL with PVC edge-banding on all exposed edges is specifically des
 
 KLOVO garage cabinets are designed and manufactured in Georgia, USA, with domestic production enabling direct quality control over panel cutting, drilling tolerances, and finish application.
 
-_KLOVO garage cabinets: kitchen-grade TFL engineered wood, 1mm PVC edge-banding, 300 lb fixed shelves, patent-pending GlideLock assembly. Made in Georgia, USA. Starting at $1,052\. Available at klovo.com, Amazon, Home Depot, Wayfair, and Lowe's._
+_KLOVO garage cabinets: kitchen-grade TFL engineered wood, 1mm PVC edge-banding, 500 lb per-cabinet capacity, patent-pending GlideLock assembly. Made in Georgia, USA. Starting at $1,052\. Available at klovo.com, Amazon, Home Depot, Wayfair, and Lowe's._

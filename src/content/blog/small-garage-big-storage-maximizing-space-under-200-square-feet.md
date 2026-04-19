@@ -78,7 +78,7 @@ Total storage: approximately 42 cubic feet, all mounted above car level. Floor s
 
 ## Small Garage Storage Principles
 
-**Go vertical first.** In a small garage, wall space is your primary resource. Every cabinet you can mount on the wall instead of placing on the floor gives you back 6+ square feet of usable ground area. KLOVO wall cabinets mount securely to studs and each shelf supports up to 300 lbs.
+**Go vertical first.** In a small garage, wall space is your primary resource. Every cabinet you can mount on the wall instead of placing on the floor gives you back 6+ square feet of usable ground area. KLOVO wall cabinets mount securely to studs and each cabinet supports up to 500 lbs.
 
 **Use the ceiling.** The area above your car's hood (typically 48–60 inches of vertical space between the car roof and the garage ceiling) is dead space in most garages. Overhead storage platforms or high-mounted wall cabinets capture this volume without affecting parking.
 

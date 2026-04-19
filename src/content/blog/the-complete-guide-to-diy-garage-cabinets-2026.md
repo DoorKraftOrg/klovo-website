@@ -35,7 +35,7 @@ What actually survives a garage:
 
 "Holds up to 100 lbs per shelf" is the most common spec in this category. It is also, almost always, a lie. The 100 lb number is usually a center-point load on a fully-supported shelf in a lab. In a real garage, you load shelves unevenly with car batteries, paint cans, and bins of holiday decorations. You need a _distributed load rating_, and you want it to be at least 250 lbs per shelf for any cabinet over 30" wide.
 
-KLOVO publishes 300 lbs per shelf distributed. That's not marketing — that's the rating with a 2× safety factor on ¾" engineered wood with full-depth cleats. If a brand won't tell you whether their number is center-point or distributed, assume center-point and divide by three.
+KLOVO publishes 500 lbs per cabinet distributed. That's not marketing — that's the rating with a 2× safety factor on ¾" engineered wood with full-depth cleats. If a brand won't tell you whether their number is center-point or distributed, assume center-point and divide by three.
 
 ## Step 4: Pick your assembly approach
 

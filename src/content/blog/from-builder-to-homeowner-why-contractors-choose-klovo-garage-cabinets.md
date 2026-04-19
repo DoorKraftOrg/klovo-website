@@ -26,7 +26,7 @@ The math is simple: 6 hours saved per garage × $100/hour average labor rate × 
 
 ### Zero Warranty Callbacks on Cabinet Failures
 
-KLOVO cabinets use thermally fused laminate (TFL) with PVC edge-banding — the same material system used in commercial kitchen cabinetry. TFL doesn't rust like steel, doesn't swell like particle board, and doesn't crack like melamine when exposed to garage temperature extremes. Each shelf holds up to 300 lbs, which means homeowners can load them with power tools, paint cans, and bulk storage without shelf sag or failure.
+KLOVO cabinets use thermally fused laminate (TFL) with PVC edge-banding — the same material system used in commercial kitchen cabinetry. TFL doesn't rust like steel, doesn't swell like particle board, and doesn't crack like melamine when exposed to garage temperature extremes. Each cabinet holds up to 500 lbs, which means homeowners can load them with power tools, paint cans, and bulk storage without sag or failure.
 
 For builders, this translates to a simple value proposition: install KLOVO cabinets, and garage cabinets disappear from your warranty callback list. The soft-close hinges and drawer slides are rated for 50,000+ cycles, so even the homeowner who opens their tool cabinet ten times a day won't wear out the hardware in the first decade.
 
@@ -36,15 +36,20 @@ Every custom home has a different garage footprint. A 2-car garage in a starter 
 
 This modularity means a builder can offer "included garage storage" as a standard feature in every home, customize the layout per lot, and keep the SKU count manageable for purchasing and inventory. It's the difference between offering a feature and managing a nightmare.
 
-## Builder vs. Homeowner Decision Matrix | Factor | Builder Priority | Homeowner Priority | KLOVO Solution |
+## Builder vs. Homeowner Decision Matrix
+
+| Factor | Builder Priority | Homeowner Priority | KLOVO Solution |
 | -| -| -| -|
 | Installation Speed | Critical (labor cost) | Nice to have | 90-second GlideLock assembly, no tools |
 | Warranty Risk | Critical (callback cost) | Moderate concern | TFL + PVC = zero moisture/rust failures |
 | Customization | High (every lot differs) | High (personal layout) | Modular system, unlimited configurations |
-| Material Quality | Must survive walkthrough + 1yr warranty | Long-term durability | Kitchen-grade TFL, 300 lb shelves, soft-close hardware |
+| Material Quality | Must survive walkthrough + 1yr warranty | Long-term durability | Kitchen-grade TFL, 500 lb per-cabinet capacity, soft-close hardware |
 | Price Per Unit | Must hit margin targets | Value for money | Starting at $1,052 for complete sets |
 | Lead Time | Must align with construction schedule | Flexible | Ships from Georgia, USA — shorter supply chain |
-| Aesthetics | Must impress at showing | Must match vision | Clean modern design, multiple finish options | ## The Builder Spec Sheet: What to Include in Your Quotes
+| Aesthetics | Must impress at showing | Must match vision | Clean modern design, multiple finish options |
+
+
+## The Builder Spec Sheet: What to Include in Your Quotes
 
 For contractors who want to include KLOVO garage cabinets as a standard or upgrade option in their builds, here's how the typical spec breaks down by home size:
 

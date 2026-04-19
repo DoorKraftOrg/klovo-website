@@ -13,7 +13,7 @@ This is an honest side-by-side. NewAge makes great cabinets. Here's where the tw
 ## TL;DR — Quick Verdict
 
 * **Choose NewAge if:** you want welded steel construction, you're committed to a particular Bold or Pro color palette, and you don't mind a multi-hour assembly with a partner.
-* **Choose KLOVO if:** you want furniture-grade engineered wood that's quieter and warmer in feel, the fastest assembly available (90 seconds per cabinet), 300 lb shelves as standard, and a Made-in-Georgia, USA build.
+* **Choose KLOVO if:** you want furniture-grade engineered wood that's quieter and warmer in feel, the fastest assembly available (90 seconds per cabinet), 500 lb per-cabinet capacity as standard, and a Made-in-Georgia, USA build.
 
 ## 1\. Assembly: 90 Seconds vs. Several Hours
 
@@ -39,11 +39,11 @@ Both materials hold up. They feel different: | NewAge (Steel) | KLOVO (Engineere
 | Temperature | Cold to the touch | Neutral |
 | Refinish/repair | Difficult | Replace component | **Winner: Tie** — depends on whether you want your garage to feel like a workshop or a finished room.
 
-## 3\. Shelf Capacity: 300 lb Standard
+## 3\. Cabinet Capacity: 500 lb per Cabinet Standard
 
 NewAge's adjustable shelves vary by line. Bold Series shelves are typically rated around 100 lb, with Pro Series reaching higher.
 
-**Every KLOVO shelf is rated for 300 lb** as a baseline — not an upgrade. We made it standard so you never have to think about which shelf can hold what.
+**Every KLOVO cabinet is rated for 500 lb** as a baseline — not an upgrade. We made it standard so you never have to think about which shelf can hold what.
 
 **Winner: KLOVO.**
 
@@ -51,7 +51,7 @@ NewAge's adjustable shelves vary by line. Bold Series shelves are typically rate
 
 NewAge Bold 3.0 sets typically run $250–$350 per linear foot once you've configured doors, drawers, and a worktop. Pro 3.0 climbs higher — often $400+ per linear foot for a fully-loaded configuration.
 
-KLOVO 6ft sets start at $1,052 (\~$175/ft) and 20ft fully-loaded sets land around $360/ft. Like-for-like — premium configuration with worktop, soft-close hardware, and adjustable shelving — KLOVO is generally **15–25% less per linear foot than NewAge Pro**, and roughly comparable to Bold while including soft-close and 300 lb shelves as standard.
+KLOVO 6ft sets start at $1,052 (\~$175/ft) and 20ft fully-loaded sets land around $360/ft. Like-for-like — premium configuration with worktop, soft-close hardware, and adjustable shelving — KLOVO is generally **15–25% less per linear foot than NewAge Pro**, and roughly comparable to Bold while including soft-close and 500 lb per-cabinet capacity as standard.
 
 **Winner: KLOVO** on value.
 
@@ -79,20 +79,25 @@ KLOVO is built around a finished, residential aesthetic — closer to a kitchen 
 
 **Winner: depends on the look you want.**
 
-## Side-by-Side Summary | Category | NewAge Bold/Pro | KLOVO |
+## Side-by-Side Summary
+
+| Category | NewAge Bold/Pro | KLOVO |
 | -| -| -|
 | Assembly time | Several hours/wall | **\~30 min/wall** |
 | Material | Welded steel | Engineered wood + TFL + PVC edge |
-| Shelf capacity | \~100 lb (Bold) | **300 lb standard** |
+| Shelf capacity | \~100 lb (Bold) | **500 lb per cabinet standard** |
 | Soft-close hardware | Upgrade | **Standard** |
 | Aesthetic | Showroom / industrial | **Furniture-grade** |
 | Made in USA | No (designed in U.S.) | **Yes — Georgia** |
 | Price (per ft, loaded) | $250–$400+ | $175–$360 |
-| Warranty | Limited lifetime | Limited lifetime | ## Who Should Buy Which?
+| Warranty | Limited lifetime | Limited lifetime |
+
+
+## Who Should Buy Which?
 
 **Buy NewAge if** you want welded steel, you've fallen in love with a specific Bold or Pro color, and the showroom aesthetic is exactly what you're after.
 
-**Buy KLOVO if** you want premium materials, the fastest assembly available, soft-close and 300 lb shelves as standard rather than upgrades, and a domestically-made cabinet system that finishes a garage like a kitchen rather than a workshop.
+**Buy KLOVO if** you want premium materials, the fastest assembly available, soft-close and 500 lb per-cabinet capacity as standard rather than upgrades, and a domestically-made cabinet system that finishes a garage like a kitchen rather than a workshop.
 
 ## Frequently Asked Questions
 
@@ -104,4 +109,4 @@ KLOVO is built around a finished, residential aesthetic — closer to a kitchen 
 
 **Does KLOVO ship the same way as NewAge?**Both ship freight. KLOVO orders ship directly from our Georgia facility, which usually means faster delivery and faster replacement-part turnaround.
 
-_Internal links to add when publishing:_\- [link](https://klovo.com/pages/diy-garage-cabinets)\- [link](https://klovo.com/collections/garage-cabinet-sets)\- [link](https://klovo.com/pages/glidelock-assembly)\- [link](https://klovo.com/pages/made-in-america)\- [link](https://klovo.com/blog/klovo-vs-gladiator)
+_Internal links to add when publishing:_\- [link](/pages/diy-garage-cabinets)\- [link](/sets/)\- [link](/pages/glidelock-assembly)\- [link](/pages/made-in-america)\- [link](/blogs/news/klovo-vs-gladiator-garage-cabinets-an-honest-side-by-side-comparison)

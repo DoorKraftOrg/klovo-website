@@ -40,6 +40,10 @@ export default defineConfig({
     '/blog': '/blogs/news',
     '/blog/': '/blogs/news',
     '/blogs': '/blogs/news',
+    // Shopify /collections/* → Astro sets hub (safety catches for old inbound links)
+    '/collections/all': '/sets/',
+    '/collections/kits-bundles': '/sets/',
+    '/collections/garage-cabinet-sets': '/sets/',
   },
   vite: {
     plugins: [tailwindcss()],

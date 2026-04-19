@@ -45,7 +45,7 @@ If two RTA cabinets are within $50 of each other, the price isn't telling you an
 
 ## RTA garage cabinets: the specific case
 
-The garage is where Gen 3 modular RTA matters most. Garages are temperature- and humidity-stressed environments where Gen 1 RTA fails fast. They're also rooms where homeowners want to install in a single Saturday — not over a vacation week. KLOVO modular cabinets ship flat, click together in under 90 seconds per cabinet, are rated for 300 lbs distributed per shelf, and use kitchen-grade construction sealed on all six sides. That combination is what made the category move from "DIY project" to "weekend purchase."
+The garage is where Gen 3 modular RTA matters most. Garages are temperature- and humidity-stressed environments where Gen 1 RTA fails fast. They're also rooms where homeowners want to install in a single Saturday — not over a vacation week. KLOVO modular cabinets ship flat, click together in under 90 seconds per cabinet, are rated for 500 lbs distributed per cabinet, and use kitchen-grade construction sealed on all six sides. That combination is what made the category move from "DIY project" to "weekend purchase."
 
 ## Bottom line
 

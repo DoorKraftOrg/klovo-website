@@ -39,11 +39,11 @@ Neither material is "better" in the abstract — they're different answers to di
 | Sound | Metallic / can rattle | Solid / quiet |
 | Refinishing | Difficult | Not needed | **Winner: Tie** — depends on the look you want. If your garage doubles as a hangout, gym, or workshop you actually spend time in, KLOVO's finished aesthetic tends to win. If you want pure industrial, Gladiator's steel has an edge.
 
-## 3\. Shelf Capacity: 300 lb vs. \~100 lb
+## 3\. Cabinet Capacity: 500 lb per Cabinet vs. \~100 lb Shelves
 
 Gladiator's adjustable shelves on most consumer SKUs are rated around 75–100 lb each. Their heavy-duty Premier line goes higher, but you pay for it.
 
-**Every KLOVO shelf is rated for 300 lb.** That's not a marketing number — it's how we engineer them as a baseline so you don't have to think about which shelf can hold the toolbox and which one can't. A KLOVO base cabinet can hold a full set of cast-iron cookware, a battery charger, and a stack of paint cans without flexing.
+**Every KLOVO cabinet is rated for 500 lb.** That's not a marketing number — it's how we engineer them as a baseline so you don't have to think about which shelf can hold the toolbox and which one can't. A KLOVO base cabinet can hold a full set of cast-iron cookware, a battery charger, and a stack of paint cans without flexing.
 
 **Winner: KLOVO.**
 
@@ -51,7 +51,7 @@ Gladiator's adjustable shelves on most consumer SKUs are rated around 75–100 l
 
 Gladiator's premium configurations land around $200–$280 per linear foot once you've added doors, drawers, and a worktop.
 
-KLOVO 6ft sets start at $1,052 (\~$175/ft) and 20ft sets land around $360/ft for the fully-loaded configuration. Apples to apples — premium wall + base + worktop — KLOVO comes in **roughly 10–15% under Gladiator** for comparable footage, while including the GlideLock system, soft-close hardware, and 300 lb shelves as standard rather than upgrades.
+KLOVO 6ft sets start at $1,052 (\~$175/ft) and 20ft sets land around $360/ft for the fully-loaded configuration. Apples to apples — premium wall + base + worktop — KLOVO comes in **roughly 10–15% under Gladiator** for comparable footage, while including the GlideLock system, soft-close hardware, and 500 lb per-cabinet capacity as standard rather than upgrades.
 
 **Winner: KLOVO** on value, though entry-level Gladiator configurations can come in cheaper if you're willing to skip doors, drawers, and worktops.
 
@@ -79,16 +79,21 @@ Gladiator is owned by Whirlpool (a U.S. company), but a meaningful portion of th
 
 **Winner: KLOVO.**
 
-## Side-by-Side Summary | Category | Gladiator | KLOVO |
+## Side-by-Side Summary
+
+| Category | Gladiator | KLOVO |
 | -| -| -|
 | Assembly time | 30–60 min/cabinet | **90 seconds/cabinet** |
 | Material | Welded steel | Engineered wood + TFL + PVC edge-banding |
-| Shelf capacity | \~75–100 lb | **300 lb** |
+| Shelf capacity | \~75–100 lb | **500 lb per cabinet** |
 | Hardware | Standard | **Soft-close standard** |
 | Aesthetic | Industrial | **Furniture-grade** |
 | Made in USA | Partially | **Yes — Georgia** |
 | Price (per linear ft, loaded) | $200–$280 | $175–$360 |
-| Warranty | Limited lifetime | Limited lifetime | ## Who Should Buy Which?
+| Warranty | Limited lifetime | Limited lifetime |
+
+
+## Who Should Buy Which?
 
 **Buy Gladiator if** you want a steel, workshop-grade cabinet, you don't care about assembly time, and the industrial look is exactly what you want.
 
@@ -104,4 +109,4 @@ Gladiator is owned by Whirlpool (a U.S. company), but a meaningful portion of th
 
 **Does KLOVO offer worktops?**Yes — KLOVO worktops are available in multiple finishes and are included in most full-set configurations.
 
-_Internal links to add when publishing:_\- [link](https://klovo.com/pages/diy-garage-cabinets) (anchor: "DIY garage cabinet system") - [link](https://klovo.com/collections/garage-cabinet-sets) (anchor: "shop KLOVO garage cabinet sets") - [link](https://klovo.com/pages/glidelock-assembly) (anchor: "GlideLock assembly system") - [link](https://klovo.com/pages/made-in-america) (anchor: "Made in Georgia, USA")
+_Internal links to add when publishing:_\- [link](/pages/diy-garage-cabinets) (anchor: "DIY garage cabinet system") - [link](/sets/) (anchor: "shop KLOVO garage cabinet sets") - [link](/pages/glidelock-assembly) (anchor: "GlideLock assembly system") - [link](/pages/made-in-america) (anchor: "Made in Georgia, USA")
