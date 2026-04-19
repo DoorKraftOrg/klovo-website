@@ -87,56 +87,19 @@ const GROUPS = ['Construction', 'Hardware', 'Support'] as const;
           Eight parts. One cabinet.
         </h2>
         <p class="spec-mono text-[11px] text-klovo-grey">
-          <span class="md:hidden">Tap a letter</span>
-          <span class="hidden md:inline">Reference: DB324 · 24″ Drawer Base</span>
+          Reference: DB324 · 24″ Drawer Base
         </p>
       </div>
     </div>
 
     <div class="bg-warm-white py-6 md:py-10">
       <div class="relative mx-auto w-full" style="max-width: 980px; padding: 0 16px;">
-        <div class="relative w-full" style="aspect-ratio: 600/560;">
-          <!-- Actual product image -->
-          <img
-            src="/images/specs/3-drawer.png"
-            alt="Exploded view of a Klovo 3-drawer base cabinet"
-            class="absolute inset-0 w-full h-full object-contain"
-          />
-          <!-- Callout overlay -->
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="absolute inset-0 w-full h-full" style="overflow: visible;">
-            {CALLOUTS.map((c) => (
-              <g>
-                <line x1={c.x} y1={c.y} x2={c.bx} y2={c.by} stroke="#272727" stroke-width="0.15" vector-effect="non-scaling-stroke" />
-                <circle cx={c.x} cy={c.y} r="0.6" fill="#F7C948" stroke="#272727" stroke-width="0.15" vector-effect="non-scaling-stroke" />
-              </g>
-            ))}
-          </svg>
-          <!-- HTML letter badges (positioned via percentage for crisp text) -->
-          {CALLOUTS.map((c) => (
-            <button
-              type="button"
-              data-callout={c.letter}
-              class="callout-badge"
-              style={`left: ${c.bx}%; top: ${c.by}%;`}
-              aria-label={`Show detail for part ${c.letter}`}
-            >
-              {c.letter}
-            </button>
-          ))}
-        </div>
-
-        <!-- Detail panel (revealed on click) -->
-        <div id="callout-detail" class="hidden mt-5 p-4 rounded bg-pure-white" style="border: 1px solid #E8E2D9; box-shadow: 0 6px 20px rgba(0,0,0,0.06);">
-          <div class="flex items-start gap-3">
-            <span id="detail-badge" class="callout-badge-static" style="background: #0E4C8B; color: #fff;">?</span>
-            <div class="min-w-0">
-              <div id="detail-group" class="spec-mono text-[11px] text-klovo-grey"></div>
-              <div id="detail-title" class="font-semibold text-charcoal text-[15px] md:text-[17px] leading-tight"></div>
-              <div id="detail-desc" class="text-[13.5px] mt-1 leading-relaxed" style="color: #3C4144;"></div>
-            </div>
-            <button type="button" id="detail-close" class="ml-auto text-xl leading-none text-klovo-grey" style="background: none; border: none; cursor: pointer;" aria-label="Close detail">×</button>
-          </div>
-        </div>
+        <img
+          src="/images/specs/cabinet-anatomy.png"
+          alt="Exploded view of a Klovo drawer base cabinet with parts labeled A through H"
+          class="block w-full h-auto"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
@@ -475,45 +438,4 @@ const GROUPS = ['Construction', 'Hardware', 'Support'] as const;
     }
   </style>
 
-  <script is:inline define:vars={{ SPECS }}>
-    (function () {
-      const detail = document.getElementById('callout-detail');
-      const badge = document.getElementById('detail-badge');
-      const group = document.getElementById('detail-group');
-      const title = document.getElementById('detail-title');
-      const desc = document.getElementById('detail-desc');
-      const closeBtn = document.getElementById('detail-close');
-      let active = null;
-
-      function show(letter) {
-        const spec = SPECS.find((s) => s.letter === letter);
-        if (!spec) return;
-        active = letter;
-        badge.textContent = letter;
-        group.textContent = spec.group;
-        title.textContent = spec.title;
-        desc.textContent = spec.detail;
-        detail.classList.remove('hidden');
-        document.querySelectorAll('.callout-badge').forEach((b) => {
-          b.classList.toggle('active', b.getAttribute('data-callout') === letter);
-        });
-        detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-
-      function hide() {
-        active = null;
-        detail.classList.add('hidden');
-        document.querySelectorAll('.callout-badge').forEach((b) => b.classList.remove('active'));
-      }
-
-      document.querySelectorAll('.callout-badge').forEach((b) => {
-        b.addEventListener('click', () => {
-          const l = b.getAttribute('data-callout');
-          if (active === l) hide();
-          else show(l);
-        });
-      });
-      closeBtn.addEventListener('click', hide);
-    })();
-  </script>
 </BaseLayout>
