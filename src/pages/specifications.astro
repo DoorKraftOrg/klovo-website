@@ -2,22 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const SPECS = [
-  { letter: 'A', group: 'Construction', title: 'Engineered Panels',
-    detail: '5/8" moisture-resistant, scratch-resistant engineered wood. 1 mm PVC edging.' },
-  { letter: 'B', group: 'Construction', title: 'Shelves, Doors & Fronts',
-    detail: 'Flat-panel 3/4" engineered wood. Matching 1 mm PVC edge.' },
-  { letter: 'C', group: 'Construction', title: 'Interchangeable Kit',
-    detail: 'Swap 3, 4, or 5-drawer kits into the same 24" base or tall box.' },
-  { letter: 'D', group: 'Hardware', title: 'Drawer Glides',
-    detail: 'Push-to-open ball-bearing glides. Zero exposed hardware.' },
-  { letter: 'E', group: 'Hardware', title: 'Hinges',
-    detail: 'Soft-close hinges with push-to-open option for doors.' },
-  { letter: 'F', group: 'Support', title: 'Folding Plastic Leg',
-    detail: 'Waterproof leg leveler. 3½″ to 6″ adjustment range.' },
-  { letter: 'G', group: 'Support', title: 'Waterproof Toe Kick',
-    detail: 'Clip-on polypropylene + rubber gasket, 4″ high, aluminum-finish skin.' },
-  { letter: 'H', group: 'Support', title: '90° Connector / End Cap',
-    detail: '4″ matching aluminum-foil finish. Corners handled.' },
+  { letter: 'A', group: 'Construction', title: 'Panels',
+    detail: '5/8" moisture-resistant, scratch-resistant engineered wood panels, edged with 1 mm PVC.' },
+  { letter: 'B', group: 'Construction', title: 'Shelves, Doors & Drawer Fronts',
+    detail: 'Flat panel, 3/4" engineered wood, edged with 1 mm PVC.' },
+  { letter: 'C', group: 'Construction', title: 'Interchangeability',
+    detail: 'Our doors and drawer kits (3, 4 or 5) can be swapped while keeping the same box. Applicable to 24" wide Base/Tall SKUs.' },
+  { letter: 'D', group: 'Hardware & Drawer', title: 'Drawer Glides',
+    detail: 'Push-to-open ball-bearing drawer glides (no hardware needed).' },
+  { letter: 'E', group: 'Hardware & Drawer', title: 'Hinges',
+    detail: 'Soft-close hinges, push-to-open hardware also provided for doors.' },
+  { letter: 'F', group: 'Support & Stability', title: 'Folding Plastic Leg',
+    detail: 'Waterproof plastic leg levelers 3 ½" H to 6" H adjustment range.' },
+  { letter: 'G', group: 'Support & Stability', title: 'Waterproof Toe Kick',
+    detail: 'Clip-on system with extruded aluminum finish and made of polypropylene and a rubber gasket, 4" high.' },
+  { letter: 'H', group: 'Support & Stability', title: '90° Connector Fitting & End Cap',
+    detail: '4" H matching aluminum foil finish.' },
 ];
 
 // Callout positions in percentage of the 3-drawer.png viewport.
@@ -33,7 +33,7 @@ const CALLOUTS = [
   { letter: 'H', x: 74, y: 94, bx: 94, by: 96 },   // end cap
 ];
 
-const GROUPS = ['Construction', 'Hardware', 'Support'] as const;
+const GROUPS = ['Construction', 'Hardware & Drawer', 'Support & Stability'] as const;
 ---
 
 <BaseLayout
@@ -121,7 +121,7 @@ const GROUPS = ['Construction', 'Hardware', 'Support'] as const;
                   {s.letter}
                 </span>
                 <div class="min-w-0">
-                  <div class="spec-mono text-[10px] font-semibold mb-1" style={`color: ${s.group === 'Construction' ? '#0E4C8B' : s.group === 'Hardware' ? '#3C4144' : '#272727'};`}>
+                  <div class="spec-mono text-[10px] font-semibold mb-1" style={`color: ${s.group === 'Construction' ? '#0E4C8B' : s.group === 'Hardware & Drawer' ? '#3C4144' : '#272727'};`}>
                     {s.group}
                   </div>
                   <div class="font-semibold text-charcoal leading-tight text-[15px] md:text-[17px]">
