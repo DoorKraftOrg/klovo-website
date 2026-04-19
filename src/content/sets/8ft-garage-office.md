@@ -1,6 +1,6 @@
 ---
 sku: "05-8f-5p-WHT"
-title: "Klovo 8 ft. Garage Office / Craft Bench / Hobby Desk Set — 5-Piece Modular Desk with Tall Storage + Chair Alcove + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
+title: "8 ft. Garage Office Set"
 longTitle: "Klovo 8 ft. Garage Office / Craft Bench / Hobby Desk Set — 5-Piece Modular Desk with Tall Storage + Chair Alcove + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 8
 widthIn: 96

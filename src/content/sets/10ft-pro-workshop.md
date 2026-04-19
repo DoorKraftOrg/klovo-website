@@ -1,6 +1,6 @@
 ---
 sku: "12-10f-8p-WHT"
-title: "Klovo 10 ft. Pro Workshop / Maker Hero / Tool Shop Set — 8-Piece Workshop with Twin Tool Towers + Dual 5-Drawer Bases + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
+title: "10 ft. Pro Workshop Set"
 longTitle: "Klovo 10 ft. Pro Workshop / Maker Hero / Tool Shop Set — 8-Piece Workshop with Twin Tool Towers + Dual 5-Drawer Bases + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 10
 widthIn: 120

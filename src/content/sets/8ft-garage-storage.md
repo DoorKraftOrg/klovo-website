@@ -1,6 +1,6 @@
 ---
 sku: "07-8f-6p-WHT"
-title: "Klovo 8 ft. Garage Storage / Utility Room / Basement Storage Set — 6-Piece Core Kit with Tall Locker + Dual Closed Bases + Dual Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
+title: "8 ft. Garage Storage Set"
 longTitle: "Klovo 8 ft. Garage Storage / Utility Room / Basement Storage Set — 6-Piece Core Kit with Tall Locker + Dual Closed Bases + Dual Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 8
 widthIn: 96

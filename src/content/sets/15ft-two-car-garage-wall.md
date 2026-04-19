@@ -1,6 +1,6 @@
 ---
 sku: "15-15f-10p-WHT"
-title: "Klovo 15 ft. Two-Car Garage Wall / Full Garage System / Complete Build Set — 10-Piece Flagship with Quad Lockers + Dual 4-Drawer Bench + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
+title: "15 ft. Two-Car Garage Wall Set"
 longTitle: "Klovo 15 ft. Two-Car Garage Wall / Full Garage System / Complete Build Set — 10-Piece Flagship with Quad Lockers + Dual 4-Drawer Bench + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 15
 widthIn: 180

@@ -1,6 +1,6 @@
 ---
 sku: "04-6f-4p-WHT"
-title: "Klovo 6 ft. Craft Bench / Maker Station / Garage Workbench Set — 4-Piece Maker Bench with 72\" Worktop + Stool Alcove + Open-Shelf Wall, Push-to-Open, 300 lb Shelves, GlideLock, White"
+title: "6 ft. Craft Bench Set"
 longTitle: "Klovo 6 ft. Craft Bench / Maker Station / Garage Workbench Set — 4-Piece Maker Bench with 72\" Worktop + Stool Alcove + Open-Shelf Wall, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 6
 widthIn: 72

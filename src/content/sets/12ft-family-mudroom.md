@@ -1,6 +1,6 @@
 ---
 sku: "13-12f-8p-WHT"
-title: "Klovo 12 ft. Family Mudroom / Drop-Zone / Entry Hall Set — 8-Piece Mudroom with Triple Lockers + Split Counter + Dual Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
+title: "12 ft. Family Mudroom Set"
 longTitle: "Klovo 12 ft. Family Mudroom / Drop-Zone / Entry Hall Set — 8-Piece Mudroom with Triple Lockers + Split Counter + Dual Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 12
 widthIn: 144

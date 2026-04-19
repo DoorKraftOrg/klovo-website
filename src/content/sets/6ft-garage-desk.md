@@ -1,6 +1,6 @@
 ---
 sku: "03-6f-3p-WHT"
-title: "Klovo 6 ft. Garage Desk / Home Office Nook / Craft Desk Set — 3-Piece Base-Forward Desk with 72\" Worktop + Chair Legroom, Push-to-Open, 300 lb Shelves, GlideLock, White"
+title: "6 ft. Garage Desk Set"
 longTitle: "Klovo 6 ft. Garage Desk / Home Office Nook / Craft Desk Set — 3-Piece Base-Forward Desk with 72\" Worktop + Chair Legroom, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 6
 widthIn: 72

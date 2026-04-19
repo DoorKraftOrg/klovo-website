@@ -1,6 +1,6 @@
 ---
 sku: "08-8f-6p-WHT"
-title: "Klovo 8 ft. Workshop / Tool Bench / Maker Wall Set — 6-Piece Workshop with 4-Drawer Tool Base + Closed Bench + Tall Tower + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
+title: "8 ft. Workshop Set"
 longTitle: "Klovo 8 ft. Workshop / Tool Bench / Maker Wall Set — 6-Piece Workshop with 4-Drawer Tool Base + Closed Bench + Tall Tower + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 8
 widthIn: 96
