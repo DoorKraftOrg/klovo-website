@@ -7,483 +7,451 @@ const sets = allSets
   .map((s) => ({ id: s.id, ...s.data }))
   .sort((a, b) => a.order - b.order);
 
-const TAG_META: Record<string, { label: string; blurb: string }> = {
-  'home-gym':    { label: 'Home Gym',    blurb: 'Lockers, racks, open display.' },
-  workshop:      { label: 'Workshop',    blurb: 'Worktop, drawers, pegboard.' },
-  storage:       { label: 'Storage',     blurb: 'Closed bases, overheads, lockers.' },
-  'family-hub':  { label: 'Family Hub',  blurb: 'Bench seating, cubbies, overhead.' },
-  mudroom:       { label: 'Mudroom',     blurb: 'Drop zone, hooks, seating.' },
-  'home-office': { label: 'Home Office', blurb: 'Continuous worktop, drawer base.' },
+const TAG_META: Record<string, string> = {
+  'home-gym':    'Home Gym',
+  workshop:      'Workshop',
+  storage:       'Storage',
+  'family-hub':  'Family Hub',
+  mudroom:       'Mudroom',
+  'home-office': 'Home Office',
 };
+const primaryTag = (s: any) => TAG_META[(s.useCaseTags?.[0] ?? 'storage')] ?? 'Storage';
 
-const tagOrder = ['home-gym', 'workshop', 'storage', 'family-hub', 'mudroom', 'home-office'];
-const activeTagsInData = tagOrder.filter((t) =>
-  sets.some((s) => (s.useCaseTags ?? []).includes(t))
-);
-
-const fmtPrice = (n: number) => `$${n.toLocaleString('en-US')}`;
-const primaryTag = (s: any) => (s.useCaseTags?.[0] ?? 'storage') as string;
-const primaryTagLabel = (s: any) => TAG_META[primaryTag(s)]?.label ?? '';
-
-// ----- Per-set BOM (column-level SKU breakdown) used to draw real schematics -----
-type Col = { tall?: string; upper?: string; base?: string; worktop?: boolean; width?: number };
-type BomEntry = { sku: string; cols: Col[] };
-const BOM: BomEntry[] = [
-  { sku: '01-2f-1p-WHT',   cols: [{ tall: 'UC2484' }] },
-  { sku: '02-4f-2p-WHT',   cols: [{ tall: 'UC2484' }, { upper: 'W2430', width: 24 }] },
-  { sku: '03-6f-3p-WHT',   cols: [{ upper: 'W3630', worktop: true, base: 'B18-OS', width: 36 }, { worktop: true, base: 'B18-OS', width: 36 }] },
-  { sku: '04-6f-4p-WHT',   cols: [{ upper: 'W3630-OS', worktop: true, base: 'B24-OS', width: 36 }, { worktop: true, base: 'B24-OS', width: 36 }] },
-  { sku: '05-8f-5p-WHT',   cols: [{ upper: 'W3630', worktop: true, base: 'B24-OS', width: 36 }, { worktop: true, base: 'B24-OS', width: 36 }, { tall: 'UC2484' }] },
-  { sku: '06-8f-6p-WHT',   cols: [{ upper: 'W2430', worktop: true, base: 'DB324', width: 24 }, { upper: 'W2430', worktop: true, base: 'B24-FH', width: 24 }, { tall: 'UC2484' }] },
-  { sku: '07-8f-6p-WHT',   cols: [{ upper: 'W3630', worktop: true, base: 'B36-FH', width: 36 }, { upper: 'W3630', worktop: true, base: 'B36-FH', width: 36 }] },
-  { sku: '08-8f-6p-WHT',   cols: [{ upper: 'W3630', worktop: true, base: 'DB424', width: 36 }, { upper: 'W3630', worktop: true, base: 'B24-FH', width: 36 }] },
-  { sku: '09-10f-6p-WHT',  cols: [{ tall: 'UC2484' }, { upper: 'W3630', worktop: true, base: 'B36-OS', width: 36 }, { worktop: true, base: 'B36-OS', width: 36 }] },
-  { sku: '10-10f-7p-WHT',  cols: [{ upper: 'W3630', worktop: true, base: 'DB424', width: 36 }, { upper: 'W3630', worktop: true, base: 'B24-FH', width: 36 }, { tall: 'UC2484' }] },
-  { sku: '11-10f-7p-WHT',  cols: [{ upper: 'W3630', worktop: true, base: 'B36-OS', width: 36 }, { upper: 'W3630', worktop: true, base: 'B36-OS', width: 36 }, { tall: 'UC2484DB3' }] },
-  { sku: '12-10f-8p-WHT',  cols: [{ upper: 'W3630', worktop: true, base: 'DB524', width: 36 }, { upper: 'W3630', worktop: true, base: 'DB524', width: 36 }, { worktop: true, base: 'B24-FH', width: 24 }, { tall: 'UC2484' }] },
-  { sku: '13-12f-8p-WHT',  cols: [{ tall: 'UC2484' }, { tall: 'UC2484' }, { upper: 'W3630', worktop: true, base: 'B36-FH', width: 36 }, { upper: 'W3630', worktop: true, base: 'B36-OS', width: 36 }] },
-  { sku: '14-14f-9p-WHT',  cols: [{ upper: 'W3630', worktop: true, base: 'DB324', width: 36 }, { upper: 'W3630', worktop: true, base: 'B24-FH', width: 36 }, { tall: 'UC2484' }, { tall: 'UC2484' }, { tall: 'UC2484' }] },
-  { sku: '15-15f-10p-WHT', cols: [{ tall: 'UC2484' }, { tall: 'UC2484' }, { tall: 'UC2484' }, { upper: 'W3630', worktop: true, base: 'DB424', width: 36 }, { upper: 'W3630', worktop: true, base: 'DB424', width: 36 }, { worktop: true, base: 'B24-FH', width: 24 }] },
-  { sku: '16-16f-8p-WHT',  cols: [{ tall: 'UC2484' }, { tall: 'UC2484' }, { tall: 'UC2484DB3' }, { tall: 'UC2484' }, { tall: 'UC2484DB3' }, { tall: 'UC2484' }, { tall: 'UC2484' }, { tall: 'UC2484' }] },
-];
-const bomBySku: Record<string, BomEntry> = Object.fromEntries(BOM.map((b) => [b.sku, b]));
-
-// ----- BOM-driven SVG renderer. All coords in inches. y=0 top, y=96 floor. -----
-type DiagramOpts = { accent?: boolean; compact?: boolean };
-function diagramSvg(set: any, opts: DiagramOpts = {}): string {
-  const { accent = false, compact = false } = opts;
-  const bom = bomBySku[set.sku];
-  if (!bom) return '';
-  const FLOOR = 96;
-  const ENVELOPE_IN = 16 * 12;
-  const stroke = '#272727';
-  const wall = '#E8E2D9';
-  const blue = '#0E4C8B';
-  const amber = '#F7C948';
-
-  const cols = bom.cols.map((c) => ({
-    tall: c.tall ?? null,
-    upper: c.upper ?? null,
-    base: c.base ?? null,
-    worktop: !!c.worktop,
-    width: c.width ?? 24,
-  }));
-  const totalIn = cols.reduce((a, c) => a + c.width, 0);
-  const offset = Math.max(0, (ENVELOPE_IN - totalIn) / 2);
-
-  let cursor = offset;
-  const placed = cols.map((c) => {
-    const x = cursor;
-    cursor += c.width;
-    return { ...c, x };
-  });
-
-  // worktop runs (consecutive worktop cols merge into a single slab)
-  const runs: Array<{ x0: number; x1: number }> = [];
-  let run: { x0: number; x1: number } | null = null;
-  for (const c of placed) {
-    if (c.worktop) {
-      if (!run) run = { x0: c.x, x1: c.x + c.width };
-      else run.x1 = c.x + c.width;
-    } else if (run) { runs.push(run); run = null; }
-  }
-  if (run) runs.push(run);
-
-  const parts: string[] = [];
-  parts.push(`<rect x="0" y="0" width="${ENVELOPE_IN}" height="${FLOOR}" fill="${wall}" opacity="0.22"/>`);
-  if (!compact) {
-    for (let i = 0; i <= 8; i++) {
-      const tx = i * 24;
-      parts.push(`<line x1="${tx}" y1="${FLOOR}" x2="${tx}" y2="${FLOOR + 1.8}" stroke="${stroke}" stroke-width="0.4" opacity="0.4"/>`);
-    }
-  }
-  parts.push(`<line x1="0" y1="${FLOOR}" x2="${ENVELOPE_IN}" y2="${FLOOR}" stroke="${stroke}" stroke-width="0.6"/>`);
-
-  for (const c of placed) {
-    const x = c.x, w = c.width;
-
-    if (c.tall) {
-      const h = 84;
-      const top = FLOOR - h;
-      const drawers = c.tall === 'UC2484DB3' ? 3 : c.tall === 'UC2484DB4' ? 4 : c.tall === 'UC2484DB5' ? 5 : 0;
-      const drawerBandH = drawers * 6;
-      const drawerTop = FLOOR - drawerBandH;
-      parts.push(`<rect x="${x}" y="${top}" width="${w}" height="${h}" fill="#FFFFFF" stroke="${stroke}" stroke-width="0.6"/>`);
-      parts.push(`<line x1="${x + w / 2}" y1="${top + 1}" x2="${x + w / 2}" y2="${drawers ? drawerTop - 1 : FLOOR - 1}" stroke="${stroke}" stroke-width="0.4"/>`);
-      if (drawers > 0) {
-        parts.push(`<line x1="${x}" y1="${drawerTop}" x2="${x + w}" y2="${drawerTop}" stroke="${stroke}" stroke-width="0.6"/>`);
-        for (let i = 0; i < drawers - 1; i++) {
-          const dy = drawerTop + (i + 1) * (drawerBandH / drawers);
-          parts.push(`<line x1="${x}" y1="${dy}" x2="${x + w}" y2="${dy}" stroke="${stroke}" stroke-width="0.35"/>`);
-        }
-      }
-    }
-
-    if (c.upper) {
-      const h = 30;
-      const top = FLOOR - 90; // upper top edge at 90"
-      const openShelf = c.upper === 'W3630-OS';
-      parts.push(`<rect x="${x}" y="${top}" width="${w}" height="${h}" fill="${openShelf ? '#F8F5F0' : '#FFFFFF'}" stroke="${stroke}" stroke-width="0.6"/>`);
-      if (openShelf) {
-        parts.push(`<line x1="${x + 1}" y1="${top + h / 2}" x2="${x + w - 1}" y2="${top + h / 2}" stroke="${stroke}" stroke-width="0.4"/>`);
-      } else {
-        parts.push(`<line x1="${x + w / 2}" y1="${top + 1}" x2="${x + w / 2}" y2="${top + h - 1}" stroke="${stroke}" stroke-width="0.4"/>`);
-      }
-    }
-
-    if (c.base) {
-      const h = 34.5;
-      const top = FLOOR - h;
-      const openShelf = c.base.endsWith('-OS');
-      const drawers = c.base === 'DB324' ? 3 : c.base === 'DB424' ? 4 : c.base === 'DB524' ? 5 : 0;
-      const door = c.base.endsWith('-FH');
-      parts.push(`<rect x="${x}" y="${top}" width="${w}" height="${h}" fill="${openShelf ? '#F8F5F0' : '#FFFFFF'}" stroke="${stroke}" stroke-width="0.6"/>`);
-      parts.push(`<rect x="${x}" y="${FLOOR - 4}" width="${w}" height="4" fill="${wall}" stroke="${stroke}" stroke-width="0.4"/>`);
-      if (openShelf) {
-        parts.push(`<line x1="${x + 1}" y1="${top + h / 2 - 3}" x2="${x + w - 1}" y2="${top + h / 2 - 3}" stroke="${stroke}" stroke-width="0.35"/>`);
-      }
-      if (door) {
-        parts.push(`<line x1="${x + w / 2}" y1="${top + 1}" x2="${x + w / 2}" y2="${FLOOR - 5}" stroke="${stroke}" stroke-width="0.4"/>`);
-      }
-      if (drawers > 0) {
-        for (let i = 1; i < drawers; i++) {
-          const dy = top + (i * (h - 4) / drawers);
-          parts.push(`<line x1="${x}" y1="${dy}" x2="${x + w}" y2="${dy}" stroke="${stroke}" stroke-width="0.35"/>`);
-        }
-      }
-    }
-  }
-
-  // worktop slabs
-  for (const r of runs) {
-    const y = FLOOR - 36;
-    parts.push(`<rect x="${r.x0 - 0.5}" y="${y}" width="${r.x1 - r.x0 + 1}" height="1.5" fill="${accent ? amber : stroke}"/>`);
-  }
-
-  // set width underline
-  if (totalIn > 0) {
-    parts.push(`<line x1="${offset}" y1="${FLOOR + 2.5}" x2="${offset + totalIn}" y2="${FLOOR + 2.5}" stroke="${accent ? amber : blue}" stroke-width="1.2"/>`);
-  }
-
-  return `<svg viewBox="0 0 ${ENVELOPE_IN} ${FLOOR + 6}" preserveAspectRatio="xMidYMax meet" class="w-full h-full" style="overflow: visible">${parts.join('')}</svg>`;
-}
-
-// Client-side dataset: keep minimal
 const clientSets = sets.map((s) => ({
-  id: s.id,
-  title: s.title,
-  widthFt: s.widthFt,
-  pieces: s.pieces,
-  drawers: s.drawers,
-  msrp: s.msrp,
-  tags: s.useCaseTags ?? [],
-  primaryLabel: primaryTagLabel(s),
+  slug: s.id,
+  name: s.title,
+  width: s.widthFt,
+  pcs: s.pieces,
+  price: s.msrp,
+  tag: primaryTag(s),
+  sub: (s.specialFeatures ?? []).slice(0, 2).join(' · '),
 }));
-
-const defaultWall = 8;
 ---
 
 <BaseLayout
   title="Sets"
-  description="Pre-designed Klovo garage cabinet sets from 2 ft to 16 ft. 500 lbs per cabinet, moisture-resistant, 100% Made in USA."
+  description="Pre-designed Klovo garage cabinet sets from 2 ft to 16 ft. Pick the widths you're considering — we'll show every set that fits."
 >
-  <!-- Hero -->
-  <section class="pt-12 lg:pt-20 pb-8 lg:pb-10 bg-warm-white">
+  <section class="klovo-sets-hero">
     <div class="section-container">
-      <div class="max-w-3xl">
-        <p class="text-klovo-amber font-semibold text-sm uppercase mb-3" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-          The Collection
-        </p>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-5 leading-[1.05]" style="letter-spacing: -0.02em;">
-          Start with your wall.
-        </h1>
-        <p class="text-lg text-klovo-grey leading-relaxed max-w-2xl">
-          Klovo sets run from 2 to 16 feet in 2-foot increments. Drag the ruler to match your wall — we'll show you every set that fits.
-        </p>
-      </div>
+      <p class="kicker">The Collection</p>
+      <h1>Start with your wall.</h1>
+      <p class="lede">Klovo sets run from 2 to 16 feet in 2-foot increments. Pick the widths you're considering — we'll show every set that fits.</p>
     </div>
   </section>
 
-  <!-- Width scrubber (full-width row) -->
-  <section class="pb-6 lg:pb-10 bg-warm-white">
+  <section class="picker-wrap">
     <div class="section-container">
-      <div class="rounded-lg p-6 md:p-10 bg-pure-white" style="border: 1px solid #E8E2D9;">
-        <div class="grid grid-cols-1 md:grid-cols-[auto_minmax(0,1fr)] gap-6 md:gap-10 items-center">
-          <div class="flex items-baseline gap-3">
-            <span id="wall-ft-label" class="text-6xl md:text-7xl font-bold text-charcoal" style="font-family: 'Orbitron', sans-serif; line-height: 1;">
-              {defaultWall}
-            </span>
-            <span class="text-xl text-klovo-grey" style="font-family: 'Oxanium', monospace;">ft wall</span>
+      <div class="picker-card">
+        <div class="picker-head">
+          <div class="picker-head-left">
+            <div class="label">Wall width</div>
+            <h2><span class="count" id="width-count">2</span> widths selected</h2>
           </div>
-          <div>
-            <input
-              id="wall-ft-input"
-              type="range"
-              min="2"
-              max="16"
-              step="2"
-              value={defaultWall}
-              class="klovo-range w-full"
-              aria-label="Wall width in feet"
-            />
-            <div id="wall-ft-ticks" class="flex justify-between mt-3 text-[11px] uppercase" style="font-family: 'Oxanium', monospace; color: #858485; letter-spacing: 0.12em;">
-              {[2,4,6,8,10,12,14,16].map((n) => (
-                <span data-ft={n} class={n === defaultWall ? 'text-klovo-blue font-semibold' : ''}>{n}′</span>
-              ))}
-            </div>
+          <div class="picker-head-right">
+            <button type="button" class="picker-text-btn" data-preset="common">Common sizes</button>
+            <button type="button" class="picker-text-btn" data-preset="all">Select all</button>
+            <button type="button" class="picker-text-btn" data-preset="none">Clear</button>
           </div>
         </div>
+
+        <div class="chip-row" id="chip-row" role="group" aria-label="Wall widths"></div>
+
+        <div class="picker-foot">
+          <div class="selected-summary">Showing <b id="match-count">0</b> sets at <b id="match-widths">—</b></div>
+          <div class="price">From <b id="match-min">—</b></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Matching sets at selected width -->
-  <section class="py-10 lg:py-16 bg-warm-white">
+  <section class="results">
     <div class="section-container">
-      <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+      <div class="results-head">
         <div>
-          <p class="text-klovo-amber font-semibold text-sm uppercase mb-2" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-            Fits your wall
-          </p>
-          <h2 class="text-2xl md:text-3xl font-bold text-charcoal" style="letter-spacing: -0.02em;">
-            <span id="match-count">0</span> sets at <span id="match-ft">{defaultWall}</span> ft
-          </h2>
+          <p class="kicker">Fits your wall</p>
+          <h2><span class="count-big" id="results-count">0</span> sets</h2>
         </div>
-        <p id="match-fallback" class="hidden spec-mono text-[11px] text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;"></p>
+        <div class="results-filter-pill" id="filter-pill">—</div>
       </div>
-
-      <div id="match-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-        {sets.map((s) => (
-          <a
-            href={`/sets/${s.id}/`}
-            class="match-card group block"
-            data-match-width={s.widthFt}
-          >
-            <div class="bg-pure-white rounded-lg overflow-hidden h-full flex flex-col transition-shadow group-hover:shadow-lg" style="border: 1px solid #E8E2D9;">
-              <div class="p-4 pb-2 flex items-center justify-between">
-                <span class="text-[11px] uppercase text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-                  {s.widthFt} ft · {s.pieces} pc
-                </span>
-                <span class="text-[11px] uppercase text-klovo-blue font-semibold" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-                  {primaryTagLabel(s)}
-                </span>
-              </div>
-              {s.imagesAvailable ? (
-                <div class="img-zoom-container aspect-[16/10] bg-warm-neutral">
-                  <img src={s.image} alt={s.title} class="w-full h-full object-cover" loading="lazy" />
-                </div>
-              ) : (
-                <div class="px-4" style="height: 140px;" set:html={diagramSvg(s, { accent: true, compact: true })} />
-              )}
-              <div class="p-5 pt-3 border-t flex-1 flex flex-col" style="border-color: #E8E2D9;">
-                <div class="flex items-baseline justify-between gap-4 mb-1">
-                  <h3 class="text-lg font-semibold text-charcoal group-hover:text-klovo-blue transition-colors leading-tight">
-                    {s.title}
-                  </h3>
-                  <span class="text-klovo-blue font-bold shrink-0" style="font-family: 'Orbitron', sans-serif;">
-                    {fmtPrice(s.msrp)}
-                  </span>
-                </div>
-                <p class="text-[14px] text-klovo-grey leading-snug mb-4">
-                  {(s.specialFeatures ?? []).slice(0, 2).join(' · ') || (s.imagesAvailable ? '' : 'Image coming soon')}
-                </p>
-                <span class="mt-auto inline-flex items-center gap-1 text-klovo-blue font-semibold text-sm">
-                  View this set <span aria-hidden="true">→</span>
-                </span>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Filter + grid -->
-  <section class="py-12 lg:py-20 bg-warm-neutral">
-    <div class="section-container">
-      <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
-        <div>
-          <p class="text-klovo-amber font-semibold text-sm uppercase mb-2" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-            All sets
-          </p>
-          <h2 class="text-3xl md:text-4xl font-bold text-charcoal" style="letter-spacing: -0.02em;">
-            <span id="grid-count">{sets.length}</span> sets, 2 to 16 ft.
-          </h2>
-        </div>
-        <div id="tag-filters" class="flex flex-wrap gap-2">
-          <button type="button" data-tag="all" class="tag-chip px-4 py-2 text-sm font-medium rounded-full on">All</button>
-          {activeTagsInData.map((t) => (
-            <button type="button" data-tag={t} class="tag-chip px-4 py-2 text-sm font-medium rounded-full">
-              {TAG_META[t].label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div id="sets-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-        {sets.map((s) => (
-          <a
-            href={`/sets/${s.id}/`}
-            class="set-card group block"
-            data-tags={(s.useCaseTags ?? []).join(',')}
-          >
-            <div class="bg-pure-white rounded-lg overflow-hidden transition-shadow group-hover:shadow-lg" style="border: 1px solid #E8E2D9;">
-              <div class="p-4 pb-2 flex items-center justify-between">
-                <span class="text-[11px] uppercase text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-                  {s.widthFt} ft · {s.pieces} pc
-                </span>
-                <span class="text-[11px] uppercase text-klovo-blue font-semibold" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-                  {primaryTagLabel(s)}
-                </span>
-              </div>
-              {s.imagesAvailable ? (
-                <div class="img-zoom-container aspect-[16/10] bg-warm-neutral">
-                  <img src={s.image} alt={s.title} class="w-full h-full object-cover" loading="lazy" />
-                </div>
-              ) : (
-                <div class="px-4" style="height: 120px;" set:html={diagramSvg(s, { compact: true })} />
-              )}
-              <div class="p-5 pt-3 border-t" style="border-color: #E8E2D9;">
-                <div class="flex items-baseline justify-between gap-4 mb-1">
-                  <h3 class="text-lg font-semibold text-charcoal group-hover:text-klovo-blue transition-colors leading-tight">
-                    {s.title}
-                  </h3>
-                  <span class="text-klovo-blue font-bold shrink-0" style="font-family: 'Orbitron', sans-serif;">
-                    {fmtPrice(s.msrp)}
-                  </span>
-                </div>
-                <p class="text-[14px] text-klovo-grey leading-snug">
-                  {(s.specialFeatures ?? []).slice(0, 2).join(' · ') || (s.imagesAvailable ? '' : 'Image coming soon')}
-                </p>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <div id="empty-state" class="hidden text-center py-16 text-klovo-grey">
-        No sets match that filter. Try a different category or width.
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-16 lg:py-20 bg-warm-white">
-    <div class="section-container text-center">
-      <h2 class="text-3xl font-bold text-charcoal mb-4" style="letter-spacing: -0.02em;">Ready to transform your garage?</h2>
-      <a href="/where-to-buy/" class="btn-primary">Find a Retailer <span aria-hidden="true">→</span></a>
+      <div class="grid" id="grid"></div>
+      <div class="empty" id="empty" style="display:none;">No widths selected — pick at least one above.</div>
     </div>
   </section>
 
   <style>
-    .klovo-range {
-      -webkit-appearance: none;
-      appearance: none;
-      height: 2px;
-      background: #E8E2D9;
-      outline: none;
+    .klovo-sets-hero,
+    .picker-wrap,
+    .results {
+      --klovo-blue: #0E4C8B;
+      --klovo-amber: #F7C948;
+      --charcoal: #272727;
+      --warm-white: #F8F5F0;
+      --warm-neutral: #E8E2D9;
+      --pure-white: #FFFFFF;
+      --klovo-grey: #858485;
+      --font-primary: 'Jost', system-ui, sans-serif;
+      --font-accent: 'Orbitron', monospace;
+      --font-tech: 'Oxanium', sans-serif;
     }
-    .klovo-range::-webkit-slider-thumb {
-      -webkit-appearance: none; appearance: none;
-      width: 22px; height: 22px;
-      background: #0E4C8B;
-      border: 3px solid #F7C948;
-      border-radius: 50%;
-      cursor: pointer;
+
+    .klovo-sets-hero { padding: 96px 0 32px; background: var(--warm-white); }
+    .klovo-sets-hero .kicker {
+      color: var(--klovo-amber); font-family: var(--font-tech);
+      font-weight: 600; font-size: 13px;
+      text-transform: uppercase; letter-spacing: 0.18em;
+      margin-bottom: 16px;
     }
-    .klovo-range::-moz-range-thumb {
-      width: 22px; height: 22px;
-      background: #0E4C8B;
-      border: 3px solid #F7C948;
-      border-radius: 50%;
-      cursor: pointer;
+    .klovo-sets-hero h1 {
+      font-size: clamp(36px, 5vw, 60px); font-weight: 700;
+      color: var(--charcoal); letter-spacing: -0.02em;
+      line-height: 1.05; margin-bottom: 20px;
     }
-    .tag-chip {
-      font-family: 'Jost', sans-serif;
-      background: #FFFFFF;
-      color: #272727;
-      border: 1px solid #E8E2D9;
-      transition: background 150ms, color 150ms, border-color 150ms;
-      cursor: pointer;
+    .klovo-sets-hero p.lede {
+      font-size: 18px; color: var(--klovo-grey);
+      max-width: 640px; line-height: 1.55;
     }
-    .tag-chip.on {
-      background: #0E4C8B;
-      color: #FFFFFF;
-      border-color: #0E4C8B;
+
+    .picker-wrap { padding: 24px 0 40px; background: var(--warm-white); }
+    .picker-card {
+      background: var(--pure-white); border: 1px solid var(--warm-neutral);
+      border-radius: 8px; padding: 32px 36px;
     }
-    .tag-chip:hover:not(.on) { border-color: #0E4C8B; }
+    .picker-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 24px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .picker-head-left .label {
+      font-family: var(--font-tech); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--klovo-grey); margin-bottom: 8px;
+    }
+    .picker-head-left h2 {
+      font-family: var(--font-primary); font-weight: 600;
+      letter-spacing: -0.015em; font-size: 22px; color: var(--charcoal);
+    }
+    .picker-head-left h2 .count {
+      font-family: var(--font-accent); font-weight: 700;
+      color: var(--klovo-blue); margin-right: 6px;
+    }
+    .picker-head-right { display: flex; gap: 8px; align-items: center; }
+    .picker-text-btn {
+      background: transparent; border: 1px solid transparent;
+      font-family: var(--font-tech); font-size: 11px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--klovo-grey); cursor: pointer;
+      padding: 8px 14px; border-radius: 4px;
+      transition: all 150ms ease; font-weight: 600;
+    }
+    .picker-text-btn:hover { color: var(--klovo-blue); border-color: var(--warm-neutral); }
+
+    .chip-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .chip {
+      --chip-bg: var(--pure-white);
+      --chip-fg: var(--charcoal);
+      --chip-br: rgba(39,39,39,0.18);
+      position: relative; background: var(--chip-bg); color: var(--chip-fg);
+      border: 1.5px solid var(--chip-br); border-radius: 6px;
+      padding: 14px 20px 12px; cursor: pointer;
+      transition: transform 150ms cubic-bezier(0.4,0,0.2,1), border-color 150ms, background 150ms, color 150ms;
+      font-family: var(--font-primary);
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      min-width: 72px; user-select: none;
+    }
+    .chip:hover { border-color: var(--klovo-blue); transform: translateY(-1px); }
+    .chip .ft {
+      font-family: var(--font-accent); font-weight: 700;
+      font-size: 22px; line-height: 1; letter-spacing: -0.01em;
+    }
+    .chip .u {
+      font-family: var(--font-tech); font-size: 10px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--klovo-grey); margin-top: 2px;
+    }
+    .chip .check {
+      position: absolute; top: 6px; right: 6px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: transparent; color: transparent;
+      display: grid; place-items: center;
+      transition: all 150ms;
+    }
+    .chip .check svg { width: 10px; height: 10px; }
+    .chip .pc-badge {
+      position: absolute; top: -7px; right: 8px;
+      background: var(--warm-neutral); color: var(--charcoal);
+      font-family: var(--font-tech); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.12em; padding: 2px 6px;
+      border-radius: 3px; opacity: 0.7;
+    }
+    .chip[aria-pressed="true"] {
+      --chip-bg: var(--klovo-blue);
+      --chip-fg: var(--pure-white);
+      --chip-br: var(--klovo-blue);
+      box-shadow: 0 4px 14px rgba(14,76,139,0.18);
+    }
+    .chip[aria-pressed="true"] .u { color: rgba(248,245,240,0.72); }
+    .chip[aria-pressed="true"] .check { background: var(--klovo-amber); color: var(--charcoal); }
+    .chip[aria-pressed="true"] .pc-badge { opacity: 0; }
+    .chip:focus-visible { outline: 2px solid var(--klovo-amber); outline-offset: 2px; }
+
+    .picker-foot {
+      margin-top: 20px; padding-top: 18px;
+      border-top: 1px dashed rgba(39,39,39,0.15);
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; flex-wrap: wrap;
+      font-family: var(--font-tech); font-size: 11px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--klovo-grey);
+    }
+    .picker-foot .selected-summary b { color: var(--charcoal); font-weight: 600; }
+    .picker-foot .price { color: var(--charcoal); font-family: var(--font-tech); }
+    .picker-foot .price b {
+      font-family: var(--font-accent); color: var(--klovo-blue);
+      font-size: 13px; letter-spacing: 0;
+    }
+
+    @media (max-width: 640px) {
+      .picker-card { padding: 24px 20px; }
+      .chip { padding: 12px 14px 10px; min-width: 60px; }
+      .chip .ft { font-size: 18px; }
+    }
+
+    .results { padding: 40px 0 96px; background: var(--warm-white); }
+    .results-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 24px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .results-head .kicker {
+      color: var(--klovo-amber); font-family: var(--font-tech);
+      font-weight: 600; font-size: 13px;
+      text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 8px;
+    }
+    .results-head h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.015em; }
+    .results-head h2 .count-big { font-family: var(--font-accent); color: var(--klovo-blue); }
+    .results-filter-pill {
+      font-family: var(--font-tech); font-size: 11px;
+      letter-spacing: 0.14em; color: var(--klovo-grey);
+      text-transform: uppercase;
+    }
+
+    .results .grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .results .card {
+      background: var(--pure-white); border: 1px solid var(--warm-neutral);
+      border-radius: 6px; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: box-shadow 200ms, transform 200ms;
+      text-decoration: none; color: inherit;
+    }
+    .results .card:hover { box-shadow: 0 8px 24px rgba(39,39,39,0.08); transform: translateY(-2px); }
+    .card-top {
+      padding: 12px 16px; display: flex; justify-content: space-between;
+      font-family: var(--font-tech); font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .card-top .meta { color: var(--klovo-grey); }
+    .card-top .tag { color: var(--klovo-blue); font-weight: 600; }
+    .card-diag { height: 140px; padding: 0 16px; background: var(--warm-white); }
+    .card-diag svg { width: 100%; height: 100%; overflow: visible; }
+    .card-body {
+      padding: 16px 20px 20px; border-top: 1px solid var(--warm-neutral);
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .card-body h3 { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+    .card-body .price {
+      font-family: var(--font-accent); font-weight: 700;
+      color: var(--klovo-blue); font-size: 15px;
+    }
+    .card-row { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 6px; }
+    .card-body p {
+      font-size: 14px; color: var(--klovo-grey);
+      line-height: 1.45; margin-bottom: 14px;
+    }
+    .card-body .view {
+      margin-top: auto; color: var(--klovo-blue);
+      font-weight: 600; font-size: 14px;
+    }
+    .empty {
+      text-align: center; padding: 64px 20px;
+      color: var(--klovo-grey); font-family: var(--font-tech);
+      letter-spacing: 0.14em; text-transform: uppercase; font-size: 12px;
+    }
   </style>
 
-  <script is:inline define:vars={{ clientSets }}>
-    (function () {
-      const sets = clientSets;
-      let wallFt = 8;
-      let activeTag = 'all';
+  <script is:inline define:vars={{ SETS: clientSets }}>
+    const WIDTHS = [2,4,6,8,10,12,14,15,16];
+    const DEFAULT = new Set([8, 10]);
+    const COMMON  = [6,8,10,12];
 
-      const $ = (id) => document.getElementById(id);
-      const fmtPrice = (n) => '$' + n.toLocaleString('en-US');
+    let selected = new Set(DEFAULT);
 
-      function updateMatch() {
-        // Exact matches at current wallFt
-        let matches = sets.filter((s) => s.widthFt === wallFt);
-        let fallback = '';
-        if (matches.length === 0) {
-          // No exact match — find nearest widthFt that has sets
-          const widths = [...new Set(sets.map((s) => s.widthFt))];
-          const nearestFt = widths.slice().sort((a, b) => Math.abs(a - wallFt) - Math.abs(b - wallFt))[0];
-          matches = sets.filter((s) => s.widthFt === nearestFt);
-          fallback = `No ${wallFt} ft sets — showing closest (${nearestFt} ft)`;
-        }
-        const matchIds = new Set(matches.map((m) => m.id));
-        document.querySelectorAll('.match-card').forEach((card) => {
-          const w = Number(card.getAttribute('data-match-width'));
-          const visible = matches.some((m) => m.widthFt === w);
-          card.classList.toggle('hidden', !visible);
-        });
-        $('match-count').textContent = matches.length;
-        $('match-ft').textContent = wallFt;
-        const fb = $('match-fallback');
-        if (fallback) { fb.textContent = fallback; fb.classList.remove('hidden'); }
-        else { fb.classList.add('hidden'); }
-      }
+    const chipRow = document.getElementById('chip-row');
+    const countForWidth = (w) => SETS.filter(s => s.width === w).length;
 
-      function updateTicks() {
-        document.querySelectorAll('#wall-ft-ticks span').forEach((el) => {
-          const active = Number(el.getAttribute('data-ft')) === wallFt;
-          el.classList.toggle('text-klovo-blue', active);
-          el.classList.toggle('font-semibold', active);
-        });
-      }
-
-      function filterGrid() {
-        let visible = 0;
-        document.querySelectorAll('.set-card').forEach((card) => {
-          const tags = (card.getAttribute('data-tags') || '').split(',').filter(Boolean);
-          const show = activeTag === 'all' || tags.includes(activeTag);
-          card.classList.toggle('hidden', !show);
-          if (show) visible++;
-        });
-        $('grid-count').textContent = visible;
-        $('empty-state').classList.toggle('hidden', visible !== 0);
-      }
-
-      $('wall-ft-input').addEventListener('input', (e) => {
-        wallFt = Number(e.target.value);
-        $('wall-ft-label').textContent = wallFt;
-        updateTicks();
-        updateMatch();
-      });
-
-      document.querySelectorAll('#tag-filters .tag-chip').forEach((btn) => {
+    function renderChips() {
+      chipRow.innerHTML = WIDTHS.map(w => {
+        const on = selected.has(w);
+        const pc = countForWidth(w);
+        return `
+          <button type="button" class="chip" role="button" aria-pressed="${on}" data-width="${w}">
+            ${pc ? `<span class="pc-badge">${pc}</span>` : ''}
+            <span class="ft">${w}</span>
+            <span class="u">FT</span>
+            <span class="check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+          </button>
+        `;
+      }).join('');
+      chipRow.querySelectorAll('.chip').forEach(btn => {
         btn.addEventListener('click', () => {
-          document.querySelectorAll('#tag-filters .tag-chip').forEach((b) => b.classList.remove('on'));
-          btn.classList.add('on');
-          activeTag = btn.getAttribute('data-tag');
-          filterGrid();
+          const w = Number(btn.dataset.width);
+          if (selected.has(w)) selected.delete(w); else selected.add(w);
+          update();
         });
       });
+    }
 
-      updateMatch();
-    })();
+    function renderSetSVG(set) {
+      const envelope = 192;
+      const FLOOR = 96;
+      const total = set.width * 12;
+      const offset = (envelope - total) / 2;
+
+      const layouts = {
+        '2-1': [{ tall: 1, w: 24 }],
+        '4-2': [{ tall: 1, w: 24 }, { upper: 1, w: 24 }],
+        '6-3': [{ upper: 1, base: 'BOS', worktop: 1, w: 36 }, { worktop: 1, base: 'BOS', w: 36 }],
+        '6-4': [{ upper: 'OS', base: 'BOS', worktop: 1, w: 36 }, { worktop: 1, base: 'BOS', w: 36 }],
+        '8-5': [{ upper: 1, base: 'BOS', worktop: 1, w: 36 }, { worktop: 1, base: 'BOS', w: 36 }, { tall: 1, w: 24 }],
+        '8-6': [{ upper: 1, base: 'BFH', worktop: 1, w: 36 }, { upper: 1, base: 'BFH', worktop: 1, w: 36 }],
+        '10-6': [{ tall: 1, w: 24 }, { upper: 1, base: 'BOS', worktop: 1, w: 36 }, { worktop: 1, base: 'BOS', w: 36 }],
+        '10-7': [{ upper: 1, base: 'DB3', worktop: 1, w: 36 }, { upper: 1, base: 'BFH', worktop: 1, w: 36 }, { tall: 1, w: 24 }],
+        '10-8': [{ upper: 1, base: 'DB4', worktop: 1, w: 36 }, { upper: 1, base: 'DB4', worktop: 1, w: 36 }, { base: 'BFH', worktop: 1, w: 24 }, { tall: 1, w: 24 }],
+        '12-8': [{ tall: 1, w: 24 }, { tall: 1, w: 24 }, { upper: 1, base: 'BFH', worktop: 1, w: 36 }, { upper: 1, base: 'BOS', worktop: 1, w: 36 }],
+        '14-9': [{ upper: 1, base: 'DB3', worktop: 1, w: 36 }, { upper: 1, base: 'BFH', worktop: 1, w: 36 }, { tall: 1, w: 24 }, { tall: 1, w: 24 }, { tall: 1, w: 24 }],
+        '15-10': [{ tall: 1, w: 24 }, { tall: 1, w: 24 }, { tall: 1, w: 24 }, { upper: 1, base: 'DB4', worktop: 1, w: 36 }, { upper: 1, base: 'DB4', worktop: 1, w: 36 }, { base: 'BFH', worktop: 1, w: 24 }],
+        '16-8': [{ tall: 1, w: 24 }, { tall: 1, w: 24 }, { tall: 'DB', w: 24 }, { tall: 1, w: 24 }, { tall: 'DB', w: 24 }, { tall: 1, w: 24 }, { tall: 1, w: 24 }, { tall: 1, w: 24 }],
+      };
+
+      const cols = layouts[`${set.width}-${set.pcs}`] || [{ tall: 1, w: Math.min(total, 24) }];
+
+      let cur = offset;
+      const placed = cols.map(c => { const x = cur; cur += c.w; return { ...c, x }; });
+
+      const runs = []; let run = null;
+      placed.forEach(c => {
+        if (c.worktop) { if (!run) run = { x0: c.x, x1: c.x + c.w }; else run.x1 = c.x + c.w; }
+        else if (run) { runs.push(run); run = null; }
+      });
+      if (run) runs.push(run);
+
+      const parts = [];
+      parts.push(`<rect x="0" y="0" width="${envelope}" height="${FLOOR}" fill="#E8E2D9" opacity="0.22"/>`);
+      parts.push(`<line x1="0" y1="${FLOOR}" x2="${envelope}" y2="${FLOOR}" stroke="#272727" stroke-width="0.6"/>`);
+
+      placed.forEach(c => {
+        const x = c.x, w = c.w;
+        if (c.tall) {
+          parts.push(`<rect x="${x}" y="${FLOOR-84}" width="${w}" height="84" fill="#FFFFFF" stroke="#272727" stroke-width="0.6"/>`);
+          parts.push(`<line x1="${x + w/2}" y1="${FLOOR-83}" x2="${x + w/2}" y2="${FLOOR-1}" stroke="#272727" stroke-width="0.4"/>`);
+          if (c.tall === 'DB') {
+            const dTop = FLOOR - 18;
+            parts.push(`<line x1="${x}" y1="${dTop}" x2="${x+w}" y2="${dTop}" stroke="#272727" stroke-width="0.6"/>`);
+            parts.push(`<line x1="${x}" y1="${dTop+6}" x2="${x+w}" y2="${dTop+6}" stroke="#272727" stroke-width="0.35"/>`);
+            parts.push(`<line x1="${x}" y1="${dTop+12}" x2="${x+w}" y2="${dTop+12}" stroke="#272727" stroke-width="0.35"/>`);
+          }
+        }
+        if (c.upper) {
+          const openShelf = c.upper === 'OS';
+          parts.push(`<rect x="${x}" y="${FLOOR-90}" width="${w}" height="30" fill="${openShelf?'#F8F5F0':'#FFFFFF'}" stroke="#272727" stroke-width="0.6"/>`);
+          if (openShelf) parts.push(`<line x1="${x+1}" y1="${FLOOR-75}" x2="${x+w-1}" y2="${FLOOR-75}" stroke="#272727" stroke-width="0.4"/>`);
+          else parts.push(`<line x1="${x+w/2}" y1="${FLOOR-89}" x2="${x+w/2}" y2="${FLOOR-61}" stroke="#272727" stroke-width="0.4"/>`);
+        }
+        if (c.base) {
+          const top = FLOOR - 34.5;
+          const openShelf = c.base === 'BOS';
+          const drawers = c.base === 'DB3' ? 3 : c.base === 'DB4' ? 4 : c.base === 'DB5' ? 5 : 0;
+          const door = c.base === 'BFH';
+          parts.push(`<rect x="${x}" y="${top}" width="${w}" height="34.5" fill="${openShelf?'#F8F5F0':'#FFFFFF'}" stroke="#272727" stroke-width="0.6"/>`);
+          parts.push(`<rect x="${x}" y="${FLOOR-4}" width="${w}" height="4" fill="#E8E2D9" stroke="#272727" stroke-width="0.4"/>`);
+          if (openShelf) parts.push(`<line x1="${x+1}" y1="${top+14.5}" x2="${x+w-1}" y2="${top+14.5}" stroke="#272727" stroke-width="0.35"/>`);
+          if (door)      parts.push(`<line x1="${x+w/2}" y1="${top+1}" x2="${x+w/2}" y2="${FLOOR-5}" stroke="#272727" stroke-width="0.4"/>`);
+          if (drawers) for (let i=1;i<drawers;i++) {
+            const dy = top + i*(30.5)/drawers;
+            parts.push(`<line x1="${x}" y1="${dy}" x2="${x+w}" y2="${dy}" stroke="#272727" stroke-width="0.35"/>`);
+          }
+        }
+      });
+
+      runs.forEach(r => parts.push(`<rect x="${r.x0-0.5}" y="${FLOOR-36}" width="${r.x1-r.x0+1}" height="1.5" fill="#F7C948"/>`));
+      parts.push(`<line x1="${offset}" y1="${FLOOR+2.5}" x2="${offset+total}" y2="${FLOOR+2.5}" stroke="#F7C948" stroke-width="1.2"/>`);
+
+      return `<svg viewBox="0 0 ${envelope} 102" preserveAspectRatio="xMidYMax meet">${parts.join('')}</svg>`;
+    }
+
+    function renderResults() {
+      const grid = document.getElementById('grid');
+      const empty = document.getElementById('empty');
+      const matches = SETS.filter(s => selected.has(s.width)).sort((a,b) => a.width - b.width || a.price - b.price);
+
+      document.getElementById('results-count').textContent = matches.length;
+      document.getElementById('match-count').textContent = matches.length;
+
+      const sortedSel = Array.from(selected).sort((a,b)=>a-b);
+      const widthsStr = sortedSel.length ? sortedSel.map(w=>w+' ft').join(' · ') : '—';
+      document.getElementById('match-widths').textContent = widthsStr;
+      document.getElementById('filter-pill').textContent = sortedSel.length ? `Filter: ${widthsStr}` : 'No filter';
+      document.getElementById('width-count').textContent = selected.size;
+
+      const minPrice = matches.length ? Math.min(...matches.map(s=>s.price)) : null;
+      document.getElementById('match-min').textContent = minPrice ? '$'+minPrice.toLocaleString() : '—';
+
+      if (matches.length === 0) {
+        grid.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
+      grid.innerHTML = matches.map(s => `
+        <a href="/sets/${s.slug}/" class="card">
+          <div class="card-top">
+            <span class="meta">${s.width} ft · ${s.pcs} pc</span>
+            <span class="tag">${s.tag}</span>
+          </div>
+          <div class="card-diag">${renderSetSVG(s)}</div>
+          <div class="card-body">
+            <div class="card-row">
+              <h3>${s.name}</h3>
+              <span class="price">$${s.price.toLocaleString()}</span>
+            </div>
+            <p>${s.sub}</p>
+            <span class="view">View this set →</span>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    document.querySelectorAll('[data-preset]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const p = btn.dataset.preset;
+        if (p === 'all')    selected = new Set(WIDTHS);
+        if (p === 'none')   selected = new Set();
+        if (p === 'common') selected = new Set(COMMON);
+        update();
+      });
+    });
+
+    function update() {
+      chipRow.querySelectorAll('.chip').forEach(b => {
+        b.setAttribute('aria-pressed', selected.has(Number(b.dataset.width)));
+      });
+      renderResults();
+    }
+
+    renderChips();
+    update();
   </script>
 </BaseLayout>
