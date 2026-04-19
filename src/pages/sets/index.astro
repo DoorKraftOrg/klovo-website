@@ -25,112 +25,147 @@ const fmtPrice = (n: number) => `$${n.toLocaleString('en-US')}`;
 const primaryTag = (s: any) => (s.useCaseTags?.[0] ?? 'storage') as string;
 const primaryTagLabel = (s: any) => TAG_META[primaryTag(s)]?.label ?? '';
 
-// ----- Module layout helper -----
-type Module = 'L' | 'B' | 'O';
-function layoutFor(widthFt: number, tag: string): Module[] {
-  const ft = widthFt;
-  const push = (...m: Module[]) => m;
-  if (tag === 'home-gym') {
-    if (ft <= 4) return push('L', 'O');
-    if (ft <= 6) return push('L', 'O', 'L');
-    if (ft <= 8) return push('L', 'O', 'O', 'L');
-    return push('L', 'O', 'O', 'L', 'O', 'O', 'L', 'L');
-  }
-  if (tag === 'workshop' || tag === 'home-office') {
-    if (ft <= 4)  return push('B', 'B');
-    if (ft <= 6)  return push('B', 'B', 'B');
-    if (ft <= 8)  return push('L', 'B', 'B', 'B');
-    if (ft <= 12) return push('L', 'B', 'B', 'B', 'B', 'B');
-    return push('L', 'B', 'B', 'B', 'B', 'B', 'B', 'L');
-  }
-  if (tag === 'family-hub') {
-    if (ft <= 4)  return push('L', 'B');
-    if (ft <= 6)  return push('L', 'B', 'B');
-    if (ft <= 10) return push('L', 'B', 'B', 'B', 'L');
-    return push('L', 'B', 'B', 'B', 'B', 'L', 'L', 'L');
-  }
-  if (tag === 'mudroom') {
-    const m: Module[] = ['L'];
-    if (ft >= 4) m.push('B');
-    if (ft >= 8) m.push('B', 'L');
-    if (ft >= 12) m.push('B', 'L');
-    return m;
-  }
-  // storage default
-  if (ft <= 4)  return push('L', 'B');
-  if (ft <= 8)  return push('L', 'B', 'B', 'O');
-  if (ft <= 12) return push('L', 'B', 'B', 'B', 'O', 'L');
-  return push('L', 'B', 'B', 'B', 'B', 'O', 'L', 'L');
-}
+// ----- Per-set BOM (column-level SKU breakdown) used to draw real schematics -----
+type Col = { tall?: string; upper?: string; base?: string; worktop?: boolean; width?: number };
+type BomEntry = { sku: string; cols: Col[] };
+const BOM: BomEntry[] = [
+  { sku: '01-2f-1p-WHT',   cols: [{ tall: 'UC2484' }] },
+  { sku: '02-4f-2p-WHT',   cols: [{ tall: 'UC2484' }, { upper: 'W2430', width: 24 }] },
+  { sku: '03-6f-3p-WHT',   cols: [{ upper: 'W3630', worktop: true, base: 'B18-OS', width: 36 }, { worktop: true, base: 'B18-OS', width: 36 }] },
+  { sku: '04-6f-4p-WHT',   cols: [{ upper: 'W3630-OS', worktop: true, base: 'B24-OS', width: 36 }, { worktop: true, base: 'B24-OS', width: 36 }] },
+  { sku: '05-8f-5p-WHT',   cols: [{ upper: 'W3630', worktop: true, base: 'B24-OS', width: 36 }, { worktop: true, base: 'B24-OS', width: 36 }, { tall: 'UC2484' }] },
+  { sku: '06-8f-6p-WHT',   cols: [{ upper: 'W2430', worktop: true, base: 'DB324', width: 24 }, { upper: 'W2430', worktop: true, base: 'B24-FH', width: 24 }, { tall: 'UC2484' }] },
+  { sku: '07-8f-6p-WHT',   cols: [{ upper: 'W3630', worktop: true, base: 'B36-FH', width: 36 }, { upper: 'W3630', worktop: true, base: 'B36-FH', width: 36 }] },
+  { sku: '08-8f-6p-WHT',   cols: [{ upper: 'W3630', worktop: true, base: 'DB424', width: 36 }, { upper: 'W3630', worktop: true, base: 'B24-FH', width: 36 }] },
+  { sku: '09-10f-6p-WHT',  cols: [{ tall: 'UC2484' }, { upper: 'W3630', worktop: true, base: 'B36-OS', width: 36 }, { worktop: true, base: 'B36-OS', width: 36 }] },
+  { sku: '10-10f-7p-WHT',  cols: [{ upper: 'W3630', worktop: true, base: 'DB424', width: 36 }, { upper: 'W3630', worktop: true, base: 'B24-FH', width: 36 }, { tall: 'UC2484' }] },
+  { sku: '11-10f-7p-WHT',  cols: [{ upper: 'W3630', worktop: true, base: 'B36-OS', width: 36 }, { upper: 'W3630', worktop: true, base: 'B36-OS', width: 36 }, { tall: 'UC2484DB3' }] },
+  { sku: '12-10f-8p-WHT',  cols: [{ upper: 'W3630', worktop: true, base: 'DB524', width: 36 }, { upper: 'W3630', worktop: true, base: 'DB524', width: 36 }, { worktop: true, base: 'B24-FH', width: 24 }, { tall: 'UC2484' }] },
+  { sku: '13-12f-8p-WHT',  cols: [{ tall: 'UC2484' }, { tall: 'UC2484' }, { upper: 'W3630', worktop: true, base: 'B36-FH', width: 36 }, { upper: 'W3630', worktop: true, base: 'B36-OS', width: 36 }] },
+  { sku: '14-14f-9p-WHT',  cols: [{ upper: 'W3630', worktop: true, base: 'DB324', width: 36 }, { upper: 'W3630', worktop: true, base: 'B24-FH', width: 36 }, { tall: 'UC2484' }, { tall: 'UC2484' }, { tall: 'UC2484' }] },
+  { sku: '15-15f-10p-WHT', cols: [{ tall: 'UC2484' }, { tall: 'UC2484' }, { tall: 'UC2484' }, { upper: 'W3630', worktop: true, base: 'DB424', width: 36 }, { upper: 'W3630', worktop: true, base: 'DB424', width: 36 }, { worktop: true, base: 'B24-FH', width: 24 }] },
+  { sku: '16-16f-8p-WHT',  cols: [{ tall: 'UC2484' }, { tall: 'UC2484' }, { tall: 'UC2484DB3' }, { tall: 'UC2484' }, { tall: 'UC2484DB3' }, { tall: 'UC2484' }, { tall: 'UC2484' }, { tall: 'UC2484' }] },
+];
+const bomBySku: Record<string, BomEntry> = Object.fromEntries(BOM.map((b) => [b.sku, b]));
 
-// ----- SVG schematic renderer -----
-type DiagramOpts = { maxFt?: number; accent?: boolean; compact?: boolean };
+// ----- BOM-driven SVG renderer. All coords in inches. y=0 top, y=96 floor. -----
+type DiagramOpts = { accent?: boolean; compact?: boolean };
 function diagramSvg(set: any, opts: DiagramOpts = {}): string {
-  const { maxFt = 16, accent = false, compact = false } = opts;
-  const tag = primaryTag(set);
-  const modules = layoutFor(set.widthFt, tag);
-  const totalUnits = modules.length * 2;
-  const scale = set.widthFt / totalUnits;
-  const moduleFt = 2 * scale;
-  const ftPx = 40;
-  const ceilingFt = 8;
-  const cabinetTopFt = 7;
-  const baseBottomFt = 3;
-  const overheadBottomFt = 5;
-  const overheadTopFt = 7;
-  const floorPadPx = 6;
-  const envelopeFt = maxFt;
-  const viewW = envelopeFt * ftPx;
-  const viewH = ceilingFt * ftPx + floorPadPx;
-  const offsetFt = (envelopeFt - set.widthFt) / 2;
-  const blue = '#0E4C8B';
-  const amber = '#F7C948';
+  const { accent = false, compact = false } = opts;
+  const bom = bomBySku[set.sku];
+  if (!bom) return '';
+  const FLOOR = 96;
+  const ENVELOPE_IN = 16 * 12;
   const stroke = '#272727';
   const wall = '#E8E2D9';
-  const floorY = viewH - floorPadPx;
-  const parts: string[] = [];
-  parts.push(`<rect x="0" y="0" width="${viewW}" height="${floorY}" fill="${wall}" opacity="0.25"/>`);
-  if (!compact) {
-    for (let i = 0; i <= envelopeFt / 2; i++) {
-      const x = i * 2 * ftPx;
-      parts.push(`<line x1="${x}" y1="${floorY}" x2="${x}" y2="${floorY + 4}" stroke="${stroke}" stroke-width="1" opacity="0.4"/>`);
-    }
-  }
-  parts.push(`<line x1="0" y1="${floorY}" x2="${viewW}" y2="${floorY}" stroke="${stroke}" stroke-width="1.5"/>`);
-  parts.push(`<line x1="${offsetFt * ftPx}" y1="${floorY + 3}" x2="${(offsetFt + set.widthFt) * ftPx}" y2="${floorY + 3}" stroke="${accent ? amber : blue}" stroke-width="3"/>`);
+  const blue = '#0E4C8B';
+  const amber = '#F7C948';
 
-  let cursorFt = offsetFt;
-  for (const m of modules) {
-    const x = cursorFt * ftPx;
-    const w = moduleFt * ftPx;
-    if (m === 'L') {
-      const top = floorY - cabinetTopFt * ftPx;
-      const h = cabinetTopFt * ftPx;
-      const midX = x + w / 2;
-      const midY = floorY - (cabinetTopFt * ftPx) / 2;
-      const dotColor = accent ? amber : stroke;
-      parts.push(`<rect x="${x}" y="${top}" width="${w}" height="${h}" fill="#FFFFFF" stroke="${stroke}" stroke-width="1.2"/>`);
-      parts.push(`<line x1="${midX}" y1="${top + 4}" x2="${midX}" y2="${floorY - 4}" stroke="${stroke}" stroke-width="1"/>`);
-      parts.push(`<circle cx="${midX - 4}" cy="${midY}" r="1.5" fill="${dotColor}"/>`);
-      parts.push(`<circle cx="${midX + 4}" cy="${midY}" r="1.5" fill="${dotColor}"/>`);
-    } else if (m === 'B') {
-      const baseTop = floorY - baseBottomFt * ftPx;
-      const overheadTop = floorY - overheadTopFt * ftPx;
-      const overheadH = (overheadTopFt - overheadBottomFt) * ftPx;
-      parts.push(`<rect x="${x}" y="${baseTop}" width="${w}" height="${baseBottomFt * ftPx}" fill="#FFFFFF" stroke="${stroke}" stroke-width="1.2"/>`);
-      parts.push(`<line x1="${x + w / 2}" y1="${baseTop + 4}" x2="${x + w / 2}" y2="${floorY - 4}" stroke="${stroke}" stroke-width="1"/>`);
-      parts.push(`<line x1="${x}" y1="${baseTop}" x2="${x + w}" y2="${baseTop}" stroke="${accent ? amber : stroke}" stroke-width="3"/>`);
-      parts.push(`<rect x="${x}" y="${overheadTop}" width="${w}" height="${overheadH}" fill="#FFFFFF" stroke="${stroke}" stroke-width="1.2"/>`);
-      parts.push(`<line x1="${x + w / 2}" y1="${overheadTop + 4}" x2="${x + w / 2}" y2="${overheadTop + overheadH - 4}" stroke="${stroke}" stroke-width="1"/>`);
-    } else {
-      const overheadTop = floorY - overheadTopFt * ftPx;
-      const overheadH = (overheadTopFt - overheadBottomFt) * ftPx;
-      parts.push(`<rect x="${x}" y="${overheadTop}" width="${w}" height="${overheadH}" fill="#FFFFFF" stroke="${stroke}" stroke-width="1.2"/>`);
-      parts.push(`<line x1="${x + w / 2}" y1="${overheadTop + 4}" x2="${x + w / 2}" y2="${overheadTop + overheadH - 4}" stroke="${stroke}" stroke-width="1"/>`);
-    }
-    cursorFt += moduleFt;
+  const cols = bom.cols.map((c) => ({
+    tall: c.tall ?? null,
+    upper: c.upper ?? null,
+    base: c.base ?? null,
+    worktop: !!c.worktop,
+    width: c.width ?? 24,
+  }));
+  const totalIn = cols.reduce((a, c) => a + c.width, 0);
+  const offset = Math.max(0, (ENVELOPE_IN - totalIn) / 2);
+
+  let cursor = offset;
+  const placed = cols.map((c) => {
+    const x = cursor;
+    cursor += c.width;
+    return { ...c, x };
+  });
+
+  // worktop runs (consecutive worktop cols merge into a single slab)
+  const runs: Array<{ x0: number; x1: number }> = [];
+  let run: { x0: number; x1: number } | null = null;
+  for (const c of placed) {
+    if (c.worktop) {
+      if (!run) run = { x0: c.x, x1: c.x + c.width };
+      else run.x1 = c.x + c.width;
+    } else if (run) { runs.push(run); run = null; }
   }
-  return `<svg viewBox="0 0 ${viewW} ${viewH}" preserveAspectRatio="xMidYMax meet" class="w-full h-full" style="overflow: visible">${parts.join('')}</svg>`;
+  if (run) runs.push(run);
+
+  const parts: string[] = [];
+  parts.push(`<rect x="0" y="0" width="${ENVELOPE_IN}" height="${FLOOR}" fill="${wall}" opacity="0.22"/>`);
+  if (!compact) {
+    for (let i = 0; i <= 8; i++) {
+      const tx = i * 24;
+      parts.push(`<line x1="${tx}" y1="${FLOOR}" x2="${tx}" y2="${FLOOR + 1.8}" stroke="${stroke}" stroke-width="0.4" opacity="0.4"/>`);
+    }
+  }
+  parts.push(`<line x1="0" y1="${FLOOR}" x2="${ENVELOPE_IN}" y2="${FLOOR}" stroke="${stroke}" stroke-width="0.6"/>`);
+
+  for (const c of placed) {
+    const x = c.x, w = c.width;
+
+    if (c.tall) {
+      const h = 84;
+      const top = FLOOR - h;
+      const drawers = c.tall === 'UC2484DB3' ? 3 : c.tall === 'UC2484DB4' ? 4 : c.tall === 'UC2484DB5' ? 5 : 0;
+      const drawerBandH = drawers * 6;
+      const drawerTop = FLOOR - drawerBandH;
+      parts.push(`<rect x="${x}" y="${top}" width="${w}" height="${h}" fill="#FFFFFF" stroke="${stroke}" stroke-width="0.6"/>`);
+      parts.push(`<line x1="${x + w / 2}" y1="${top + 1}" x2="${x + w / 2}" y2="${drawers ? drawerTop - 1 : FLOOR - 1}" stroke="${stroke}" stroke-width="0.4"/>`);
+      if (drawers > 0) {
+        parts.push(`<line x1="${x}" y1="${drawerTop}" x2="${x + w}" y2="${drawerTop}" stroke="${stroke}" stroke-width="0.6"/>`);
+        for (let i = 0; i < drawers - 1; i++) {
+          const dy = drawerTop + (i + 1) * (drawerBandH / drawers);
+          parts.push(`<line x1="${x}" y1="${dy}" x2="${x + w}" y2="${dy}" stroke="${stroke}" stroke-width="0.35"/>`);
+        }
+      }
+    }
+
+    if (c.upper) {
+      const h = 30;
+      const top = FLOOR - 90; // upper top edge at 90"
+      const openShelf = c.upper === 'W3630-OS';
+      parts.push(`<rect x="${x}" y="${top}" width="${w}" height="${h}" fill="${openShelf ? '#F8F5F0' : '#FFFFFF'}" stroke="${stroke}" stroke-width="0.6"/>`);
+      if (openShelf) {
+        parts.push(`<line x1="${x + 1}" y1="${top + h / 2}" x2="${x + w - 1}" y2="${top + h / 2}" stroke="${stroke}" stroke-width="0.4"/>`);
+      } else {
+        parts.push(`<line x1="${x + w / 2}" y1="${top + 1}" x2="${x + w / 2}" y2="${top + h - 1}" stroke="${stroke}" stroke-width="0.4"/>`);
+      }
+    }
+
+    if (c.base) {
+      const h = 34.5;
+      const top = FLOOR - h;
+      const openShelf = c.base.endsWith('-OS');
+      const drawers = c.base === 'DB324' ? 3 : c.base === 'DB424' ? 4 : c.base === 'DB524' ? 5 : 0;
+      const door = c.base.endsWith('-FH');
+      parts.push(`<rect x="${x}" y="${top}" width="${w}" height="${h}" fill="${openShelf ? '#F8F5F0' : '#FFFFFF'}" stroke="${stroke}" stroke-width="0.6"/>`);
+      parts.push(`<rect x="${x}" y="${FLOOR - 4}" width="${w}" height="4" fill="${wall}" stroke="${stroke}" stroke-width="0.4"/>`);
+      if (openShelf) {
+        parts.push(`<line x1="${x + 1}" y1="${top + h / 2 - 3}" x2="${x + w - 1}" y2="${top + h / 2 - 3}" stroke="${stroke}" stroke-width="0.35"/>`);
+      }
+      if (door) {
+        parts.push(`<line x1="${x + w / 2}" y1="${top + 1}" x2="${x + w / 2}" y2="${FLOOR - 5}" stroke="${stroke}" stroke-width="0.4"/>`);
+      }
+      if (drawers > 0) {
+        for (let i = 1; i < drawers; i++) {
+          const dy = top + (i * (h - 4) / drawers);
+          parts.push(`<line x1="${x}" y1="${dy}" x2="${x + w}" y2="${dy}" stroke="${stroke}" stroke-width="0.35"/>`);
+        }
+      }
+    }
+  }
+
+  // worktop slabs
+  for (const r of runs) {
+    const y = FLOOR - 36;
+    parts.push(`<rect x="${r.x0 - 0.5}" y="${y}" width="${r.x1 - r.x0 + 1}" height="1.5" fill="${accent ? amber : stroke}"/>`);
+  }
+
+  // set width underline
+  if (totalIn > 0) {
+    parts.push(`<line x1="${offset}" y1="${FLOOR + 2.5}" x2="${offset + totalIn}" y2="${FLOOR + 2.5}" stroke="${accent ? amber : blue}" stroke-width="1.2"/>`);
+  }
+
+  return `<svg viewBox="0 0 ${ENVELOPE_IN} ${FLOOR + 6}" preserveAspectRatio="xMidYMax meet" class="w-full h-full" style="overflow: visible">${parts.join('')}</svg>`;
 }
 
 // Client-side dataset: keep minimal
@@ -238,7 +273,7 @@ const defaultWall = 8;
                   <img src={s.image} alt={s.title} class="w-full h-full object-cover" loading="lazy" />
                 </div>
               ) : (
-                <div class="px-4" style="height: 140px;" set:html={diagramSvg(s, { maxFt: 16, accent: true, compact: true })} />
+                <div class="px-4" style="height: 140px;" set:html={diagramSvg(s, { accent: true, compact: true })} />
               )}
               <div class="p-5 pt-3 border-t flex-1 flex flex-col" style="border-color: #E8E2D9;">
                 <div class="flex items-baseline justify-between gap-4 mb-1">
@@ -306,7 +341,7 @@ const defaultWall = 8;
                   <img src={s.image} alt={s.title} class="w-full h-full object-cover" loading="lazy" />
                 </div>
               ) : (
-                <div class="px-4" style="height: 120px;" set:html={diagramSvg(s, { maxFt: 16, compact: true })} />
+                <div class="px-4" style="height: 120px;" set:html={diagramSvg(s, { compact: true })} />
               )}
               <div class="p-5 pt-3 border-t" style="border-color: #E8E2D9;">
                 <div class="flex items-baseline justify-between gap-4 mb-1">
