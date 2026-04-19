@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const error = Astro.url.searchParams.get('error');
+const isInvalid = error === 'invalid';
+---
+
+<BaseLayout
+  title="You're on the list"
+  description="Thanks for joining the Klovo newsletter. Garage tips, new products, and the occasional dad joke."
+>
+  <section class="py-24 lg:py-32 bg-warm-neutral">
+    <div class="section-container">
+      <div class="max-w-xl mx-auto text-center reveal">
+        {isInvalid && (
+          <div class="mb-8 inline-block bg-charcoal text-pure-white text-sm px-4 py-2 rounded">
+            That email didn't look right — <a href="/#" class="underline">try again</a>.
+          </div>
+        )}
+
+        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
+          You're in.
+        </p>
+        <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4 leading-tight">
+          Check your inbox.
+        </h1>
+        <p class="text-lg text-charcoal/70 leading-relaxed mb-10">
+          We sent a welcome note to the address you entered. See you in the garage.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/sets/" class="btn-amber">
+            See our sets <span aria-hidden="true">&rarr;</span>
+          </a>
+          <a href="/" class="btn-secondary">
+            Back to home
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

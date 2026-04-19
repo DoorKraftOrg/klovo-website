@@ -56,7 +56,8 @@ import navigation from '../data/navigation.json';
         <p class="text-[15px] text-charcoal/70 mb-4">
           Garage tips, new products, and the occasional dad joke.
         </p>
-        <form class="flex gap-2" action="#" method="POST">
+        <form class="flex gap-2" action="/api/subscribe" method="POST">
+          <input type="hidden" name="source" value="footer" />
           <input
             type="email"
             name="email"

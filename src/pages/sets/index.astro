@@ -3,152 +3,448 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const allSets = await getCollection('sets');
-const sets = allSets.sort((a, b) => a.data.order - b.data.order);
+const sets = allSets
+  .map((s) => ({ id: s.id, ...s.data }))
+  .sort((a, b) => a.order - b.order);
 
-// Group by width bucket for the "Shop by Width" section
-// Width buckets: 4ft = 2-4, 8ft = 6-8, 16ft = 10-16
-const widthBucket = (w: number) => {
-  if (w <= 4) return '4ft';
-  if (w <= 8) return '8ft';
-  return '16ft';
+const TAG_META: Record<string, { label: string; blurb: string }> = {
+  'home-gym':    { label: 'Home Gym',    blurb: 'Lockers, racks, open display.' },
+  workshop:      { label: 'Workshop',    blurb: 'Worktop, drawers, pegboard.' },
+  storage:       { label: 'Storage',     blurb: 'Closed bases, overheads, lockers.' },
+  'family-hub':  { label: 'Family Hub',  blurb: 'Bench seating, cubbies, overhead.' },
+  mudroom:       { label: 'Mudroom',     blurb: 'Drop zone, hooks, seating.' },
+  'home-office': { label: 'Home Office', blurb: 'Continuous worktop, drawer base.' },
 };
 
-// Featured example per bucket (first one in each bucket with an image, fallback to first)
-const bucketsOrdered: Array<'4ft' | '8ft' | '16ft'> = ['4ft', '8ft', '16ft'];
-const bucketLabel = { '4ft': '2 to 4 feet', '8ft': '6 to 8 feet', '16ft': '10 to 16 feet' };
-const bucketLabelShort = { '4ft': '2–4 ft', '8ft': '6–8 ft', '16ft': '10–16 ft' };
-const bucketBlurb = {
-  '4ft': 'A starter set. Perfect for a children\'s playroom corner, a mudroom drop zone, or a home gym accessory wall.',
-  '8ft': 'A full wall. Big enough for a home office, a dedicated workshop, or most of a home gym.',
-  '16ft': 'The maximum setup. A complete family hub, full workshop with worktop, or a pro-level home gym.',
-};
-
-const bucketFeatured: Record<string, any> = {};
-for (const b of bucketsOrdered) {
-  const matching = sets.filter(s => widthBucket(s.data.widthFt) === b);
-  bucketFeatured[b] = matching.find(s => s.data.imagesAvailable) || matching[0];
-}
+const tagOrder = ['home-gym', 'workshop', 'storage', 'family-hub', 'mudroom', 'home-office'];
+const activeTagsInData = tagOrder.filter((t) =>
+  sets.some((s) => (s.useCaseTags ?? []).includes(t))
+);
 
 const fmtPrice = (n: number) => `$${n.toLocaleString('en-US')}`;
+const primaryTag = (s: any) => (s.useCaseTags?.[0] ?? 'storage') as string;
+const primaryTagLabel = (s: any) => TAG_META[primaryTag(s)]?.label ?? '';
+
+// ----- Module layout helper -----
+type Module = 'L' | 'B' | 'O';
+function layoutFor(widthFt: number, tag: string): Module[] {
+  const ft = widthFt;
+  const push = (...m: Module[]) => m;
+  if (tag === 'home-gym') {
+    if (ft <= 4) return push('L', 'O');
+    if (ft <= 6) return push('L', 'O', 'L');
+    if (ft <= 8) return push('L', 'O', 'O', 'L');
+    return push('L', 'O', 'O', 'L', 'O', 'O', 'L', 'L');
+  }
+  if (tag === 'workshop' || tag === 'home-office') {
+    if (ft <= 4)  return push('B', 'B');
+    if (ft <= 6)  return push('B', 'B', 'B');
+    if (ft <= 8)  return push('L', 'B', 'B', 'B');
+    if (ft <= 12) return push('L', 'B', 'B', 'B', 'B', 'B');
+    return push('L', 'B', 'B', 'B', 'B', 'B', 'B', 'L');
+  }
+  if (tag === 'family-hub') {
+    if (ft <= 4)  return push('L', 'B');
+    if (ft <= 6)  return push('L', 'B', 'B');
+    if (ft <= 10) return push('L', 'B', 'B', 'B', 'L');
+    return push('L', 'B', 'B', 'B', 'B', 'L', 'L', 'L');
+  }
+  if (tag === 'mudroom') {
+    const m: Module[] = ['L'];
+    if (ft >= 4) m.push('B');
+    if (ft >= 8) m.push('B', 'L');
+    if (ft >= 12) m.push('B', 'L');
+    return m;
+  }
+  // storage default
+  if (ft <= 4)  return push('L', 'B');
+  if (ft <= 8)  return push('L', 'B', 'B', 'O');
+  if (ft <= 12) return push('L', 'B', 'B', 'B', 'O', 'L');
+  return push('L', 'B', 'B', 'B', 'B', 'O', 'L', 'L');
+}
+
+// ----- SVG schematic renderer -----
+type DiagramOpts = { maxFt?: number; accent?: boolean; compact?: boolean };
+function diagramSvg(set: any, opts: DiagramOpts = {}): string {
+  const { maxFt = 16, accent = false, compact = false } = opts;
+  const tag = primaryTag(set);
+  const modules = layoutFor(set.widthFt, tag);
+  const totalUnits = modules.length * 2;
+  const scale = set.widthFt / totalUnits;
+  const moduleFt = 2 * scale;
+  const ftPx = 40;
+  const ceilingFt = 8;
+  const cabinetTopFt = 7;
+  const baseBottomFt = 3;
+  const overheadBottomFt = 5;
+  const overheadTopFt = 7;
+  const floorPadPx = 6;
+  const envelopeFt = maxFt;
+  const viewW = envelopeFt * ftPx;
+  const viewH = ceilingFt * ftPx + floorPadPx;
+  const offsetFt = (envelopeFt - set.widthFt) / 2;
+  const blue = '#0E4C8B';
+  const amber = '#F7C948';
+  const stroke = '#272727';
+  const wall = '#E8E2D9';
+  const floorY = viewH - floorPadPx;
+  const parts: string[] = [];
+  parts.push(`<rect x="0" y="0" width="${viewW}" height="${floorY}" fill="${wall}" opacity="0.25"/>`);
+  if (!compact) {
+    for (let i = 0; i <= envelopeFt / 2; i++) {
+      const x = i * 2 * ftPx;
+      parts.push(`<line x1="${x}" y1="${floorY}" x2="${x}" y2="${floorY + 4}" stroke="${stroke}" stroke-width="1" opacity="0.4"/>`);
+    }
+  }
+  parts.push(`<line x1="0" y1="${floorY}" x2="${viewW}" y2="${floorY}" stroke="${stroke}" stroke-width="1.5"/>`);
+  parts.push(`<line x1="${offsetFt * ftPx}" y1="${floorY + 3}" x2="${(offsetFt + set.widthFt) * ftPx}" y2="${floorY + 3}" stroke="${accent ? amber : blue}" stroke-width="3"/>`);
+
+  let cursorFt = offsetFt;
+  for (const m of modules) {
+    const x = cursorFt * ftPx;
+    const w = moduleFt * ftPx;
+    if (m === 'L') {
+      const top = floorY - cabinetTopFt * ftPx;
+      const h = cabinetTopFt * ftPx;
+      const midX = x + w / 2;
+      const midY = floorY - (cabinetTopFt * ftPx) / 2;
+      const dotColor = accent ? amber : stroke;
+      parts.push(`<rect x="${x}" y="${top}" width="${w}" height="${h}" fill="#FFFFFF" stroke="${stroke}" stroke-width="1.2"/>`);
+      parts.push(`<line x1="${midX}" y1="${top + 4}" x2="${midX}" y2="${floorY - 4}" stroke="${stroke}" stroke-width="1"/>`);
+      parts.push(`<circle cx="${midX - 4}" cy="${midY}" r="1.5" fill="${dotColor}"/>`);
+      parts.push(`<circle cx="${midX + 4}" cy="${midY}" r="1.5" fill="${dotColor}"/>`);
+    } else if (m === 'B') {
+      const baseTop = floorY - baseBottomFt * ftPx;
+      const overheadTop = floorY - overheadTopFt * ftPx;
+      const overheadH = (overheadTopFt - overheadBottomFt) * ftPx;
+      parts.push(`<rect x="${x}" y="${baseTop}" width="${w}" height="${baseBottomFt * ftPx}" fill="#FFFFFF" stroke="${stroke}" stroke-width="1.2"/>`);
+      parts.push(`<line x1="${x + w / 2}" y1="${baseTop + 4}" x2="${x + w / 2}" y2="${floorY - 4}" stroke="${stroke}" stroke-width="1"/>`);
+      parts.push(`<line x1="${x}" y1="${baseTop}" x2="${x + w}" y2="${baseTop}" stroke="${accent ? amber : stroke}" stroke-width="3"/>`);
+      parts.push(`<rect x="${x}" y="${overheadTop}" width="${w}" height="${overheadH}" fill="#FFFFFF" stroke="${stroke}" stroke-width="1.2"/>`);
+      parts.push(`<line x1="${x + w / 2}" y1="${overheadTop + 4}" x2="${x + w / 2}" y2="${overheadTop + overheadH - 4}" stroke="${stroke}" stroke-width="1"/>`);
+    } else {
+      const overheadTop = floorY - overheadTopFt * ftPx;
+      const overheadH = (overheadTopFt - overheadBottomFt) * ftPx;
+      parts.push(`<rect x="${x}" y="${overheadTop}" width="${w}" height="${overheadH}" fill="#FFFFFF" stroke="${stroke}" stroke-width="1.2"/>`);
+      parts.push(`<line x1="${x + w / 2}" y1="${overheadTop + 4}" x2="${x + w / 2}" y2="${overheadTop + overheadH - 4}" stroke="${stroke}" stroke-width="1"/>`);
+    }
+    cursorFt += moduleFt;
+  }
+  return `<svg viewBox="0 0 ${viewW} ${viewH}" preserveAspectRatio="xMidYMax meet" class="w-full h-full" style="overflow: visible">${parts.join('')}</svg>`;
+}
+
+// Client-side dataset: keep minimal
+const clientSets = sets.map((s) => ({
+  id: s.id,
+  title: s.title,
+  widthFt: s.widthFt,
+  pieces: s.pieces,
+  drawers: s.drawers,
+  msrp: s.msrp,
+  tags: s.useCaseTags ?? [],
+  primaryLabel: primaryTagLabel(s),
+}));
+
+const defaultWall = 8;
+const defaultMatch =
+  clientSets.slice().sort((a, b) => Math.abs(a.widthFt - defaultWall) - Math.abs(b.widthFt - defaultWall))[0];
+const defaultMatchFull = sets.find((s) => s.id === defaultMatch.id)!;
 ---
 
 <BaseLayout
   title="Sets"
   description="Pre-designed Klovo garage cabinet sets from 2 ft to 16 ft. 500 lbs per cabinet, moisture-resistant, 100% Made in USA."
 >
-
-  <!-- Hero -->
-  <section class="py-16 lg:py-24 bg-warm-white">
+  <!-- Hero / Configurator -->
+  <section class="py-12 lg:py-20 bg-warm-white">
     <div class="section-container">
-      <div class="max-w-2xl reveal">
-        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-3">
-          The Collection
-        </p>
-        <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4 leading-tight">
-          Cabinet sets for every garage.
-        </h1>
-        <p class="text-lg text-klovo-grey leading-relaxed">
-          Pre-designed sets. Home gym, home office, workshop, family hub — and every kind of garage in between. 500 lbs per cabinet, moisture-resistant, 100% Made in USA.
-        </p>
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-10 lg:gap-16 items-start">
+        <div>
+          <p class="text-klovo-amber font-semibold text-sm uppercase mb-3" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+            The Collection
+          </p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-5 leading-[1.05]" style="letter-spacing: -0.02em;">
+            Start with your wall.
+          </h1>
+          <p class="text-lg text-klovo-grey leading-relaxed max-w-lg mb-8">
+            Klovo sets run from 2 to 16 feet in 2-foot increments. Drag the ruler to match your wall — we'll show you the closest set.
+          </p>
+
+          <!-- Width scrubber -->
+          <div class="mb-8">
+            <div class="flex items-baseline gap-3 mb-3">
+              <span id="wall-ft-label" class="text-6xl font-bold text-charcoal" style="font-family: 'Orbitron', sans-serif; line-height: 1;">
+                {defaultWall}
+              </span>
+              <span class="text-xl text-klovo-grey" style="font-family: 'Oxanium', monospace;">ft wall</span>
+            </div>
+            <input
+              id="wall-ft-input"
+              type="range"
+              min="2"
+              max="16"
+              step="2"
+              value={defaultWall}
+              class="klovo-range w-full"
+              aria-label="Wall width in feet"
+            />
+            <div id="wall-ft-ticks" class="flex justify-between mt-2 text-[11px] uppercase" style="font-family: 'Oxanium', monospace; color: #858485; letter-spacing: 0.12em;">
+              {[2,4,6,8,10,12,14,16].map((n) => (
+                <span data-ft={n} class={n === defaultWall ? 'text-klovo-blue font-semibold' : ''}>{n}′</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Closest match -->
+          <div class="border-l-2 pl-5" style="border-color: #F7C948;">
+            <div class="text-[11px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+              Closest match
+            </div>
+            <div id="match-title" class="text-2xl font-semibold text-charcoal mb-1">{defaultMatch.title}</div>
+            <div id="match-meta" class="text-klovo-grey mb-3">
+              {defaultMatch.pieces} pieces · {defaultMatch.widthFt} ft wide · {fmtPrice(defaultMatch.msrp)}
+            </div>
+            <a id="match-cta" href={`/sets/${defaultMatch.id}/`} class="btn-primary">Configure this set <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <!-- Live preview, to-scale within a 16ft envelope -->
+        <div class="rounded-lg p-6 lg:p-10 relative bg-pure-white" style="border: 1px solid #E8E2D9;">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <div class="text-[11px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+                To scale · 16 ft envelope
+              </div>
+              <div id="preview-title" class="text-lg font-semibold text-charcoal">{defaultMatch.title}</div>
+            </div>
+            <div class="text-right">
+              <div class="text-[11px] uppercase text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">MSRP</div>
+              <div id="preview-price" class="text-2xl font-bold text-klovo-blue" style="font-family: 'Orbitron', sans-serif;">{fmtPrice(defaultMatch.msrp)}</div>
+            </div>
+          </div>
+
+          <!-- Photo (hidden by default; only shown if imagesAvailable) -->
+          <div id="preview-photo-wrap" class="hidden mb-4 rounded overflow-hidden bg-warm-neutral aspect-[16/9]">
+            <img id="preview-photo" src={defaultMatchFull.image} alt={defaultMatch.title} class="w-full h-full object-cover" loading="lazy" />
+          </div>
+
+          <!-- Schematic -->
+          <div id="preview-diagram-wrap" class="aspect-[16/9]">
+            {/* prerendered hidden diagrams, keyed by set id; JS toggles visibility */}
+            {sets.map((s) => (
+              <div
+                data-preview-id={s.id}
+                class={s.id === defaultMatch.id ? 'w-full h-full' : 'hidden w-full h-full'}
+                set:html={diagramSvg(s, { maxFt: 16, accent: true })}
+              />
+            ))}
+          </div>
+
+          <!-- Specs band -->
+          <div class="grid grid-cols-4 gap-4 mt-6 pt-6 border-t" style="border-color: #E8E2D9;">
+            <div>
+              <div class="text-[10px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">Width</div>
+              <div id="spec-width" class="text-lg font-semibold text-charcoal" style="font-family: 'Orbitron', sans-serif;">{defaultMatch.widthFt} ft</div>
+            </div>
+            <div>
+              <div class="text-[10px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">Height</div>
+              <div class="text-lg font-semibold text-charcoal" style="font-family: 'Orbitron', sans-serif;">7 ft</div>
+            </div>
+            <div>
+              <div class="text-[10px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">Pieces</div>
+              <div id="spec-pieces" class="text-lg font-semibold text-charcoal" style="font-family: 'Orbitron', sans-serif;">{defaultMatch.pieces}</div>
+            </div>
+            <div>
+              <div class="text-[10px] uppercase text-klovo-grey mb-1" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">Per-cab</div>
+              <div class="text-lg font-semibold text-charcoal" style="font-family: 'Orbitron', sans-serif;">500 lb</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Shop by Width -->
-  <section id="shop-by-width" class="py-16 lg:py-24 bg-warm-neutral">
+  <!-- Filter + grid -->
+  <section class="py-12 lg:py-20 bg-warm-neutral">
     <div class="section-container">
-      <div class="text-center mb-12 reveal">
-        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-3">
-          Shop by Width
-        </p>
-        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Find your size.</h2>
-        <p class="text-lg text-klovo-grey max-w-xl mx-auto">
-          Klovo sets run from 2 to 16 feet. Pick the width that fits your wall.
-        </p>
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
+        <div>
+          <p class="text-klovo-amber font-semibold text-sm uppercase mb-2" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+            All sets
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold text-charcoal" style="letter-spacing: -0.02em;">
+            <span id="grid-count">{sets.length}</span> sets, 2 to 16 ft.
+          </h2>
+        </div>
+        <div id="tag-filters" class="flex flex-wrap gap-2">
+          <button type="button" data-tag="all" class="tag-chip px-4 py-2 text-sm font-medium rounded-full on">All</button>
+          {activeTagsInData.map((t) => (
+            <button type="button" data-tag={t} class="tag-chip px-4 py-2 text-sm font-medium rounded-full">
+              {TAG_META[t].label}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-        {bucketsOrdered.map((b, i) => (
+      <div id="sets-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        {sets.map((s) => (
           <a
-            href={`#width-${b}`}
-            class="group bg-pure-white rounded-lg overflow-hidden reveal"
-            style={`transition-delay: ${i * 100}ms`}
+            href={`/sets/${s.id}/`}
+            class="set-card group block"
+            data-tags={(s.useCaseTags ?? []).join(',')}
           >
-            <div class="img-zoom-container aspect-[4/3] bg-warm-neutral">
-              <img
-                src={bucketFeatured[b]?.data.image || '/images/sets/coming-soon.svg'}
-                alt={`${bucketLabel[b]} Klovo set`}
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-2">
-                {bucketLabel[b]}
-              </h3>
-              <p class="text-[15px] text-klovo-grey leading-relaxed mb-4">
-                {bucketBlurb[b]}
-              </p>
-              <span class="text-klovo-blue font-semibold text-sm inline-flex items-center gap-1">
-                Shop {bucketLabelShort[b]} sets <span aria-hidden="true">&rarr;</span>
-              </span>
+            <div class="bg-pure-white rounded-lg overflow-hidden transition-shadow group-hover:shadow-lg" style="border: 1px solid #E8E2D9;">
+              <div class="p-4 pb-2 flex items-center justify-between">
+                <span class="text-[11px] uppercase text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+                  {s.widthFt} ft · {s.pieces} pc
+                </span>
+                <span class="text-[11px] uppercase text-klovo-blue font-semibold" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
+                  {primaryTagLabel(s)}
+                </span>
+              </div>
+              {s.imagesAvailable ? (
+                <div class="img-zoom-container aspect-[16/10] bg-warm-neutral">
+                  <img src={s.image} alt={s.title} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+              ) : (
+                <div class="px-4" style="height: 120px;" set:html={diagramSvg(s, { maxFt: 16, compact: true })} />
+              )}
+              <div class="p-5 pt-3 border-t" style="border-color: #E8E2D9;">
+                <div class="flex items-baseline justify-between gap-4 mb-1">
+                  <h3 class="text-lg font-semibold text-charcoal group-hover:text-klovo-blue transition-colors leading-tight">
+                    {s.title}
+                  </h3>
+                  <span class="text-klovo-blue font-bold shrink-0" style="font-family: 'Orbitron', sans-serif;">
+                    {fmtPrice(s.msrp)}
+                  </span>
+                </div>
+                <p class="text-[14px] text-klovo-grey leading-snug">
+                  {(s.specialFeatures ?? []).slice(0, 2).join(' · ') || (s.imagesAvailable ? '' : 'Image coming soon')}
+                </p>
+              </div>
             </div>
           </a>
         ))}
       </div>
-    </div>
-  </section>
 
-  <!-- All Sets — grouped by width bucket -->
-  <section class="py-16 lg:py-24 bg-warm-white">
-    <div class="section-container">
-      <div class="text-center mb-12 reveal">
-        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-3">
-          All Sets
-        </p>
-        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Every Klovo set.</h2>
-        <p class="text-lg text-klovo-grey">Every Klovo set, from 2 ft to 16 ft.</p>
+      <div id="empty-state" class="hidden text-center py-16 text-klovo-grey">
+        No sets match that filter. Try a different category or width.
       </div>
-
-      {bucketsOrdered.map((b) => {
-        const bucketSets = sets.filter(s => widthBucket(s.data.widthFt) === b);
-        if (bucketSets.length === 0) return null;
-        return (
-          <div id={`width-${b}`} class="mb-16 last:mb-0 reveal">
-            <h3 class="text-2xl font-bold text-charcoal mb-6">{bucketLabel[b]} sets</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {bucketSets.map((s) => (
-                <a href={`/sets/${s.id}/`} class="group">
-                  <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
-                    <img
-                      src={s.data.image}
-                      alt={s.data.title}
-                      class="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <h4 class="text-lg font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
-                    {s.data.title}
-                  </h4>
-                  <p class="text-klovo-grey text-[15px] mb-2">
-                    {s.data.widthFt} ft · {s.data.pieces} pieces
-                  </p>
-                  <p class="text-klovo-blue font-semibold">{fmtPrice(s.data.msrp)}</p>
-                </a>
-              ))}
-            </div>
-          </div>
-        );
-      })}
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-16 lg:py-20 bg-warm-neutral">
-    <div class="section-container text-center reveal">
-      <h2 class="text-3xl font-bold text-charcoal mb-4">Ready to transform your garage?</h2>
-      <a href="/where-to-buy/" class="btn-primary">Find a Retailer <span aria-hidden="true">&rarr;</span></a>
+  <section class="py-16 lg:py-20 bg-warm-white">
+    <div class="section-container text-center">
+      <h2 class="text-3xl font-bold text-charcoal mb-4" style="letter-spacing: -0.02em;">Ready to transform your garage?</h2>
+      <a href="/where-to-buy/" class="btn-primary">Find a Retailer <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
+  <style>
+    .klovo-range {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 2px;
+      background: #E8E2D9;
+      outline: none;
+    }
+    .klovo-range::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 22px; height: 22px;
+      background: #0E4C8B;
+      border: 3px solid #F7C948;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .klovo-range::-moz-range-thumb {
+      width: 22px; height: 22px;
+      background: #0E4C8B;
+      border: 3px solid #F7C948;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .tag-chip {
+      font-family: 'Jost', sans-serif;
+      background: #FFFFFF;
+      color: #272727;
+      border: 1px solid #E8E2D9;
+      transition: background 150ms, color 150ms, border-color 150ms;
+      cursor: pointer;
+    }
+    .tag-chip.on {
+      background: #0E4C8B;
+      color: #FFFFFF;
+      border-color: #0E4C8B;
+    }
+    .tag-chip:hover:not(.on) { border-color: #0E4C8B; }
+  </style>
+
+  <script is:inline define:vars={{ clientSets }}>
+    (function () {
+      const sets = clientSets;
+      let wallFt = 8;
+      let activeTag = 'all';
+
+      const $ = (id) => document.getElementById(id);
+      const fmtPrice = (n) => '$' + n.toLocaleString('en-US');
+
+      function nearest() {
+        const pool = activeTag === 'all' ? sets : sets.filter((s) => s.tags.includes(activeTag));
+        if (pool.length === 0) return sets[0];
+        return pool.slice().sort((a, b) => Math.abs(a.widthFt - wallFt) - Math.abs(b.widthFt - wallFt))[0];
+      }
+
+      function updateMatch() {
+        const m = nearest();
+        $('match-title').textContent = m.title;
+        $('match-meta').textContent = `${m.pieces} pieces · ${m.widthFt} ft wide · ${fmtPrice(m.msrp)}`;
+        $('match-cta').setAttribute('href', `/sets/${m.id}/`);
+        $('preview-title').textContent = m.title;
+        $('preview-price').textContent = fmtPrice(m.msrp);
+        $('spec-width').textContent = `${m.widthFt} ft`;
+        $('spec-pieces').textContent = m.pieces;
+        document.querySelectorAll('[data-preview-id]').forEach((el) => {
+          el.classList.toggle('hidden', el.getAttribute('data-preview-id') !== m.id);
+        });
+      }
+
+      function updateTicks() {
+        document.querySelectorAll('#wall-ft-ticks span').forEach((el) => {
+          const active = Number(el.getAttribute('data-ft')) === wallFt;
+          el.classList.toggle('text-klovo-blue', active);
+          el.classList.toggle('font-semibold', active);
+        });
+      }
+
+      function filterGrid() {
+        let visible = 0;
+        document.querySelectorAll('.set-card').forEach((card) => {
+          const tags = (card.getAttribute('data-tags') || '').split(',').filter(Boolean);
+          const show = activeTag === 'all' || tags.includes(activeTag);
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        $('grid-count').textContent = visible;
+        $('empty-state').classList.toggle('hidden', visible !== 0);
+      }
+
+      $('wall-ft-input').addEventListener('input', (e) => {
+        wallFt = Number(e.target.value);
+        $('wall-ft-label').textContent = wallFt;
+        updateTicks();
+        updateMatch();
+      });
+
+      document.querySelectorAll('#tag-filters .tag-chip').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#tag-filters .tag-chip').forEach((b) => b.classList.remove('on'));
+          btn.classList.add('on');
+          activeTag = btn.getAttribute('data-tag');
+          filterGrid();
+          updateMatch();
+        });
+      });
+    })();
+  </script>
 </BaseLayout>
