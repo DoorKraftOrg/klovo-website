@@ -990,17 +990,79 @@ const clientRelated = related;
     .ksd-final-cta .ksd-btn-primary:hover { background: var(--klovo-amber-dark); }
 
     @media (max-width: 640px) {
-      .ksd-hero { padding: 12px 0 32px; }
-      .ksd-h1 { font-size: 30px; }
-      .ksd-block { padding: 40px 0; }
-      .ksd-block.tight { padding: 32px 0; }
-      .ksd-h2 { font-size: 24px; }
-      .ksd-elev-card { padding: 20px 16px 16px; }
+      .ksd-hero { padding: 8px 0 24px; }
+      .ksd-h1 { font-size: 28px; margin: 8px 0 14px; }
+      .ksd-kicker { font-size: 11px; }
+      .ksd-tags { gap: 6px; margin-bottom: 10px; }
+      .ksd-tag-pill { padding: 4px 8px; font-size: 10px; letter-spacing: 0.1em; }
+
+      .ksd-stat-row { margin: 16px 0 22px; }
+      .ksd-stat { padding: 12px 10px 10px; }
+      .ksd-stat .val { font-size: 20px; }
+      .ksd-stat .val .uu { font-size: 11px; }
+      .ksd-stat .lbl { font-size: 9px; letter-spacing: 0.14em; }
+
+      .ksd-block { padding: 36px 0; }
+      .ksd-block.tight { padding: 28px 0; }
+      .ksd-h2 { font-size: 22px; }
+      .ksd-sub { font-size: 14px; margin-bottom: 20px; }
+
+      .ksd-elev-card { padding: 16px 14px 12px; }
+      .ksd-elev-svg-wrap { height: 220px; }
+      .ksd-ruler-wrap { padding-top: 12px; }
+
       .ksd-buy-rail { padding: 20px 18px 18px; }
       .ksd-msrp { font-size: 26px; }
       .ksd-rail-divider { margin: 14px -18px; }
+      .ksd-rail-row { padding: 6px 0; font-size: 13px; }
+      .ksd-rail-row .k { font-size: 10px; }
+      .ksd-rail-row .v { font-size: 13px; }
+
+      table.ksd-bom th, table.ksd-bom td { padding: 10px 12px; font-size: 13px; }
+      table.ksd-bom td.num { width: 34px; font-size: 13px; }
+      table.ksd-bom .name { font-size: 14px; }
+      table.ksd-bom .desc { font-size: 11px; }
+
+      .ksd-spec-grid .v { font-size: 19px; display: flex; flex-wrap: wrap; align-items: baseline; }
+      .ksd-spec-grid .unit { font-size: 11px; letter-spacing: 0.04em; margin-left: 4px; flex-basis: 100%; margin-top: 2px; }
+      .ksd-spec-grid > div { padding: 16px 14px; }
+      .ksd-spec-grid .k { font-size: 9px; letter-spacing: 0.14em; }
+
+      .ksd-feat { padding: 28px 22px; }
+      .ksd-feat h3 { font-size: 18px; }
+      .ksd-feat .blurb { font-size: 13px; }
+      .ksd-feat .spec-line { font-size: 10px; letter-spacing: 0.1em; }
+
+      .ksd-fits-card { padding: 18px 16px; gap: 20px; }
+      .ksd-fits-input-row .inp { padding: 10px 14px; }
+      .ksd-fits-input-row input[type="number"] { font-size: 22px; width: 60px; }
+      .ksd-fits-input-row .uu { font-size: 11px; }
+      .ksd-fits-verdict { font-size: 10px; letter-spacing: 0.1em; padding: 8px 10px; }
+      .ksd-fits-card > div:last-child { text-align: left !important; }
+      .ksd-foot-big { font-size: 28px; }
+
+      .ksd-asm-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .ksd-asm-step { padding: 16px 14px; }
+      .ksd-asm-step svg { height: 80px; margin-bottom: 10px; }
+      .ksd-asm-step .step-num { font-size: 11px; }
+      .ksd-asm-step h4 { font-size: 14px; }
+      .ksd-asm-step p { font-size: 12px; }
+
+      .ksd-rel-diag { height: 110px; padding: 0 14px; }
+      .ksd-rel-body { padding: 10px 16px 16px; }
+      .ksd-rel-body h3 { font-size: 16px; }
+      .ksd-rel-rel { padding: 12px 16px 0; font-size: 9px; }
+
+      .ksd-crumb { font-size: 10px; letter-spacing: 0.14em; }
+      .ksd-crumb .sep { margin: 0 6px; }
+
       .ksd-final-cta { padding: 40px 0; }
-      .ksd-final-cta h2 { font-size: 24px; }
+      .ksd-final-cta h2 { font-size: 22px; }
+      .ksd-final-cta p { font-size: 14px; }
+    }
+
+    @media (max-width: 520px) {
+      .ksd-asm-strip { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 
