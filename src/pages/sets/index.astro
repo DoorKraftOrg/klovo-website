@@ -79,7 +79,7 @@ const clientSets = sets.map((s) => ({
     </div>
   </section>
 
-  <style>
+  <style is:global>
     .klovo-sets-hero,
     .picker-wrap,
     .results {
@@ -211,9 +211,89 @@ const clientSets = sets.map((s) => ({
     }
 
     @media (max-width: 640px) {
-      .picker-card { padding: 24px 20px; }
-      .chip { padding: 12px 14px 10px; min-width: 60px; }
+      .klovo-sets-hero { padding: 48px 0 20px; }
+      .klovo-sets-hero h1 { font-size: 34px; margin-bottom: 14px; }
+      .klovo-sets-hero p.lede { font-size: 15px; line-height: 1.5; }
+
+      .picker-wrap { padding: 16px 0 24px; }
+      .picker-card { padding: 20px 16px; border-radius: 10px; }
+      .picker-head {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+      .picker-head-left h2 { font-size: 18px; }
+      .picker-head-right {
+        gap: 4px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+      .picker-text-btn {
+        padding: 6px 10px;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        border: 1px solid var(--warm-neutral);
+        border-radius: 999px;
+      }
+
+      .chip-row {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .chip {
+        padding: 10px 4px 8px;
+        min-width: 0;
+        width: 100%;
+        border-radius: 8px;
+      }
       .chip .ft { font-size: 18px; }
+      .chip .u { font-size: 9px; letter-spacing: 0.12em; }
+      .chip .pc-badge {
+        top: -6px;
+        right: 4px;
+        font-size: 8px;
+        padding: 1px 5px;
+      }
+      .chip .check {
+        top: 4px;
+        right: 4px;
+        width: 12px;
+        height: 12px;
+      }
+
+      .picker-foot {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding-top: 14px;
+        margin-top: 14px;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+      }
+
+      .results { padding: 24px 0 64px; }
+      .results-head {
+        gap: 12px;
+        margin-bottom: 20px;
+        align-items: flex-start;
+      }
+      .results-head h2 { font-size: 22px; }
+      .results-head .kicker { font-size: 11px; }
+      .results-filter-pill { font-size: 10px; letter-spacing: 0.1em; }
+
+      .results .grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .card-top { padding: 10px 14px; font-size: 10px; letter-spacing: 0.14em; }
+      .card-diag { height: 120px; padding: 0 14px; }
+      .card-body { padding: 14px 16px 16px; }
+      .card-body h3 { font-size: 16px; }
+      .card-body .price { font-size: 14px; }
+      .card-body p { font-size: 13px; margin-bottom: 10px; }
+      .card-body .view { font-size: 13px; }
     }
 
     .results { padding: 40px 0 96px; background: var(--warm-white); }
