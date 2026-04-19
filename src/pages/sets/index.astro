@@ -163,81 +163,8 @@ const defaultWall = 8;
           Start with your wall.
         </h1>
         <p class="text-lg text-klovo-grey leading-relaxed max-w-2xl">
-          Klovo sets run from 2 to 16 feet in 2-foot increments. Browse all sixteen below, or jump to the ruler further down to filter by your exact wall width.
+          Klovo sets run from 2 to 16 feet in 2-foot increments. Drag the ruler to match your wall — we'll show you every set that fits.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Filter + grid (All Sets — moved up) -->
-  <section class="py-12 lg:py-20 bg-warm-neutral">
-    <div class="section-container">
-      <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
-        <div>
-          <p class="text-klovo-amber font-semibold text-sm uppercase mb-2" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-            All sets
-          </p>
-          <h2 class="text-3xl md:text-4xl font-bold text-charcoal" style="letter-spacing: -0.02em;">
-            <span id="grid-count">{sets.length}</span> sets, 2 to 16 ft.
-          </h2>
-        </div>
-        <div id="tag-filters" class="flex flex-wrap gap-2">
-          <button type="button" data-tag="all" class="tag-chip px-4 py-2 text-sm font-medium rounded-full on">All</button>
-          {activeTagsInData.map((t) => (
-            <button type="button" data-tag={t} class="tag-chip px-4 py-2 text-sm font-medium rounded-full">
-              {TAG_META[t].label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div id="sets-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-        {sets.map((s) => (
-          <a
-            href={`/sets/${s.id}/`}
-            class="set-card group block"
-            data-tags={(s.useCaseTags ?? []).join(',')}
-          >
-            <div class="bg-pure-white rounded-lg overflow-hidden transition-shadow group-hover:shadow-lg" style="border: 1px solid #E8E2D9;">
-              <div class="p-4 pb-2 flex items-center justify-between">
-                <span class="text-[11px] uppercase text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-                  {s.widthFt} ft · {s.pieces} pc
-                </span>
-                <span class="text-[11px] uppercase text-klovo-blue font-semibold" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-                  {primaryTagLabel(s)}
-                </span>
-              </div>
-              {s.imagesAvailable ? (
-                <div class="img-zoom-container aspect-[16/10] bg-warm-neutral">
-                  <img src={s.image} alt={s.title} class="w-full h-full object-cover" loading="lazy" />
-                </div>
-              ) : (
-                <div class="aspect-[16/10] flex items-center justify-center bg-warm-neutral">
-                  <span class="text-[11px] uppercase text-klovo-grey" style="font-family: 'Oxanium', monospace; letter-spacing: 0.18em;">
-                    Image coming soon
-                  </span>
-                </div>
-              )}
-              <div class="p-5 pt-3 border-t" style="border-color: #E8E2D9;">
-                <div class="flex items-baseline justify-between gap-4 mb-1">
-                  <h3 class="text-lg font-semibold text-charcoal group-hover:text-klovo-blue transition-colors leading-tight">
-                    {s.title}
-                  </h3>
-                  <span class="text-klovo-blue font-bold shrink-0" style="font-family: 'Orbitron', sans-serif;">
-                    {fmtPrice(s.msrp)}
-                  </span>
-                </div>
-                <p class="text-[14px] text-klovo-grey leading-snug">
-                  {(s.specialFeatures ?? []).slice(0, 2).join(' · ') || (s.imagesAvailable ? '' : 'Image coming soon')}
-                </p>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <div id="empty-state" class="hidden text-center py-16 text-klovo-grey">
-        No sets match that filter. Try a different category or width.
       </div>
     </div>
   </section>

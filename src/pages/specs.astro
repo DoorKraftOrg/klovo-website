@@ -40,24 +40,14 @@ const GROUPS = ['Construction', 'Hardware & Drawer', 'Support & Stability'] as c
   title="Specifications"
   description="Every part of a Klovo cabinet — materials, hardware, support, and interchangeability. One page. No marketing fluff."
 >
-  <!-- 1. Hero intro -->
-  <section class="py-14 lg:py-24 bg-warm-white">
+  <!-- 1. Spec ribbon (lean hero — straight to the data) -->
+  <section class="pt-10 lg:pt-14 pb-0 bg-warm-white">
     <div class="section-container">
-      <div class="mb-4">
-        <span class="spec-mono inline-block text-[11px] font-semibold px-2 py-1" style="color: #272727; background: #F7C948;">
-          SPEC SHEET · REV 2026
-        </span>
+      <div class="flex items-center justify-between mb-5">
+        <span class="spec-mono text-[11px] font-semibold text-charcoal">Specifications</span>
+        <span class="spec-mono text-[11px] text-klovo-grey">Rev 2026</span>
       </div>
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-charcoal mb-5 leading-[1.02]" style="letter-spacing: -0.03em; text-wrap: balance;">
-        Built for garages.<br/>
-        <span class="amber-underline">Not kitchens.</span>
-      </h1>
-      <p class="text-base md:text-xl text-dark-charcoal leading-relaxed max-w-[640px]">
-        Every part of a Klovo cabinet — what it's made of, how it holds, and why it survives the worst weekend of your life. One page. No marketing fluff.
-      </p>
-
-      <!-- Stat ribbon -->
-      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 py-4 md:py-5" style="border-top: 1px solid #E8E2D9; border-bottom: 1px solid #E8E2D9;">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 py-4 md:py-5" style="border-top: 1px solid #E8E2D9; border-bottom: 1px solid #E8E2D9;">
         {[
           ['500', 'lb / cabinet'],
           ['99', 'lb / drawer'],
