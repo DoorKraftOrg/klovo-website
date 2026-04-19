@@ -54,7 +54,7 @@ import navigation from '../data/navigation.json';
       <div class="lg:col-span-4">
         <h3 class="text-sm font-semibold text-charcoal uppercase tracking-wider mb-4">Stay in the loop</h3>
         <p class="text-[15px] text-charcoal/70 mb-4">
-          Garage tips, new products, and the occasional dad joke. No spam.
+          Garage tips, new products, and the occasional dad joke.
         </p>
         <form class="flex gap-2" action="#" method="POST">
           <input
@@ -69,6 +69,39 @@ import navigation from '../data/navigation.json';
             Join
           </button>
         </form>
+
+        <!-- Social Links -->
+        <div class="flex items-center gap-5 mt-6">
+          {navigation.social.map((item) => (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-klovo-grey hover:text-klovo-blue transition-colors duration-150"
+              aria-label={item.label}
+            >
+              {item.icon === 'instagram' && (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="5" />
+                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+                </svg>
+              )}
+              {item.icon === 'x' && (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              )}
+              {item.icon === 'linkedin' && (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              )}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </div>
@@ -79,39 +112,6 @@ import navigation from '../data/navigation.json';
       <p class="text-sm text-klovo-grey">
         &copy; {new Date().getFullYear()} Klovo Storage by Door Kraft. All rights reserved.
       </p>
-
-      <!-- Social Links -->
-      <div class="flex items-center gap-5">
-        {navigation.social.map((item) => (
-          <a
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-klovo-grey hover:text-klovo-blue transition-colors duration-150"
-            aria-label={item.label}
-          >
-            {item.icon === 'instagram' && (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <circle cx="12" cy="12" r="5" />
-                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
-              </svg>
-            )}
-            {item.icon === 'x' && (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            )}
-            {item.icon === 'linkedin' && (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            )}
-          </a>
-        ))}
-      </div>
 
       <!-- Legal Links -->
       <div class="flex items-center gap-4">
