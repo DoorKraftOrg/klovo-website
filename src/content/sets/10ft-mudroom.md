@@ -1,6 +1,6 @@
 ---
 sku: "09-10f-6p-WHT"
-title: "10 ft. Mudroom Set"
+title: "Klovo 10 ft. Mudroom / Family Entry / Sports Lockers Set — 6-Piece Mudroom"
 longTitle: "Klovo 10 ft. Mudroom / Family Entry / Sports Lockers Set — 6-Piece Mudroom with Dual Lockers + 72\" Counter + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 10
 widthIn: 120

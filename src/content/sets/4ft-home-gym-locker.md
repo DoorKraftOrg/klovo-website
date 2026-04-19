@@ -1,6 +1,6 @@
 ---
 sku: "02-4f-2p-WHT"
-title: "4 ft. Home Gym Locker Set"
+title: "Klovo 4 ft. Home Gym Locker / Sports Gear / Mudroom Bank Set — 2-Piece Tall Locker + 24\" Overhead Wall Cabinet"
 longTitle: "Klovo 4 ft. Home Gym Locker / Sports Gear / Mudroom Bank Set — 2-Piece Tall Locker + 24\" Overhead Wall Cabinet, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 4
 widthIn: 48

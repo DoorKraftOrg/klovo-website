@@ -1,6 +1,6 @@
 ---
 sku: "06-8f-6p-WHT"
-title: "8 ft. WFH Studio Set"
+title: "Klovo 8 ft. WFH Studio / Design Studio / Craft Studio Set — 6-Piece Home Office"
 longTitle: "Klovo 8 ft. WFH Studio / Design Studio / Craft Studio Set — 6-Piece Home Office with File Drawers + Closed Base + Dual Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 8
 widthIn: 96

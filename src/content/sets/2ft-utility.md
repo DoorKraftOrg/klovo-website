@@ -1,6 +1,6 @@
 ---
 sku: "01-2f-1p-WHT"
-title: "2 ft. Utility Cabinet Set"
+title: "Klovo 2 ft. Utility Cabinet / Mudroom Locker / Garage Corner Set — 1-Piece Standalone 84\" Tall Utility Locker"
 longTitle: "Klovo 2 ft. Utility Cabinet / Mudroom Locker / Garage Corner Set — 1-Piece Standalone 84\" Tall Utility Locker, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 2
 widthIn: 24

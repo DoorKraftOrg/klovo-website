@@ -1,6 +1,6 @@
 ---
 sku: "11-10f-7p-WHT"
-title: "10 ft. Home Gym Wall Set"
+title: "Klovo 10 ft. Home Gym Wall / Fitness Studio / Training Room Set — 7-Piece Gym Wall"
 longTitle: "Klovo 10 ft. Home Gym Wall / Fitness Studio / Training Room Set — 7-Piece Gym Wall with Dual Drawer Lockers + Prep Counter + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 10
 widthIn: 120

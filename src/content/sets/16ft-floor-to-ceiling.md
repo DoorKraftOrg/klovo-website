@@ -1,6 +1,6 @@
 ---
 sku: "16-16f-8p-WHT"
-title: "16 ft. Floor-to-Ceiling Storage Set"
+title: "Klovo 16 ft. Floor-to-Ceiling Storage / Locker Wall / Basement Wall Set — 8-Piece Tall-Only Locker Bank"
 longTitle: "Klovo 16 ft. Floor-to-Ceiling Storage / Locker Wall / Basement Wall Set — 8-Piece Tall-Only Locker Bank (No Bases, No Walls, No Worktop), Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 16
 widthIn: 192

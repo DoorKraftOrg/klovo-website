@@ -1,6 +1,6 @@
 ---
 sku: "10-10f-7p-WHT"
-title: "10 ft. WFH Design Hero Set"
+title: "Klovo 10 ft. WFH Design Hero / Home Office / Craft Studio Set — 7-Piece Wall"
 longTitle: "Klovo 10 ft. WFH Design Hero / Home Office / Craft Studio Set — 7-Piece Wall with Twin Talls + 4-Drawer File Base + Triple Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 10
 widthIn: 120

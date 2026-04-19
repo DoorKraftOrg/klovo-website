@@ -1,6 +1,6 @@
 ---
 sku: "14-14f-9p-WHT"
-title: "14 ft. Command Center Set"
+title: "Klovo 14 ft. Command Center / Workshop + Storage / Multi-Use Garage Set — 9-Piece Multi-Zone"
 longTitle: "Klovo 14 ft. Command Center / Workshop + Storage / Multi-Use Garage Set — 9-Piece Multi-Zone with Tool Tower + Workbench + Triple Locker Bank, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 14
 widthIn: 168
