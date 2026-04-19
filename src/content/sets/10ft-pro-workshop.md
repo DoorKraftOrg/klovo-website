@@ -1,6 +1,6 @@
 ---
 sku: "12-10f-8p-WHT"
-title: "10 ft. Pro Workshop Set"
+title: "Klovo 10 ft. Pro Workshop / Maker Hero / Tool Shop Set — 8-Piece Workshop with Twin Tool Towers + Dual 5-Drawer Bases + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 longTitle: "Klovo 10 ft. Pro Workshop / Maker Hero / Tool Shop Set — 8-Piece Workshop with Twin Tool Towers + Dual 5-Drawer Bases + Overhead, Push-to-Open, 300 lb Shelves, GlideLock, White"
 widthFt: 10
 widthIn: 120
@@ -12,9 +12,9 @@ msrp: 4062
 shortDescription: "Klovo's 10-foot pro workshop set — 8 modular pieces that turn your garage into a pro workshop in under 75 minutes. No contractor, no Allen keys. Klovo's patent-pending GlideLock system means panels slide together and lock by hand; four screws per cabinet to finish. Includes two 84-inch tall tool towers, two 24-inch 5-drawer tool bases plus a 24-inch closed bench base under a continuous 72-inch worktop, and three 36-inch overhead wall cabinets. Push-to-open doors and soft-close ball-bearing glides rated to 99 lbs. Fixed shelves hold 300 lbs each. Moisture-resistant engineered wood with thermally fused laminate and 1 mm PVC edge-banding stands up to garage, basement, and workshop conditions. Toe kick included. Configures as pro workshop, maker hero, or tool shop. Expandable — every Klovo cabinet shares the same GlideLock connection so you can keep building."
 includedComponents: "two 84-inch tall tool towers, two 24-inch 5-drawer tool bases plus a 24-inch closed bench base under a continuous 72-inch worktop, and three 36-inch overhead wall cabinets"
 features:
-  - "DIY Garage Cabinet Assembly — Under 75 Minutes, No Contractor Needed"
-  - "Furniture-Grade Finish Built for Garage and Basement"
-  - "Complete 10-Foot Multi-Use Pro Workshop — What Is Included"
+  - "DIY Garage Cabinet Assembly — Under 75 Minutes, No Contractor Needed: Patent-pending GlideLock system uses precision-drilled panels that slide together and lock by hand. Four screws per cabinet to finish — no cam locks, no Allen keys, no experience required. Error-proof joinery means panels only fit one way, so there is nothing to get wrong. Each cabinet assembles in about 2 minutes. A drill anchors the finished cabinets to the wall. The full 8-piece pro workshop set is ready in under 75 minutes. Toe kick snaps in and screws level. Designed for first-time DIY builders, renters finishing a space before company arrives, and experienced homeowners who value their weekends."
+  - "Furniture-Grade Finish Built for Garage and Basement: Push-to-open ball-bearing drawer glides rated to 99 lbs per drawer. Soft-close hinges on every door — no handles needed for a clean, streamlined look, or add your own pulls. Moisture-resistant engineered wood panels with thermally fused laminate: scratch-resistant, oil-resistant, easy to wipe down. Every panel fully edge-banded with 1 mm PVC to seal out moisture and prevent swelling in humid garages. Fixed shelves support 300 lbs each; adjustable shelves hold 60 lbs each. Toe kick wraps the base at 4.5-inch height for a finished look. Built to match the inside of your home — not the garage of 1985."
+  - "Complete 10-Foot Multi-Use Pro Workshop — What Is Included: Two 84-inch tall tool towers flanking the worktop — full-height storage for power tools, long items, and tall bins. Two 24-inch 5-drawer base cabinets — 10 total push-to-open drawers for hand tools, bits, hardware, and consumables. One 24-inch closed-door base for finishes and bulk supplies. One 72-inch thermally fused laminate worktop — continuous, no gap. Three 36-inch wall-mounted overhead cabinets for finishes, jars, and organizers. Adjustable shelf packs (2). Toe kick, mounting, and leveling kit. Configures as pro workshop, maker hero, tool shop. 18-inch deep shelves fit standard storage totes and bins. Adjustable leg levelers handle uneven garage floors. Start here and expand later — every Klovo cabinet uses the same GlideLock connection, so you can add pieces anytime without rework or modification."
 specialFeatures:
   - "Ten Push-to-Open Drawers"
   - "Twin Tool Towers"
