@@ -1,0 +1,18 @@
+{
+  "redirects": [
+    { "source": "/collections", "destination": "/sets/", "permanent": true },
+    { "source": "/collections/", "destination": "/sets/", "permanent": true },
+    { "source": "/collections/:path*", "destination": "/sets/", "permanent": true },
+    { "source": "/products", "destination": "/sets/", "permanent": true },
+    { "source": "/products/", "destination": "/sets/", "permanent": true },
+    { "source": "/products/:path*", "destination": "/sets/", "permanent": true },
+    { "source": "/account", "destination": "/", "permanent": true },
+    { "source": "/account/:path*", "destination": "/", "permanent": true },
+    { "source": "/cart", "destination": "/sets/", "permanent": true },
+    { "source": "/cart/:path*", "destination": "/sets/", "permanent": true },
+    { "source": "/search", "destination": "/", "permanent": true },
+    { "source": "/search/:path*", "destination": "/", "permanent": true },
+    { "source": "/apps", "destination": "/", "permanent": true },
+    { "source": "/apps/:path*", "destination": "/", "permanent": true }
+  ]
+}

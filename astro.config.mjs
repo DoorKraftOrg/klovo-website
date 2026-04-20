@@ -40,7 +40,7 @@ export default defineConfig({
     '/blog': '/blogs/news',
     '/blog/': '/blogs/news',
     '/blogs': '/blogs/news',
-    // Shopify /collections/* → Astro sets hub (safety catches for old inbound links)
+    // Shopify legacy /collections/* — known entries. Wildcard catch-all handled in vercel.json.
     '/collections/all': '/sets/',
     '/collections/kits-bundles': '/sets/',
     '/collections/garage-cabinet-sets': '/sets/',
