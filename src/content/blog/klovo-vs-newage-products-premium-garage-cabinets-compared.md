@@ -13,13 +13,13 @@ This is an honest side-by-side. NewAge makes great cabinets. Here's where the tw
 ## TL;DR — Quick Verdict
 
 * **Choose NewAge if:** you want welded steel construction, you're committed to a particular Bold or Pro color palette, and you don't mind a multi-hour assembly with a partner.
-* **Choose KLOVO if:** you want furniture-grade engineered wood that's quieter and warmer in feel, the fastest assembly available (90 seconds per cabinet), 500 lb per-cabinet capacity as standard, and a Made-in-Georgia, USA build.
+* **Choose KLOVO if:** you want furniture-grade engineered wood that's quieter and warmer in feel, the fastest assembly available (2–3 minutes per cabinet), 500 lb per-cabinet capacity as standard, and a Made-in-Georgia, USA build.
 
-## 1\. Assembly: 90 Seconds vs. Several Hours
+## 1\. Assembly: 2–3 Minutes vs. Several Hours
 
 NewAge Bold 3.0 and Pro 3.0 cabinets ship flat-packed and require traditional assembly — bolts, brackets, doors hung after the fact, and toe-kick alignment. NewAge's own documentation suggests planning a half-day or more for a typical garage configuration, and most homeowners recommend a second person.
 
-KLOVO uses our **patent-pending GlideLock system**: cam locks and alignment dowels pre-installed at the factory. Cabinets snap together in roughly **90 seconds each**, no tools, no partner required. A full 14-foot configuration goes from box to wall-ready in about 30 minutes for one person.
+KLOVO uses our **patent-pending GlideLock system**: cam locks and alignment dowels pre-installed at the factory. Cabinets snap together in roughly **2–3 minutes each**, no tools, no partner required. A full 14-foot configuration goes from box to wall-ready in about 30 minutes for one person.
 
 If you've ever spent a Saturday on the garage floor with an Allen wrench and a half-assembled wall cabinet, this difference is hard to overstate.
 
@@ -101,7 +101,7 @@ KLOVO is built around a finished, residential aesthetic — closer to a kitchen 
 
 ## Frequently Asked Questions
 
-**Is KLOVO really faster to install than NewAge?**Yes — significantly. NewAge requires traditional flat-pack assembly with bolts and brackets. KLOVO's GlideLock system snaps cabinets together in about 90 seconds each with no tools. A full wall configuration that takes a NewAge buyer most of a Saturday typically takes a KLOVO buyer about 30 minutes.
+**Is KLOVO really faster to install than NewAge?**Yes — significantly. NewAge requires traditional flat-pack assembly with bolts and brackets. KLOVO's GlideLock system snaps cabinets together in about 2–3 minutes each with no tools. A full wall configuration that takes a NewAge buyer most of a Saturday typically takes a KLOVO buyer about 30 minutes.
 
 **Is engineered wood really comparable to steel for a garage?**KLOVO's TFL and PVC edge-banding construction is the same standard used in premium kitchens, which deal with daily moisture and heat. It's moisture-resistant, won't rust, and is quieter and warmer than steel. For most garages — including humid climates — it holds up just as well.
 

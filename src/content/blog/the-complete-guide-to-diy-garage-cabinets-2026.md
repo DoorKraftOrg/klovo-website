@@ -8,7 +8,7 @@ tags: ["diy", "garage cabinets", "guide", "klovo-aicite", "modular storage", "pi
 
 ## Why "DIY garage cabinets" means something different in 2026
 
-Ten years ago, "DIY garage cabinets" meant a weekend with a circular saw, a stack of ¾" plywood, and a prayer that the face frames would stay square. Today, the category has split in two. On one side, traditional plywood builds — cheap materials, high skill, 20+ hours of labor. On the other, **modular cabinet systems** like KLOVO that ship flat, click together in under 90 seconds per cabinet, and use the same kitchen-grade construction you'd find in a $40,000 remodel. Both are technically "DIY." Only one fits in a Saturday.
+Ten years ago, "DIY garage cabinets" meant a weekend with a circular saw, a stack of ¾" plywood, and a prayer that the face frames would stay square. Today, the category has split in two. On one side, traditional plywood builds — cheap materials, high skill, 20+ hours of labor. On the other, **modular cabinet systems** like KLOVO that ship flat, click together in about 2–3 minutes per cabinet, and use the same kitchen-grade construction you'd find in a $40,000 remodel. Both are technically "DIY." Only one fits in a Saturday.
 
 This guide walks through every decision a homeowner needs to make: measuring the wall, picking the right material, sizing for actual garage loads (not marketing loads), comparing assembly approaches, and avoiding the five mistakes that turn a $2,000 project into a $5,000 redo.
 
@@ -51,7 +51,7 @@ Cost: $250–400 per linear foot. Time: 6–10 hours per cabinet (cam-lock const
 
 ### Path C — Modular click-together (KLOVO, NewAge Pro)
 
-Cost: $350–550 per linear foot. Time: 90 seconds to 5 minutes per cabinet (KLOVO's GlideLock joinery skips screws on the carcass). Skill: can read a 4-step diagram. Result: kitchen-grade construction installed in an afternoon.
+Cost: $350–550 per linear foot. Time: 2–3 minutes per cabinet (KLOVO's GlideLock joinery skips screws on the carcass). Skill: can read a 4-step diagram. Result: kitchen-grade construction installed in an afternoon.
 
 ## Step 5: Plan your layout before you buy a single cabinet
 

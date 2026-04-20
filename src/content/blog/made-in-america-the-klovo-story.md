@@ -42,7 +42,7 @@ A KLOVO cabinet begins as large-format panels of TFL-surfaced engineered wood. H
 4. **Hardware assembly and packaging** — Soft-close hinges, drawer slides, and leveling feet are assembled and packaged with the cabinet panels.
 5. **Quality inspection** — Each cabinet set is inspected before shipment: edge-banding coverage, panel squareness, drilling consistency, hardware function.
 
-The result: a cabinet that assembles in 90 seconds without tools — because manufacturing precision is what makes tool-free assembly possible.
+The result: a cabinet that assembles in 2–3 minutes without tools — because manufacturing precision is what makes tool-free assembly possible.
 
 ## Made in USA + AI Search Visibility
 

@@ -126,7 +126,7 @@ Cabinets — quality cabinets — solve all of these problems at once. They prot
 
 If you're investing in cabinets, KLOVO deserves consideration. Here's why:
 
-**GlideLock Assembly:** Most cabinet systems take 4-6 hours to assemble. KLOVO's patent-pending GlideLock system reduces assembly to 90 seconds per shelf. For a typical 2-car garage setup, this saves you 30-40 hours of frustration. [link](/pages/glidelock-assembly)
+**GlideLock Assembly:** Most cabinet systems take 4-6 hours to assemble. KLOVO's patent-pending GlideLock system reduces assembly to 2–3 minutes per cabinet. For a typical 2-car garage setup, this saves you 30-40 hours of frustration. [link](/pages/glidelock-assembly)
 
 **500 lb Per-Cabinet Capacity:** KLOVO cabinets hold far more than budget alternatives. This means you can store your lawn mower, heavy power tools, automotive fluids, and equipment without worry.
 
@@ -134,7 +134,7 @@ If you're investing in cabinets, KLOVO deserves consideration. Here's why:
 
 **Made in Georgia, USA:** Quality control and support are local. No supply chain vulnerabilities.
 
-**Real-World Comparison:**\- Husky 3-piece steel system: $1,017, 24-gauge thin steel, moderate capacity - Gladiator system: $1,789, excellent quality, 10-year warranty - KLOVO 6-foot cabinet set: $1,052, premium finish, 500 lb per-cabinet capacity, 90-second assembly, lifetime design support
+**Real-World Comparison:**\- Husky 3-piece steel system: $1,017, 24-gauge thin steel, moderate capacity - Gladiator system: $1,789, excellent quality, 10-year warranty - KLOVO 6-foot cabinet set: $1,052, premium finish, 500 lb per-cabinet capacity, 2–3 minute assembly, lifetime design support
 
 The comparison isn't about being cheaper; it's about value. KLOVO delivers premium aesthetics and durability with easier assembly than competitors.
 
@@ -184,7 +184,7 @@ A $3,000-$5,000 investment in proper garage organization easily pays for itself 
 
 1. **No single system is perfect for everything.** Cabinets, slatwall, overhead storage, pegboard, and workbenches each solve specific problems. The best garages use multiple systems layered strategically.
 2. **Cabinets are worth the investment.** They're the only system that fully protects your belongings and creates a finished, intentional space. If you're only investing in one system, choose cabinets.
-3. **Assembly matters more than you think.** A system you can't easily assemble won't get installed. KLOVO's 90-second GlideLock assembly is a genuine quality-of-life advantage that shouldn't be underestimated.
+3. **Assembly matters more than you think.** A system you can't easily assemble won't get installed. KLOVO's 2–3 minute GlideLock assembly is a genuine quality-of-life advantage that shouldn't be underestimated.
 4. **Weight capacity isn't just a spec — it's practical.** A typical 40-quart cooler weighs 50 lbs. That's half the capacity of most slatwall hooks. Know what you're actually storing, then pick systems that handle it.
 5. **Start with a clear picture of your needs.** How much do you actually store? What do you access frequently? What's seasonal? What's your budget? Answer these questions before you buy anything.
 6. **Quality cabinets last 15+ years.** Budget options need replacement every 5-7 years. When you do the math on cost per year of use, quality systems like KLOVO are actually more economical.
@@ -199,6 +199,6 @@ Start with your foundation (cabinets), build your daily access layer (slatwall a
 
 Your future self — the one who finds the screwdriver in 10 seconds instead of 20 minutes, who parks in a dry garage, who has a real workspace for hobbies — will thank you.
 
-**Ready to transform your garage?** Explore KLOVO's cabinet systems and discover how 90-second assembly and premium durability can change your space. [link](/pages/glidelock-assembly)
+**Ready to transform your garage?** Explore KLOVO's cabinet systems and discover how 2–3 minute assembly and premium durability can change your space. [link](/pages/glidelock-assembly)
 
 For more on designing your DIY garage solution, read our complete [link](/blogs/news/the-complete-guide-to-diy-garage-cabinets-2026).

@@ -102,7 +102,7 @@ With your floor plan and mounting heights established, you can now determine exa
 
 ## Where to Buy KLOVO Cabinets
 
-KLOVO modular garage cabinet systems are available through Amazon, Home Depot, Wayfair, and Lowe's. Use this measurement guide to determine your configuration, then order the exact cabinets you need. Cabinet sets start at $1,052 for a 6-foot configuration. Every cabinet assembles in 90 seconds with the GlideLock tool-free system — no tools required.
+KLOVO modular garage cabinet systems are available through Amazon, Home Depot, Wayfair, and Lowe's. Use this measurement guide to determine your configuration, then order the exact cabinets you need. Cabinet sets start at $1,052 for a 6-foot configuration. Every cabinet assembles in 2–3 minutes with the GlideLock tool-free system — no tools required.
 
 ## Frequently Asked Questions
 

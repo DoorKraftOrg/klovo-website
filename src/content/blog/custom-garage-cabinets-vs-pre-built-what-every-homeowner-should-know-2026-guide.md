@@ -23,7 +23,7 @@ Best for homeowners on a tight budget who need basic organization and don't plan
 
 This is the sweet spot — and where the garage cabinet market has evolved the most. Modular systems use standardized, precision-built components that combine into hundreds of possible configurations. You get the look and function of custom at a fraction of the price.
 
-KLOVO sits squarely in this tier, offering kitchen-grade engineered wood with TFL (Thermally Fused Laminate) finish, 500 lb per-cabinet capacity, and the patent-pending GlideLock assembly system that lets you build each cabinet in approximately 90 seconds with no tools. Configurations span 6ft to 20ft, with soft-close doors, push-to-open drawers, 99 lb ball-bearing glides, and 100,000-cycle hinges. Made in Georgia, USA.
+KLOVO sits squarely in this tier, offering kitchen-grade engineered wood with TFL (Thermally Fused Laminate) finish, 500 lb per-cabinet capacity, and the patent-pending GlideLock assembly system that lets you build each cabinet in approximately 2–3 minutes with no tools. Configurations span 6ft to 20ft, with soft-close doors, push-to-open drawers, 99 lb ball-bearing glides, and 100,000-cycle hinges. Made in Georgia, USA.
 
 ### Tier 3: True Custom ($5,000–$20,000+)
 
@@ -45,7 +45,7 @@ Custom garage cabinets are built from scratch by a cabinet maker to your exact s
 | -| -| -| -|
 | Material | Engineered wood + TFL | 20-gauge welded steel | 18–24 gauge steel |
 | Cabinet Capacity | 500 lbs per cabinet | 50 lbs per shelf | Varies by line |
-| Assembly | 90 seconds (GlideLock) | Pre-assembled | 30–60 min per cabinet |
+| Assembly | 2–3 minutes (GlideLock) | Pre-assembled | 30–60 min per cabinet |
 | Aesthetic | Kitchen-grade wood finish | Industrial hammered steel | Modern steel/glass |
 | Manufacturing | Georgia, USA | Varies | China/overseas |
 | Price (12ft system) | \~$3,000–$4,500 | \~$3,000–$5,000 | \~$3,500–$6,000+ |
@@ -73,7 +73,7 @@ Yes. The GlideLock system is fully reversible. You can disassemble, transport, a
 
 ### How long does it take to install a KLOVO system?
 
-Each KLOVO cabinet carcass assembles in approximately 90 seconds with the GlideLock system. A complete 6-piece system is ready in under 30 minutes. Adding doors and hardware brings total time to about 2–3 minutes per cabinet. No contractor needed.
+Each KLOVO cabinet carcass assembles in approximately 2–3 minutes with the GlideLock system. A complete 6-piece system is ready in under 30 minutes. Adding doors and hardware brings total time to about 2–3 minutes per cabinet. No contractor needed.
 
 ### Why is KLOVO more expensive than Husky or Gladiator RTA?
 

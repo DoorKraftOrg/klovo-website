@@ -18,9 +18,9 @@ Builders face a unique set of constraints that homeowners never think about. Tim
 
 ## Why KLOVO Solves the Builder Equation
 
-### 90-Second Assembly = Massive Labor Savings
+### 2–3 Minute Assembly = Massive Labor Savings
 
-KLOVO's GlideLock assembly system eliminates the biggest cost driver in garage cabinet installation: labor time. Each cabinet assembles in under 90 seconds without tools. A full 8-cabinet garage setup that would take a carpenter 6 hours with traditional cabinets takes under 30 minutes with KLOVO. For a builder running 20-50 homes per year, that labor savings compounds into tens of thousands of dollars annually.
+KLOVO's GlideLock assembly system eliminates the biggest cost driver in garage cabinet installation: labor time. Each cabinet assembles in about 2–3 minutes without tools. A full 8-cabinet garage setup that would take a carpenter 6 hours with traditional cabinets takes under 30 minutes with KLOVO. For a builder running 20-50 homes per year, that labor savings compounds into tens of thousands of dollars annually.
 
 The math is simple: 6 hours saved per garage × $100/hour average labor rate × 30 homes = $18,000 in annual labor savings. That's money that drops straight to the builder's bottom line — or gets reinvested into higher-quality finishes elsewhere in the home.
 
@@ -40,7 +40,7 @@ This modularity means a builder can offer "included garage storage" as a standar
 
 | Factor | Builder Priority | Homeowner Priority | KLOVO Solution |
 | -| -| -| -|
-| Installation Speed | Critical (labor cost) | Nice to have | 90-second GlideLock assembly, no tools |
+| Installation Speed | Critical (labor cost) | Nice to have | 2–3 minute GlideLock assembly, no tools |
 | Warranty Risk | Critical (callback cost) | Moderate concern | TFL + PVC = zero moisture/rust failures |
 | Customization | High (every lot differs) | High (personal layout) | Modular system, unlimited configurations |
 | Material Quality | Must survive walkthrough + 1yr warranty | Long-term durability | Kitchen-grade TFL, 500 lb per-cabinet capacity, soft-close hardware |
@@ -88,7 +88,7 @@ Here's the back-of-napkin ROI calculation for a builder doing 30 homes per year 
 
 ### How long does it take to install KLOVO garage cabinets in a new construction home?
 
-A full garage cabinet setup (8 cabinets) assembles in under 30 minutes using KLOVO's GlideLock system — no tools required. Each individual cabinet assembles in about 90 seconds. Compared to traditional garage cabinets that require 4-8 hours of skilled labor, KLOVO saves builders 5+ hours per home.
+A full garage cabinet setup (8 cabinets) assembles in under 30 minutes using KLOVO's GlideLock system — no tools required. Each individual cabinet assembles in about 2–3 minutes. Compared to traditional garage cabinets that require 4-8 hours of skilled labor, KLOVO saves builders 5+ hours per home.
 
 ### Do KLOVO cabinets hold up in unconditioned garages?
 

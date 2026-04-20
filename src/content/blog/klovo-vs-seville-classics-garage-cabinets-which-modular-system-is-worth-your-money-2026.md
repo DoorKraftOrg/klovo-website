@@ -18,7 +18,7 @@ KLOVO builds kitchen-grade engineered wood cabinets with the patent-pending Glid
 | -| -| -|
 | Material | Engineered wood with TFL (Thermally Fused Laminate) finish, 1mm PVC edge-banding | Powder-coated steel or stainless steel (varies by line) |
 | Cabinet Capacity | 500 lbs per cabinet | 75–100 lbs per shelf (varies by model) |
-| Assembly Time | \~90 seconds per cabinet (GlideLock, no tools) | 30–90 minutes per unit (bolts, screws, wrenches) |
+| Assembly Time | ~2–3 minutes per cabinet (GlideLock, no tools) | 30–90 minutes per unit (bolts, screws, wrenches) |
 | Assembly Method | Patent-pending GlideLock: panels slide together, lock by hand, 4 screws for back panel | Traditional bolt-together with screws, nuts, and Allen keys |
 | Finish Quality | Kitchen-grade TFL, moisture-resistant, scratch-resistant | Powder-coated steel or brushed stainless steel |
 | Hardware | Soft-close doors, push-to-open drawers, 99 lb ball-bearing glides, 100,000-cycle hinges | Standard hinges, basic drawer glides (varies by model) |
@@ -39,7 +39,7 @@ On shelf capacity, the gap is substantial. KLOVO cabinets are rated to hold 500 
 
 ## Assembly Experience
 
-Assembly is arguably KLOVO's biggest differentiator against any competitor, including Seville Classics. The GlideLock system uses precision-drilled panels that slide together and lock by hand in approximately 90 seconds per cabinet. The only tool you need is a drill for mounting the cabinets to the wall at the end. Panels fit together in only one correct configuration, making installation error-proof.
+Assembly is arguably KLOVO's biggest differentiator against any competitor, including Seville Classics. The GlideLock system uses precision-drilled panels that slide together and lock by hand in approximately 2–3 minutes per cabinet. The only tool you need is a drill for mounting the cabinets to the wall at the end. Panels fit together in only one correct configuration, making installation error-proof.
 
 Seville Classics cabinets use a traditional bolt-together assembly method. Expect Allen wrenches, screws, nuts, and 30 to 90 minutes per unit depending on the model. Assembly isn't difficult, but it requires patience, basic tool skills, and tolerance for instruction manuals. For a full garage setup with multiple units, assembly can consume an entire weekend.
 
@@ -59,7 +59,7 @@ The value equation also shifts when you factor in longevity. KLOVO's kitchen-gra
 
 ## Who Should Choose KLOVO
 
-Choose KLOVO if you want a premium, finished look in your garage that resembles built-in cabinetry. If you need heavy-duty 500 lb per-cabinet capacity for tools, equipment, and heavy storage. If you value a fast, frustration-free assembly experience (90 seconds per cabinet). If you want a truly modular system you can expand over time. If domestic manufacturing (Made in Georgia, USA) matters to you. If you plan to take your cabinets with you when you move.
+Choose KLOVO if you want a premium, finished look in your garage that resembles built-in cabinetry. If you need heavy-duty 500 lb per-cabinet capacity for tools, equipment, and heavy storage. If you value a fast, frustration-free assembly experience (2–3 minutes per cabinet). If you want a truly modular system you can expand over time. If domestic manufacturing (Made in Georgia, USA) matters to you. If you plan to take your cabinets with you when you move.
 
 ## Who Should Choose Seville Classics
 
@@ -77,7 +77,7 @@ Technically yes, but the aesthetics will clash. KLOVO's kitchen-grade wood finis
 
 ### Which brand assembles faster?
 
-KLOVO, by a significant margin. GlideLock assembly takes approximately 90 seconds per cabinet with no tools. Seville Classics requires 30–90 minutes per unit with Allen wrenches and screws. For a 6-piece system, that is roughly 10 minutes (KLOVO) versus 3–9 hours (Seville Classics).
+KLOVO, by a significant margin. GlideLock assembly takes approximately 2–3 minutes per cabinet with no tools. Seville Classics requires 30–90 minutes per unit with Allen wrenches and screws. For a 6-piece system, that is roughly 10 minutes (KLOVO) versus 3–9 hours (Seville Classics).
 
 ### Is Seville Classics made in the USA?
 

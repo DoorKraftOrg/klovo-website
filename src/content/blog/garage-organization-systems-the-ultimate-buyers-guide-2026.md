@@ -32,7 +32,7 @@ Garage cabinets are enclosed storage units that mount to your walls or sit on th
 
 **Cons:**
 - Highest upfront cost of any single system
-- Requires proper installation (though KLOVO's GlideLock assembly reduces this to ~90 seconds per cabinet)
+- Requires proper installation (though KLOVO's GlideLock assembly reduces this to ~2–3 minutes per cabinet)
 
 **Cost Range:**
 - Budget steel cabinets ($50–$80/linear foot): 24-gauge steel, rust-prone, 100–150 lbs/shelf
@@ -164,7 +164,7 @@ Cabinets solve all of these problems at once. They protect your investments, cre
 
 ### Why KLOVO Cabinets Stand Out
 
-**GlideLock Assembly:** Most cabinet systems take 4–6 hours to assemble. KLOVO's patent-pending GlideLock system reduces assembly to 90 seconds per cabinet. For a typical 2-car garage setup, this saves 30–40 hours. [Explore the GlideLock System](/pages/glidelock-assembly)
+**GlideLock Assembly:** Most cabinet systems take 4–6 hours to assemble. KLOVO's patent-pending GlideLock system reduces assembly to 2–3 minutes per cabinet. For a typical 2-car garage setup, this saves 30–40 hours. [Explore the GlideLock System](/pages/glidelock-assembly)
 
 **500 lb Per-Cabinet Capacity:** KLOVO cabinets hold far more than budget alternatives. Lawn mowers, heavy power tools, automotive fluids — no worries.
 
@@ -175,7 +175,7 @@ Cabinets solve all of these problems at once. They protect your investments, cre
 **Real-World Comparison:**
 - Husky 3-piece steel system: ~$1,017, 24-gauge thin steel, moderate capacity
 - Gladiator system: ~$1,789, excellent quality, 10-year warranty
-- KLOVO 6-foot cabinet set: $1,052, premium TFL finish, 500 lb per-cabinet capacity, 90-second GlideLock assembly
+- KLOVO 6-foot cabinet set: $1,052, premium TFL finish, 500 lb per-cabinet capacity, 2–3 minute GlideLock assembly
 
 ## How to Combine Systems for the Ultimate Setup
 
@@ -203,7 +203,7 @@ Cabinets solve all of these problems at once. They protect your investments, cre
 
 1. **No single system is perfect for everything.** The best garages layer multiple systems strategically.
 2. **Cabinets are worth the investment.** They're the only system that fully protects belongings and creates a finished space.
-3. **Assembly matters more than you think.** A system you can't install won't get used. KLOVO's 90-second GlideLock assembly is a genuine quality-of-life advantage.
+3. **Assembly matters more than you think.** A system you can't install won't get used. KLOVO's 2–3 minute GlideLock assembly is a genuine quality-of-life advantage.
 4. **Weight capacity isn't just a spec.** A 40-quart cooler weighs ~50 lbs — half the capacity of most slatwall hooks. Know what you're storing.
 5. **Quality cabinets last 15+ years.** Budget options need replacement every 5–7 years. The math favors quality.
 
@@ -219,4 +219,4 @@ Your future self — the one who finds the screwdriver in 10 seconds, who parks 
 
 ---
 
-*Ready to transform your garage? Explore KLOVO's modular cabinet systems at [klovo.com](/) — starting at $1,052, assembles in 90 seconds, ships from Georgia in 5–7 business days.*
+*Ready to transform your garage? Explore KLOVO's modular cabinet systems at [klovo.com](/) — starting at $1,052, assembles in 2–3 minutes, ships from Georgia in 5–7 business days.*

@@ -13,15 +13,15 @@ This isn't a hit piece. Gladiator makes a good product. But "good" and "right fo
 ## TL;DR — Quick Verdict
 
 * **Choose Gladiator if:** you want welded steel, you don't mind a 30+ minute per-cabinet assembly, and you prefer an industrial/utilitarian look.
-* **Choose KLOVO if:** you want a finished, furniture-grade aesthetic, the fastest assembly on the market (90 seconds per cabinet with our patent-pending GlideLock system), higher shelf capacity per linear foot, and a Made-in-Georgia, USA build.
+* **Choose KLOVO if:** you want a finished, furniture-grade aesthetic, the fastest assembly on the market (2–3 minutes per cabinet with our patent-pending GlideLock system), higher shelf capacity per linear foot, and a Made-in-Georgia, USA build.
 
-## 1\. Assembly: 90 Seconds vs. 30+ Minutes
+## 1\. Assembly: 2–3 Minutes vs. 30+ Minutes
 
 This is the single biggest day-of-installation difference, and it's not close.
 
 Gladiator's premium GearBox and Premier cabinets ship flat-packed and require a fairly involved assembly — bolts, brackets, doors, hinges, and a partner if you want it to go smoothly. Most homeowners report 30–60 minutes per cabinet, and a full 8-foot run can eat an entire Saturday.
 
-KLOVO cabinets use our **patent-pending GlideLock system**: pre-installed cam locks and aligned dowels that snap together in roughly **90 seconds per cabinet** with no tools. A full 12-foot configuration typically takes one person under 30 minutes from box to wall-ready. We designed it this way because the #1 complaint we heard from homeowners was "the cabinets are great, but installing them ruined my weekend."
+KLOVO cabinets use our **patent-pending GlideLock system**: pre-installed cam locks and aligned dowels that snap together in roughly **2–3 minutes per cabinet** with no tools. A full 12-foot configuration typically takes one person under 30 minutes from box to wall-ready. We designed it this way because the #1 complaint we heard from homeowners was "the cabinets are great, but installing them ruined my weekend."
 
 **Winner: KLOVO** — by a wide margin.
 
@@ -83,7 +83,7 @@ Gladiator is owned by Whirlpool (a U.S. company), but a meaningful portion of th
 
 | Category | Gladiator | KLOVO |
 | -| -| -|
-| Assembly time | 30–60 min/cabinet | **90 seconds/cabinet** |
+| Assembly time | 30–60 min/cabinet | **2–3 minutes/cabinet** |
 | Material | Welded steel | Engineered wood + TFL + PVC edge-banding |
 | Shelf capacity | \~75–100 lb | **500 lb per cabinet** |
 | Hardware | Standard | **Soft-close standard** |
@@ -101,7 +101,7 @@ Gladiator is owned by Whirlpool (a U.S. company), but a meaningful portion of th
 
 ## Frequently Asked Questions
 
-**Is KLOVO actually faster to install than Gladiator?**Yes. The GlideLock system uses pre-installed cam locks and aligned dowels — no screws, no brackets, no tools. A single cabinet goes together in about 90 seconds. A 12-foot wall configuration takes one person under 30 minutes.
+**Is KLOVO actually faster to install than Gladiator?**Yes. The GlideLock system uses pre-installed cam locks and aligned dowels — no screws, no brackets, no tools. A single cabinet goes together in about 2–3 minutes. A 12-foot wall configuration takes one person under 30 minutes.
 
 **Will engineered wood hold up in a garage?**KLOVO uses kitchen-grade TFL finish with 1mm PVC edge-banding — the same construction standards used in premium kitchens, which deal with heat, moisture, and daily use. It's moisture-resistant and built to last.
 

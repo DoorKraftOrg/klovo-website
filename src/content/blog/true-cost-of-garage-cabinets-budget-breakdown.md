@@ -81,7 +81,7 @@ This is where KLOVO lives — alongside the top-end configurations from establis
 KLOVO cabinets are built from kitchen-grade engineered wood with a Thermally Fused Laminate (TFL) finish — the same material used in high-end kitchen renovations. Here's what that means for your garage:
 
 * **500 lb per-cabinet capacity** — Load up power tools, automotive parts, cases of paint, and heavy equipment. This is several times the capacity of budget cabinets.
-* **GlideLock assembly** — Patent-pending system. Each cabinet assembles in about 90 seconds. Panels glide into place and lock — no cam locks, no Allen wrenches, no tools.
+* **GlideLock assembly** — Patent-pending system. Each cabinet assembles in about 2–3 minutes. Panels glide into place and lock — no cam locks, no Allen wrenches, no tools.
 * **Soft-close everything** — Doors close quietly. Push-to-open drawers with 99 lb ball-bearing glides.
 * **Moisture-resistant** — TFL finish plus 1mm PVC edge-banding seals against garage humidity.
 * **100,000-cycle hinges and slides** — Engineered to open and close daily for decades.
@@ -101,7 +101,7 @@ Free shipping on orders over $2,499 means no surprise delivery charges for most 
 
 ### Why the Premium Tier Saves Money Long-Term
 
-A KLOVO 12ft system costs roughly the same as a mid-range Gladiator Premier setup — but gives you 500 lb per-cabinet capacity (vs. 50 lb shelves), kitchen-grade finish (vs. hammered steel), and 90-second assembly (vs. pre-assembled steel that's heavy and awkward to mount). And because KLOVO is modular and portable, it moves with you — protecting your investment even if you sell the house.
+A KLOVO 12ft system costs roughly the same as a mid-range Gladiator Premier setup — but gives you 500 lb per-cabinet capacity (vs. 50 lb shelves), kitchen-grade finish (vs. hammered steel), and 2–3 minute assembly (vs. pre-assembled steel that's heavy and awkward to mount). And because KLOVO is modular and portable, it moves with you — protecting your investment even if you sell the house.
 
 [link](/sets/) — See all KLOVO configurations and pricing
 
@@ -175,6 +175,6 @@ The sweet spot for most homeowners is the premium modular tier — specifically 
 
 [link](/blogs/news/custom-garage-cabinets-vs-pre-built) — **Custom vs. Pre-Built: The Full Comparison** — Deep dive into all three tiers.
 
-[link](/pages/glidelock-assembly) — **How GlideLock Assembly Works** — 90 seconds per cabinet, no tools required.
+[link](/pages/glidelock-assembly) — **How GlideLock Assembly Works** — 2–3 minutes per cabinet, no tools required.
 
 _Internal linking notes for Soham:_\- Link to pillar post (Custom vs. Pre-Built) prominently — this is a supporting cluster post - Link to Custom Garage Cabinets landing page - Link to GlideLock landing page - Link to individual product kit pages with specific pricing - This post targets "People Also Ask" queries — consider adding a FAQ section if Google shows PAA for the target keywords - Great candidate for Google's featured snippet (the cost-per-linear-foot table)

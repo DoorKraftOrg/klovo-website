@@ -102,7 +102,7 @@ Yes. KLOVO cabinets use moisture-resistant TFL engineered wood with 1mm PVC edge
 
 ### How long does it take to install cabinets in a laundry room?
 
-With KLOVO's GlideLock system, each cabinet assembles in approximately 90 seconds. A typical laundry room setup of 3–5 cabinets installs in under 30 minutes. The only tool needed is a drill for wall mounting.
+With KLOVO's GlideLock system, each cabinet assembles in approximately 2–3 minutes. A typical laundry room setup of 3–5 cabinets installs in under 30 minutes. The only tool needed is a drill for wall mounting.
 
 ### What is the most popular laundry room configuration?
 

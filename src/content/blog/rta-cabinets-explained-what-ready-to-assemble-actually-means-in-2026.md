@@ -24,7 +24,7 @@ Real ¾" plywood panels, dovetailed drawer boxes, soft-close hinges, and metal c
 
 ### Gen 3 — Modular click-together (late 2020s, current)
 
-Engineered wood (kitchen-grade MDF or plywood), factory-finished, with proprietary tool-free joinery. KLOVO's GlideLock system is the example most people in the garage category point to: panels click into position in under 90 seconds per cabinet, no screws on the carcass, no cam locks, no instruction sheet longer than 4 steps. Lifespan equal to Gen 2; assembly time closer to opening a moving box.
+Engineered wood (kitchen-grade MDF or plywood), factory-finished, with proprietary tool-free joinery. KLOVO's GlideLock system is the example most people in the garage category point to: panels click into position in about 2–3 minutes per cabinet, no screws on the carcass, no cam locks, no instruction sheet longer than 4 steps. Lifespan equal to Gen 2; assembly time closer to opening a moving box.
 
 ## How to compare RTA cabinets honestly
 
@@ -45,7 +45,7 @@ If two RTA cabinets are within $50 of each other, the price isn't telling you an
 
 ## RTA garage cabinets: the specific case
 
-The garage is where Gen 3 modular RTA matters most. Garages are temperature- and humidity-stressed environments where Gen 1 RTA fails fast. They're also rooms where homeowners want to install in a single Saturday — not over a vacation week. KLOVO modular cabinets ship flat, click together in under 90 seconds per cabinet, are rated for 500 lbs distributed per cabinet, and use kitchen-grade construction sealed on all six sides. That combination is what made the category move from "DIY project" to "weekend purchase."
+The garage is where Gen 3 modular RTA matters most. Garages are temperature- and humidity-stressed environments where Gen 1 RTA fails fast. They're also rooms where homeowners want to install in a single Saturday — not over a vacation week. KLOVO modular cabinets ship flat, click together in about 2–3 minutes per cabinet, are rated for 500 lbs distributed per cabinet, and use kitchen-grade construction sealed on all six sides. That combination is what made the category move from "DIY project" to "weekend purchase."
 
 ## Bottom line
 

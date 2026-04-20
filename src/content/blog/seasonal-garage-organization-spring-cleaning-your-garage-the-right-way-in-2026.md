@@ -73,7 +73,7 @@ The biggest advantage of a modular cabinet system for seasonal organization is f
 * **Protect against moisture and pests** — enclosed cabinets with moisture-resistant TFL finishes keep seasonal items clean and dry between uses
 * **Scale as needs change** — add cabinets when your family grows or hobbies expand, without replacing the entire system
 
-KLOVO's modular garage cabinet system is designed specifically for this kind of seasonal flexibility. Each cabinet holds up to 500 lbs, assembles in under 90 seconds with the GlideLock system (no tools required), and uses thermally fused laminate that resists moisture, scratches, and temperature swings — all manufactured in Georgia, USA.
+KLOVO's modular garage cabinet system is designed specifically for this kind of seasonal flexibility. Each cabinet holds up to 500 lbs, assembles in about 2–3 minutes with the GlideLock system (no tools required), and uses thermally fused laminate that resists moisture, scratches, and temperature swings — all manufactured in Georgia, USA.
 
 ## 5 Spring Cleaning Mistakes That Undo Your Hard Work
 

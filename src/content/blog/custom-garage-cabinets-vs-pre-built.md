@@ -38,13 +38,13 @@ KLOVO sits squarely in this tier, alongside brands like Gladiator Premier and se
 
 **What you get:**Modular systems offer a range of cabinet types (base, wall, tall, drawer units) that are designed to align and combine seamlessly. Better brands in this tier use kitchen-grade materials, heavy-duty hardware, and engineered assembly systems that make DIY installation genuinely easy.
 
-**KLOVO specs (the benchmark in this tier):**\- Materials: kitchen-grade engineered wood with TFL (Thermally Fused Laminate) finish - Cabinet capacity: 500 lbs per cabinet - Assembly: 90 seconds per cabinet (GlideLock patent-pending system — no tools) - Sizes: configurations from 6ft to 20ft - Hardware: soft-close doors, push-to-open drawers, 99 lb ball-bearing glides, 100,000-cycle hinges - Finish: moisture-resistant, scratch-resistant, 1mm PVC edge-banding - Made in Georgia, USA
+**KLOVO specs (the benchmark in this tier):**\- Materials: kitchen-grade engineered wood with TFL (Thermally Fused Laminate) finish - Cabinet capacity: 500 lbs per cabinet - Assembly: 2–3 minutes per cabinet (GlideLock patent-pending system — no tools) - Sizes: configurations from 6ft to 20ft - Hardware: soft-close doors, push-to-open drawers, 99 lb ball-bearing glides, 100,000-cycle hinges - Finish: moisture-resistant, scratch-resistant, 1mm PVC edge-banding - Made in Georgia, USA
 
 **How KLOVO compares to other Tier 2 options:** | Feature | KLOVO | Gladiator Premier | NewAge Bold/Pro |
 | -| -| -| -|
 | Material | Engineered wood + TFL | 20-gauge welded steel | 18–24 gauge steel |
 | Cabinet Capacity | 500 lbs per cabinet | 50 lbs per shelf (200 lbs total) | Varies by line |
-| Assembly | 90 seconds (GlideLock, no tools) | Pre-assembled (minimal setup) | 30–60 min per cabinet |
+| Assembly | 2–3 minutes (GlideLock, no tools) | Pre-assembled (minimal setup) | 30–60 min per cabinet |
 | Per-Cabinet Assembly | Tool-free | Attach feet/casters only | Allen wrenches + bolts |
 | Aesthetic | Kitchen-grade wood finish | Industrial hammered steel | Modern steel/glass |
 | Expandable | Fully modular, any combination | Limited to existing lines | Modular within system |
@@ -138,4 +138,4 @@ If you're the kind of homeowner who wants your garage to feel as intentional as 
 
 [link](/pages/custom-garage-cabinets) — **See How KLOVO Compares to Custom** — Side-by-side breakdown with real pricing.
 
-[link](/pages/glidelock-assembly) — **Learn About GlideLock** — 90-second assembly, no tools required.
+[link](/pages/glidelock-assembly) — **Learn About GlideLock** — 2–3 minute assembly, no tools required.

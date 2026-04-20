@@ -94,7 +94,7 @@ This is why virtually every major kitchen cabinet manufacturer uses TFL as their
 
 Custom installed garage cabinetry typically runs $5,000–$10,000+. It's built on-site by a cabinet installer using — in most cases — the same TFL engineered wood and PVC edge-banding as KLOVO. The material standard is identical. What you pay for in custom work is precision fit, professional installation, design consultation, and a 2–6 week lead time.
 
-KLOVO delivers the identical material stack at $1,052–$7,216 for a full system, with assembly that doesn't require a contractor. The patent-pending GlideLock system makes one-person installation in an afternoon realistic — each cabinet carcass assembles in approximately 90 seconds, no cam locks or Allen keys required.
+KLOVO delivers the identical material stack at $1,052–$7,216 for a full system, with assembly that doesn't require a contractor. The patent-pending GlideLock system makes one-person installation in an afternoon realistic — each cabinet carcass assembles in approximately 2–3 minutes, no cam locks or Allen keys required.
 
 The finish result — the look from five feet away — is indistinguishable from professionally installed kitchen cabinetry.
 

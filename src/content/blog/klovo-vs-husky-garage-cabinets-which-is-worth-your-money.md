@@ -19,7 +19,7 @@ The price gap is real — a comparable KLOVO starter set runs approximately $1,0
 | Feature | KLOVO | Husky |
 | -| -| -|
 | **Material** | Moisture-resistant TFL engineered wood, 1mm PVC edge-banding | Steel (most lines) or basic laminate particleboard |
-| **Assembly system** | Patent-pending GlideLock — 90 seconds per cabinet, no cam locks | Bolt-together steel or flat-pack with cam locks and hardware |
+| **Assembly system** | Patent-pending GlideLock — 2–3 minutes per cabinet, no cam locks | Bolt-together steel or flat-pack with cam locks and hardware |
 | **Cabinet capacity** | 500 lbs per cabinet | 100–200 lbs per shelf (varies by line) |
 | **Adjustable shelf capacity** | 60 lbs | 40–100 lbs (varies) |
 | **Soft-close hardware** | Standard on all doors and drawers | Available on select premium Husky lines only |
@@ -46,7 +46,7 @@ Husky's wood-body lines (where they exist) typically use standard flat-pack asse
 
 KLOVO's GlideLock system is a different approach. Panels are precision-drilled to tolerances that allow them to slide together and lock by hand. The only tool involved is a drill for the four back-panel screws and optional wall anchoring at the end. There are no cam locks to strip, no cam bolts to lose, and no hex keys required.
 
-Each KLOVO cabinet carcass assembles in approximately 90 seconds. Doors and hardware add another 2–3 minutes. A full 6-piece system is done in under 30 minutes.
+Each KLOVO cabinet carcass assembles in approximately 2–3 minutes. Doors and hardware add another 2–3 minutes. A full 6-piece system is done in under 30 minutes.
 
 ## Cabinet Capacity: 500 lbs per Cabinet vs. 100–200 lbs per Shelf
 

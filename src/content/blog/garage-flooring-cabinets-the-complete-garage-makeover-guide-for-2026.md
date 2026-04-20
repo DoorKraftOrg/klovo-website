@@ -74,7 +74,7 @@ With flooring installed, now plan your cabinet configuration. The key dimensions
 
 ## Step 5: Assemble and Install Cabinets
 
-With a modular system like KLOVO, cabinet installation is the fastest part of the entire makeover. Each cabinet assembles in under 90 seconds using the GlideLock system — no tools, no hardware sorting, no frustration with cam locks or dowels. A complete 8-cabinet garage setup goes from boxes to finished in about 30 minutes.
+With a modular system like KLOVO, cabinet installation is the fastest part of the entire makeover. Each cabinet assembles in about 2–3 minutes using the GlideLock system — no tools, no hardware sorting, no frustration with cam locks or dowels. A complete 8-cabinet garage setup goes from boxes to finished in about 30 minutes.
 
 The installation process:
 

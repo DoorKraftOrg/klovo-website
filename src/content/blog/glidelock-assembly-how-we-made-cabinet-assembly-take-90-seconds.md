@@ -1,6 +1,6 @@
 ---
-title: "GlideLock Assembly: How We Made Cabinet Assembly Take 90 Seconds"
-description: "The patent-pending GlideLock system lets you build KLOVO garage cabinets without cam locks or Allen keys. Here's how it works, why it's faster than every other DIY system, and what 90-second carcass assembly actually means for your weekend project."
+title: "GlideLock Assembly: How We Made Cabinet Assembly Take 2–3 Minutes"
+description: "The patent-pending GlideLock system lets you build KLOVO garage cabinets without cam locks or Allen keys. Here's how it works, why it's faster than every other DIY system, and what 2–3 minute carcass assembly actually means for your weekend project."
 date: 2026-04-03T15:57:44Z
 author: "KLOVO"
 tags: ["assembly guide", "DIY cabinets", "garage organization", "garage storage", "GlideLock", "modular cabinets", "tool-free assembly"]
@@ -30,13 +30,13 @@ GlideLock is a precision-fit joinery system. Every KLOVO cabinet panel is drille
 
 **Step 1: Identify the panels.** Each panel is labeled, and because the drilling pattern is asymmetric, they only fit together one way. You can't install a side panel upside down. The geometry prevents it.
 
-**Step 2: Slide the panels together.** The GlideLock connectors slide into their corresponding channels and lock positively. You'll feel it click into place. The entire carcass comes together in about 90 seconds.
+**Step 2: Slide the panels together.** The GlideLock connectors slide into their corresponding channels and lock positively. You'll feel it click into place. The entire carcass comes together in about 2–3 minutes.
 
 **Step 3: Install the back panel.** The 6mm back panel slides into a routed channel on the sides and bottom. Four small screws finish the job — all you need is a Phillips head screwdriver.
 
 **Step 4: Attach the doors or drawer faces.** Soft-close hinges snap into place. No alignment jigs needed.
 
-Each KLOVO cabinet carcass snaps together in approximately 90 seconds. Adding the back panel screws, doors, and drawer faces brings total per-cabinet installation time to around 2–3 minutes. A full 6-piece garage set is ready in under 30 minutes.
+Each KLOVO cabinet carcass snaps together in approximately 2–3 minutes. Adding the back panel screws, doors, and drawer faces brings total per-cabinet installation time to around 2–3 minutes. A full 6-piece garage set is ready in under 30 minutes.
 
 ---
 
