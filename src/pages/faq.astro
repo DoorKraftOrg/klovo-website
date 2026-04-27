@@ -51,9 +51,26 @@ const faqs = [
     a: "Metal cabinets are utilitarian — built for the mechanic's shop. Klovo cabinets have a premium furniture-grade finish with scratch-resistant laminate and moisture-resistant sealed edgebanding. Push-to-open doors and drawers give a clean, handle-free look.",
   },
 ];
+
+// FAQPage JSON-LD — qualifies for FAQ rich results in Google SERP
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+};
 ---
 
-<BaseLayout title="FAQ" description="Frequently asked questions about Klovo garage cabinet sets. Assembly, weight capacity, materials, warranty, and more.">
+<BaseLayout
+  title="Garage Cabinet FAQ"
+  description="Garage cabinet FAQ — assembly time, weight capacity, materials, warranty, and how Klovo's modular GlideLock system compares to metal and kitchen cabinets."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
 
   <section class="py-16 lg:py-24 bg-warm-white">
     <div class="section-container">

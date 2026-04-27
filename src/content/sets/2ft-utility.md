@@ -1,6 +1,8 @@
 ---
 sku: "01-2f-1p-WHT"
+upc: "850085276094"
 title: "Klovo 2 ft. Utility Cabinet / Mudroom Locker / Garage Corner Set — 1-Piece Standalone 84\" Tall Utility Locker"
+seoTitle: "2 ft. Utility Modular Garage Cabinet Set"
 longTitle: "Klovo 2 ft. Utility Cabinet / Mudroom Locker / Garage Corner Set — 1-Piece Standalone 84\" Tall Utility Locker, Push-to-Open, 500 lb Cabinet, GlideLock, White"
 widthFt: 2
 widthIn: 24

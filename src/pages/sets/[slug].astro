@@ -14,7 +14,9 @@ const { set } = Astro.props;
 const { Content } = await render(set);
 const {
   title,
+  seoTitle,
   sku,
+  upc,
   shortDescription,
   includedComponents,
   widthFt,
@@ -27,7 +29,70 @@ const {
   features,
   specialFeatures,
   useCaseTags,
+  keywords,
+  image,
 } = set.data;
+
+// SEO: prefer the short keyword-rich seoTitle for <title> and OG; fall back to title
+const seoPageTitle = seoTitle ?? title;
+// Truncate description to ~155 chars at a word boundary, no awkward mid-word cuts
+const metaDesc = (() => {
+  const s = shortDescription.replace(/\s+/g, ' ').trim();
+  if (s.length <= 155) return s;
+  const cut = s.slice(0, 155);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > 100 ? cut.slice(0, lastSpace) : cut).replace(/[,.;:]+$/, '') + '…';
+})();
+const canonicalURL = new URL(`/sets/${set.id}/`, Astro.site).href;
+const imageURL = image?.startsWith('http') ? image : new URL(image ?? '/images/og-default.jpg', Astro.site).href;
+
+// Product JSON-LD — Google rich result eligible (Shopping snippet, price, rating slot)
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": title,
+  "description": shortDescription,
+  "sku": sku,
+  ...(upc ? { "gtin13": upc } : {}),
+  "brand": { "@type": "Brand", "name": "Klovo" },
+  "manufacturer": { "@type": "Organization", "name": "Door Kraft" },
+  "image": imageURL,
+  "url": canonicalURL,
+  "category": "Garage Cabinets",
+  "color": "White",
+  "material": "Engineered Wood",
+  "countryOfOrigin": "US",
+  ...(keywords ? { "keywords": keywords } : {}),
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Width", "value": `${widthFt} ft (${widthIn} in)` },
+    { "@type": "PropertyValue", "name": "Height", "value": `${heightIn} in` },
+    { "@type": "PropertyValue", "name": "Depth", "value": `${depthIn} in` },
+    { "@type": "PropertyValue", "name": "Pieces", "value": String(pieces) },
+    { "@type": "PropertyValue", "name": "Load Capacity (per cabinet)", "value": "500 lb" },
+    { "@type": "PropertyValue", "name": "Connector System", "value": "GlideLock (patent-pending)" },
+    ...(drawers > 0 ? [{ "@type": "PropertyValue", "name": "Drawers", "value": String(drawers) }] : []),
+  ],
+  "offers": {
+    "@type": "Offer",
+    "url": canonicalURL,
+    "priceCurrency": "USD",
+    "price": String(msrp),
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": { "@type": "Organization", "name": "Klovo" }
+  }
+};
+
+// Breadcrumb JSON-LD — improves SERP display
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": new URL("/", Astro.site).href },
+    { "@type": "ListItem", "position": 2, "name": "Sets", "item": new URL("/sets/", Astro.site).href },
+    { "@type": "ListItem", "position": 3, "name": title, "item": canonicalURL }
+  ]
+};
 
 const TAG_META: Record<string, string> = {
   'home-gym':    'Home Gym',
@@ -155,7 +220,12 @@ const clientBom = bomCols;
 const clientRelated = related;
 ---
 
-<BaseLayout title={title} description={shortDescription.slice(0, 160)}>
+<BaseLayout title={seoPageTitle} description={metaDesc} ogImage={imageURL} canonical={canonicalURL}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    {keywords && <meta name="keywords" content={keywords} />}
+  </Fragment>
 
   <section class="ksd-breadcrumb-wrap">
     <div class="section-container">

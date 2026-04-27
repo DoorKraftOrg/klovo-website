@@ -5,8 +5,10 @@ const sets = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/sets' }),
   schema: z.object({
     sku: z.string(),
+    upc: z.string().optional(),
     title: z.string(),
     longTitle: z.string(),
+    seoTitle: z.string().optional(),
     widthFt: z.number(),
     widthIn: z.number(),
     heightIn: z.number().default(84),
