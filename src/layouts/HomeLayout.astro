@@ -1,0 +1,89 @@
+---
+import '../styles/homepage-v5.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+  keywords?: string;
+}
+
+const {
+  title = 'Klovo | Cabinet sets for the modern garage',
+  description = 'Modular garage cabinet sets from 2 to 16 ft. DIY GlideLock assembly in under an hour. 500 lbs per cabinet, push-to-open, engineered wood. 100% Made in USA.',
+  ogImage = '/images/og-default.jpg',
+  canonical,
+  keywords,
+} = Astro.props;
+
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+
+    <title>{title}</title>
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Fonts: Newsreader (serif) + Geist (sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&family=Geist:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Klovo" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@KlovoStorage" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Klovo",
+      "url": "https://www.klovo.com",
+      "logo": "https://www.klovo.com/images/klovo-logo-official.png",
+      "description": "Premium garage cabinets with fast assembly. Scratch-resistant, moisture-proof. Built in Georgia.",
+      "sameAs": [
+        "https://www.instagram.com/klovostorage/",
+        "https://x.com/KlovoStorage",
+        "https://www.linkedin.com/company/klovo/"
+      ],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Door Kraft"
+      }
+    })} />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" onfocus="this.style.cssText='position:fixed;top:1rem;left:1rem;z-index:9999;padding:.5rem 1rem;background:#1F1B14;color:#F4ECDB;border-radius:4px;font-size:.875rem;font-weight:600;'">Skip to content</a>
+    <slot />
+  </body>
+</html>

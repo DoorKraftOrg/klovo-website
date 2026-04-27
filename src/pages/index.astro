@@ -1,463 +1,484 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeLayout from '../layouts/HomeLayout.astro';
 ---
 
-<BaseLayout
-  title="Home"
-  description="Modular garage cabinet sets from 2 to 16 ft. DIY GlideLock assembly in under an hour, 500 lbs per cabinet, push-to-open, engineered wood. 100% Made in USA."
+<HomeLayout
+  title="Klovo | Cabinet sets for the modern garage"
+  description="Modular garage cabinet sets from 2 to 16 ft. DIY GlideLock assembly in under an hour. 500 lbs per cabinet, push-to-open, engineered wood. 100% Made in USA."
   keywords="modular garage cabinets, garage cabinet sets, DIY garage cabinet kit, RTA garage cabinet, push-to-open garage cabinets, soft-close garage cabinets, engineered wood garage cabinets, garage organization set, garage shelving system, garage storage cabinets, GlideLock, made in USA garage cabinets"
 >
 
-  <!-- ============================================
-       SECTION 1: HERO
-       ============================================ -->
-  <section class="relative min-h-[85vh] flex items-center bg-charcoal overflow-hidden">
-    <div class="absolute inset-0">
-      <img
-        src="/images/scenes/klovo-bright-garage.png"
-        alt="Klovo garage cabinet set in a bright modern garage with bike and stairs"
-        class="w-full h-full object-cover"
-        loading="eager"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/30 md:to-transparent"></div>
+  <!-- NAV -->
+  <nav class="nav" id="site-nav">
+    <a href="/" class="nav-logo" aria-label="Klovo home">
+      <img src="/images/klovo-logo-official.png" alt="Klovo" />
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="/sets/">Sets</a>
+      <a href="/assembly/">Assembly</a>
+      <a href="/specs/">Specs</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/about/">About</a>
+      <a href="/for-retailers/">For Retailers</a>
     </div>
+    <a href="/where-to-buy/" class="nav-cta">Where to Buy</a>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <i></i><i></i><i></i>
+    </button>
+  </nav>
 
-    <div class="section-container relative z-10 py-24 lg:py-32">
-      <div class="max-w-2xl">
-        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4 reveal">
-          Premium garage cabinets
-        </p>
-        <h1 class="text-4xl md:text-5xl lg:text-[56px] font-bold text-pure-white leading-[1.1] mb-6 reveal reveal-delay-1">
-          Cabinet sets for the modern garage.
-        </h1>
-        <p class="text-lg md:text-xl text-pure-white/80 leading-relaxed mb-10 max-w-lg reveal reveal-delay-2">
-          Pre-designed systems, sized for your wall. Assemble a full set in under an hour. Load capacity of 500 lbs per cabinet. 100% Made in USA.
-        </p>
-        <div class="flex flex-wrap gap-4 reveal reveal-delay-3">
-          <a href="/sets/" class="btn-amber">
-            See Our Sets <span aria-hidden="true">&rarr;</span>
-          </a>
-          <a href="/where-to-buy/" class="btn-secondary !border-pure-white !text-pure-white hover:!bg-pure-white hover:!text-charcoal">
-            Where to Buy
-          </a>
+  <main id="main-content">
+
+    <!-- SECTION 1 — HERO -->
+    <section class="hero">
+      <div class="hero-photo">
+        <img src="/images/scenes/klovo-bright-garage.png" alt="A modern garage with Klovo cabinets" loading="eager" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="eyebrow eyebrow--light">Premium Garage Cabinets</span>
+          <h1 class="h-display">
+            Cabinet sets for the<br/><em>modern garage.</em>
+          </h1>
+          <p class="hero-sub">
+            Pre-designed systems, sized for your wall. Assemble a full set in under an hour. Load capacity of 500 lbs per cabinet. 100% Made in USA.
+          </p>
+          <div class="hero-price">
+            <span class="hero-price-label">Sets from</span>
+            <span class="hero-price-val"><em>$589</em></span>
+            <span class="hero-price-note">single locker · full walls to $5,008</span>
+          </div>
+          <div class="hero-ctas">
+            <a href="/sets/" class="btn btn--primary">See our sets &rarr;</a>
+            <a href="/where-to-buy/" class="btn btn--ghost">Where to buy</a>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.5">
-        <polyline points="6 9 12 15 18 9" />
-      </svg>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SECTION 2: THE COLLECTION (WIDTH CARDS)
-       ============================================ -->
-  <section class="py-20 lg:py-28 bg-warm-white">
-    <div class="section-container">
-      <div class="text-center mb-16 reveal">
-        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-          The Collection
-        </p>
-        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4 leading-tight">
-          Pre-designed systems from 2 feet to 16 feet.<br/>Sized for your wall.
-        </h2>
-        <p class="text-lg text-klovo-grey max-w-2xl mx-auto">
-          Whatever purpose your garage serves — home office, family hub, children's playroom, workshop, or home gym — there's a Klovo set that fits.
-        </p>
+      <div class="hero-scroll" aria-hidden="true">
+        <span class="hero-scroll-line"></span>
+        <span class="hero-scroll-text">Scroll</span>
       </div>
+    </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-        <!-- 2 feet -->
-        <a href="/sets/#width-2ft" class="group reveal reveal-delay-1">
-          <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
-            <img
-              src="/images/products/tall-cabinet-solo.png"
-              alt="2 ft Klovo set — single tall utility cabinet for a corner or mudroom"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
-            2 feet
-          </h3>
-          <p class="text-klovo-grey text-[15px] mb-3">
-            The smallest set. A single tall cabinet — perfect for a corner, mudroom drop zone, or standalone utility locker.
+    <!-- SECTION 2 — THE COLLECTION -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">The Collection</span>
+          <h2 class="h-section">
+            Pre-designed systems from 2 feet to&nbsp;16&nbsp;feet.<br/>
+            <em>Sized for your wall.</em>
+          </h2>
+          <p class="section-lede">
+            Whatever purpose your garage serves — home office, family hub, children's playroom, workshop, or home gym — there's a Klovo set that fits.
           </p>
-          <span class="text-klovo-blue font-semibold text-sm inline-flex items-center gap-1">
-            Shop 2 ft sets <span aria-hidden="true">&rarr;</span>
-          </span>
-        </a>
+        </div>
 
-        <!-- 8 feet -->
-        <a href="/sets/#width-8ft" class="group reveal reveal-delay-2">
-          <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
-            <img
-              src="/images/sets/set-08-hero.jpg"
-              alt="8 ft Klovo set as a full wall of storage"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
-            8 feet
-          </h3>
-          <p class="text-klovo-grey text-[15px] mb-3">
-            A full wall. Big enough for a home office, a dedicated workshop, or most of a home gym.
-          </p>
-          <span class="text-klovo-blue font-semibold text-sm inline-flex items-center gap-1">
-            Shop 8 ft sets <span aria-hidden="true">&rarr;</span>
-          </span>
-        </a>
+        <div class="collection-grid">
+          <a href="/sets/#width-2ft" class="collection-card">
+            <div class="collection-card-img collection-card-img--small">
+              <img src="/images/products/tall-cabinet-solo.png" alt="2 ft. Klovo set" loading="lazy" />
+            </div>
+            <div class="collection-card-body">
+              <span class="collection-card-tag">2 feet</span>
+              <p class="collection-card-desc">
+                The smallest set. A single tall cabinet — perfect for a corner, mudroom drop zone, or standalone utility locker.
+              </p>
+              <span class="collection-card-link">Shop 2 ft sets &rarr;</span>
+            </div>
+          </a>
 
-        <!-- 16 feet -->
-        <a href="/sets/#width-16ft" class="group reveal reveal-delay-3">
-          <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
-            <img
-              src="/images/sets/set-16-hero.jpg"
-              alt="16 ft Klovo set spanning a two-car garage wall"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-charcoal group-hover:text-klovo-blue transition-colors mb-1">
-            16 feet
-          </h3>
-          <p class="text-klovo-grey text-[15px] mb-3">
-            The maximum setup. A complete family hub, full workshop with worktop, or a pro-level home gym.
-          </p>
-          <span class="text-klovo-blue font-semibold text-sm inline-flex items-center gap-1">
-            Shop 16 ft sets <span aria-hidden="true">&rarr;</span>
-          </span>
-        </a>
+          <a href="/sets/#width-8ft" class="collection-card">
+            <div class="collection-card-img">
+              <img src="/images/sets/set-08-hero.jpg" alt="8 ft. Klovo set" loading="lazy" />
+            </div>
+            <div class="collection-card-body">
+              <span class="collection-card-tag">8 feet</span>
+              <p class="collection-card-desc">
+                A full wall. Big enough for a home office, a dedicated workshop, or most of a home gym.
+              </p>
+              <span class="collection-card-link">Shop 8 ft sets &rarr;</span>
+            </div>
+          </a>
+
+          <a href="/sets/#width-16ft" class="collection-card">
+            <div class="collection-card-img">
+              <img src="/images/sets/set-16-hero.jpg" alt="16 ft. Klovo set" loading="lazy" />
+            </div>
+            <div class="collection-card-body">
+              <span class="collection-card-tag">16 feet</span>
+              <p class="collection-card-desc">
+                The maximum setup. A complete family hub, full workshop with worktop, or a pro-level home gym.
+              </p>
+              <span class="collection-card-link">Shop 16 ft sets &rarr;</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="section-cta">
+          <a href="/sets/" class="btn btn--primary">View all sets &rarr;</a>
+        </div>
       </div>
+    </section>
 
-      <div class="text-center mt-12 reveal">
-        <a href="/sets/" class="btn-primary">
-          View All Sets <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SECTION 3: FAST ASSEMBLY
-       ============================================ -->
-  <section class="py-20 lg:py-28 bg-warm-neutral">
-    <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="reveal">
-          <button
-            type="button"
-            class="group relative w-full rounded-lg overflow-hidden aspect-video bg-charcoal shadow-xl cursor-pointer"
-            data-video-open
-            aria-label="Play assembly video"
-          >
-            <img
-              src="/images/assembly/hands-pressing.png"
-              alt="Klovo cabinet assembly — panels pushing together"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-            />
-            <span class="absolute inset-0 flex items-center justify-center">
-              <span class="w-20 h-20 bg-klovo-blue/90 group-hover:bg-klovo-blue rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-lg">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-                  <polygon points="8,5 19,12 8,19" />
+    <!-- SECTION 3 — FAST ASSEMBLY -->
+    <section class="section section--neutral">
+      <div class="container">
+        <div class="split split--video-left">
+          <div class="split-media">
+            <div class="video-card">
+              <img src="/images/assembly/hands-pressing.png" alt="Hands pressing Klovo cabinet panels together" loading="lazy" />
+              <button class="video-play" data-video-open aria-label="Play assembly video">
+                <svg viewBox="0 0 32 36" width="22" height="26" aria-hidden="true">
+                  <path d="M0 0 L32 18 L0 36 Z" fill="#0A2A52"/>
                 </svg>
-              </span>
-            </span>
-          </button>
-        </div>
-
-        <div class="reveal reveal-delay-1">
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-            Fast Assembly
-          </p>
-          <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-6 leading-tight">
-            Flat box to fully assembled<br/>in under 3 minutes a cabinet.
-          </h2>
-          <p class="text-lg text-charcoal/70 leading-relaxed mb-8">
-            Panels lock together with a simple push — no drills, no cam locks, no Allen wrenches. A full set in less than 1 hour.
-          </p>
-
-          <div class="grid grid-cols-3 gap-4 mb-8">
-            <div>
-              <p class="stat-number text-3xl md:text-4xl mb-1">3 min</p>
-              <p class="text-xs text-klovo-grey font-medium uppercase tracking-wider">per cabinet</p>
-            </div>
-            <div>
-              <p class="stat-number text-3xl md:text-4xl mb-1">Less than 1 hr</p>
-              <p class="text-xs text-klovo-grey font-medium uppercase tracking-wider">full set</p>
-            </div>
-            <div>
-              <p class="stat-number text-3xl md:text-4xl mb-1">500</p>
-              <p class="text-xs text-klovo-grey font-medium uppercase tracking-wider">lbs / cabinet</p>
+              </button>
+              <div class="video-badge">
+                <span class="video-badge-dot"></span>
+                Watch &middot; 02:47
+              </div>
             </div>
           </div>
+          <div class="split-text">
+            <span class="eyebrow">Fast Assembly</span>
+            <h2 class="h-section">
+              Flat box to fully assembled in under <em>3 minutes</em> a cabinet.
+            </h2>
+            <p class="split-body">
+              Panels lock together with a simple push — no drills, no cam locks, no Allen wrenches. A full set in less than 1 hour.
+            </p>
+            <div class="stats-row">
+              <div class="stat">
+                <div class="stat-val">3 min</div>
+                <div class="stat-label">per cabinet</div>
+              </div>
+              <span class="stat-sep" aria-hidden="true"></span>
+              <div class="stat">
+                <div class="stat-val">Less than 1 hr</div>
+                <div class="stat-label">full set</div>
+              </div>
+              <span class="stat-sep" aria-hidden="true"></span>
+              <div class="stat">
+                <div class="stat-val">500 lbs</div>
+                <div class="stat-label">load capacity, per cabinet</div>
+              </div>
+            </div>
+            <a href="/assembly/" class="btn btn--primary">See how it works &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <a href="/assembly/" class="btn-primary">
-            See How It Works <span aria-hidden="true">&rarr;</span>
+    <!-- SECTION 4 — WHY KLOVO -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="split">
+          <div class="split-media">
+            <div class="why-photo">
+              <img src="/images/scenes/base-wall-pegboard.png" alt="Klovo base cabinets with pegboard workspace" loading="lazy" />
+              <div class="why-photo-corner">
+                <span>Made for</span>
+                <strong>real garages.</strong>
+              </div>
+            </div>
+          </div>
+          <div class="split-text">
+            <span class="eyebrow">Why Klovo</span>
+            <h2 class="h-section">
+              Built for garages.<br/><em>Not kitchens.</em>
+            </h2>
+            <p class="split-body">
+              Klovo is engineered for garage conditions from the first panel up.
+            </p>
+            <ul class="check-list">
+              <li>
+                <span class="check-mark" aria-hidden="true">&#10003;</span>
+                <span><strong>18-inch depth</strong> — built for garages, not kitchens</span>
+              </li>
+              <li>
+                <span class="check-mark" aria-hidden="true">&#10003;</span>
+                <span><strong>Sealed with 1mm PVC edgebanding</strong> on all exposed edges — moisture-resistant</span>
+              </li>
+              <li>
+                <span class="check-mark" aria-hidden="true">&#10003;</span>
+                <span><strong>Scratch-resistant laminate</strong> — takes extreme daily use, not dents</span>
+              </li>
+              <li>
+                <span class="check-mark" aria-hidden="true">&#10003;</span>
+                <span><strong>Push-to-open drawers and doors</strong> — no handles that take up space</span>
+              </li>
+            </ul>
+            <a href="/specs/" class="btn btn--primary">See all specs &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 — STATS BAR -->
+    <section class="section section--stats">
+      <div class="container">
+        <h2 class="h-section h-section--center">
+          Built for the way garages are <em>actually</em> used.
+        </h2>
+        <div class="big-stats">
+          <div class="big-stat">
+            <div class="big-stat-val">Less than 1%</div>
+            <div class="big-stat-label">of US garages have finished storage</div>
+          </div>
+          <div class="big-stat">
+            <div class="big-stat-val">68%</div>
+            <div class="big-stat-label">of urban homeowners say they don't have enough storage</div>
+          </div>
+          <div class="big-stat">
+            <div class="big-stat-val">78M</div>
+            <div class="big-stat-label">Americans with home fitness equipment</div>
+          </div>
+          <div class="big-stat">
+            <div class="big-stat-val">55%</div>
+            <div class="big-stat-label">of Americans work on garage projects weekly</div>
+          </div>
+        </div>
+        <p class="stats-source">Source: Houzz, Fortune Business Insights, Statista, NAHB</p>
+      </div>
+    </section>
+
+    <!-- SECTION 6 — REAL GARAGES -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Real Garages</span>
+          <h2 class="h-section">See what's possible.</h2>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-card">
+            <div class="gallery-img">
+              <img src="/images/scenes/workspace-pegboard.png" alt="Organized garage with pegboard, drill" loading="lazy" />
+            </div>
+            <figcaption class="gallery-cap">
+              <span class="gallery-cap-line"></span>
+              The full Klovo system — sports gear, toys, gym accessories, tools, everything in its place
+            </figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <div class="gallery-img">
+              <img src="/images/scenes/workspace-track-lights.png" alt="Garage with track lighting" loading="lazy" />
+            </div>
+            <figcaption class="gallery-cap">
+              <span class="gallery-cap-line"></span>
+              A garage the whole family can enjoy
+            </figcaption>
+          </figure>
+        </div>
+        <div class="section-cta">
+          <a href="/gallery/" class="btn btn--ghost btn--ghost--dark">See the gallery &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6.5 — FROM THE WORKSHOP -->
+    <section class="section section--paper journal">
+      <div class="container">
+        <div class="journal-head">
+          <div>
+            <span class="eyebrow">From the Workshop</span>
+            <h2 class="h-section">Garage knowledge,<br/><em>straight from us.</em></h2>
+          </div>
+          <a href="/blogs/news/" class="journal-head-link">All articles &rarr;</a>
+        </div>
+        <div class="journal-grid">
+          <a href="/blogs/news/how-to-choose-a-garage-cabinet-that-actually-lasts" class="journal-card">
+            <div class="journal-card-meta">
+              <span>Buyer's Guide</span>
+              <span class="journal-card-meta-dot"></span>
+              <span>8 min read</span>
+            </div>
+            <h3 class="journal-card-title">How to choose a garage cabinet that <em>actually</em> lasts.</h3>
+            <p class="journal-card-blurb">Plywood vs. particleboard, edge banding, hinge cycles — what to ask before you buy.</p>
+            <span class="journal-card-link">Read the guide &rarr;</span>
+          </a>
+          <a href="/blogs/news/klovo-vs-steel-cabinet-brands" class="journal-card">
+            <div class="journal-card-meta">
+              <span>Comparison</span>
+              <span class="journal-card-meta-dot"></span>
+              <span>6 min read</span>
+            </div>
+            <h3 class="journal-card-title">Klovo vs. the steel cabinet brands you already <em>know.</em></h3>
+            <p class="journal-card-blurb">Honest side-by-side: weight capacity, depth, finish, assembly, and what the price actually gets you.</p>
+            <span class="journal-card-link">See the comparison &rarr;</span>
+          </a>
+          <a href="/blogs/news/setting-up-a-family-friendly-garage-in-one-weekend" class="journal-card">
+            <div class="journal-card-meta">
+              <span>Setup</span>
+              <span class="journal-card-meta-dot"></span>
+              <span>5 min read</span>
+            </div>
+            <h3 class="journal-card-title">Setting up a family-friendly garage in <em>one weekend.</em></h3>
+            <p class="journal-card-blurb">Drop zones, kid-safe heights, sports-gear storage — a real plan for a real Saturday.</p>
+            <span class="journal-card-link">Read the post &rarr;</span>
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================
-       SECTION 4: WHY KLOVO
-       ============================================ -->
-  <section class="py-20 lg:py-28 bg-warm-white">
-    <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="reveal">
-          <div class="rounded-lg overflow-hidden shadow-xl aspect-square">
-            <img
-              src="/images/scenes/base-wall-pegboard.png"
-              alt="Klovo base cabinets with pegboard workspace — built for garage conditions"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-        <div class="reveal reveal-delay-1">
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-            Why Klovo
-          </p>
-          <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-6 leading-tight">
-            Built for garages. Not kitchens.
-          </h2>
-          <p class="text-lg text-charcoal/70 leading-relaxed mb-8">
-            Klovo is engineered for garage conditions from the first panel up.
-          </p>
-
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-charcoal">18-inch depth — built for garages, not kitchens</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-charcoal">Sealed with 1mm PVC edgebanding on all exposed edges — moisture-resistant</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-charcoal">Scratch-resistant laminate — takes extreme daily use, not dents</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-charcoal">Push-to-open drawers and doors — no handles that take up space</span>
-            </li>
-          </ul>
-
-          <div class="mt-8">
-            <a href="/specs/" class="btn-primary">
-              See All Specs <span aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SECTION 5: STATS BAR
-       ============================================ -->
-  <section class="py-16 lg:py-20 bg-warm-neutral">
-    <div class="section-container">
-      <div class="text-center mb-12 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-          Built for the way garages are actually used.
+    <!-- SECTION 7 — SHOP KLOVO (Retailer CTA) -->
+    <section class="section section--neutral retailer-band">
+      <div class="container retailer-inner">
+        <span class="eyebrow">Shop Klovo</span>
+        <h2 class="h-section h-section--center">
+          Available at <em>select retailers.</em>
         </h2>
+        <p class="retailer-body">Find Klovo at a growing list of retail partners.</p>
+        <a href="/where-to-buy/" class="btn btn--primary">Find a retailer &rarr;</a>
       </div>
+    </section>
 
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 text-center">
-        <div class="reveal">
-          <p class="stat-number text-3xl md:text-4xl lg:text-5xl mb-2">Less than 1%</p>
-          <p class="text-sm text-charcoal leading-snug">of US garages have finished storage</p>
-        </div>
-        <div class="reveal reveal-delay-1">
-          <p class="stat-number text-3xl md:text-4xl lg:text-5xl mb-2">68%</p>
-          <p class="text-sm text-charcoal leading-snug">of urban homeowners say they don't have enough storage</p>
-        </div>
-        <div class="reveal reveal-delay-2">
-          <p class="stat-number text-3xl md:text-4xl lg:text-5xl mb-2">78M</p>
-          <p class="text-sm text-charcoal leading-snug">Americans with home fitness equipment</p>
-        </div>
-        <div class="reveal reveal-delay-3">
-          <p class="stat-number text-3xl md:text-4xl lg:text-5xl mb-2">55%</p>
-          <p class="text-sm text-charcoal leading-snug">of Americans work on garage projects weekly</p>
-        </div>
-      </div>
-
-      <p class="text-center text-xs text-klovo-grey mt-10 reveal">
-        Sources: Houzz, Fortune Business Insights, Grand View Research, Mordor Intelligence
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SECTION 6: REAL GARAGES
-       ============================================ -->
-  <section class="py-20 lg:py-28 bg-warm-white">
-    <div class="section-container">
-      <div class="text-center mb-12 reveal">
-        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-3">
-          Real Garages
-        </p>
-        <h2 class="text-3xl md:text-4xl font-bold text-charcoal">
-          See what's possible.
+    <!-- SECTION 8 — FINAL CTA -->
+    <section class="section section--final">
+      <div class="container final-inner">
+        <h2 class="h-final">
+          Find the set that fits<br/><em>your garage.</em>
         </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-        <div class="reveal reveal-delay-1">
-          <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
-            <img
-              src="/images/scenes/workspace-pegboard.png"
-              alt="Klovo garage workspace with pegboard, drill, and organized storage"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <p class="text-charcoal text-[15px]">
-            The full Klovo system — Sports gear, toys, gym accessories, tools, everything in its place
-          </p>
-        </div>
-
-        <div class="reveal reveal-delay-2">
-          <div class="img-zoom-container rounded-lg mb-4 aspect-[4/3] bg-warm-neutral">
-            <img
-              src="/images/scenes/workspace-track-lights.png"
-              alt="Klovo workspace with track lighting, organized tools, and pegboard"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <p class="text-charcoal text-[15px]">
-            A garage the whole family can enjoy
-          </p>
+        <p class="final-body">15+ pre-designed sets. One for how you actually use the space.</p>
+        <div class="final-ctas">
+          <a href="/sets/" class="btn btn--primary">View sets &rarr;</a>
+          <a href="/sets/" class="btn btn--ghost btn--ghost--dark">Find your set</a>
         </div>
       </div>
+    </section>
 
-      <div class="text-center mt-12 reveal">
-        <a href="/gallery/" class="btn-secondary">
-          See the Gallery <span aria-hidden="true">&rarr;</span>
-        </a>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/images/klovo-logo-official.png" alt="Klovo" class="footer-logo" />
+          <p class="footer-tag">Cabinet sets for the modern garage. <br/>Made in the USA — factory in Georgia.</p>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <div class="footer-h">Shop</div>
+            <a href="/sets/">All Sets</a>
+            <a href="/assembly/">Assembly</a>
+            <a href="/specs/">Specs</a>
+            <a href="/gallery/">Gallery</a>
+            <a href="/where-to-buy/">Where to Buy</a>
+          </div>
+          <div>
+            <div class="footer-h">Company</div>
+            <a href="/about/">About</a>
+            <a href="/for-retailers/">For Retailers</a>
+            <a href="/blogs/news/">Blog</a>
+            <a href="/contact/">Contact</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <div class="footer-h">Support</div>
+            <a href="/warranty/">Warranty</a>
+            <a href="/contact/">Help</a>
+          </div>
+          <div class="footer-news">
+            <div class="footer-h">Stay in the loop</div>
+            <p class="footer-news-tag">Garage tips, new sets, the occasional dad joke.</p>
+            <form class="footer-news-form" onsubmit="event.preventDefault();">
+              <input type="email" placeholder="your email" aria-label="email" />
+              <button type="submit">Join</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Klovo Storage by Door Kraft. All rights reserved.</span>
+        <span class="footer-bottom-links">
+          <a href="/warranty/">Warranty</a> &middot; <a href="/pages/privacy-policy/">Privacy</a> &middot; <a href="/pages/terms-of-service/">Terms</a>
+        </span>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- ============================================
-       SECTION 7: SHOP KLOVO (RETAILERS)
-       ============================================ -->
-  <section class="py-16 lg:py-20 bg-warm-neutral">
-    <div class="section-container text-center reveal">
-      <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-        Shop Klovo
-      </p>
-      <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-        Available at select retailers.
-      </h2>
-      <p class="text-lg text-klovo-grey mb-8 max-w-xl mx-auto">
-        Find Klovo at a growing list of retail partners.
-      </p>
-      <a href="/where-to-buy/" class="btn-primary">
-        Find a Retailer <span aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SECTION 8: FINAL CTA
-       ============================================ -->
-  <section class="py-20 lg:py-28 bg-warm-white">
-    <div class="section-container text-center reveal">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-6 leading-tight">
-        Find the set that fits your garage.
-      </h2>
-      <p class="text-lg text-klovo-grey max-w-xl mx-auto mb-10">
-        15+ pre-designed sets. One for how you actually use the space.
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="/sets/" class="btn-amber">
-          View Sets <span aria-hidden="true">&rarr;</span>
-        </a>
-        <a href="/sets/" class="btn-secondary">
-          Find Your Set
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video Modal (Vimeo) -->
+  <!-- Video Modal (Vimeo — portrait 9:16) -->
   <div
     id="video-modal"
-    class="fixed inset-0 z-[100] hidden items-center justify-center bg-charcoal/90 backdrop-blur-sm p-4"
-    aria-hidden="true"
+    style="display:none; position:fixed; inset:0; z-index:200; align-items:center; justify-content:center; background:rgba(15,10,4,0.92); backdrop-filter:blur(4px); padding:1rem;"
     role="dialog"
     aria-modal="true"
     aria-label="Assembly video"
+    aria-hidden="true"
   >
-    <div class="relative w-full max-w-[min(90vw,45vh)] mx-auto">
+    <div style="position:relative; width:100%; max-width:min(90vw,45vh); margin:0 auto;">
       <button
         type="button"
-        class="absolute -top-12 right-0 text-white hover:text-klovo-amber transition-colors"
         data-video-close
         aria-label="Close video"
+        style="position:absolute; top:-3rem; right:0; background:none; border:0; cursor:pointer; color:#F4ECDB; line-height:1;"
       >
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-      <div class="relative bg-black rounded-lg overflow-hidden shadow-2xl" style="aspect-ratio: 9 / 16;">
-        <div id="video-iframe-container" class="absolute inset-0"></div>
+      <div style="position:relative; background:#000; border-radius:8px; overflow:hidden; aspect-ratio:9/16; box-shadow:0 24px 80px rgba(0,0,0,0.6);">
+        <div id="video-iframe-container" style="position:absolute; inset:0;"></div>
       </div>
     </div>
   </div>
 
   <script is:inline>
     (function () {
-      const modal = document.getElementById('video-modal');
-      const container = document.getElementById('video-iframe-container');
-      const openBtns = document.querySelectorAll('[data-video-open]');
-      const closeBtns = document.querySelectorAll('[data-video-close]');
-      const vimeoSrc = 'https://player.vimeo.com/video/1131081541?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479';
+      // Video modal
+      var modal = document.getElementById('video-modal');
+      var container = document.getElementById('video-iframe-container');
+      var openBtns = document.querySelectorAll('[data-video-open]');
+      var closeBtns = document.querySelectorAll('[data-video-close]');
+      var vimeoSrc = 'https://player.vimeo.com/video/1131081541?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479';
 
-      function open() {
+      function openModal() {
         if (!modal || !container) return;
-        container.innerHTML = '<iframe src="' + vimeoSrc + '" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Modular Garage Cabinet System — 500 lb Strength, Quick Install"></iframe>';
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
+        container.innerHTML = '<iframe src="' + vimeoSrc + '" style="width:100%;height:100%;border:0;" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Modular Garage Cabinet System"></iframe>';
+        modal.style.display = 'flex';
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
       }
 
-      function close() {
+      function closeModal() {
         if (!modal || !container) return;
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        modal.style.display = 'none';
         modal.setAttribute('aria-hidden', 'true');
         container.innerHTML = '';
         document.body.style.overflow = '';
       }
 
-      openBtns.forEach(function (b) { b.addEventListener('click', open); });
-      closeBtns.forEach(function (b) { b.addEventListener('click', close); });
-      modal && modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+      openBtns.forEach(function (b) { b.addEventListener('click', openModal); });
+      closeBtns.forEach(function (b) { b.addEventListener('click', closeModal); });
+      if (modal) {
+        modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+      }
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) close();
+        if (e.key === 'Escape' && modal && modal.style.display !== 'none') closeModal();
       });
+
+      // Mobile nav burger
+      var burger = document.getElementById('nav-burger');
+      var navLinks = document.getElementById('nav-links');
+      if (burger && navLinks) {
+        burger.addEventListener('click', function () {
+          var isOpen = navLinks.style.display === 'flex';
+          navLinks.style.display = isOpen ? '' : 'flex';
+          navLinks.style.flexDirection = isOpen ? '' : 'column';
+          navLinks.style.position = isOpen ? '' : 'absolute';
+          navLinks.style.top = isOpen ? '' : '100%';
+          navLinks.style.left = isOpen ? '' : '0';
+          navLinks.style.right = isOpen ? '' : '0';
+          navLinks.style.background = isOpen ? '' : 'var(--ink)';
+          navLinks.style.padding = isOpen ? '' : '16px 24px 24px';
+          navLinks.style.gap = isOpen ? '' : '0';
+          navLinks.style.zIndex = isOpen ? '' : '100';
+          burger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        });
+      }
     })();
   </script>
 
-</BaseLayout>
+</HomeLayout>
