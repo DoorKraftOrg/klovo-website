@@ -3,52 +3,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const faqs = [
   {
-    q: 'How long does assembly really take?',
-    a: 'A single cabinet box assembles in about 2-3 minutes. A full set of cabinets assembles in less than 1 hour. Panels push together and lock — then you drive a few screws through the back panel runners to secure it.',
+    q: 'What in-store display and merchandising support does Klovo provide?',
+    a: 'Klovo provides a tech-enabled in-store display purpose-built for the retail floor. Every retail partner also gets access to the Klovo configurator — a digital tool your sales staff can use with customers to design their garage and land on the right set. It makes the sales conversation faster and helps customers commit with confidence.',
   },
   {
-    q: 'What tools do I need?',
-    a: "The cabinet box itself locks together without any tools. The only tool you'll need is a screwdriver to secure the back panel through the runners. If you want to wall-mount cabinets, you'll also need a drill for the wall anchors. Hardware such as hinges and drawer glides come with screws that need to be turned in.",
+    q: 'How does ordering work?',
+    a: "Klovo integrates directly with your EDI system, so purchase orders, inventory updates, and reorders fit into your existing workflow without manual back-and-forth. We're set up to make restocking as frictionless as possible.",
   },
   {
-    q: 'How much weight can the cabinets hold?',
-    a: 'Each cabinet holds up to 500 lbs. Drawers have a 99 lb weight-bearing capacity.',
+    q: 'Do you offer sales training for our store staff?',
+    a: 'Yes. Klovo has localized sales reps across the US who will come to your store in person to train your team on how to sell Klovo — the product story, the GlideLock assembly demo, and how to use the configurator with customers. Ongoing support is available as your staff turns over or new products launch.',
   },
   {
-    q: 'Are the cabinets moisture-resistant?',
-    a: "Yes. Every exposed edge is sealed with 1mm PVC edgebanding, creating a moisture-resistant design that handles garage conditions — temperature swings, humidity, condensation. Combined with scratch-resistant laminate surfaces, they're built to last.",
+    q: 'What marketing support does Klovo provide to retail partners?',
+    a: 'Co-op marketing is available. Klovo is active across social media and will provide retail partners with ready-to-use content, lifestyle imagery, and product photos as needed — so your team isn\'t starting from scratch.',
   },
   {
-    q: "Won't kitchen cabinets work in my garage?",
-    a: 'Kitchen cabinets are 24" deep — too deep for most garages and built for a clean, climate-controlled environment. Klovo cabinets are 18" deep, built specifically for garage conditions with moisture-resistant sealed edgebanding, and require no external hardware like handles or pulls.',
+    q: 'Who is the Klovo customer?',
+    a: "The Klovo customer is a homeowner who wants their garage to function — and look — like the rest of their home. They're not a hobbyist tinkerer; they're someone who sees the garage as an extension of their living space. They want a premium finish, clean lines, and a weekend install. That profile drives higher average order values and lower return rates than commodity garage storage.",
+  },
+  {
+    q: 'What makes Klovo different from other garage cabinet lines?',
+    a: "Three things set Klovo apart at retail. First, the GlideLock assembly system — customers can assemble a full set in under an hour without calling a contractor, which removes the biggest objection in the category. Second, 500 lbs per cabinet with a premium furniture-grade finish, not the utilitarian metal look. Third, 100% Made in USA — that's a real differentiator with today's consumer.",
   },
   {
     q: 'Where are Klovo cabinets made?',
-    a: '100% Made in USA. Klovo is built by Door Kraft, a US cabinet manufacturer with 20 years of experience.',
+    a: '100% Made in USA. Klovo is built by Door Kraft, a US cabinet manufacturer with over 20 years of experience.',
   },
   {
-    q: 'Can I buy directly from Klovo?',
-    a: 'Klovo cabinets are available through select retailers. Visit Where to Buy to find a retailer near you.',
+    q: "What's the warranty, and how are claims handled?",
+    a: '1-year limited warranty covering defects in materials and workmanship. Claims go directly to our warranty team at warranty@klovo.com — we respond within 2 business days and handle resolution directly, so your store is not in the middle.',
   },
   {
-    q: 'Can I buy individual cabinets or only sets?',
-    a: 'Klovo is sold as pre-designed sets — tall, base, and wall cabinets configured for a specific space and use case. This guarantees every piece works together.',
-  },
-  {
-    q: "What's the warranty?",
-    a: '1-year limited warranty covering defects in materials and workmanship.',
-  },
-  {
-    q: 'Can I disassemble and move the cabinets?',
-    a: 'Yes. The same connector system that makes assembly fast also makes disassembly easy. If you move, your Klovo cabinets move with you.',
-  },
-  {
-    q: 'What finishes are available?',
-    a: 'Premium white finish. Additional finishes are in development.',
-  },
-  {
-    q: 'How is Klovo different from metal garage cabinets?',
-    a: "Metal cabinets are utilitarian — built for the mechanic's shop. Klovo cabinets have a premium furniture-grade finish with scratch-resistant laminate and moisture-resistant sealed edgebanding. Push-to-open doors and drawers give a clean, handle-free look.",
+    q: 'How does Klovo fit into the garage organization category?',
+    a: "Garage organization is growing at 2× the rate of overall home improvement. Klovo sits at the premium end of that category — above the commodity wire shelving and metal cabinet lines, but accessible to a much wider buyer than custom built-ins. It fills a gap most retailers don't have a good answer for today.",
   },
 ];
 
@@ -65,8 +53,8 @@ const faqSchema = {
 ---
 
 <BaseLayout
-  title="Garage Cabinet FAQ"
-  description="Garage cabinet FAQ — assembly time, weight capacity, materials, warranty, and how Klovo's modular GlideLock system compares to metal and kitchen cabinets."
+  title="Retail Partner FAQ — Carry Klovo"
+  description="FAQ for retailers evaluating Klovo — display support, EDI ordering, sales training, co-op marketing, and what makes Klovo the right premium garage cabinet line for your floor."
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -76,9 +64,9 @@ const faqSchema = {
     <div class="section-container">
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-16 reveal">
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">FAQ</p>
-          <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4">Got questions?</h1>
-          <p class="text-lg text-klovo-grey">We've got answers. If yours isn't here, <a href="/contact/" class="text-klovo-blue hover:text-klovo-blue-dark underline">reach out</a>.</p>
+          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">For Retailers</p>
+          <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4">Questions before you commit?</h1>
+          <p class="text-lg text-klovo-grey">Everything a buyer needs to know about carrying Klovo. If yours isn't here, <a href="/contact/" class="text-klovo-blue hover:text-klovo-blue-dark underline">reach out</a>.</p>
         </div>
 
         <div class="space-y-4">
@@ -103,10 +91,10 @@ const faqSchema = {
   <!-- CTA -->
   <section class="py-12 lg:py-16 bg-warm-neutral">
     <div class="section-container text-center reveal">
-      <h2 class="text-2xl font-bold text-charcoal mb-4">Still have questions?</h2>
+      <h2 class="text-2xl font-bold text-charcoal mb-4">Ready to explore a partnership?</h2>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/contact/" class="btn-primary">Contact Us</a>
-        <a href="/where-to-buy/" class="btn-secondary">Find a Retailer</a>
+        <a href="/for-retailers/" class="btn-primary">Become a Partner <span aria-hidden="true">&rarr;</span></a>
+        <a href="/contact/" class="btn-secondary">Get in Touch</a>
       </div>
     </div>
   </section>
