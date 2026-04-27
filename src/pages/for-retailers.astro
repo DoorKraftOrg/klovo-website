@@ -1,134 +1,125 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 ---
 
-<BaseLayout
+<PageLayout
   title="For Retailers — Carry Klovo Modular Garage Cabinets"
   description="Carry Klovo modular garage cabinet sets. Pre-designed solutions, fast in-store GlideLock demos, modular expansion. Made in USA. Growing garage organization category."
   keywords="wholesale garage cabinets, garage cabinet retailer program, modular garage cabinet wholesale, made in USA garage cabinets, garage organization wholesale"
 >
 
-  <!-- Hero -->
-  <section class="py-16 lg:py-24 bg-warm-white">
-    <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="reveal">
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-            Retail Partners
-          </p>
-          <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-6 leading-tight">
-            Carry Klovo.
-          </h1>
-          <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
+  <!-- Page Hero + Split -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="split" style="align-items: center;">
+        <div class="split-text">
+          <span class="eyebrow">Retail Partners</span>
+          <h1 class="page-h1">Carry<br/><em>Klovo.</em></h1>
+          <p class="page-lede">
             Klovo is a pre-designed cabinet-set system built for the modern garage. Customers see a complete solution, not a parts catalog. Fast in-store demos, modular expansion paths, and a growing category.
           </p>
-          <a href="/contact/" class="btn-primary">
-            Become a Partner <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="reveal reveal-delay-1">
-          <div class="rounded-lg overflow-hidden shadow-xl">
-            <img
-              src="/images/retail/showroom-display.png"
-              alt="Klovo cabinet set on display in a retail showroom"
-              class="w-full h-auto"
-              loading="eager"
-            />
+          <div style="margin-top: 32px;">
+            <a href="/contact/" class="btn btn--primary">Become a Partner &rarr;</a>
           </div>
+        </div>
+        <div class="split-media">
+          <img
+            src="/images/retail/showroom-display.png"
+            alt="Klovo cabinet set on display in a retail showroom"
+            style="width:100%; height:auto; display:block;"
+            loading="eager"
+          />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why Klovo -->
-  <section class="py-20 lg:py-28 bg-warm-neutral">
-    <div class="section-container">
-      <div class="text-center mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Why retailers carry Klovo.</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-1">
-          <p class="stat-number text-3xl mb-3">2 min</p>
-          <h3 class="text-lg font-semibold text-charcoal mb-2">Build demos</h3>
-          <p class="text-klovo-grey text-[15px] leading-relaxed">
-            Play videos on the sales floor of our cabinets building in about a minute. No other brand in the world can claim this.
-          </p>
+  <!-- Stats Row -->
+  <section class="section section--cream">
+    <div class="container">
+      <span class="eyebrow">Why Retailers Carry Klovo</span>
+      <h2 class="h-section">The numbers<br/><em>tell it.</em></h2>
+      <div class="page-stat-row" style="margin-top: 40px;">
+        <div class="page-stat">
+          <div class="page-stat-val">2 min</div>
+          <div class="page-stat-label">In-store build demo</div>
         </div>
-
-        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-2">
-          <p class="stat-number text-3xl mb-3">16</p>
-          <h3 class="text-lg font-semibold text-charcoal mb-2">Pre-designed sets</h3>
-          <p class="text-klovo-grey text-[15px] leading-relaxed">
-            Customers buy a complete solution, not a parts list. Faster decisions, higher average order value, and fewer buying mistakes.
-          </p>
+        <div class="page-stat">
+          <div class="page-stat-val">16</div>
+          <div class="page-stat-label">Pre-designed sets</div>
         </div>
-
-        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-3">
-          <p class="stat-number text-3xl mb-3">2x</p>
-          <h3 class="text-lg font-semibold text-charcoal mb-2">Growing category</h3>
-          <p class="text-klovo-grey text-[15px] leading-relaxed">
-            Garage organization is growing at 2× the rate of overall home improvement. Customers are turning garages into home gyms, offices, workshops, and bonus rooms.
-          </p>
+        <div class="page-stat">
+          <div class="page-stat-val">2×</div>
+          <div class="page-stat-label">Category growth rate</div>
+        </div>
+        <div class="page-stat">
+          <div class="page-stat-val">100%</div>
+          <div class="page-stat-label">Made in USA</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- What You Get -->
-  <section class="py-20 lg:py-28 bg-warm-white">
-    <div class="section-container">
-      <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-12 reveal">
-          <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">The Klovo retailer program.</h2>
-          <p class="text-lg text-klovo-grey">Everything you need to succeed with Klovo.</p>
-        </div>
-
-        <div class="space-y-6 reveal">
-          <div class="flex items-start gap-4 p-6 bg-warm-neutral rounded-lg">
-            <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            <div>
-              <h3 class="font-semibold text-charcoal mb-1">Competitive margins</h3>
-              <p class="text-klovo-grey text-[15px]">Strong wholesale pricing with healthy retail margins. Volume incentives available.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4 p-6 bg-warm-neutral rounded-lg">
-            <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            <div>
-              <h3 class="font-semibold text-charcoal mb-1">Marketing support</h3>
-              <p class="text-klovo-grey text-[15px]">Photography, copy, social assets, and co-op marketing programs to drive demand.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4 p-6 bg-warm-neutral rounded-lg">
-            <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            <div>
-              <h3 class="font-semibold text-charcoal mb-1">Display program</h3>
-              <p class="text-klovo-grey text-[15px]">Pre-built display sets that let customers touch, feel, and experience the push-to-open hardware.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4 p-6 bg-warm-neutral rounded-lg">
-            <svg class="w-6 h-6 text-klovo-amber flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-            <div>
-              <h3 class="font-semibold text-charcoal mb-1">Training &amp; support</h3>
-              <p class="text-klovo-grey text-[15px]">Product training for your sales team, dedicated account management, and technical support.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-16 lg:py-24 bg-warm-neutral">
-    <div class="section-container text-center reveal">
-      <h2 class="text-3xl font-bold text-charcoal mb-4">Ready to carry Klovo?</h2>
-      <p class="text-lg text-klovo-grey max-w-lg mx-auto mb-8">
-        Let's talk about what Klovo can do for your category.
+      <p style="font-family: var(--sans); font-size: 15px; color: var(--muted); margin-top: 20px; line-height: 1.5; max-width: 600px;">
+        Garage organization is growing at 2× the rate of overall home improvement. Customers are turning garages into home gyms, offices, workshops, and bonus rooms.
       </p>
-      <a href="/contact/" class="btn-amber">
-        Start the Conversation <span aria-hidden="true">&rarr;</span>
-      </a>
     </div>
   </section>
 
-</BaseLayout>
+  <!-- The Retailer Program -->
+  <section class="section" style="background: var(--neutral);">
+    <div class="container">
+      <span class="eyebrow">The Program</span>
+      <h2 class="h-section">Everything you need<br/>to <em>succeed.</em></h2>
+
+      <ul class="page-tick-list" style="margin-top: 40px; max-width: 680px;">
+        <li>
+          <span class="page-tick">✓</span>
+          <div>
+            <strong style="font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); display: block; margin-bottom: 4px;">Competitive margins</strong>
+            Strong wholesale pricing with healthy retail margins. Volume incentives available.
+          </div>
+        </li>
+        <li>
+          <span class="page-tick">✓</span>
+          <div>
+            <strong style="font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); display: block; margin-bottom: 4px;">Marketing support</strong>
+            Photography, copy, social assets, and co-op marketing programs to drive demand.
+          </div>
+        </li>
+        <li>
+          <span class="page-tick">✓</span>
+          <div>
+            <strong style="font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); display: block; margin-bottom: 4px;">Display program</strong>
+            Pre-built display sets that let customers touch, feel, and experience the push-to-open hardware.
+          </div>
+        </li>
+        <li>
+          <span class="page-tick">✓</span>
+          <div>
+            <strong style="font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); display: block; margin-bottom: 4px;">Training &amp; support</strong>
+            Product training for your sales team, dedicated account management, and technical support.
+          </div>
+        </li>
+        <li>
+          <span class="page-tick">✓</span>
+          <div>
+            <strong style="font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); display: block; margin-bottom: 4px;">Pre-designed sets sell themselves</strong>
+            Customers buy a complete solution, not a parts list. Faster decisions, higher average order value, and fewer buying mistakes.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="page-cta-band">
+    <div class="container">
+      <span class="eyebrow" style="color: rgba(244,236,219,0.55);">Start the Conversation</span>
+      <h2 class="h-final">Ready to<br/><em>carry Klovo?</em></h2>
+      <p>Let's talk about what Klovo can do for your category.</p>
+      <div class="page-cta-btns">
+        <a href="/contact/" class="btn btn--primary">Contact Us &rarr;</a>
+        <a href="/sets/" class="btn btn--ghost btn--ghost--dark">See the sets</a>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

@@ -1,44 +1,84 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageLayout from '../../../layouts/PageLayout.astro';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft && !data.canonical)).sort(
   (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
 );
 ---
 
-<BaseLayout
-  title="News & Guides"
+<PageLayout
+  title="From the Workshop — Klovo Garage Blog"
   description="Garage storage guides, cabinet comparisons, and real makeover stories from Klovo."
+  keywords="garage storage guide, garage cabinet comparison, garage makeover, modular garage cabinets, Klovo blog"
 >
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-    <header class="mb-10">
-      <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-3">News & Guides</h1>
-      <p class="text-lg text-gray-600">Buyer guides, real comparisons, and garage makeovers.</p>
-    </header>
 
-    <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post) => (
-        <li class="flex flex-col border rounded-lg overflow-hidden hover:shadow-md transition">
-          <a href={`/blogs/news/${post.id}`} class="flex flex-col h-full">
-            {post.data.image && (
-              <img
-                src={post.data.image}
-                alt={post.data.imageAlt || post.data.title}
-                class="w-full aspect-[16/9] object-cover"
-                loading="lazy"
-              />
-            )}
-            <div class="p-5 flex flex-col flex-1">
-              <h2 class="text-xl font-semibold mb-2 leading-snug">{post.data.title}</h2>
-              <p class="text-sm text-gray-600 mb-4 flex-1">{post.data.description}</p>
-              <time class="text-xs text-gray-500" datetime={new Date(post.data.date).toISOString()}>
-                {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-              </time>
-            </div>
-          </a>
-        </li>
-      ))}
-    </ul>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">From the Workshop</span>
+      <h1 class="page-h1">Garage knowledge,<br/><em>straight from us.</em></h1>
+      <p class="page-lede">Buyer guides, real comparisons, and garage makeovers. No filler.</p>
+    </div>
   </section>
-</BaseLayout>
+
+  <!-- Journal Grid -->
+  <section class="section section--cream">
+    <div class="container">
+      {posts.length === 0 ? (
+        <p style="font-family: var(--sans); color: var(--muted); font-size: 16px;">No posts yet. Check back soon.</p>
+      ) : (
+        <div class="journal-grid">
+          {posts.map((post) => (
+            <article class="journal-card">
+              {post.data.image && (
+                <a href={`/blogs/news/${post.id}`} class="journal-card-img-wrap" tabindex="-1" aria-hidden="true">
+                  <img
+                    src={post.data.image}
+                    alt={post.data.imageAlt || post.data.title}
+                    class="journal-card-img"
+                    loading="lazy"
+                  />
+                </a>
+              )}
+              <div class="journal-card-body">
+                <div class="journal-card-meta">
+                  <time datetime={new Date(post.data.date).toISOString()}>
+                    {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  </time>
+                  {post.data.tags && post.data.tags[0] && (
+                    <>
+                      <span class="journal-card-dot" aria-hidden="true"></span>
+                      <span>{post.data.tags[0]}</span>
+                    </>
+                  )}
+                </div>
+                <h2 class="journal-card-title">
+                  <a href={`/blogs/news/${post.id}`}>{post.data.title}</a>
+                </h2>
+                {post.data.description && (
+                  <p class="journal-card-blurb">{post.data.description}</p>
+                )}
+                <a href={`/blogs/news/${post.id}`} class="journal-card-link">Read article &rarr;</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="page-cta-band">
+    <div class="container">
+      <span class="eyebrow" style="color: rgba(244,236,219,0.55);">Ready to Upgrade</span>
+      <h2 class="h-final">Find the set that fits<br/><em>your garage.</em></h2>
+      <p>15+ pre-designed sets. One for how you actually use the space.</p>
+      <div class="page-cta-btns">
+        <a href="/sets/" class="btn btn--primary">View sets &rarr;</a>
+        <a href="/where-to-buy/" class="btn btn--ghost btn--ghost--dark">Find a retailer</a>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

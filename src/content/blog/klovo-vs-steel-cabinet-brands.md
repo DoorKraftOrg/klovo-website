@@ -24,7 +24,6 @@ This comparison is straightforward. Here's how Klovo stacks up against the steel
 |---|---|
 | Gladiator RTA | Up to 75 lbs per shelf |
 | Gladiator Premier | Up to 50 lbs per shelf |
-| NewAge | 150–250 lbs per cabinet |
 | **Klovo** | **500 lbs per cabinet** |
 
 Gladiator specs capacity per shelf. A cabinet with three shelves at 75 lbs each is a 225 lb cabinet in practice — and only at perfectly distributed loads. Klovo's 500 lbs is the per-cabinet number regardless of how the load is distributed across shelves.

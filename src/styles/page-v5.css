@@ -1,0 +1,336 @@
+/* =========================================================
+   KLOVO — Inner Page Styles (page-v5.css)
+   Loaded alongside homepage-v5.css on every inner page.
+   Adds sticky nav, page-hero, page utilities.
+   ========================================================= */
+
+/* ---- Sticky nav override for inner pages ---- */
+.page-layout .nav {
+  position: sticky;
+  top: 0;
+  background: var(--ink);
+  z-index: 50;
+  box-shadow: 0 1px 0 rgba(201,189,159,0.15);
+}
+
+/* ---- Page hero (no full-bleed image) ---- */
+.page-hero {
+  padding: 88px 0 72px;
+  background: var(--cream);
+}
+.page-hero--neutral { background: var(--neutral); }
+
+.page-h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 18px 0 0;
+  text-wrap: balance;
+}
+.page-h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--amber-deep);
+  display: inline-block;
+  position: relative;
+  padding-bottom: 4px;
+}
+.page-h1 em::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: var(--amber);
+  opacity: 0.85;
+}
+
+.page-lede {
+  font-family: var(--sans);
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* ---- Stat row (for specs, assembly, retailers) ---- */
+.page-stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 28px 0;
+  margin-top: 36px;
+  gap: 0;
+}
+.page-stat {
+  padding: 0 28px;
+  border-right: 1px solid var(--line);
+}
+.page-stat:first-child { padding-left: 0; }
+.page-stat:last-child { border-right: none; }
+.page-stat-val {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+}
+.page-stat-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* ---- Tick list ---- */
+.page-tick-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.page-tick-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.page-tick {
+  color: var(--amber);
+  font-size: 17px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+  line-height: 1.55;
+}
+
+/* ---- Hairline card (no shadow, no border-radius) ---- */
+.page-card {
+  border: 1px solid var(--line);
+  padding: 28px 32px;
+  background: var(--paper);
+}
+.page-card + .page-card { border-top: none; }
+
+/* ---- Hairline bordered table ---- */
+.page-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.page-table th {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  background: var(--neutral);
+}
+.page-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.page-table tbody tr:last-child td { border-bottom: none; }
+.page-table td strong { color: var(--ink); }
+
+/* ---- Pull quote ---- */
+.page-pull-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(22px, 2.8vw, 30px);
+  color: var(--ink);
+  line-height: 1.35;
+  border-left: 3px solid var(--amber);
+  padding: 4px 0 4px 28px;
+  margin: 0;
+}
+
+/* ---- Amber badge label (replaces Oxanium spec-kicker) ---- */
+.page-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.page-label::before {
+  content: attr(data-num);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: var(--amber);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ---- Dark CTA band (reusable across pages) ---- */
+.page-cta-band {
+  background: var(--ink);
+  padding: var(--pad) 0;
+  text-align: center;
+}
+.page-cta-band .h-final { color: #FFFCF4; }
+.page-cta-band .h-final em { color: var(--amber-glow); }
+.page-cta-band .h-final em::after { background: var(--amber-glow); }
+.page-cta-band p {
+  font-family: var(--sans);
+  font-size: 17px;
+  color: rgba(255,252,244,0.65);
+  margin: 16px auto 0;
+  max-width: 480px;
+}
+.page-cta-band .page-cta-btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* ---- Video card (inner page variant — 16:9) ---- */
+.page-video-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  aspect-ratio: 16/9;
+  cursor: pointer;
+}
+.page-video-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.page-video-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.page-video-play-circle {
+  width: 72px;
+  height: 72px;
+  background: var(--amber);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+.page-video-play:hover .page-video-play-circle {
+  background: var(--amber-deep);
+  transform: scale(1.06);
+}
+.page-video-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: #FFFCF4;
+  background: rgba(31,27,20,0.72);
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+.page-video-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+}
+
+/* ---- Numbered step list ---- */
+.page-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.page-step {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.page-step:last-child { border-bottom: none; }
+.page-step-num {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 400;
+  color: var(--amber);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 56px;
+  text-align: right;
+  margin-top: -4px;
+}
+.page-step-body h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.page-step-body p {
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .page-hero { padding: 64px 0 48px; }
+  .page-stat-row { grid-template-columns: 1fr 1fr; }
+  .page-stat { border-right: none; border-bottom: 1px solid var(--line); padding: 16px 0; }
+  .page-stat:first-child { padding-left: 0; }
+  .page-stat:nth-child(odd) { padding-right: 16px; }
+  .page-stat:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+  .page-stat:nth-last-child(-n+2) { border-bottom: none; }
+}
+@media (max-width: 560px) {
+  .page-hero { padding: 48px 0 36px; }
+  .page-lede { font-size: 16px; }
+  .page-stat-row { grid-template-columns: 1fr; }
+  .page-stat { border-right: none; border-bottom: 1px solid var(--line-soft); padding: 16px 0; }
+  .page-stat:last-child { border-bottom: none; }
+  .page-stat:nth-child(even) { padding-left: 0; border-left: none; }
+  .page-card { padding: 20px 20px; }
+  .page-step { gap: 16px; }
+  .page-step-num { font-size: 40px; width: 40px; }
+}

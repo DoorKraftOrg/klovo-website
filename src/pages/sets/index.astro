@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 import { getCollection } from 'astro:content';
 
 const allSets = await getCollection('sets');
@@ -28,13 +28,13 @@ const clientSets = sets.map((s) => ({
 }));
 ---
 
-<BaseLayout
+<PageLayout
   title="Modular Garage Cabinet Sets"
   description="Pre-designed modular garage cabinet sets from 2 to 16 ft. DIY GlideLock assembly, 500 lbs per cabinet, push-to-open, engineered wood. Made in USA. Pick your wall width."
   keywords="modular garage cabinets, garage cabinet sets, garage organization set, DIY garage cabinet kit, RTA garage cabinet, push-to-open garage cabinets, soft-close garage cabinets, engineered wood garage cabinets, garage shelving system, garage storage cabinets"
 >
   <section class="klovo-sets-hero">
-    <div class="section-container">
+    <div class="container">
       <p class="kicker">The Collection</p>
       <h1>Start with your wall.</h1>
       <p class="lede">Klovo sets run from 2 to 16 feet in 2-foot increments. Pick the widths you're considering — we'll show every set that fits.</p>
@@ -42,7 +42,7 @@ const clientSets = sets.map((s) => ({
   </section>
 
   <section class="picker-wrap">
-    <div class="section-container">
+    <div class="container">
       <div class="picker-card">
         <div class="picker-head">
           <div class="picker-head-left">
@@ -67,7 +67,7 @@ const clientSets = sets.map((s) => ({
   </section>
 
   <section class="results">
-    <div class="section-container">
+    <div class="container">
       <div class="results-head">
         <div>
           <p class="kicker">Fits your wall</p>
@@ -81,97 +81,132 @@ const clientSets = sets.map((s) => ({
   </section>
 
   <style is:global>
+    /* ---- Sets page brand tokens ---- */
     .klovo-sets-hero,
     .picker-wrap,
     .results {
-      --klovo-blue: #0E4C8B;
-      --klovo-amber: #F7C948;
-      --charcoal: #272727;
-      --warm-white: #F8F5F0;
-      --warm-neutral: #E8E2D9;
-      --pure-white: #FFFFFF;
-      --klovo-grey: #858485;
-      --font-primary: 'Jost', system-ui, sans-serif;
-      --font-accent: 'Orbitron', monospace;
-      --font-tech: 'Oxanium', sans-serif;
+      --s-ink: #1F1B14;
+      --s-amber: #D4923B;
+      --s-amber-deep: #B07320;
+      --s-cream: #F4ECDB;
+      --s-neutral: #E6DCC6;
+      --s-paper: #FBF6EA;
+      --s-white: #FFFFFF;
+      --s-muted: #7A7265;
+      --s-line: #C9BD9F;
+      --s-serif: 'Newsreader', Georgia, serif;
+      --s-sans: 'Geist', system-ui, sans-serif;
     }
 
-    .klovo-sets-hero { padding: 96px 0 32px; background: var(--warm-white); }
+    .klovo-sets-hero { padding: 88px 0 32px; background: var(--s-cream); }
     .klovo-sets-hero .kicker {
-      color: var(--klovo-amber); font-family: var(--font-tech);
-      font-weight: 700; font-size: 13px;
-      text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--s-muted);
+      font-family: var(--s-sans);
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
       margin-bottom: 16px;
     }
     .klovo-sets-hero h1 {
-      font-size: clamp(36px, 5vw, 60px); font-weight: 700;
-      color: var(--charcoal); letter-spacing: -0.02em;
-      line-height: 1.05; margin-bottom: 20px;
+      font-family: var(--s-serif);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      color: var(--s-ink);
+      letter-spacing: -0.02em;
+      line-height: 1.02;
+      margin-bottom: 20px;
     }
     .klovo-sets-hero p.lede {
-      font-size: 18px; color: var(--klovo-grey);
-      max-width: 640px; line-height: 1.55;
+      font-family: var(--s-sans);
+      font-size: 18px;
+      color: var(--s-muted);
+      max-width: 640px;
+      line-height: 1.55;
     }
 
-    .picker-wrap { padding: 24px 0 40px; background: var(--warm-white); }
+    .picker-wrap { padding: 24px 0 40px; background: var(--s-cream); }
     .picker-card {
-      background: var(--pure-white); border: 1px solid var(--warm-neutral);
-      border-radius: 8px; padding: 32px 36px;
+      background: var(--s-paper);
+      border: 1px solid var(--s-line);
+      padding: 32px 36px;
     }
     .picker-head {
       display: flex; justify-content: space-between; align-items: flex-end;
       gap: 24px; margin-bottom: 20px; flex-wrap: wrap;
     }
     .picker-head-left .label {
-      font-family: var(--font-tech); font-size: 11px; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--klovo-grey); margin-bottom: 8px;
+      font-family: var(--s-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--s-muted);
+      margin-bottom: 8px;
     }
     .picker-head-left h2 {
-      font-family: var(--font-primary); font-weight: 600;
-      letter-spacing: -0.015em; font-size: 22px; color: var(--charcoal);
+      font-family: var(--s-sans);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      font-size: 22px;
+      color: var(--s-ink);
     }
     .picker-head-left h2 .count {
-      font-family: var(--font-accent); font-weight: 700;
-      color: var(--klovo-blue); margin-right: 6px;
+      font-family: var(--s-serif);
+      font-weight: 400;
+      color: var(--s-amber);
+      margin-right: 6px;
     }
     .picker-head-right { display: flex; gap: 8px; align-items: center; }
     .picker-text-btn {
-      background: transparent; border: 1px solid transparent;
-      font-family: var(--font-tech); font-size: 11px;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--klovo-grey); cursor: pointer;
-      padding: 8px 14px; border-radius: 4px;
-      transition: all 150ms ease; font-weight: 600;
+      background: transparent;
+      border: 1px solid var(--s-line);
+      font-family: var(--s-sans);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--s-muted);
+      cursor: pointer;
+      padding: 8px 14px;
+      transition: all 150ms ease;
+      font-weight: 600;
     }
-    .picker-text-btn:hover { color: var(--klovo-blue); border-color: var(--warm-neutral); }
+    .picker-text-btn:hover { color: var(--s-ink); border-color: var(--s-ink); }
 
     .chip-row { display: flex; gap: 10px; flex-wrap: wrap; }
     .chip {
-      --chip-bg: var(--pure-white);
-      --chip-fg: var(--charcoal);
-      --chip-br: rgba(39,39,39,0.18);
-      position: relative; background: var(--chip-bg); color: var(--chip-fg);
-      border: 1.5px solid var(--chip-br); border-radius: 6px;
-      padding: 14px 20px 12px; cursor: pointer;
+      --chip-bg: var(--s-white);
+      --chip-fg: var(--s-ink);
+      --chip-br: var(--s-line);
+      position: relative;
+      background: var(--chip-bg);
+      color: var(--chip-fg);
+      border: 1.5px solid var(--chip-br);
+      padding: 14px 20px 12px;
+      cursor: pointer;
       transition: transform 150ms cubic-bezier(0.4,0,0.2,1), border-color 150ms, background 150ms, color 150ms;
-      font-family: var(--font-primary);
+      font-family: var(--s-sans);
       display: flex; flex-direction: column; align-items: center; gap: 2px;
       min-width: 72px; user-select: none;
     }
-    .chip:hover { border-color: var(--klovo-blue); transform: translateY(-1px); }
+    .chip:hover { border-color: var(--s-amber); transform: translateY(-1px); }
     .chip .ft {
-      font-family: var(--font-accent); font-weight: 700;
-      font-size: 22px; line-height: 1; letter-spacing: -0.01em;
+      font-family: var(--s-serif);
+      font-weight: 400;
+      font-size: 24px; line-height: 1; letter-spacing: -0.01em;
+      color: var(--s-ink);
     }
     .chip .u {
-      font-family: var(--font-tech); font-size: 10px;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--klovo-grey); margin-top: 2px;
+      font-family: var(--s-sans);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--s-muted);
+      margin-top: 2px;
     }
     .chip .check {
       position: absolute; top: 6px; right: 6px;
-      width: 14px; height: 14px; border-radius: 50%;
+      width: 14px; height: 14px;
       background: transparent; color: transparent;
       display: grid; place-items: center;
       transition: all 150ms;
@@ -179,36 +214,36 @@ const clientSets = sets.map((s) => ({
     .chip .check svg { width: 10px; height: 10px; }
     .chip .pc-badge {
       position: absolute; top: -7px; right: 8px;
-      background: var(--warm-neutral); color: var(--charcoal);
-      font-family: var(--font-tech); font-size: 9px; font-weight: 600;
-      letter-spacing: 0.12em; padding: 2px 6px;
-      border-radius: 3px; opacity: 0.7;
+      background: var(--s-neutral); color: var(--s-ink);
+      font-family: var(--s-sans); font-size: 9px; font-weight: 600;
+      letter-spacing: 0.12em; padding: 2px 6px; opacity: 0.7;
     }
     .chip[aria-pressed="true"] {
-      --chip-bg: var(--klovo-blue);
-      --chip-fg: var(--pure-white);
-      --chip-br: var(--klovo-blue);
-      box-shadow: 0 4px 14px rgba(14,76,139,0.18);
+      --chip-bg: var(--s-amber);
+      --chip-fg: var(--s-ink);
+      --chip-br: var(--s-amber);
     }
-    .chip[aria-pressed="true"] .u { color: rgba(248,245,240,0.72); }
-    .chip[aria-pressed="true"] .check { background: var(--klovo-amber); color: var(--charcoal); }
+    .chip[aria-pressed="true"] .ft { color: var(--s-ink); }
+    .chip[aria-pressed="true"] .u { color: rgba(31,27,20,0.65); }
+    .chip[aria-pressed="true"] .check { background: var(--s-ink); color: var(--s-amber); }
     .chip[aria-pressed="true"] .pc-badge { opacity: 0; }
-    .chip:focus-visible { outline: 2px solid var(--klovo-amber); outline-offset: 2px; }
+    .chip:focus-visible { outline: 2px solid var(--s-amber); outline-offset: 2px; }
 
     .picker-foot {
       margin-top: 20px; padding-top: 18px;
-      border-top: 1px dashed rgba(39,39,39,0.15);
+      border-top: 1px solid var(--s-line);
       display: flex; justify-content: space-between; align-items: center;
       gap: 16px; flex-wrap: wrap;
-      font-family: var(--font-tech); font-size: 11px;
+      font-family: var(--s-sans); font-size: 11px;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--klovo-grey);
+      color: var(--s-muted);
     }
-    .picker-foot .selected-summary b { color: var(--charcoal); font-weight: 600; }
-    .picker-foot .price { color: var(--charcoal); font-family: var(--font-tech); }
+    .picker-foot .selected-summary b { color: var(--s-ink); font-weight: 600; }
+    .picker-foot .price { color: var(--s-ink); }
     .picker-foot .price b {
-      font-family: var(--font-accent); color: var(--klovo-blue);
-      font-size: 13px; letter-spacing: 0;
+      font-family: var(--s-serif);
+      color: var(--s-amber);
+      font-size: 15px; letter-spacing: 0; font-weight: 400;
     }
 
     @media (max-width: 640px) {
@@ -217,146 +252,118 @@ const clientSets = sets.map((s) => ({
       .klovo-sets-hero p.lede { font-size: 15px; line-height: 1.5; }
 
       .picker-wrap { padding: 16px 0 24px; }
-      .picker-card { padding: 20px 16px; border-radius: 10px; }
-      .picker-head {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 14px;
-        margin-bottom: 16px;
-      }
+      .picker-card { padding: 20px 16px; }
+      .picker-head { flex-direction: column; align-items: stretch; gap: 14px; margin-bottom: 16px; }
       .picker-head-left h2 { font-size: 18px; }
-      .picker-head-right {
-        gap: 4px;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-      }
-      .picker-text-btn {
-        padding: 6px 10px;
-        font-size: 10px;
-        letter-spacing: 0.1em;
-        border: 1px solid var(--warm-neutral);
-        border-radius: 999px;
-      }
+      .picker-head-right { gap: 4px; justify-content: flex-start; flex-wrap: wrap; }
+      .picker-text-btn { padding: 6px 10px; font-size: 10px; letter-spacing: 0.1em; }
 
-      .chip-row {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 8px;
-      }
-      .chip {
-        padding: 10px 4px 8px;
-        min-width: 0;
-        width: 100%;
-        border-radius: 8px;
-      }
-      .chip .ft { font-size: 18px; }
+      .chip-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+      .chip { padding: 10px 4px 8px; min-width: 0; width: 100%; }
+      .chip .ft { font-size: 20px; }
       .chip .u { font-size: 9px; letter-spacing: 0.12em; }
-      .chip .pc-badge {
-        top: -6px;
-        right: 4px;
-        font-size: 8px;
-        padding: 1px 5px;
-      }
-      .chip .check {
-        top: 4px;
-        right: 4px;
-        width: 12px;
-        height: 12px;
-      }
+      .chip .pc-badge { top: -6px; right: 4px; font-size: 8px; padding: 1px 5px; }
+      .chip .check { top: 4px; right: 4px; width: 12px; height: 12px; }
 
-      .picker-foot {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        padding-top: 14px;
-        margin-top: 14px;
-        font-size: 10px;
-        letter-spacing: 0.1em;
-      }
+      .picker-foot { flex-direction: column; align-items: flex-start; gap: 6px; padding-top: 14px; margin-top: 14px; font-size: 10px; letter-spacing: 0.1em; }
 
       .results { padding: 24px 0 64px; }
-      .results-head {
-        gap: 12px;
-        margin-bottom: 20px;
-        align-items: flex-start;
-      }
+      .results-head { gap: 12px; margin-bottom: 20px; align-items: flex-start; }
       .results-head h2 { font-size: 22px; }
       .results-head .kicker { font-size: 11px; }
       .results-filter-pill { font-size: 10px; letter-spacing: 0.1em; }
-
-      .results .grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
+      .results .grid { grid-template-columns: 1fr; gap: 14px; }
       .card-top { padding: 10px 14px; font-size: 10px; letter-spacing: 0.14em; }
       .card-diag { height: 120px; padding: 0 14px; }
       .card-body { padding: 14px 16px 16px; }
       .card-body h3 { font-size: 16px; }
-      .card-body .price { font-size: 14px; }
+      .card-body .price { font-size: 15px; }
       .card-body p { font-size: 13px; margin-bottom: 10px; }
       .card-body .view { font-size: 13px; }
     }
 
-    .results { padding: 40px 0 96px; background: var(--warm-white); }
+    .results { padding: 40px 0 96px; background: var(--s-cream); }
     .results-head {
       display: flex; justify-content: space-between; align-items: flex-end;
       gap: 24px; margin-bottom: 32px; flex-wrap: wrap;
     }
     .results-head .kicker {
-      color: var(--klovo-amber); font-family: var(--font-tech);
-      font-weight: 600; font-size: 13px;
-      text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 8px;
+      font-family: var(--s-sans);
+      font-weight: 600; font-size: 11px;
+      text-transform: uppercase; letter-spacing: 0.22em;
+      color: var(--s-muted); margin-bottom: 8px;
     }
-    .results-head h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.015em; }
-    .results-head h2 .count-big { font-family: var(--font-accent); color: var(--klovo-blue); }
+    .results-head h2 {
+      font-family: var(--s-serif);
+      font-size: 28px; font-weight: 400; letter-spacing: -0.015em;
+      color: var(--s-ink);
+    }
+    .results-head h2 .count-big {
+      font-family: var(--s-serif);
+      color: var(--s-amber);
+    }
     .results-filter-pill {
-      font-family: var(--font-tech); font-size: 11px;
-      letter-spacing: 0.14em; color: var(--klovo-grey);
+      font-family: var(--s-sans); font-size: 11px;
+      letter-spacing: 0.14em; color: var(--s-muted);
       text-transform: uppercase;
     }
 
     .results .grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 24px;
     }
     .results .card {
-      background: var(--pure-white); border: 1px solid var(--warm-neutral);
-      border-radius: 6px; overflow: hidden;
+      background: var(--s-paper);
+      border: 1px solid var(--s-line);
+      overflow: hidden;
       display: flex; flex-direction: column;
       transition: box-shadow 200ms, transform 200ms;
       text-decoration: none; color: inherit;
     }
-    .results .card:hover { box-shadow: 0 8px 24px rgba(39,39,39,0.08); transform: translateY(-2px); }
+    .results .card:hover { box-shadow: 0 8px 24px rgba(31,27,20,0.08); transform: translateY(-2px); }
     .card-top {
-      padding: 12px 16px; display: flex; justify-content: space-between;
-      font-family: var(--font-tech); font-size: 11px;
+      padding: 12px 16px;
+      display: flex; justify-content: space-between;
+      font-family: var(--s-sans); font-size: 11px;
       letter-spacing: 0.18em; text-transform: uppercase;
     }
-    .card-top .meta { color: var(--klovo-grey); }
-    .card-top .tag { color: var(--klovo-blue); font-weight: 600; }
-    .card-diag { height: 140px; padding: 0 16px; background: var(--warm-white); }
+    .card-top .meta { color: var(--s-muted); }
+    .card-top .tag { color: var(--s-amber); font-weight: 600; }
+    .card-diag { height: 140px; padding: 0 16px; background: var(--s-cream); }
     .card-diag svg { width: 100%; height: 100%; overflow: visible; }
     .card-body {
-      padding: 16px 20px 20px; border-top: 1px solid var(--warm-neutral);
+      padding: 16px 20px 20px;
+      border-top: 1px solid var(--s-line);
       display: flex; flex-direction: column; flex: 1;
     }
-    .card-body h3 { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
-    .card-body .price {
-      font-family: var(--font-accent); font-weight: 700;
-      color: var(--klovo-blue); font-size: 15px;
+    .card-body h3 {
+      font-family: var(--s-serif);
+      font-size: 18px; font-weight: 400;
+      color: var(--s-ink); letter-spacing: -0.01em;
     }
-    .card-row { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 6px; }
+    .card-body .price {
+      font-family: var(--s-serif);
+      font-weight: 400;
+      color: var(--s-amber);
+      font-size: 17px;
+    }
+    .card-row { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 6px; align-items: baseline; }
     .card-body p {
-      font-size: 14px; color: var(--klovo-grey);
+      font-family: var(--s-sans);
+      font-size: 14px; color: var(--s-muted);
       line-height: 1.45; margin-bottom: 14px;
     }
     .card-body .view {
-      margin-top: auto; color: var(--klovo-blue);
+      margin-top: auto;
+      font-family: var(--s-sans);
+      color: var(--s-amber);
       font-weight: 600; font-size: 14px;
     }
     .empty {
       text-align: center; padding: 64px 20px;
-      color: var(--klovo-grey); font-family: var(--font-tech);
+      color: var(--s-muted);
+      font-family: var(--s-sans);
       letter-spacing: 0.14em; text-transform: uppercase; font-size: 12px;
     }
   </style>
@@ -430,45 +437,45 @@ const clientSets = sets.map((s) => ({
       if (run) runs.push(run);
 
       const parts = [];
-      parts.push(`<rect x="0" y="0" width="${envelope}" height="${FLOOR}" fill="#E8E2D9" opacity="0.22"/>`);
-      parts.push(`<line x1="0" y1="${FLOOR}" x2="${envelope}" y2="${FLOOR}" stroke="#272727" stroke-width="0.6"/>`);
+      parts.push(`<rect x="0" y="0" width="${envelope}" height="${FLOOR}" fill="#E6DCC6" opacity="0.22"/>`);
+      parts.push(`<line x1="0" y1="${FLOOR}" x2="${envelope}" y2="${FLOOR}" stroke="#1F1B14" stroke-width="0.6"/>`);
 
       placed.forEach(c => {
         const x = c.x, w = c.w;
         if (c.tall) {
-          parts.push(`<rect x="${x}" y="${FLOOR-84}" width="${w}" height="84" fill="#FFFFFF" stroke="#272727" stroke-width="0.6"/>`);
-          parts.push(`<line x1="${x + w/2}" y1="${FLOOR-83}" x2="${x + w/2}" y2="${FLOOR-1}" stroke="#272727" stroke-width="0.4"/>`);
+          parts.push(`<rect x="${x}" y="${FLOOR-84}" width="${w}" height="84" fill="#FFFFFF" stroke="#1F1B14" stroke-width="0.6"/>`);
+          parts.push(`<line x1="${x + w/2}" y1="${FLOOR-83}" x2="${x + w/2}" y2="${FLOOR-1}" stroke="#1F1B14" stroke-width="0.4"/>`);
           if (c.tall === 'DB') {
             const dTop = FLOOR - 18;
-            parts.push(`<line x1="${x}" y1="${dTop}" x2="${x+w}" y2="${dTop}" stroke="#272727" stroke-width="0.6"/>`);
-            parts.push(`<line x1="${x}" y1="${dTop+6}" x2="${x+w}" y2="${dTop+6}" stroke="#272727" stroke-width="0.35"/>`);
-            parts.push(`<line x1="${x}" y1="${dTop+12}" x2="${x+w}" y2="${dTop+12}" stroke="#272727" stroke-width="0.35"/>`);
+            parts.push(`<line x1="${x}" y1="${dTop}" x2="${x+w}" y2="${dTop}" stroke="#1F1B14" stroke-width="0.6"/>`);
+            parts.push(`<line x1="${x}" y1="${dTop+6}" x2="${x+w}" y2="${dTop+6}" stroke="#1F1B14" stroke-width="0.35"/>`);
+            parts.push(`<line x1="${x}" y1="${dTop+12}" x2="${x+w}" y2="${dTop+12}" stroke="#1F1B14" stroke-width="0.35"/>`);
           }
         }
         if (c.upper) {
           const openShelf = c.upper === 'OS';
-          parts.push(`<rect x="${x}" y="${FLOOR-90}" width="${w}" height="30" fill="${openShelf?'#F8F5F0':'#FFFFFF'}" stroke="#272727" stroke-width="0.6"/>`);
-          if (openShelf) parts.push(`<line x1="${x+1}" y1="${FLOOR-75}" x2="${x+w-1}" y2="${FLOOR-75}" stroke="#272727" stroke-width="0.4"/>`);
-          else parts.push(`<line x1="${x+w/2}" y1="${FLOOR-89}" x2="${x+w/2}" y2="${FLOOR-61}" stroke="#272727" stroke-width="0.4"/>`);
+          parts.push(`<rect x="${x}" y="${FLOOR-90}" width="${w}" height="30" fill="${openShelf?'#FBF6EA':'#FFFFFF'}" stroke="#1F1B14" stroke-width="0.6"/>`);
+          if (openShelf) parts.push(`<line x1="${x+1}" y1="${FLOOR-75}" x2="${x+w-1}" y2="${FLOOR-75}" stroke="#1F1B14" stroke-width="0.4"/>`);
+          else parts.push(`<line x1="${x+w/2}" y1="${FLOOR-89}" x2="${x+w/2}" y2="${FLOOR-61}" stroke="#1F1B14" stroke-width="0.4"/>`);
         }
         if (c.base) {
           const top = FLOOR - 34.5;
           const openShelf = c.base === 'BOS';
           const drawers = c.base === 'DB3' ? 3 : c.base === 'DB4' ? 4 : c.base === 'DB5' ? 5 : 0;
           const door = c.base === 'BFH';
-          parts.push(`<rect x="${x}" y="${top}" width="${w}" height="34.5" fill="${openShelf?'#F8F5F0':'#FFFFFF'}" stroke="#272727" stroke-width="0.6"/>`);
-          parts.push(`<rect x="${x}" y="${FLOOR-4}" width="${w}" height="4" fill="#E8E2D9" stroke="#272727" stroke-width="0.4"/>`);
-          if (openShelf) parts.push(`<line x1="${x+1}" y1="${top+14.5}" x2="${x+w-1}" y2="${top+14.5}" stroke="#272727" stroke-width="0.35"/>`);
-          if (door)      parts.push(`<line x1="${x+w/2}" y1="${top+1}" x2="${x+w/2}" y2="${FLOOR-5}" stroke="#272727" stroke-width="0.4"/>`);
+          parts.push(`<rect x="${x}" y="${top}" width="${w}" height="34.5" fill="${openShelf?'#FBF6EA':'#FFFFFF'}" stroke="#1F1B14" stroke-width="0.6"/>`);
+          parts.push(`<rect x="${x}" y="${FLOOR-4}" width="${w}" height="4" fill="#E6DCC6" stroke="#1F1B14" stroke-width="0.4"/>`);
+          if (openShelf) parts.push(`<line x1="${x+1}" y1="${top+14.5}" x2="${x+w-1}" y2="${top+14.5}" stroke="#1F1B14" stroke-width="0.35"/>`);
+          if (door)      parts.push(`<line x1="${x+w/2}" y1="${top+1}" x2="${x+w/2}" y2="${FLOOR-5}" stroke="#1F1B14" stroke-width="0.4"/>`);
           if (drawers) for (let i=1;i<drawers;i++) {
             const dy = top + i*(30.5)/drawers;
-            parts.push(`<line x1="${x}" y1="${dy}" x2="${x+w}" y2="${dy}" stroke="#272727" stroke-width="0.35"/>`);
+            parts.push(`<line x1="${x}" y1="${dy}" x2="${x+w}" y2="${dy}" stroke="#1F1B14" stroke-width="0.35"/>`);
           }
         }
       });
 
-      runs.forEach(r => parts.push(`<rect x="${r.x0-0.5}" y="${FLOOR-36}" width="${r.x1-r.x0+1}" height="1.5" fill="#F7C948"/>`));
-      parts.push(`<line x1="${offset}" y1="${FLOOR+2.5}" x2="${offset+total}" y2="${FLOOR+2.5}" stroke="#F7C948" stroke-width="1.2"/>`);
+      runs.forEach(r => parts.push(`<rect x="${r.x0-0.5}" y="${FLOOR-36}" width="${r.x1-r.x0+1}" height="1.5" fill="#D4923B"/>`));
+      parts.push(`<line x1="${offset}" y1="${FLOOR+2.5}" x2="${offset+total}" y2="${FLOOR+2.5}" stroke="#D4923B" stroke-width="1.2"/>`);
 
       return `<svg viewBox="0 0 ${envelope} 102" preserveAspectRatio="xMidYMax meet">${parts.join('')}</svg>`;
     }
@@ -535,4 +542,4 @@ const clientSets = sets.map((s) => ({
     renderChips();
     update();
   </script>
-</BaseLayout>
+</PageLayout>

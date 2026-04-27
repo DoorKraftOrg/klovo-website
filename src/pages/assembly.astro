@@ -1,204 +1,119 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 ---
 
-<BaseLayout
+<PageLayout
   title="DIY Garage Cabinet Assembly — GlideLock"
   description="Klovo GlideLock assembly: panels lock together by hand, about 2-3 minutes per cabinet, full set in less than 1 hour. The only tool you'll need is a screwdriver for the back panel."
   keywords="DIY garage cabinet assembly, RTA garage cabinet, GlideLock, push-to-open garage cabinets, modular garage cabinets, ready to assemble garage cabinet kit"
 >
 
-  <!-- Hero -->
-  <section class="py-16 lg:py-24 bg-warm-white">
-    <div class="section-container text-center">
-      <div class="max-w-3xl mx-auto reveal">
-        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-          Fast Assembly
-        </p>
-        <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-6 leading-tight">
-          Flat box to fully assembled.<br/>In minutes, not a weekend.
-        </h1>
-        <p class="text-lg text-klovo-grey leading-relaxed max-w-2xl mx-auto">
-          No cam locks. No Allen wrenches. Panels interlock and create a secure construction. A single cabinet assembles in about 2-3 minutes. A full set in less than 1 hour. The only tool you'll need is a screwdriver for the back panel.
-        </p>
-      </div>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Fast Assembly</span>
+      <h1 class="page-h1">Flat box to<br/>finished in <em>3 minutes.</em></h1>
+      <p class="page-lede">
+        No cam locks. No Allen wrenches. Panels interlock by hand into a weight-bearing construction. One cabinet in about 2–3 minutes. A full set in less than 1 hour.
+      </p>
     </div>
   </section>
 
   <!-- Video Section -->
-  <section class="py-12 lg:py-16 bg-warm-white">
-    <div class="section-container">
-      <div class="max-w-4xl mx-auto reveal">
-        <div class="relative rounded-xl overflow-hidden aspect-video bg-charcoal shadow-2xl">
+  <section class="section section--cream">
+    <div class="container">
+      <div style="max-width: 860px; margin: 0 auto;">
+        <div class="page-video-card">
           <img
             src="/images/assembly/hands-pressing.png"
             alt="Klovo cabinet assembly demonstration"
-            class="w-full h-full object-cover opacity-80"
             loading="eager"
           />
           <button
             type="button"
             data-video-open
-            class="absolute inset-0 flex items-center justify-center cursor-pointer"
+            class="page-video-play"
             aria-label="Play assembly video"
           >
-            <span class="w-24 h-24 bg-klovo-blue/90 hover:bg-klovo-blue rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-2xl">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                <polygon points="8,5 19,12 8,19" />
+            <span class="page-video-play-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color: var(--ink); margin-left: 3px;">
+                <polygon points="6,4 20,12 6,20" />
               </svg>
             </span>
           </button>
+          <div class="page-video-badge">
+            <span class="page-video-badge-dot"></span>
+            Watch · 0:41
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Video Modal (Vimeo) -->
-  <div
-    id="video-modal"
-    class="fixed inset-0 z-[100] hidden items-center justify-center bg-charcoal/90 backdrop-blur-sm p-4"
-    aria-hidden="true"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Assembly video"
-  >
-    <div class="relative w-full max-w-[min(90vw,45vh)] mx-auto">
-      <button
-        type="button"
-        class="absolute -top-12 right-0 text-white hover:text-klovo-amber transition-colors"
-        data-video-close
-        aria-label="Close video"
-      >
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-      </button>
-      <div class="relative bg-black rounded-lg overflow-hidden shadow-2xl" style="aspect-ratio: 9 / 16;">
-        <div id="video-iframe-container" class="absolute inset-0"></div>
-      </div>
-    </div>
-  </div>
-
-  <script is:inline>
-    (function () {
-      const modal = document.getElementById('video-modal');
-      const container = document.getElementById('video-iframe-container');
-      const openBtns = document.querySelectorAll('[data-video-open]');
-      const closeBtns = document.querySelectorAll('[data-video-close]');
-      const vimeoSrc = 'https://player.vimeo.com/video/1131081541?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479';
-
-      function open() {
-        if (!modal || !container) return;
-        container.innerHTML = '<iframe src="' + vimeoSrc + '" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Klovo Assembly — 500 lb Cabinet, Almost Tool-Free"></iframe>';
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function close() {
-        if (!modal || !container) return;
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        modal.setAttribute('aria-hidden', 'true');
-        container.innerHTML = '';
-        document.body.style.overflow = '';
-      }
-
-      openBtns.forEach(function (b) { b.addEventListener('click', open); });
-      closeBtns.forEach(function (b) { b.addEventListener('click', close); });
-      modal && modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) close();
-      });
-    })();
-  </script>
 
   <!-- 3 Steps -->
-  <section class="py-20 lg:py-28 bg-warm-neutral">
-    <div class="section-container">
-      <div class="text-center mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Three steps. That's it.</h2>
-        <p class="text-lg text-klovo-grey max-w-xl mx-auto">A cabinet box in 2-3 minutes. A full set in less than 1 hour.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-        <!-- Step 1 -->
-        <div class="text-center reveal reveal-delay-1">
-          <div class="w-16 h-16 bg-klovo-blue rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="text-pure-white font-bold text-xl" style="font-family: var(--font-accent)">1</span>
+  <section class="section" style="background: var(--neutral);">
+    <div class="container">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="h-section">Three steps.<br/><em>That's it.</em></h2>
+      <div class="page-steps" style="margin-top: 48px; max-width: 640px;">
+        <div class="page-step">
+          <div class="page-step-num">1</div>
+          <div class="page-step-body">
+            <h3>Unbox the panels</h3>
+            <p>Open the box and lay out the pre-drilled panels. Everything is labeled and arrives ready to build.</p>
           </div>
-          <h3 class="text-xl font-semibold text-charcoal mb-3">Unbox the panels</h3>
-          <p class="text-klovo-grey leading-relaxed">
-            Open the box and lay out the pre-drilled panels.
-          </p>
         </div>
-
-        <!-- Step 2 -->
-        <div class="text-center reveal reveal-delay-2">
-          <div class="w-16 h-16 bg-klovo-blue rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="text-pure-white font-bold text-xl" style="font-family: var(--font-accent)">2</span>
+        <div class="page-step">
+          <div class="page-step-num">2</div>
+          <div class="page-step-body">
+            <h3>Push and lock</h3>
+            <p>Align the panels and push them together. The GlideLock connector system locks them into a secure, weight-bearing construction. Then drive a few screws through the back panel runners to secure it.</p>
           </div>
-          <h3 class="text-xl font-semibold text-charcoal mb-3">Push and lock</h3>
-          <p class="text-klovo-grey leading-relaxed">
-            Align the panels and push them together. The Klovo connector system locks them into a secure, weight-bearing construction. Then drive a few screws through the back panel runners to secure it.
-          </p>
         </div>
-
-        <!-- Step 3 -->
-        <div class="text-center reveal reveal-delay-3">
-          <div class="w-16 h-16 bg-klovo-amber rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="text-charcoal font-bold text-xl" style="font-family: var(--font-accent)">&#10003;</span>
+        <div class="page-step">
+          <div class="page-step-num">3</div>
+          <div class="page-step-body">
+            <h3>Done. Load it up.</h3>
+            <p>Your cabinet holds 500 lbs and the box took about 2–3 minutes to build. Door, drawer, and hardware install is easy too.</p>
           </div>
-          <h3 class="text-xl font-semibold text-charcoal mb-3">Done. Load it up.</h3>
-          <p class="text-klovo-grey leading-relaxed">
-            That's it. Your cabinet holds 500 lbs and the box took less than a minute to build. All hardware for doors and drawers is easy install too.
-          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The Connector -->
-  <section class="py-20 lg:py-28 bg-warm-white">
-    <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="reveal">
-          <div class="rounded-lg overflow-hidden bg-warm-neutral aspect-square">
-            <img
-              src="/images/assembly/hands-garage.png"
-              alt="Close-up of the Klovo connector system — panels pressing together"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
+  <!-- The Connector — Two-Column Split -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="split" style="align-items: center;">
+        <div class="split-media">
+          <img
+            src="/images/assembly/hands-garage.png"
+            alt="Close-up of the Klovo connector system — panels pressing together"
+            style="width:100%; height:auto; display:block; aspect-ratio:1/1; object-fit:cover;"
+            loading="lazy"
+          />
         </div>
-        <div class="reveal reveal-delay-1">
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-            The Connector
+        <div class="split-text">
+          <span class="eyebrow">The GlideLock Connector</span>
+          <h2 class="h-section">Panels interlock.<br/><em>No tools for the box.</em></h2>
+          <p style="font-family: var(--sans); font-size: 16px; color: var(--ink-soft); line-height: 1.6; margin-top: 20px;">
+            Most cabinet brands use cam locks, dowels, or screws that require tools and patience. Our GlideLock connector is different: panels push together and lock into a secure, weight-bearing construction.
           </p>
-          <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-6 leading-tight">
-            Panels interlock. A secure construction. No tools for the box.
-          </h2>
-          <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
-            Most cabinet brands use cam locks, dowels, or screws that require tools and patience. Our unique connector system is different: panels push together and lock into a secure, weight-bearing construction.
-          </p>
-          <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
+          <p style="font-family: var(--sans); font-size: 16px; color: var(--ink-soft); line-height: 1.6; margin-top: 16px;">
             The only tool you'll need is a screwdriver to secure the back panel through the runners. That's it.
           </p>
-          <ul class="space-y-3">
-            <li class="flex items-center gap-3 text-charcoal">
-              <svg class="w-5 h-5 text-klovo-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-              Panels interlock into a secure construction — no tools for the box itself
+          <ul class="page-tick-list" style="margin-top: 28px;">
+            <li>
+              <span class="page-tick">✓</span>
+              Panels interlock into a secure construction — almost tool-free
             </li>
-            <li class="flex items-center gap-3 text-charcoal">
-              <svg class="w-5 h-5 text-klovo-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-              Easy install hardware with push-to-open hinges and glides
+            <li>
+              <span class="page-tick">✓</span>
+              Push-to-open doors and drawers — no handles needed
             </li>
-            <li class="flex items-center gap-3 text-charcoal">
-              <svg class="w-5 h-5 text-klovo-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-              Disassembles just as easily (moves with you)
+            <li>
+              <span class="page-tick">✓</span>
+              Disassembles just as easily — moves with you
             </li>
           </ul>
         </div>
@@ -206,60 +121,119 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Comparison -->
-  <section class="py-20 lg:py-28 bg-warm-neutral">
-    <div class="section-container">
-      <div class="text-center mb-12 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Klovo vs. the old way.</h2>
-      </div>
-
-      <div class="max-w-3xl mx-auto reveal">
-        <div class="bg-pure-white rounded-xl overflow-hidden shadow-lg overflow-x-auto">
-          <table class="w-full min-w-[480px]">
-            <thead>
-              <tr class="border-b border-warm-neutral">
-                <th class="py-4 px-6 text-left text-sm font-semibold text-klovo-grey uppercase tracking-wider"></th>
-                <th class="py-4 px-6 text-center text-sm font-semibold text-klovo-blue uppercase tracking-wider">Klovo</th>
-                <th class="py-4 px-6 text-center text-sm font-semibold text-klovo-grey uppercase tracking-wider">Traditional</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-warm-neutral/50">
-                <td class="py-4 px-6 font-medium text-charcoal">Assembly Time</td>
-                <td class="py-4 px-6 text-center font-semibold text-klovo-blue">2-3 min per box, less than 1 hour per set</td>
-                <td class="py-4 px-6 text-center text-klovo-grey">4+ hours</td>
-              </tr>
-              <tr class="border-b border-warm-neutral/50">
-                <td class="py-4 px-6 font-medium text-charcoal">Tools Required</td>
-                <td class="py-4 px-6 text-center font-semibold text-klovo-blue">Screwdriver only</td>
-                <td class="py-4 px-6 text-center text-klovo-grey">Drill, level, hardware</td>
-              </tr>
-              <tr class="border-b border-warm-neutral/50">
-                <td class="py-4 px-6 font-medium text-charcoal">Handles</td>
-                <td class="py-4 px-6 text-center font-semibold text-klovo-blue">Push-to-open (none needed)</td>
-                <td class="py-4 px-6 text-center text-klovo-grey">Hardware required</td>
-              </tr>
-              <tr>
-                <td class="py-4 px-6 font-medium text-charcoal">Portable</td>
-                <td class="py-4 px-6 text-center font-semibold text-klovo-blue">Yes, disassembles</td>
-                <td class="py-4 px-6 text-center text-klovo-grey">Permanent</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <!-- Comparison Table -->
+  <section class="section" style="background: var(--neutral);">
+    <div class="container">
+      <span class="eyebrow">Comparison</span>
+      <h2 class="h-section">Klovo vs.<br/><em>the old way.</em></h2>
+      <div style="margin-top: 40px; overflow-x: auto;">
+        <table class="page-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Klovo</th>
+              <th>Traditional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Assembly Time</strong></td>
+              <td><strong>2–3 min per box, &lt;1 hr per set</strong></td>
+              <td>4+ hours</td>
+            </tr>
+            <tr>
+              <td><strong>Tools Required</strong></td>
+              <td><strong>Screwdriver only</strong></td>
+              <td>Drill, level, hardware</td>
+            </tr>
+            <tr>
+              <td><strong>Handles</strong></td>
+              <td><strong>Push-to-open (none needed)</strong></td>
+              <td>Hardware required</td>
+            </tr>
+            <tr>
+              <td><strong>Portable</strong></td>
+              <td><strong>Yes — disassembles</strong></td>
+              <td>Permanent install</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-16 lg:py-20 bg-warm-white">
-    <div class="section-container text-center reveal">
-      <h2 class="text-3xl font-bold text-charcoal mb-4">Ready to see a set?</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="/sets/" class="btn-amber">View Sets <span aria-hidden="true">&rarr;</span></a>
-        <a href="/where-to-buy/" class="btn-secondary">Find a Retailer</a>
+  <!-- CTA Band -->
+  <section class="page-cta-band">
+    <div class="container">
+      <span class="eyebrow" style="color: rgba(244,236,219,0.55);">See a Set</span>
+      <h2 class="h-final">Find the set that fits<br/><em>your garage.</em></h2>
+      <div class="page-cta-btns">
+        <a href="/sets/" class="btn btn--primary">View sets &rarr;</a>
+        <a href="/where-to-buy/" class="btn btn--ghost btn--ghost--dark">Find a retailer</a>
       </div>
     </div>
   </section>
 
-</BaseLayout>
+  <!-- Video Modal (Vimeo — portrait 9:16) -->
+  <div
+    id="video-modal"
+    style="display:none; position:fixed; inset:0; z-index:200; align-items:center; justify-content:center; background:rgba(15,10,4,0.92); backdrop-filter:blur(4px); padding:1rem;"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Assembly video"
+    aria-hidden="true"
+  >
+    <div style="position:relative; width:100%; max-width:min(90vw,45vh); margin:0 auto;">
+      <button
+        type="button"
+        data-video-close
+        aria-label="Close video"
+        style="position:absolute; top:-3rem; right:0; background:none; border:0; cursor:pointer; color:#F4ECDB; line-height:1;"
+      >
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <div style="position:relative; background:#000; border-radius:8px; overflow:hidden; aspect-ratio:9/16; box-shadow:0 24px 80px rgba(0,0,0,0.6);">
+        <div id="video-iframe-container" style="position:absolute; inset:0;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var modal = document.getElementById('video-modal');
+      var container = document.getElementById('video-iframe-container');
+      var openBtns = document.querySelectorAll('[data-video-open]');
+      var closeBtns = document.querySelectorAll('[data-video-close]');
+      var vimeoSrc = 'https://player.vimeo.com/video/1131081541?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479';
+
+      function openModal() {
+        if (!modal || !container) return;
+        container.innerHTML = '<iframe src="' + vimeoSrc + '" style="width:100%;height:100%;border:0;" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Klovo Assembly Video"></iframe>';
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        if (!modal || !container) return;
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+        container.innerHTML = '';
+        document.body.style.overflow = '';
+      }
+
+      openBtns.forEach(function (b) { b.addEventListener('click', openModal); });
+      closeBtns.forEach(function (b) { b.addEventListener('click', closeModal); });
+      if (modal) {
+        modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal && modal.style.display !== 'none') closeModal();
+      });
+    })();
+  </script>
+
+</PageLayout>

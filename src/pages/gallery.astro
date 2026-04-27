@@ -1,76 +1,65 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 
 const galleryItems = [
   { src: '/images/scenes/klovo-bright-garage.png', alt: 'Klovo garage cabinet set in a bright modern garage with bike and stairs', caption: 'Cabinet sets for the modern garage' },
   { src: '/images/scenes/full-system-bright.png', alt: 'Complete Klovo white cabinet system in a modern garage', caption: 'The full Klovo system — bike, golf bag, everything in its place' },
   { src: '/images/scenes/workspace-track-lights.png', alt: 'Klovo workspace with track lighting and organized tools', caption: 'Workshop-ready with track lighting and pegboard' },
-  { src: '/images/assembly/hands-pressing.png', alt: 'Near-tool-free assembly — pressing cabinet panels together', caption: '2-3 minutes per box — just push and lock' },
+  { src: '/images/assembly/hands-pressing.png', alt: 'Near-tool-free assembly — pressing cabinet panels together', caption: '2–3 minutes per box — just push and lock' },
   { src: '/images/scenes/base-wall-pegboard.png', alt: 'Base and wall cabinets with pegboard workspace', caption: 'Base cabinets and wall storage working together' },
   { src: '/images/retail/showroom-display.png', alt: 'Klovo cabinets on display in a retail showroom', caption: 'See Klovo in person at a retailer near you' },
 ];
 ---
 
-<BaseLayout
+<PageLayout
   title="Garage Gallery — Real Klovo Cabinet Sets"
   description="Real Klovo garage cabinet installations. See finished garages, workshops, mudrooms, home gyms, and home offices outfitted with modular Klovo sets."
   keywords="garage cabinet gallery, garage organization photos, finished garage, garage makeover, Klovo cabinet photos"
 >
 
-  <!-- Hero -->
-  <section class="py-16 lg:py-24 bg-warm-white">
-    <div class="section-container text-center">
-      <div class="max-w-2xl mx-auto reveal">
-        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-          Real Garages. Real Results.
-        </p>
-        <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4 leading-tight">
-          See what's possible.
-        </h1>
-        <p class="text-lg text-klovo-grey leading-relaxed">
-          Klovo cabinet sets in home gyms, home offices, workshops, and every kind of garage in between.
-        </p>
-      </div>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Real Garages</span>
+      <h1 class="page-h1">See what's<br/><em>possible.</em></h1>
+      <p class="page-lede">Klovo cabinet sets in home gyms, workshops, home offices, and every kind of garage in between.</p>
     </div>
   </section>
 
   <!-- Gallery Grid -->
-  <section class="py-8 lg:py-12 bg-warm-white">
-    <div class="section-container">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-        {galleryItems.map((item, i) => (
-          <div class="reveal" style={`transition-delay: ${i * 80}ms`}>
-            <div class="img-zoom-container rounded-lg aspect-[4/3] bg-warm-neutral">
+  <section class="section section--cream">
+    <div class="container">
+      <div class="gallery-grid">
+        {galleryItems.map((item) => (
+          <figure class="gallery-card">
+            <div class="gallery-card-img-wrap">
               <img
                 src={item.src}
                 alt={item.alt}
-                class="w-full h-full object-cover"
+                class="gallery-card-img"
                 loading="lazy"
               />
             </div>
-            <p class="mt-3 text-sm text-klovo-grey">{item.caption}</p>
-          </div>
+            <figcaption class="gallery-card-caption">{item.caption}</figcaption>
+          </figure>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Share Your Garage -->
-  <section class="py-16 lg:py-24 bg-warm-neutral">
-    <div class="section-container text-center reveal">
-      <h2 class="text-3xl font-bold text-charcoal mb-4">Got a Klovo garage? Show it off.</h2>
-      <p class="text-lg text-klovo-grey max-w-lg mx-auto mb-8">
+  <!-- Community CTA -->
+  <section class="section" style="background: var(--ink); text-align: center;">
+    <div class="container">
+      <span class="eyebrow" style="color: rgba(244,236,219,0.55);">Community</span>
+      <h2 class="h-section" style="color: #FFFCF4;">Got a Klovo garage?<br/><em>Show it off.</em></h2>
+      <p style="font-family: var(--sans); font-size: 17px; color: rgba(255,252,244,0.65); max-width: 480px; margin: 16px auto 0; line-height: 1.6;">
         Tag us on Instagram @klovostorage or email your photos to be featured.
       </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="https://www.instagram.com/klovostorage/" target="_blank" rel="noopener noreferrer" class="btn-primary">
-          Follow on Instagram
-        </a>
-        <a href="/contact/" class="btn-secondary">
-          Submit Your Photos
-        </a>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px;">
+        <a href="https://www.instagram.com/klovostorage/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Follow on Instagram &rarr;</a>
+        <a href="/contact/" class="btn btn--ghost btn--ghost--dark">Submit Your Photos</a>
       </div>
     </div>
   </section>
 
-</BaseLayout>
+</PageLayout>

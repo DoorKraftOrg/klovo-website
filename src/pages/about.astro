@@ -1,121 +1,105 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 ---
 
-<BaseLayout
+<PageLayout
   title="About Klovo — Made in USA Modular Garage Cabinets"
   description="Klovo is built by Door Kraft — a US cabinet manufacturer with 20 years of experience and over a million cabinets built. Modular garage cabinets, moisture-resistant, furniture-grade, 100% Made in USA."
   keywords="made in USA garage cabinets, American garage cabinets, US-made modular garage cabinets, Door Kraft, Georgia garage cabinet manufacturer"
 >
 
-  <!-- Hero -->
-  <section class="py-16 lg:py-24 bg-warm-white">
-    <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="reveal">
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-            About Klovo
-          </p>
-          <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-6 leading-tight">
-            Garage cabinets, modernized.
-          </h1>
-          <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
+  <!-- Page Hero + Two-column split -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="split">
+        <div class="split-text">
+          <span class="eyebrow">About Klovo</span>
+          <h1 class="page-h1">Garage cabinets,<br/><em>modernized.</em></h1>
+          <p class="page-lede">
             Klovo is built by Door Kraft — a US cabinet manufacturer with 20 years of experience and over a million cabinets behind us. We make premium cabinet sets designed for the modern garage: moisture-resistant, furniture-grade, and sized for how people actually use the space today.
           </p>
-          <p class="text-lg text-charcoal/70 leading-relaxed">
-            Our sets are pre-designed, 100% Made in USA, and ship flat for near-tool-free assembly.
+          <p style="font-family: var(--sans); font-size: 16px; color: var(--ink-soft); line-height: 1.6; margin-top: 16px;">
+            Our sets are pre-designed, 100% Made in USA, and ship flat for almost tool-free assembly.
           </p>
         </div>
-        <div class="reveal reveal-delay-1">
-          <div class="rounded-lg overflow-hidden shadow-xl">
-            <img
-              src="/images/factory/worker-qc.png"
-              alt="Klovo quality control — worker inspecting white cabinet panel in the factory"
-              class="w-full h-auto"
-              loading="eager"
-            />
-          </div>
+        <div class="split-media">
+          <img
+            src="/images/factory/worker-qc.png"
+            alt="Klovo quality control — worker inspecting white cabinet panel in the factory"
+            style="width:100%; height:auto; display:block;"
+            loading="eager"
+          />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Values -->
-  <section class="py-20 lg:py-28 bg-warm-neutral">
-    <div class="section-container">
-      <div class="text-center mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">What we build for.</h2>
-      </div>
+  <!-- Pull Quote -->
+  <section class="section" style="background: var(--neutral);">
+    <div class="container" style="max-width: 760px;">
+      <blockquote class="page-pull-quote">
+        We didn't pivot to garages. We noticed them.
+      </blockquote>
+    </div>
+  </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-1">
-          <div class="w-12 h-12 bg-klovo-amber/20 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-klovo-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+  <!-- What We Build For -->
+  <section class="section section--cream">
+    <div class="container">
+      <span class="eyebrow">Our Values</span>
+      <h2 class="h-section">What we<br/><em>build for.</em></h2>
+      <ul class="page-tick-list" style="margin-top: 40px; max-width: 680px;">
+        <li>
+          <span class="page-tick">✓</span>
+          <div>
+            <strong style="font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); display: block; margin-bottom: 4px;">Speed</strong>
+            A single cabinet box in about 2–3 minutes. A full set in less than 1 hour. No contractors. No wasted weekend.
           </div>
-          <h3 class="text-lg font-semibold text-charcoal mb-2">Speed</h3>
-          <p class="text-klovo-grey text-[15px] leading-relaxed">
-            A single cabinet box in about 2-3 minutes. A full set in less than 1 hour. No contractors. No wasted weekend.
-          </p>
-        </div>
-
-        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-2">
-          <div class="w-12 h-12 bg-klovo-amber/20 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-klovo-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 class="text-lg font-semibold text-charcoal mb-2">Durability</h3>
-          <p class="text-klovo-grey text-[15px] leading-relaxed">
+        </li>
+        <li>
+          <span class="page-tick">✓</span>
+          <div>
+            <strong style="font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); display: block; margin-bottom: 4px;">Durability</strong>
             500 lbs per cabinet. 99 lbs per drawer. Moisture-resistant sealed edgebanding. Scratch-resistant laminate. 1-year warranty.
-          </p>
-        </div>
-
-        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-3">
-          <div class="w-12 h-12 bg-klovo-amber/20 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-klovo-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <h3 class="text-lg font-semibold text-charcoal mb-2">Accessibility</h3>
-          <p class="text-klovo-grey text-[15px] leading-relaxed">
+        </li>
+        <li>
+          <span class="page-tick">✓</span>
+          <div>
+            <strong style="font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); display: block; margin-bottom: 4px;">Accessibility</strong>
             Panels lock together without tools. Push-to-open doors and drawers — no handles needed. Built for every hand and every garage.
-          </p>
-        </div>
-
-        <div class="bg-pure-white rounded-lg p-8 reveal reveal-delay-4">
-          <div class="w-12 h-12 bg-klovo-amber/20 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-klovo-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <h3 class="text-lg font-semibold text-charcoal mb-2">Made in USA</h3>
-          <p class="text-klovo-grey text-[15px] leading-relaxed">
+        </li>
+        <li>
+          <span class="page-tick">✓</span>
+          <div>
+            <strong style="font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); display: block; margin-bottom: 4px;">Made in USA</strong>
             Every panel is precision-drilled and sealed in the US. American manufacturing, refined over 20 years.
-          </p>
-        </div>
-      </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- Manufacturing -->
-  <section class="py-20 lg:py-28 bg-warm-white">
-    <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="order-2 lg:order-1 reveal">
-          <div class="rounded-lg overflow-hidden shadow-xl">
-            <img
-              src="/images/factory/cnc-machine.png"
-              alt="CNC machine processing white cabinet panels at the Klovo / Door Kraft facility"
-              class="w-full h-auto"
-              loading="lazy"
-            />
-          </div>
+  <!-- Manufacturing Split -->
+  <section class="section" style="background: var(--neutral);">
+    <div class="container">
+      <div class="split" style="align-items: center;">
+        <div class="split-media" style="order: 1;">
+          <img
+            src="/images/factory/cnc-machine.png"
+            alt="CNC machine processing white cabinet panels at the Klovo / Door Kraft facility"
+            style="width:100%; height:auto; display:block;"
+            loading="lazy"
+          />
         </div>
-        <div class="order-1 lg:order-2 reveal reveal-delay-1">
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-            Made in USA
-          </p>
-          <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-6 leading-tight">
-            Over a million cabinets.<br/>20 years of manufacturing.
-          </h2>
-          <p class="text-lg text-charcoal/70 leading-relaxed mb-6">
+        <div class="split-text" style="order: 2;">
+          <span class="eyebrow">Made in USA</span>
+          <h2 class="h-section">Over a million cabinets.<br/><em>20 years of craft.</em></h2>
+          <p style="font-family: var(--sans); font-size: 16px; color: var(--ink-soft); line-height: 1.6; margin-top: 20px;">
             Klovo is built by Door Kraft. 20 years of cabinet manufacturing. Precision CNC drilling. Automated PVC edgebanding. Quality control refined through millions of panels.
           </p>
-          <p class="text-lg text-charcoal/70 leading-relaxed">
+          <p style="font-family: var(--sans); font-size: 16px; color: var(--ink-soft); line-height: 1.6; margin-top: 16px;">
             Every Klovo set is inspected, tested, and packed to arrive at your door ready to build.
           </p>
         </div>
@@ -123,15 +107,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-16 lg:py-20 bg-warm-neutral">
-    <div class="section-container text-center reveal">
-      <h2 class="text-3xl font-bold text-charcoal mb-4">Ready to see what Klovo can do?</h2>
-      <div class="flex flex-wrap justify-center gap-4 mt-8">
-        <a href="/sets/" class="btn-amber">View Sets <span aria-hidden="true">&rarr;</span></a>
-        <a href="/where-to-buy/" class="btn-secondary">Find a Retailer</a>
+  <!-- CTA Band -->
+  <section class="page-cta-band">
+    <div class="container">
+      <span class="eyebrow" style="color: rgba(244,236,219,0.55);">Ready to Start</span>
+      <h2 class="h-final">See what Klovo can do<br/>for <em>your garage.</em></h2>
+      <div class="page-cta-btns">
+        <a href="/sets/" class="btn btn--primary">View sets &rarr;</a>
+        <a href="/where-to-buy/" class="btn btn--ghost btn--ghost--dark">Find a retailer</a>
       </div>
     </div>
   </section>
 
-</BaseLayout>
+</PageLayout>
