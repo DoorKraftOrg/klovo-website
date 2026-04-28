@@ -32,8 +32,8 @@ const GROUPS = ['Construction', 'Hardware & Drawer', 'Support & Stability'] as c
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
-      <span class="page-label" data-num="Spec Sheet">Rev 2026</span>
-      <h1 class="page-h1" style="margin-top: 24px;">Built for garages.<br/><em>Not kitchens.</em></h1>
+      <span class="eyebrow">Spec Sheet</span>
+      <h1 class="page-h1" style="margin-top: 16px;">Built for the garage.<br/><em>Every inch of it.</em></h1>
       <p class="page-lede">
         Every part of a Klovo cabinet — what it's made of, how it holds, and why it lasts. One page. No marketing fluff.
       </p>
@@ -110,7 +110,7 @@ const GROUPS = ['Construction', 'Hardware & Drawer', 'Support & Stability'] as c
     <div class="container">
       <div class="split" style="align-items: center;">
         <div class="split-text">
-          <span class="page-label" data-num="02">Interchangeability</span>
+          <span class="eyebrow">Interchangeability</span>
           <h2 class="h-section" style="margin-top: 20px;">Same box.<br/><em>Different insides.</em></h2>
           <p style="font-family:var(--sans); font-size:16px; color:var(--ink-soft); line-height:1.6; margin-top:20px;">
             Every 24″ Base or Tall SKU accepts an open shelf, a full-height door, or a 3, 4, or 5-drawer kit. Change the setup without changing the cabinet.
@@ -120,7 +120,7 @@ const GROUPS = ['Construction', 'Hardware & Drawer', 'Support & Stability'] as c
           </div>
         </div>
         <div class="split-media">
-          <div style="display:flex; align-items:flex-start; justify-content:center; gap:8px;">
+          <div style="display:flex; align-items:flex-end; justify-content:center; gap:12px; padding:24px 0;">
             {[
               { label: 'B24-OS', caption: 'Open + shelf', kind: 'shelf' },
               { label: 'B24',    caption: 'Door',         kind: 'door' },
@@ -131,7 +131,7 @@ const GROUPS = ['Construction', 'Hardware & Drawer', 'Support & Stability'] as c
               <>
                 <div style="display:flex; flex-direction:column; align-items:center; flex:1; min-width:0;">
                   <div style="font-family:var(--sans); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;">{b.label}</div>
-                  <div style="width:100%; max-width:100px; background:#fff; border:1.5px solid var(--ink); aspect-ratio:3/4; position:relative;">
+                  <div style="width:100%; background:#fff; border:1.5px solid var(--ink); aspect-ratio:3/4; position:relative;">
                     <div style="position:absolute; inset:3px;">
                       {b.kind === 'drawers' && (
                         <div style="height:100%; width:100%; display:flex; flex-direction:column; gap:3px;">
@@ -179,7 +179,7 @@ const GROUPS = ['Construction', 'Hardware & Drawer', 'Support & Stability'] as c
   <!-- Materials Table -->
   <section class="section section--cream">
     <div class="container">
-      <span class="page-label" data-num="03">Materials</span>
+      <span class="eyebrow">Materials</span>
       <div style="margin-top: 32px; overflow-x: auto;">
         <table class="page-table">
           <thead>
@@ -215,12 +215,12 @@ const GROUPS = ['Construction', 'Hardware & Drawer', 'Support & Stability'] as c
   </section>
 
   <!-- Origin + Warranty (dark section) -->
-  <section class="section" style="background: var(--ink);">
+  <section class="section" style="background: #1F1B14;">
     <div class="container">
       <div class="split" style="align-items: center;">
         <div class="split-text">
-          <span style="font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--amber);">Origin · Warranty</span>
-          <h2 style="font-family:var(--serif); font-size:clamp(28px,3.5vw,44px); font-weight:400; color:#FFFCF4; line-height:1.05; letter-spacing:-0.02em; margin:16px 0 24px;">Made in Georgia.<br/><em style="font-style:italic; color:var(--amber-glow);">Built to last.</em></h2>
+          <span style="font-family:var(--sans); font-size:13px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--amber);">Origin · Warranty</span>
+          <h2 style="font-family:var(--display); font-size:clamp(28px,3.5vw,44px); font-weight:600; color:#FFFCF4; line-height:1.05; letter-spacing:-0.02em; margin:16px 0 24px;">Made in Georgia.<br/><em style="font-style:normal; font-weight:800; color:#F2A427;">Built to last.</em></h2>
           <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:480px;">
             {[
               ['20+', 'yrs by Door Kraft'],
@@ -228,7 +228,7 @@ const GROUPS = ['Construction', 'Hardware & Drawer', 'Support & Stability'] as c
               ['1 yr', 'limited warranty'],
             ].map(([n, l]) => (
               <div style="border-left:2px solid var(--amber); padding-left:12px;">
-                <div style="font-family:var(--serif); font-weight:400; font-size:clamp(22px,3vw,28px); color:#fff; line-height:1;">{n}</div>
+                <div style="font-family:var(--display); font-weight:700; font-size:clamp(22px,3vw,28px); color:#fff; line-height:1;">{n}</div>
                 <div style="font-family:var(--sans); font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--amber); margin-top:6px;">{l}</div>
               </div>
             ))}

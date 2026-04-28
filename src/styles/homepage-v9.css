@@ -67,8 +67,8 @@ a { color: inherit; text-decoration: none; }
 
 .eyebrow {
   font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-size: 13px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--klovo-blue);
@@ -1101,9 +1101,9 @@ a { color: inherit; text-decoration: none; }
 
 .eyebrow {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.18em;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--klovo-blue);
 }
 
