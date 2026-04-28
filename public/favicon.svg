@@ -1,9 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#1F1B14" rx="5"/>
-  <!-- K vertical bar -->
-  <line x1="9" y1="6" x2="9" y2="26" stroke="#D4923B" stroke-width="4" stroke-linecap="round"/>
-  <!-- K upper arm -->
-  <line x1="9" y1="16" x2="24" y2="6" stroke="#D4923B" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- K lower arm -->
-  <line x1="9" y1="16" x2="24" y2="26" stroke="#D4923B" stroke-width="3.5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1376300 4471950 3030500 3030500" style="shape-rendering:geometricPrecision; fill-rule:evenodd; clip-rule:evenodd;">
+  <!-- White background -->
+  <rect x="1376300" y="4471950" width="3030500" height="3030500" fill="#FFFFFF"/>
+  <!-- Blue speed streak -->
+  <polygon fill="#004B9B" points="1476300,5822900 2664200,5740600 2614000,5905100"/>
+  <!-- Amber speed streak (upper) -->
+  <polygon fill="#F4A307" points="2752400,5411700 2708300,5576100 2049300,5493900"/>
+  <!-- Amber speed streak (lower) -->
+  <polygon fill="#F4A307" points="1873000,6151800 2576000,6069600 2532000,6234000"/>
+  <!-- K letterform -->
+  <polygon fill="#004B9B" points="2944700,5329400 3285200,5329400 3137300,5881300 3240700,5794600 3795200,5329300 4306800,5329300 4306800,5329400 3452100,6046600 3954300,6645100 3525000,6645100 3200100,6258000 3076000,6110000 2998700,6398400 2913600,6398400 2869500,6562900 2954700,6562800 2932600,6645100 2592100,6645100 2614200,6562900 2699200,6562900 2743300,6398400 2658200,6398400"/>
 </svg>
