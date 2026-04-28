@@ -270,25 +270,16 @@ const clientRelated = related;
     </div>
   </section>
 
-  <!-- Features + what's included -->
+  <!-- Key Features -->
   <section class="section section--cream">
     <div class="container">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px;">
-        <div>
-          <span class="eyebrow">What's Included</span>
-          <h2 class="h-section" style="margin:12px 0 24px;">Everything in <em>the box.</em></h2>
-          <p style="font-family:var(--sans); color:var(--ink-soft); font-size:16px; line-height:1.65;">{includedComponents}</p>
-        </div>
-        <div>
-          <span class="eyebrow">Key Features</span>
-          <h2 class="h-section" style="margin:12px 0 24px;">Built for <em>real use.</em></h2>
-          <ul class="page-tick-list">
-            {features.map((f: string) => (
-              <li><span class="page-tick">&#10003;</span><span>{f}</span></li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <span class="eyebrow">Key Features</span>
+      <h2 class="h-section" style="margin:12px 0 24px;">Built for <em>real use.</em></h2>
+      <ul class="page-tick-list" style="max-width:640px;">
+        {features.map((f: string) => (
+          <li><span class="page-tick">&#10003;</span><span>{f}</span></li>
+        ))}
+      </ul>
     </div>
   </section>
 
