@@ -1,152 +1,166 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 
 const title = "Garage Cabinets";
-const description = "Premium modular garage cabinets from KLOVO. Kitchen-grade TFL panels, 500 lb shelf capacity, 2–3 minute assembly with the patent-pending GlideLock system. Made in Georgia, USA.";
+const description = "Premium modular garage cabinets from Klovo. Kitchen-grade TFL panels, 500 lb shelf capacity, 2–3 minute assembly with the patent-pending GlideLock system. Made in Georgia, USA.";
 ---
 
-<BaseLayout title={title} description={description}>
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12 shopify-body">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-6">{title}</h1>
+<PageLayout title={title} description={description}>
+  <section class="page-hero page-hero--neutral">
+    <div class="container" style="max-width:800px;">
+      <span class="eyebrow">Garage Cabinets</span>
+      <h1 class="page-h1">{title}</h1>
+    </div>
+  </section>
 
-    <h2>Your Garage Deserves Real Cabinetry</h2>
-    <p>Most garage storage is an afterthought — flimsy metal shelves, plastic bins stacked to the ceiling, tools scattered across every surface. KLOVO takes a different approach. Our modular garage cabinets are built from the same moisture-resistant engineered wood and hardware used in premium kitchen cabinetry — thermally fused laminate finishes, 1&nbsp;mm PVC edge banding, soft-close hinges, and push-to-open ball-bearing drawer glides rated to 99&nbsp;lbs.</p>
-    <p>Every KLOVO cabinet assembles in about 2–3 minutes using the patent-pending GlideLock system. No cam locks, no Allen keys, no guesswork — panels slide together and lock by hand, and four screws per cabinet finish the job. Start with one cabinet and expand later. Move houses and take your cabinets with you. <strong>Made in Georgia, USA</strong>, with 20+ years of cabinet-building expertise.</p>
+  <section class="section section--cream">
+    <div class="container" style="max-width:800px;">
+      <article class="prose-klovo">
 
-    <h2>Why KLOVO?</h2>
-    <table>
-      <thead>
-        <tr><th>Feature</th><th>KLOVO</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Material</td><td>Moisture-resistant engineered wood with TFL finish</td></tr>
-        <tr><td>Assembly</td><td>~2–3 minutes per cabinet — patent-pending GlideLock</td></tr>
-        <tr><td>Cabinet Capacity</td><td>500 lbs per cabinet</td></tr>
-        <tr><td>Drawer Glides</td><td>99&nbsp;lb push-to-open ball-bearing</td></tr>
-        <tr><td>Door Hardware</td><td>Soft-close push-to-open hinges</td></tr>
-        <tr><td>Edge Banding</td><td>1&nbsp;mm PVC — moisture sealed</td></tr>
-        <tr><td>Made In</td><td>Georgia, USA</td></tr>
-        <tr><td>Expandable</td><td>Yes — add cabinets anytime</td></tr>
-      </tbody>
-    </table>
+        <h2>Your Garage Deserves Real Cabinetry</h2>
+        <p>Most garage storage is an afterthought — flimsy metal shelves, plastic bins stacked to the ceiling, tools scattered across every surface. Klovo takes a different approach. Our modular garage cabinets are built from the same moisture-resistant engineered wood and hardware used in premium kitchen cabinetry — thermally fused laminate finishes, 1&nbsp;mm PVC edge banding, soft-close hinges, and push-to-open ball-bearing drawer glides rated to 99&nbsp;lbs.</p>
+        <p>Every Klovo cabinet assembles in about 2–3 minutes using the patent-pending GlideLock system. No cam locks, no Allen keys, no guesswork — panels slide together and lock by hand, and four screws per cabinet finish the job. Start with one cabinet and expand later. Move houses and take your cabinets with you. <strong>Made in Georgia, USA</strong>, with 20+ years of cabinet-building expertise.</p>
 
-    <h2>Garage Cabinet Configurations</h2>
-    <p>KLOVO offers pre-designed sets from 6 feet to 20 feet wide, plus individual cabinets for custom layouts. Every set includes worktops, trim, and mounting hardware.</p>
+        <h2>Why Klovo?</h2>
+        <table>
+          <thead>
+            <tr><th>Feature</th><th>Klovo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Material</td><td>Moisture-resistant engineered wood with TFL finish</td></tr>
+            <tr><td>Assembly</td><td>~2–3 minutes per cabinet — patent-pending GlideLock</td></tr>
+            <tr><td>Cabinet Capacity</td><td>500 lbs per cabinet</td></tr>
+            <tr><td>Drawer Glides</td><td>99&nbsp;lb push-to-open ball-bearing</td></tr>
+            <tr><td>Door Hardware</td><td>Soft-close push-to-open hinges</td></tr>
+            <tr><td>Edge Banding</td><td>1&nbsp;mm PVC — moisture sealed</td></tr>
+            <tr><td>Made In</td><td>Georgia, USA</td></tr>
+            <tr><td>Expandable</td><td>Yes — add cabinets anytime</td></tr>
+          </tbody>
+        </table>
 
-    <h3>6-Foot Sets</h3>
-    <p>Ideal for single-car garages or smaller walls. Includes base cabinets, wall cabinets, and a worktop.</p>
+        <h2>Garage Cabinet Configurations</h2>
+        <p>Klovo offers pre-designed sets from 6 feet to 20 feet wide, plus individual cabinets for custom layouts. Every set includes worktops, trim, and mounting hardware.</p>
 
-    <h3>8-Foot Sets</h3>
-    <p>The most popular starting point. Fits most garage walls with room for a workbench area.</p>
+        <h3>6-Foot Sets</h3>
+        <p>Ideal for single-car garages or smaller walls. Includes base cabinets, wall cabinets, and a worktop.</p>
 
-    <h3>10–12 Foot Sets</h3>
-    <p>Full wall coverage for two-car garages. Mix of base, wall, and tall cabinets with drawer units.</p>
+        <h3>8-Foot Sets</h3>
+        <p>The most popular starting point. Fits most garage walls with room for a workbench area.</p>
 
-    <h3>16–20 Foot Sets</h3>
-    <p>Complete garage transformations. Floor-to-ceiling storage across an entire wall.</p>
-    <p><a href="/sets/">View All Sets →</a></p>
+        <h3>10–12 Foot Sets</h3>
+        <p>Full wall coverage for two-car garages. Mix of base, wall, and tall cabinets with drawer units.</p>
 
-    <h3>Individual Cabinets</h3>
-    <p>Build your own layout or expand an existing set:</p>
-    <ul>
-      <li><strong>Base Cabinets</strong> — 24" and 30" wide, with fixed shelves or drawer inserts</li>
-      <li><strong>Wall Cabinets</strong> — 24" and 30" wide, wall-mounted for upper storage</li>
-      <li><strong>Tall Cabinets</strong> — 24" wide, floor-to-ceiling with adjustable shelves</li>
-      <li><strong>Drawer Units</strong> — 15" and 24" wide, heavy-duty ball-bearing glides</li>
-      <li><strong>Worktops</strong> — 72" surface tops for workbench areas</li>
-      <li><strong>Door Kits</strong> — add doors to open-shelf cabinets anytime</li>
-    </ul>
-    <p><a href="/sets/">View Individual Cabinets →</a></p>
+        <h3>16–20 Foot Sets</h3>
+        <p>Complete garage transformations. Floor-to-ceiling storage across an entire wall.</p>
+        <p><a href="/sets/">View All Sets &rarr;</a></p>
 
-    <h2>Build Quality That Outlasts Your Next Move</h2>
-    <p>KLOVO garage cabinets are manufactured in Georgia, USA from moisture-resistant engineered wood panels with a thermally fused laminate (TFL) finish — the same surface technology used in commercial kitchen cabinetry. Every panel is edge-banded with 1&nbsp;mm PVC to seal out moisture and prevent swelling, even in un-climate-controlled garages.</p>
-    <p>Fixed shelves hold 500&nbsp;lbs per cabinet, supported by steel shelf pins and dado-jointed construction. Push-to-open ball-bearing drawer glides (rated to 99&nbsp;lbs per drawer) and soft-close hinges on every door complete the hardware package. KLOVO's patent-pending GlideLock assembly system allows each cabinet to be assembled in approximately 2–3 minutes without cam locks, Allen keys, or guesswork — panels are precision-drilled to fit together in only one configuration, making installation error-proof.</p>
+        <h3>Individual Cabinets</h3>
+        <p>Build your own layout or expand an existing set:</p>
+        <ul>
+          <li><strong>Base Cabinets</strong> — 24" and 30" wide, with fixed shelves or drawer inserts</li>
+          <li><strong>Wall Cabinets</strong> — 24" and 30" wide, wall-mounted for upper storage</li>
+          <li><strong>Tall Cabinets</strong> — 24" wide, floor-to-ceiling with adjustable shelves</li>
+          <li><strong>Drawer Units</strong> — 15" and 24" wide, heavy-duty ball-bearing glides</li>
+          <li><strong>Worktops</strong> — 72" surface tops for workbench areas</li>
+          <li><strong>Door Kits</strong> — add doors to open-shelf cabinets anytime</li>
+        </ul>
+        <p><a href="/sets/">View Individual Cabinets &rarr;</a></p>
 
-    <h2>Shelf Capacity: Engineered for Real Loads</h2>
-    <p>Every KLOVO fixed shelf holds 500&nbsp;lbs per cabinet — enough for power tools, paint cans, and full bins of seasonal items. KLOVO's 500&nbsp;lb per-cabinet capacity exceeds the capacity of most competitors' fixed shelves (typically 50–150&nbsp;lbs for big-box brands, 75–100&nbsp;lbs for mid-range steel systems). This capacity comes from dado-jointed shelf construction with steel support pins, not from the panel material alone.</p>
-    <p>Adjustable shelves (sold separately) are rated at 60&nbsp;lbs each and can be repositioned in 32&nbsp;mm increments. For context, a standard Home Depot 5-shelf steel unit is rated at approximately 350&nbsp;lbs per shelf with weight evenly distributed — KLOVO's 500&nbsp;lb per-cabinet capacity, combined with enclosed storage and a finished aesthetic, positions it in a different category entirely.</p>
+        <h2>Build Quality That Outlasts Your Next Move</h2>
+        <p>Klovo garage cabinets are manufactured in Georgia, USA from moisture-resistant engineered wood panels with a thermally fused laminate (TFL) finish — the same surface technology used in commercial kitchen cabinetry. Every panel is edge-banded with 1&nbsp;mm PVC to seal out moisture and prevent swelling, even in un-climate-controlled garages.</p>
+        <p>Fixed shelves hold 500&nbsp;lbs per cabinet, supported by steel shelf pins and dado-jointed construction. Push-to-open ball-bearing drawer glides (rated to 99&nbsp;lbs per drawer) and soft-close hinges on every door complete the hardware package. Klovo's patent-pending GlideLock assembly system allows each cabinet to be assembled in approximately 2–3 minutes without cam locks, Allen keys, or guesswork — panels are precision-drilled to fit together in only one configuration, making installation error-proof.</p>
 
-    <h2>Modular by Design: Start Small, Expand Anytime</h2>
-    <p>KLOVO garage cabinets use a modular architecture where every component — base cabinets, wall cabinets, tall cabinets, drawer units, worktops, and door kits — connects to form a unified system. Homeowners can start with a single 6-foot set and expand to 20+ feet over time without replacing existing pieces.</p>
-    <p>This modular approach is distinct from fixed-configuration competitors (e.g., Gladiator, NewAge) where expanding typically means buying an entirely new set. Individual KLOVO cabinets are available separately, and door kits can be added to any open-shelf cabinet at any time. The GlideLock connection system means added cabinets integrate seamlessly with existing ones — no mismatched finishes, no compatibility issues. For homeowners who move, KLOVO cabinets disassemble and reassemble at a new location, a capability not available with custom-installed or welded-steel systems.</p>
+        <h2>Shelf Capacity: Engineered for Real Loads</h2>
+        <p>Every Klovo fixed shelf holds 500&nbsp;lbs per cabinet — enough for power tools, paint cans, and full bins of seasonal items. Klovo's 500&nbsp;lb per-cabinet capacity exceeds the capacity of most competitors' fixed shelves (typically 50–150&nbsp;lbs for big-box brands, 75–100&nbsp;lbs for mid-range steel systems). This capacity comes from dado-jointed shelf construction with steel support pins, not from the panel material alone.</p>
+        <p>Adjustable shelves (sold separately) are rated at 60&nbsp;lbs each and can be repositioned in 32&nbsp;mm increments.</p>
 
-    <h2>How KLOVO Compares</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>KLOVO</th>
-          <th>Big-Box Steel</th>
-          <th>Budget RTA</th>
-          <th>Custom Installed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Material</td>
-          <td>Kitchen-grade TFL</td>
-          <td>Powder-coated steel</td>
-          <td>Melamine / raw MDF</td>
-          <td>Varies (plywood / MDF)</td>
-        </tr>
-        <tr>
-          <td>Assembly Time</td>
-          <td>~2–3 min / cabinet</td>
-          <td>30–60 min / unit</td>
-          <td>45–90 min / unit</td>
-          <td>Professional install</td>
-        </tr>
-        <tr>
-          <td>Cabinet Capacity</td>
-          <td>500 lbs per cabinet</td>
-          <td>50–150 lbs</td>
-          <td>30–75 lbs</td>
-          <td>Varies</td>
-        </tr>
-        <tr>
-          <td>Soft-Close Hardware</td>
-          <td>Standard</td>
-          <td>Upgrade / $$</td>
-          <td>Rarely</td>
-          <td>Sometimes</td>
-        </tr>
-        <tr>
-          <td>Moisture Protection</td>
-          <td>TFL + PVC edge band</td>
-          <td>Rust-resistant coating</td>
-          <td>None / minimal</td>
-          <td>Varies</td>
-        </tr>
-        <tr>
-          <td>Price Range</td>
-          <td>$175–$360 / ft</td>
-          <td>$80–$200 / ft</td>
-          <td>$50–$120 / ft</td>
-          <td>$500–$1,000 / ft</td>
-        </tr>
-        <tr>
-          <td>Expandable</td>
-          <td>Yes — add cabinets any time</td>
-          <td>Limited</td>
-          <td>Yes</td>
-          <td>Limited</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="text-sm text-gray-500">Specifications reflect typical consumer product lines as of 2026. KLOVO data sourced from current product listings at klovo.com.</p>
-  </article>
-</BaseLayout>
+        <h2>Modular by Design: Start Small, Expand Anytime</h2>
+        <p>Klovo garage cabinets use a modular architecture where every component — base cabinets, wall cabinets, tall cabinets, drawer units, worktops, and door kits — connects to form a unified system. Homeowners can start with a single 6-foot set and expand to 20+ feet over time without replacing existing pieces.</p>
+        <p>Individual Klovo cabinets are available separately, and door kits can be added to any open-shelf cabinet at any time. The GlideLock connection system means added cabinets integrate seamlessly with existing ones — no mismatched finishes, no compatibility issues.</p>
+
+        <h2>How Klovo Compares</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Klovo</th>
+              <th>Big-Box Steel</th>
+              <th>Budget RTA</th>
+              <th>Custom Installed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Material</td>
+              <td>Kitchen-grade TFL</td>
+              <td>Powder-coated steel</td>
+              <td>Melamine / raw MDF</td>
+              <td>Varies (plywood / MDF)</td>
+            </tr>
+            <tr>
+              <td>Assembly Time</td>
+              <td>~2–3 min / cabinet</td>
+              <td>30–60 min / unit</td>
+              <td>45–90 min / unit</td>
+              <td>Professional install</td>
+            </tr>
+            <tr>
+              <td>Cabinet Capacity</td>
+              <td>500 lbs per cabinet</td>
+              <td>50–150 lbs</td>
+              <td>30–75 lbs</td>
+              <td>Varies</td>
+            </tr>
+            <tr>
+              <td>Soft-Close Hardware</td>
+              <td>Standard</td>
+              <td>Upgrade / $$</td>
+              <td>Rarely</td>
+              <td>Sometimes</td>
+            </tr>
+            <tr>
+              <td>Moisture Protection</td>
+              <td>TFL + PVC edge band</td>
+              <td>Rust-resistant coating</td>
+              <td>None / minimal</td>
+              <td>Varies</td>
+            </tr>
+            <tr>
+              <td>Price Range</td>
+              <td>$175–$360 / ft</td>
+              <td>$80–$200 / ft</td>
+              <td>$50–$120 / ft</td>
+              <td>$500–$1,000 / ft</td>
+            </tr>
+            <tr>
+              <td>Expandable</td>
+              <td>Yes — add cabinets any time</td>
+              <td>Limited</td>
+              <td>Yes</td>
+              <td>Limited</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-family:var(--sans); font-size:13px; color:var(--muted);">Specifications reflect typical consumer product lines as of 2026. Klovo data sourced from current product listings at klovo.com.</p>
+
+      </article>
+    </div>
+  </section>
+</PageLayout>
 
 <style is:global>
-  .shopify-body h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 1rem; }
-  .shopify-body h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-  .shopify-body p { margin-bottom: 1rem; line-height: 1.75; }
-  .shopify-body ul, .shopify-body ol { margin-left: 1.5rem; margin-bottom: 1rem; }
-  .shopify-body ul { list-style: disc; }
-  .shopify-body ol { list-style: decimal; }
-  .shopify-body li { margin-bottom: 0.35rem; }
-  .shopify-body a { color: #0057ff; text-decoration: underline; }
-  .shopify-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
-  .shopify-body th, .shopify-body td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; vertical-align: top; }
-  .shopify-body th { background: #f9fafb; font-weight: 600; }
+.prose-klovo { font-family: var(--sans); color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+.prose-klovo h2 { font-family: var(--display); font-weight: 700; font-size: clamp(22px,2.8vw,30px); color: var(--ink); margin: 48px 0 16px; }
+.prose-klovo h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 36px 0 12px; }
+.prose-klovo p { margin: 0 0 20px; }
+.prose-klovo ul, .prose-klovo ol { padding-left: 24px; margin-bottom: 20px; }
+.prose-klovo li { margin-bottom: 8px; }
+.prose-klovo strong { color: var(--ink); font-weight: 600; }
+.prose-klovo a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
+.prose-klovo a:hover { color: var(--ink); }
+.prose-klovo table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
+.prose-klovo th { background: var(--neutral); font-family: var(--display); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+.prose-klovo td { padding: 12px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.prose-klovo tbody tr:last-child td { border-bottom: none; }
+.prose-klovo blockquote { border-left: 3px solid var(--amber); padding: 4px 0 4px 24px; font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 32px 0; }
 </style>

@@ -1,39 +1,66 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 
-const title = "Entryway & Mudroom Cabinets: Furniture-Grade Storage by KLOVO";
-const description = "KLOVO garage cabinets are designed with a furniture-grade TFL finish that looks appropriate in any room of your home — not just the garage. The clean...";
+const title = "Entryway & Mudroom Cabinets: Furniture-Grade Storage by Klovo";
+const description = "Klovo garage cabinets are designed with a furniture-grade TFL finish that looks appropriate in any room of your home — not just the garage. The clean aesthetic, soft-close hardware, and moisture-resistant construction make them ideal for mudrooms and entryways.";
 ---
 
-<BaseLayout title={title} description={description}>
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-8">{title}</h1>
-    <div class="prose prose-lg max-w-none shopify-body" set:html={`<p>KLOVO garage cabinets are designed with a furniture-grade TFL finish that looks appropriate in any room of your home — not just the garage. The clean aesthetic, soft-close hardware, and moisture-resistant construction make them ideal for mudrooms and entryways where boots, coats, and seasonal gear need organized storage. The patent-pending GlideLock assembly system allows each cabinet to be assembled in approximately 2–3 minutes with almost tool-free — just 4 screws to secure the back panel, making a complete entryway transformation achievable in a single afternoon.</p>
-<h3>Frequently Asked Questions About Entryway & Mudroom Cabinets</h3>
-<h4>Can KLOVO garage cabinets be used in a mudroom or entryway?</h4>
-<p>Absolutely. KLOVO cabinets are designed with a furniture-grade TFL finish that looks appropriate in any room of your home — not just the garage. The clean aesthetic, soft-close hardware, and moisture-resistant construction make them ideal for mudrooms and entryways.</p>
-<h4>How do I organize a mudroom with KLOVO cabinets?</h4>
-<p>A typical mudroom setup uses a combination of tall cabinets for coats and boots, upper cabinets for hats/gloves/scarves, and base cabinets for shoes and bags. KLOVO's modular system lets you mix and match cabinet sizes to fit your space and family's needs.</p>
-<h4>Will wet boots and coats damage KLOVO cabinets?</h4>
-<p>KLOVO's moisture-resistant TFL finish and PVC edge-banding are designed to handle the real-world conditions of a mudroom — including wet boots, damp coats, and seasonal humidity. For best results, allow very wet items to drip-dry briefly before storing.</p>
-<h4>How much space do I need for a mudroom cabinet setup?</h4>
-<p>KLOVO's modular system starts at just 6 feet wide, making it suitable for narrow entryways and hallways. Vertical configurations with wall-mounted upper cabinets maximize storage without consuming floor space.</p>
-<h4>Are KLOVO cabinets strong enough for heavy winter gear?</h4>
-<p>Yes. With 500 lbs per cabinet, KLOVO cabinets easily handle heavy winter coats, snow boots, ski equipment, and other bulky seasonal gear.</p>
-<h4>Related Resources <a href="/pages/garage-cabinets">Garage Cabinet Systems →</a><a href="/pages/laundry-room-cabinets">Laundry Room Cabinets →</a><a href="/pages/diy-garage-cabinets">DIY Garage Cabinets →</a><a href="/blogs/news/why-kitchen-grade-cabinets-belong-in-your-garage">Why Kitchen-Grade Cabinets Belong in Your Garage →</a><a href="/blogs/garage-storage/the-true-cost-of-garage-cabinets-budget-breakdown-for-every-size">True Cost of Garage Cabinets →</a></h4>`} />
-  </article>
-</BaseLayout>
+<PageLayout title={title} description={description}>
+  <section class="page-hero page-hero--neutral">
+    <div class="container" style="max-width:800px;">
+      <span class="eyebrow">Entryway &amp; Mudroom</span>
+      <h1 class="page-h1">{title}</h1>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container" style="max-width:800px;">
+      <article class="prose-klovo">
+
+        <p>Klovo garage cabinets are designed with a furniture-grade TFL finish that looks appropriate in any room of your home — not just the garage. The clean aesthetic, soft-close hardware, and moisture-resistant construction make them ideal for mudrooms and entryways where boots, coats, and seasonal gear need organized storage. The patent-pending GlideLock assembly system allows each cabinet to be assembled in approximately 2–3 minutes — almost tool-free — making a complete entryway transformation achievable in a single afternoon.</p>
+
+        <h2>Frequently Asked Questions About Entryway &amp; Mudroom Cabinets</h2>
+
+        <h3>Can Klovo garage cabinets be used in a mudroom or entryway?</h3>
+        <p>Absolutely. Klovo cabinets are designed with a furniture-grade TFL finish that looks appropriate in any room of your home — not just the garage. The clean aesthetic, soft-close hardware, and moisture-resistant construction make them ideal for mudrooms and entryways.</p>
+
+        <h3>How do I organize a mudroom with Klovo cabinets?</h3>
+        <p>A typical mudroom setup uses a combination of tall cabinets for coats and boots, upper cabinets for hats/gloves/scarves, and base cabinets for shoes and bags. Klovo's modular system lets you mix and match cabinet sizes to fit your space and family's needs.</p>
+
+        <h3>Will wet boots and coats damage Klovo cabinets?</h3>
+        <p>Klovo's moisture-resistant TFL finish and PVC edge-banding are designed to handle the real-world conditions of a mudroom — including wet boots, damp coats, and seasonal humidity. For best results, allow very wet items to drip-dry briefly before storing.</p>
+
+        <h3>How much space do I need for a mudroom cabinet setup?</h3>
+        <p>Klovo's modular system starts at just 6 feet wide, making it suitable for narrow entryways and hallways. Vertical configurations with wall-mounted upper cabinets maximize storage without consuming floor space.</p>
+
+        <h3>Are Klovo cabinets strong enough for heavy winter gear?</h3>
+        <p>Yes. With 500 lbs per cabinet, Klovo cabinets easily handle heavy winter coats, snow boots, ski equipment, and other bulky seasonal gear.</p>
+
+        <h2>Related Resources</h2>
+        <ul>
+          <li><a href="/pages/garage-cabinets">Garage Cabinet Systems &rarr;</a></li>
+          <li><a href="/pages/laundry-room-cabinets">Laundry Room Cabinets &rarr;</a></li>
+          <li><a href="/pages/diy-garage-cabinets">DIY Garage Cabinets &rarr;</a></li>
+          <li><a href="/blogs/news/why-kitchen-grade-cabinets-belong-in-your-garage">Why Kitchen-Grade Cabinets Belong in Your Garage &rarr;</a></li>
+        </ul>
+
+      </article>
+    </div>
+  </section>
+</PageLayout>
 
 <style is:global>
-  .shopify-body h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-  .shopify-body h3 { font-size: 1.35rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-  .shopify-body p { margin-bottom: 1rem; line-height: 1.75; }
-  .shopify-body ul, .shopify-body ol { margin-left: 1.5rem; margin-bottom: 1rem; }
-  .shopify-body ul { list-style: disc; }
-  .shopify-body ol { list-style: decimal; }
-  .shopify-body li { margin-bottom: 0.35rem; }
-  .shopify-body a { color: #0057ff; text-decoration: underline; }
-  .shopify-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-  .shopify-body th, .shopify-body td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; }
-  .shopify-body th { background: #f9fafb; font-weight: 600; }
+.prose-klovo { font-family: var(--sans); color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+.prose-klovo h2 { font-family: var(--display); font-weight: 700; font-size: clamp(22px,2.8vw,30px); color: var(--ink); margin: 48px 0 16px; }
+.prose-klovo h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 36px 0 12px; }
+.prose-klovo p { margin: 0 0 20px; }
+.prose-klovo ul, .prose-klovo ol { padding-left: 24px; margin-bottom: 20px; }
+.prose-klovo li { margin-bottom: 8px; }
+.prose-klovo strong { color: var(--ink); font-weight: 600; }
+.prose-klovo a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
+.prose-klovo a:hover { color: var(--ink); }
+.prose-klovo table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
+.prose-klovo th { background: var(--neutral); font-family: var(--display); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+.prose-klovo td { padding: 12px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.prose-klovo tbody tr:last-child td { border-bottom: none; }
 </style>

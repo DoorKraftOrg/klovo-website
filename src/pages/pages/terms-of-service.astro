@@ -1,43 +1,62 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 
 const title = "Terms of Service";
-const description = "Terms of Service Last updated: April 2026 By accessing or using klovo.com (the &quot;Site&quot;) and purchasing KLOVO products, you agree to be bound by these Terms...";
+const description = "Terms of Service for klovo.com. By accessing or using klovo.com and purchasing Klovo products, you agree to be bound by these Terms.";
 ---
 
-<BaseLayout title={title} description={description}>
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-8">{title}</h1>
-    <div class="prose prose-lg max-w-none shopify-body" set:html={`<h2>Terms of Service</h2>
-<p><em>Last updated: April 2026</em></p>
-<p>By accessing or using klovo.com (the "Site") and purchasing KLOVO products, you agree to be bound by these Terms of Service. Please read them carefully.</p>
-<h3>Products and Orders</h3>
-<p>KLOVO reserves the right to refuse or cancel any order at any time. All product descriptions, pricing, and availability are subject to change without notice. KLOVO products are intended for personal, residential use.</p>
-<h3>Shipping</h3>
-<p>KLOVO ships orders within 5–7 business days from our Georgia, USA facility. Shipping timelines are estimates and may vary. Risk of loss and title for items pass to you upon delivery to the carrier.</p>
-<h3>Returns and Warranty</h3>
-<p>Please refer to our <a href="/pages/shipping-and-returns">Shipping & Returns Policy</a> for complete details on returns and our limited warranty terms.</p>
-<h3>Intellectual Property</h3>
-<p>All content on this Site — including the KLOVO name, GlideLock trademark, product designs, and photography — is the property of KLOVO and protected by applicable intellectual property laws.</p>
-<h3>Limitation of Liability</h3>
-<p>KLOVO's liability to you for any claim arising from your use of our products or Site shall not exceed the purchase price of the product giving rise to the claim.</p>
-<h3>Governing Law</h3>
-<p>These Terms are governed by the laws of the State of Georgia, USA, without regard to its conflict of law principles.</p>
-<h3>Contact</h3>
-<p>Questions? Contact us at klovo.com or through the contact form on our site.</p>`} />
-  </article>
-</BaseLayout>
+<PageLayout title={title} description={description}>
+  <section class="page-hero page-hero--neutral">
+    <div class="container" style="max-width:800px;">
+      <span class="eyebrow">Legal</span>
+      <h1 class="page-h1">{title}</h1>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container" style="max-width:800px;">
+      <article class="prose-klovo">
+
+        <p style="font-family:var(--sans); font-size:14px; color:var(--muted);"><em>Last updated: April 2026</em></p>
+
+        <p>By accessing or using klovo.com (the "Site") and purchasing Klovo products, you agree to be bound by these Terms of Service. Please read them carefully.</p>
+
+        <h2>Terms of Service</h2>
+
+        <h3>Products and Orders</h3>
+        <p>Klovo reserves the right to refuse or cancel any order at any time. All product descriptions, pricing, and availability are subject to change without notice. Klovo products are intended for personal, residential use.</p>
+
+        <h3>Shipping</h3>
+        <p>Klovo ships orders within 5–7 business days from our Georgia, USA facility. Shipping timelines are estimates and may vary. Risk of loss and title for items pass to you upon delivery to the carrier.</p>
+
+        <h3>Returns and Warranty</h3>
+        <p>Please refer to our <a href="/pages/shipping-and-returns">Shipping &amp; Returns Policy</a> for complete details on returns and our limited warranty terms.</p>
+
+        <h3>Intellectual Property</h3>
+        <p>All content on this Site — including the Klovo name, GlideLock trademark, product designs, and photography — is the property of Klovo and protected by applicable intellectual property laws.</p>
+
+        <h3>Limitation of Liability</h3>
+        <p>Klovo's liability to you for any claim arising from your use of our products or Site shall not exceed the purchase price of the product giving rise to the claim.</p>
+
+        <h3>Governing Law</h3>
+        <p>These Terms are governed by the laws of the State of Georgia, USA, without regard to its conflict of law principles.</p>
+
+        <h3>Contact</h3>
+        <p>Questions? Contact us at klovo.com or through the contact form on our site.</p>
+
+      </article>
+    </div>
+  </section>
+</PageLayout>
 
 <style is:global>
-  .shopify-body h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-  .shopify-body h3 { font-size: 1.35rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-  .shopify-body p { margin-bottom: 1rem; line-height: 1.75; }
-  .shopify-body ul, .shopify-body ol { margin-left: 1.5rem; margin-bottom: 1rem; }
-  .shopify-body ul { list-style: disc; }
-  .shopify-body ol { list-style: decimal; }
-  .shopify-body li { margin-bottom: 0.35rem; }
-  .shopify-body a { color: #0057ff; text-decoration: underline; }
-  .shopify-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-  .shopify-body th, .shopify-body td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; }
-  .shopify-body th { background: #f9fafb; font-weight: 600; }
+.prose-klovo { font-family: var(--sans); color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+.prose-klovo h2 { font-family: var(--display); font-weight: 700; font-size: clamp(22px,2.8vw,30px); color: var(--ink); margin: 48px 0 16px; }
+.prose-klovo h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 36px 0 12px; }
+.prose-klovo p { margin: 0 0 20px; }
+.prose-klovo ul, .prose-klovo ol { padding-left: 24px; margin-bottom: 20px; }
+.prose-klovo li { margin-bottom: 8px; }
+.prose-klovo strong { color: var(--ink); font-weight: 600; }
+.prose-klovo a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
+.prose-klovo a:hover { color: var(--ink); }
 </style>

@@ -1,41 +1,35 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 ---
 
-<BaseLayout
+<PageLayout
   title="Where to Buy Klovo Garage Cabinets"
   description="Find Klovo modular garage cabinets at a growing list of retail partners. Looking to carry Klovo in your store? Get in touch about wholesale partnerships."
   keywords="where to buy garage cabinets, Klovo retailers, garage cabinet store, modular garage cabinet retailer"
 >
 
   <!-- Hero -->
-  <section class="py-16 lg:py-24 bg-warm-white">
-    <div class="section-container text-center">
-      <div class="max-w-2xl mx-auto reveal">
-        <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-          Shop Klovo
-        </p>
-        <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4 leading-tight">
-          Available at select retailers.
-        </h1>
-        <p class="text-lg text-klovo-grey leading-relaxed">
-          Find Klovo at a growing list of retail partners. Looking to carry Klovo in your store? Get in touch.
-        </p>
-      </div>
+  <section class="page-hero" style="text-align:center;">
+    <div class="container">
+      <span class="eyebrow">Shop Klovo</span>
+      <h1 class="page-h1" style="margin:12px auto 0; max-width:560px;">Available at <em>select retailers.</em></h1>
+      <p style="font-family:var(--sans); color:var(--muted); font-size:17px; line-height:1.65; margin:16px auto 0; max-width:480px;">
+        Find Klovo at a growing list of retail partners. Looking to carry Klovo in your store? Get in touch.
+      </p>
     </div>
   </section>
 
   <!-- Retailers -->
-  <section class="py-16 lg:py-24 bg-warm-neutral">
-    <div class="section-container">
-      <div class="text-center mb-12 reveal">
-        <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-2">Retailers</h2>
-        <p class="text-klovo-grey">Our growing list of retail partners.</p>
+  <section class="section section--neutral">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:48px;">
+        <h2 class="h-section">Retailers</h2>
+        <p style="font-family:var(--sans); color:var(--muted); margin:8px 0 0;">Our growing list of retail partners.</p>
       </div>
 
-      <div class="max-w-3xl mx-auto reveal">
-        <div class="bg-pure-white rounded-xl p-8 md:p-12 text-center">
-          <p class="text-lg text-klovo-grey italic">
+      <div style="max-width:720px; margin:0 auto;">
+        <div style="background:var(--paper); border-radius:12px; padding:48px 40px; text-align:center; border:1px solid var(--line);">
+          <p style="font-family:var(--sans); color:var(--muted); font-size:17px; font-style:italic; margin:0;">
             Retailer list coming soon. Reach out if you'd like to be the first to carry Klovo in your area.
           </p>
         </div>
@@ -43,19 +37,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- For Retailers CTA -->
-  <section class="py-16 lg:py-24 bg-warm-white">
-    <div class="section-container">
-      <div class="max-w-3xl mx-auto text-center reveal">
-        <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-4">Are you a retailer?</h2>
-        <p class="text-lg text-klovo-grey leading-relaxed mb-8">
-          Klovo is actively partnering with new retailers. Strong margins, in-store demo moments, and a fast-growing garage category.
-        </p>
-        <a href="/for-retailers/" class="btn-primary">
-          Become a Partner <span aria-hidden="true">&rarr;</span>
-        </a>
+  <!-- CTA band -->
+  <section class="section section--final">
+    <div class="final-inner container" style="text-align:center;">
+      <h2 style="font-family:var(--display); font-size:clamp(26px,4vw,36px); font-weight:700; color:var(--cream); margin:0 0 16px;">Are you a retailer?</h2>
+      <p style="font-family:var(--sans); color:var(--cream); opacity:0.8; font-size:17px; line-height:1.65; margin:0 auto 32px; max-width:520px;">
+        Klovo is actively partnering with new retailers. Strong margins, in-store demo moments, and a fast-growing garage category.
+      </p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="/for-retailers/" class="btn btn--primary">Become a Partner &rarr;</a>
+        <a href="/contact/" class="btn btn--ghost--dark" style="border-color:var(--cream); color:var(--cream);">Get in Touch</a>
       </div>
     </div>
   </section>
 
-</BaseLayout>
+</PageLayout>

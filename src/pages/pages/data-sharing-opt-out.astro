@@ -1,29 +1,41 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 
 const title = "Your Privacy Choices";
-const description = "As described in our Privacy Policy, we collect personal information from your interactions with us and our website, including through cookies and similar...";
+const description = "Exercise your right to opt out of the sale or sharing of your personal information for targeted advertising under applicable U.S. state privacy laws.";
 ---
 
-<BaseLayout title={title} description={description}>
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-8">{title}</h1>
-    <div class="prose prose-lg max-w-none shopify-body" set:html={`<p>As described in our Privacy Policy, we collect personal information from your interactions with us and our website, including through cookies and similar technologies. We may also share this personal information with third parties, including advertising partners. We do this in order to show you ads on other websites that are more relevant to your interests and for other reasons outlined in our privacy policy.</p>
-<p>Sharing of personal information for targeted advertising based on your interaction on different websites may be considered "sales", "sharing", or "targeted advertising" under certain U.S. state privacy laws. Depending on where you live, you may have the right to opt out of these activities. If you would like to exercise this opt-out right, please follow the instructions below.</p>
-<p>If you visit our website with the Global Privacy Control opt-out preference signal enabled, depending on where you are, we will treat this as a request to opt-out of activity that may be considered a “sale” or “sharing” of personal information or other uses that may be considered targeted advertising for the device and browser you used to visit our website.</p>`} />
-  </article>
-</BaseLayout>
+<PageLayout title={title} description={description}>
+  <section class="page-hero page-hero--neutral">
+    <div class="container" style="max-width:800px;">
+      <span class="eyebrow">Privacy</span>
+      <h1 class="page-h1">{title}</h1>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container" style="max-width:800px;">
+      <article class="prose-klovo">
+
+        <p>As described in our Privacy Policy, we collect personal information from your interactions with us and our website, including through cookies and similar technologies. We may also share this personal information with third parties, including advertising partners. We do this in order to show you ads on other websites that are more relevant to your interests and for other reasons outlined in our privacy policy.</p>
+
+        <p>Sharing of personal information for targeted advertising based on your interaction on different websites may be considered "sales", "sharing", or "targeted advertising" under certain U.S. state privacy laws. Depending on where you live, you may have the right to opt out of these activities. If you would like to exercise this opt-out right, please follow the instructions below.</p>
+
+        <p>If you visit our website with the Global Privacy Control opt-out preference signal enabled, depending on where you are, we will treat this as a request to opt-out of activity that may be considered a "sale" or "sharing" of personal information or other uses that may be considered targeted advertising for the device and browser you used to visit our website.</p>
+
+      </article>
+    </div>
+  </section>
+</PageLayout>
 
 <style is:global>
-  .shopify-body h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-  .shopify-body h3 { font-size: 1.35rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-  .shopify-body p { margin-bottom: 1rem; line-height: 1.75; }
-  .shopify-body ul, .shopify-body ol { margin-left: 1.5rem; margin-bottom: 1rem; }
-  .shopify-body ul { list-style: disc; }
-  .shopify-body ol { list-style: decimal; }
-  .shopify-body li { margin-bottom: 0.35rem; }
-  .shopify-body a { color: #0057ff; text-decoration: underline; }
-  .shopify-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-  .shopify-body th, .shopify-body td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; }
-  .shopify-body th { background: #f9fafb; font-weight: 600; }
+.prose-klovo { font-family: var(--sans); color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+.prose-klovo h2 { font-family: var(--display); font-weight: 700; font-size: clamp(22px,2.8vw,30px); color: var(--ink); margin: 48px 0 16px; }
+.prose-klovo h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 36px 0 12px; }
+.prose-klovo p { margin: 0 0 20px; }
+.prose-klovo ul, .prose-klovo ol { padding-left: 24px; margin-bottom: 20px; }
+.prose-klovo li { margin-bottom: 8px; }
+.prose-klovo strong { color: var(--ink); font-weight: 600; }
+.prose-klovo a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
+.prose-klovo a:hover { color: var(--ink); }
 </style>

@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 
 const faqs = [
   {
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: 'What marketing support does Klovo provide to retail partners?',
-    a: 'Co-op marketing is available. Klovo is active across social media and will provide retail partners with ready-to-use content, lifestyle imagery, and product photos as needed — so your team isn\'t starting from scratch.',
+    a: "Co-op marketing is available. Klovo is active across social media and will provide retail partners with ready-to-use content, lifestyle imagery, and product photos as needed — so your team isn't starting from scratch.",
   },
   {
     q: 'Who is the Klovo customer?',
@@ -52,7 +52,7 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout
+<PageLayout
   title="Retail Partner FAQ — Carry Klovo"
   description="FAQ for retailers evaluating Klovo — display support, EDI ordering, sales training, co-op marketing, and what makes Klovo the right premium garage cabinet line for your floor."
 >
@@ -60,58 +60,75 @@ const faqSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-  <section class="py-16 lg:py-24 bg-warm-white">
-    <div class="section-container">
-      <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-16 reveal">
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">For Retailers</p>
-          <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-4">Questions before you commit?</h1>
-          <p class="text-lg text-klovo-grey">Everything a buyer needs to know about carrying Klovo. If yours isn't here, <a href="/contact/" class="text-klovo-blue hover:text-klovo-blue-dark underline">reach out</a>.</p>
-        </div>
+  <!-- Hero -->
+  <section class="page-hero" style="text-align:center;">
+    <div class="container">
+      <span class="eyebrow">FAQ</span>
+      <h1 class="page-h1" style="margin:12px auto 0; max-width:560px;">Questions, <em>answered.</em></h1>
+      <p style="font-family:var(--sans); color:var(--muted); font-size:17px; line-height:1.65; margin:16px auto 0; max-width:500px;">
+        Everything a buyer needs to know about carrying Klovo. If yours isn't here, <a href="/contact/" style="color:var(--klovo-blue);">reach out</a>.
+      </p>
+    </div>
+  </section>
 
-        <!-- Brand statement -->
-        <div class="mb-16 reveal">
-          <div class="border-l-4 border-klovo-amber pl-6 space-y-4">
-            <p class="text-lg text-charcoal leading-relaxed">
-              Most people don't think about storage until their home stops working for them.
-            </p>
-            <p class="text-charcoal/70 leading-relaxed">
-              Once they find the right system — the difference is immediate. They move through their space faster. They can find things. The mental load drops. A home that actually works for you changes how you start your day.
-            </p>
-            <p class="text-charcoal/70 leading-relaxed">
-              That's what we're building at Klovo. Whole-home storage that reaches people when they're ready — moving in, remodeling, or finally making the call. And doing it is a breeze. From box to done, fast. No friction, no waiting on a contractor.
-            </p>
-          </div>
-        </div>
+  <!-- Brand statement + FAQs -->
+  <section class="section section--cream">
+    <div class="container" style="max-width:800px; margin:0 auto;">
 
-        <div class="space-y-4">
-          {faqs.map((faq, i) => (
-            <details class="group bg-warm-neutral rounded-lg reveal" style={`transition-delay: ${i * 50}ms`}>
-              <summary class="flex items-center justify-between cursor-pointer p-6 text-lg font-semibold text-charcoal hover:text-klovo-blue transition-colors list-none">
-                <span>{faq.q}</span>
-                <svg class="w-5 h-5 text-klovo-grey flex-shrink-0 ml-4 group-open:rotate-180 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </summary>
-              <div class="px-6 pb-6 text-charcoal/70 leading-relaxed">
-                {faq.a}
-              </div>
-            </details>
-          ))}
-        </div>
+      <!-- Brand statement -->
+      <div style="border-left:3px solid var(--amber); padding-left:24px; margin-bottom:56px;">
+        <p style="font-family:var(--display); font-size:18px; font-weight:500; color:var(--ink); line-height:1.6; margin:0 0 16px;">
+          Most people don't think about storage until their home stops working for them.
+        </p>
+        <p style="font-family:var(--sans); color:var(--muted); font-size:16px; line-height:1.65; margin:0 0 12px;">
+          Once they find the right system — the difference is immediate. They move through their space faster. They can find things. The mental load drops. A home that actually works for you changes how you start your day.
+        </p>
+        <p style="font-family:var(--sans); color:var(--muted); font-size:16px; line-height:1.65; margin:0;">
+          That's what we're building at Klovo. Whole-home storage that reaches people when they're ready — moving in, remodeling, or finally making the call. And doing it is a breeze. From box to done, fast. No friction, no waiting on a contractor.
+        </p>
+      </div>
+
+      <!-- Accordion -->
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        {faqs.map((faq) => (
+          <details style="background:var(--paper); border:1px solid var(--line); border-radius:10px; overflow:hidden;">
+            <summary style="display:flex; align-items:center; justify-content:space-between; cursor:pointer; padding:20px 24px; list-style:none; gap:16px;">
+              <span style="font-family:var(--display); font-weight:600; font-size:17px; color:var(--ink); line-height:1.4;">{faq.q}</span>
+              <svg style="flex-shrink:0; color:var(--muted);" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div style="padding:0 24px 20px; font-family:var(--sans); color:var(--muted); font-size:16px; line-height:1.65; border-top:1px solid var(--line);">
+              <div style="padding-top:16px;">{faq.a}</div>
+            </div>
+          </details>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="section section--final">
+    <div class="final-inner container" style="text-align:center;">
+      <h2 style="font-family:var(--display); font-size:clamp(24px,4vw,34px); font-weight:700; color:var(--cream); margin:0 0 32px;">Ready to explore a partnership?</h2>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="/for-retailers/" class="btn btn--primary">Become a Partner &rarr;</a>
+        <a href="/contact/" class="btn btn--ghost--dark" style="border-color:var(--cream); color:var(--cream);">Get in Touch</a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-12 lg:py-16 bg-warm-neutral">
-    <div class="section-container text-center reveal">
-      <h2 class="text-2xl font-bold text-charcoal mb-4">Ready to explore a partnership?</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="/for-retailers/" class="btn-primary">Become a Partner <span aria-hidden="true">&rarr;</span></a>
-        <a href="/contact/" class="btn-secondary">Get in Touch</a>
-      </div>
-    </div>
-  </section>
+</PageLayout>
 
-</BaseLayout>
+<style>
+  details[open] summary svg {
+    transform: rotate(180deg);
+  }
+  details summary svg {
+    transition: transform 0.25s ease;
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

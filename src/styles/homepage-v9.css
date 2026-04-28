@@ -35,9 +35,9 @@
   --max: 1280px;
   --pad: 96px;
 
-  --display: 'Oswald', 'Archivo Narrow', Impact, 'Helvetica Neue', sans-serif;
-  --sans:  'Archivo', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --serif: 'Oswald', Impact, sans-serif; /* legacy alias */
+  --display: 'Inter Tight', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --sans:  'Space Grotesk', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --serif: 'Inter Tight', sans-serif; /* legacy alias */
 
   /* Soft outline replaces harsh black borders */
   --outline:      #C7C2B8;

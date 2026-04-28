@@ -1,115 +1,131 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 
 const title = "Custom Garage Cabinets";
-const description = "Custom garage cabinets vs. modular systems: cost, materials, timeline, and when each makes sense. An honest comparison from KLOVO.";
+const description = "Custom garage cabinets vs. modular systems: cost, materials, timeline, and when each makes sense. An honest comparison from Klovo.";
 ---
 
-<BaseLayout title={title} description={description}>
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12 shopify-body">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-6">{title}</h1>
+<PageLayout title={title} description={description}>
+  <section class="page-hero page-hero--neutral">
+    <div class="container" style="max-width:800px;">
+      <span class="eyebrow">Garage Cabinets</span>
+      <h1 class="page-h1">{title}</h1>
+    </div>
+  </section>
 
-    <p class="lead">Custom garage cabinets are the gold standard for homeowners and commercial users who want to fully optimize their space. Whether you're designing a dedicated tool library for a workshop, creating temperature-controlled storage for collectibles, or building a multi-zone garage system that works for a household with different needs, custom cabinets let you specify dimensions, materials, finishes, and configurations that match your exact requirements.</p>
+  <section class="section section--cream">
+    <div class="container" style="max-width:800px;">
+      <article class="prose-klovo">
 
-    <h2>Why Choose Custom Garage Cabinets?</h2>
-    <p>Custom garage cabinets offer several distinct advantages over modular, RTA, or ready-made options:</p>
+        <p style="font-size:19px; line-height:1.6; color:var(--ink);">Custom garage cabinets are the gold standard for homeowners and commercial users who want to fully optimize their space. Whether you're designing a dedicated tool library for a workshop, creating temperature-controlled storage for collectibles, or building a multi-zone garage system that works for a household with different needs, custom cabinets let you specify dimensions, materials, finishes, and configurations that match your exact requirements.</p>
 
-    <h3>Maximum Space Optimization</h3>
-    <p>Custom cabinets are built to fit your specific walls, ceilings, and floor plans. Sloped ceilings, angled walls, electrical outlets, or garage doors no longer create dead space. Every square inch works for you.</p>
+        <h2>Why Choose Custom Garage Cabinets?</h2>
+        <p>Custom garage cabinets offer several distinct advantages over modular, RTA, or ready-made options:</p>
 
-    <h3>Unlimited Configuration</h3>
-    <p>Modular systems offer standard sizes and configurations. Custom cabinets can incorporate:</p>
-    <ul>
-      <li>Drawers of any depth, width, or height</li>
-      <li>Open shelving, enclosed cabinets, or hybrid layouts</li>
-      <li>Specialized storage (pull-out spice racks for garage inventory, hidden safes, climate-controlled zones)</li>
-      <li>Built-in workbenches, pegboards, or charging stations</li>
-      <li>Any finish, color, or hardware you specify</li>
-    </ul>
+        <h3>Maximum Space Optimization</h3>
+        <p>Custom cabinets are built to fit your specific walls, ceilings, and floor plans. Sloped ceilings, angled walls, electrical outlets, or garage doors no longer create dead space. Every square inch works for you.</p>
 
-    <h3>Superior Materials &amp; Durability</h3>
-    <p>Custom builders typically use premium plywood, solid wood, and commercial-grade hardware. The result is furniture-grade construction rated for 500&nbsp;lbs per cabinet, with longevity measured in decades rather than years. Because you're not paying for mass-production overhead, premium materials often cost less than mid-grade modular systems.</p>
+        <h3>Unlimited Configuration</h3>
+        <p>Modular systems offer standard sizes and configurations. Custom cabinets can incorporate:</p>
+        <ul>
+          <li>Drawers of any depth, width, or height</li>
+          <li>Open shelving, enclosed cabinets, or hybrid layouts</li>
+          <li>Specialized storage (pull-out spice racks for garage inventory, hidden safes, climate-controlled zones)</li>
+          <li>Built-in workbenches, pegboards, or charging stations</li>
+          <li>Any finish, color, or hardware you specify</li>
+        </ul>
 
-    <h3>Resale Value</h3>
-    <p>Custom garage cabinets are built-in improvements that increase home value and buyer appeal. Unlike modular systems that can be moved or replaced, custom cabinetry becomes part of the home's permanent structure.</p>
+        <h3>Superior Materials &amp; Durability</h3>
+        <p>Custom builders typically use premium plywood, solid wood, and commercial-grade hardware. The result is furniture-grade construction rated for 500&nbsp;lbs per cabinet, with longevity measured in decades rather than years. Because you're not paying for mass-production overhead, premium materials often cost less than mid-grade modular systems.</p>
 
-    <h2>The Trade-Offs</h2>
-    <p>Custom garage cabinets are not the right choice for every homeowner. Consider the drawbacks:</p>
+        <h3>Resale Value</h3>
+        <p>Custom garage cabinets are built-in improvements that increase home value and buyer appeal. Unlike modular systems that can be moved or replaced, custom cabinetry becomes part of the home's permanent structure.</p>
 
-    <h3>Higher Cost</h3>
-    <p>Professional custom cabinet installation typically costs $5,000–$15,000+ depending on scope, materials, and labor rates in your area. This includes design consultation, materials, fabrication, and on-site installation. For comparison:</p>
-    <ul>
-      <li>Ready-to-assemble modular systems like KLOVO cost $1,050–$7,200 for similar square footage</li>
-      <li>Pre-assembled cabinet systems cost $2,000–$5,000</li>
-      <li>Basic wire shelving or pegboard costs $200–$800</li>
-    </ul>
-    <p>Custom cabinets are the premium option, and you're paying for that premium.</p>
+        <h2>The Trade-Offs</h2>
+        <p>Custom garage cabinets are not the right choice for every homeowner. Consider the drawbacks:</p>
 
-    <h3>Longer Timeline</h3>
-    <p>Custom cabinet projects typically take 4–8 weeks from initial consultation to final installation. You're not organizing your garage next weekend. Modular systems take 2–3 minutes to assemble; custom cabinets require design, fabrication, and scheduling.</p>
+        <h3>Higher Cost</h3>
+        <p>Professional custom cabinet installation typically costs $5,000–$15,000+ depending on scope, materials, and labor rates in your area. This includes design consultation, materials, fabrication, and on-site installation. For comparison:</p>
+        <ul>
+          <li>Ready-to-assemble modular systems like Klovo cost $1,050–$7,200 for similar square footage</li>
+          <li>Pre-assembled cabinet systems cost $2,000–$5,000</li>
+          <li>Basic wire shelving or pegboard costs $200–$800</li>
+        </ul>
+        <p>Custom cabinets are the premium option, and you're paying for that premium.</p>
 
-    <h3>Less Flexibility for Changes</h3>
-    <p>Once custom cabinets are built and installed, modifying them is expensive or impossible. If your needs change, you're committed to the existing layout. Modular systems can be reconfigured, relocated, or expanded with new modules.</p>
+        <h3>Longer Timeline</h3>
+        <p>Custom cabinet projects typically take 4–8 weeks from initial consultation to final installation. You're not organizing your garage next weekend. Modular systems take 2–3 minutes to assemble; custom cabinets require design, fabrication, and scheduling.</p>
 
-    <h3>No Warranty Against Installation Issues</h3>
-    <p>If your contractor makes a mistake during installation, fixing it can be costly. You're also dependent on your contractor's quality, timeline, and responsiveness to issues.</p>
+        <h3>Less Flexibility for Changes</h3>
+        <p>Once custom cabinets are built and installed, modifying them is expensive or impossible. If your needs change, you're committed to the existing layout. Modular systems can be reconfigured, relocated, or expanded with new modules.</p>
 
-    <h2>How to Choose: Custom vs. Modular Cabinets</h2>
+        <h3>No Warranty Against Installation Issues</h3>
+        <p>If your contractor makes a mistake during installation, fixing it can be costly. You're also dependent on your contractor's quality, timeline, and responsiveness to issues.</p>
 
-    <h3>Choose Custom Cabinets If:</h3>
-    <ul>
-      <li>You have an unusual garage layout (sloped ceilings, angled walls, odd dimensions)</li>
-      <li>You need specialized storage that standard modular systems don't offer</li>
-      <li>You want the absolute best materials and longevity</li>
-      <li>You're planning to stay in your home long-term and want a premium, built-in appearance</li>
-      <li>Cost is less important than perfect fit and functionality</li>
-      <li>You have the time to work with a designer and contractor</li>
-    </ul>
+        <h2>How to Choose: Custom vs. Modular Cabinets</h2>
 
-    <h3>Choose Modular Cabinets (like KLOVO) If:</h3>
-    <ul>
-      <li>You want a premium result at a fraction of the cost</li>
-      <li>You prefer to install the system yourself in a weekend</li>
-      <li>Your garage has standard dimensions and layouts</li>
-      <li>You want flexibility to reconfigure, relocate, or expand your storage</li>
-      <li>You want something you can set up immediately, not weeks from now</li>
-      <li>You prefer the simplicity of assembly over the complexity of custom design</li>
-    </ul>
+        <h3>Choose Custom Cabinets If:</h3>
+        <ul>
+          <li>You have an unusual garage layout (sloped ceilings, angled walls, odd dimensions)</li>
+          <li>You need specialized storage that standard modular systems don't offer</li>
+          <li>You want the absolute best materials and longevity</li>
+          <li>You're planning to stay in your home long-term and want a premium, built-in appearance</li>
+          <li>Cost is less important than perfect fit and functionality</li>
+          <li>You have the time to work with a designer and contractor</li>
+        </ul>
 
-    <h2>DIY Custom Cabinet Building</h2>
-    <p>If you're handy and want a custom result without contractor costs, building your own cabinets is possible. Many garage enthusiasts use this approach:</p>
-    <ol>
-      <li><strong>Design your layout</strong> using garage design software, graph paper, or a simple sketch</li>
-      <li><strong>Source materials</strong> from home improvement stores (plywood, lumber, hardware, finishing supplies)</li>
-      <li><strong>Cut and assemble</strong> using basic power tools (circular saw, drill, miter saw)</li>
-      <li><strong>Finish</strong> with paint, stain, or laminate to match your aesthetic</li>
-      <li><strong>Mount</strong> securely to wall studs</li>
-    </ol>
-    <p>DIY custom cabinets require woodworking skills, shop time, and access to tools. The result can match or exceed contractor-built cabinets if you have the expertise. Most homeowners find the time investment prohibitive and opt for modular systems like KLOVO instead.</p>
+        <h3>Choose Modular Cabinets (like Klovo) If:</h3>
+        <ul>
+          <li>You want a premium result at a fraction of the cost</li>
+          <li>You prefer to install the system yourself in a weekend</li>
+          <li>Your garage has standard dimensions and layouts</li>
+          <li>You want flexibility to reconfigure, relocate, or expand your storage</li>
+          <li>You want something you can set up immediately, not weeks from now</li>
+          <li>You prefer the simplicity of assembly over the complexity of custom design</li>
+        </ul>
 
-    <h2>The KLOVO Alternative</h2>
-    <p>KLOVO's GlideLock system was designed specifically to bridge the gap between custom and modular cabinets:</p>
-    <ul>
-      <li><strong>Premium Materials</strong> — TFL-finished engineered wood with commercial hardware, rated for 500&nbsp;lbs per cabinet</li>
-      <li><strong>Modular Customization</strong> — 5 width options, 2 height options, and unlimited configurations</li>
-      <li><strong>Fast Assembly</strong> — 2–3 minutes per cabinet instead of weeks of design and installation</li>
-      <li><strong>Flexible Expansion</strong> — add more cabinets anytime without committing to a complete system</li>
-      <li><strong>Affordable</strong> — $1,052–$7,216 for a complete system vs. $5,000–$15,000+ for custom</li>
-      <li><strong>Simple Installation</strong> — mount yourself with basic tools instead of hiring a contractor</li>
-    </ul>
-    <p>For most homeowners, KLOVO offers the best balance of quality, cost, and simplicity.</p>
-    <p><a href="/sets/">View KLOVO Cabinet Sets →</a></p>
-  </article>
-</BaseLayout>
+        <h2>DIY Custom Cabinet Building</h2>
+        <p>If you're handy and want a custom result without contractor costs, building your own cabinets is possible. Many garage enthusiasts use this approach:</p>
+        <ol>
+          <li><strong>Design your layout</strong> using garage design software, graph paper, or a simple sketch</li>
+          <li><strong>Source materials</strong> from home improvement stores (plywood, lumber, hardware, finishing supplies)</li>
+          <li><strong>Cut and assemble</strong> using basic power tools (circular saw, drill, miter saw)</li>
+          <li><strong>Finish</strong> with paint, stain, or laminate to match your aesthetic</li>
+          <li><strong>Mount</strong> securely to wall studs</li>
+        </ol>
+        <p>DIY custom cabinets require woodworking skills, shop time, and access to tools. The result can match or exceed contractor-built cabinets if you have the expertise. Most homeowners find the time investment prohibitive and opt for modular systems like Klovo instead.</p>
+
+        <h2>The Klovo Alternative</h2>
+        <p>Klovo's GlideLock system was designed specifically to bridge the gap between custom and modular cabinets:</p>
+        <ul>
+          <li><strong>Premium Materials</strong> — TFL-finished engineered wood with commercial hardware, rated for 500&nbsp;lbs per cabinet</li>
+          <li><strong>Modular Customization</strong> — 5 width options, 2 height options, and unlimited configurations</li>
+          <li><strong>Fast Assembly</strong> — 2–3 minutes per cabinet instead of weeks of design and installation</li>
+          <li><strong>Flexible Expansion</strong> — add more cabinets anytime without committing to a complete system</li>
+          <li><strong>Affordable</strong> — $1,052–$7,216 for a complete system vs. $5,000–$15,000+ for custom</li>
+          <li><strong>Simple Installation</strong> — mount yourself with basic tools instead of hiring a contractor</li>
+        </ul>
+        <p>For most homeowners, Klovo offers the best balance of quality, cost, and simplicity.</p>
+        <p><a href="/sets/">View Klovo Cabinet Sets &rarr;</a></p>
+
+      </article>
+    </div>
+  </section>
+</PageLayout>
 
 <style is:global>
-  .shopify-body h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 1rem; }
-  .shopify-body h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-  .shopify-body p { margin-bottom: 1rem; line-height: 1.75; }
-  .shopify-body p.lead { font-size: 1.15rem; color: #374151; }
-  .shopify-body ul, .shopify-body ol { margin-left: 1.5rem; margin-bottom: 1rem; }
-  .shopify-body ul { list-style: disc; }
-  .shopify-body ol { list-style: decimal; }
-  .shopify-body li { margin-bottom: 0.35rem; }
-  .shopify-body a { color: #0057ff; text-decoration: underline; }
+.prose-klovo { font-family: var(--sans); color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+.prose-klovo h2 { font-family: var(--display); font-weight: 700; font-size: clamp(22px,2.8vw,30px); color: var(--ink); margin: 48px 0 16px; }
+.prose-klovo h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 36px 0 12px; }
+.prose-klovo p { margin: 0 0 20px; }
+.prose-klovo ul, .prose-klovo ol { padding-left: 24px; margin-bottom: 20px; }
+.prose-klovo li { margin-bottom: 8px; }
+.prose-klovo strong { color: var(--ink); font-weight: 600; }
+.prose-klovo a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
+.prose-klovo a:hover { color: var(--ink); }
+.prose-klovo table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
+.prose-klovo th { background: var(--neutral); font-family: var(--display); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+.prose-klovo td { padding: 12px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.prose-klovo tbody tr:last-child td { border-bottom: none; }
+.prose-klovo blockquote { border-left: 3px solid var(--amber); padding: 4px 0 4px 24px; font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 32px 0; }
 </style>

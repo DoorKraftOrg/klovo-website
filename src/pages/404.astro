@@ -1,21 +1,17 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 ---
 
-<BaseLayout title="Page Not Found" description="The page you're looking for doesn't exist.">
-  <section class="py-24 lg:py-40 bg-warm-white">
-    <div class="section-container text-center">
-      <p class="stat-number text-7xl md:text-8xl mb-6">404</p>
-      <h1 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-        This page is missing.
-      </h1>
-      <p class="text-lg text-klovo-grey mb-10 max-w-md mx-auto">
-        Let's get you back somewhere useful.
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="/" class="btn-primary">Back to Home</a>
-        <a href="/sets/" class="btn-secondary">View Sets</a>
+<PageLayout title="Page Not Found" description="The page you're looking for doesn't exist.">
+  <section class="page-hero" style="text-align:center; min-height:50vh; display:flex; align-items:center;">
+    <div class="container">
+      <span style="font-family:var(--display); font-size:clamp(80px,12vw,160px); font-weight:800; color:var(--amber); line-height:1; display:block;">404</span>
+      <h1 class="page-h1" style="margin:16px auto 0; max-width:480px;">This page is missing.</h1>
+      <p style="font-family:var(--sans); color:var(--muted); font-size:17px; margin:16px auto 32px; max-width:400px;">Let's get you back somewhere useful.</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="/" class="btn btn--primary">Back to Home &rarr;</a>
+        <a href="/sets/" class="btn btn--ghost--dark">View Sets</a>
       </div>
     </div>
   </section>
-</BaseLayout>
+</PageLayout>

@@ -1,113 +1,97 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 ---
 
-<BaseLayout
+<PageLayout
   title="Contact Klovo — Garage Cabinet Questions"
   description="Get in touch with the Klovo team. Questions about modular garage cabinets, retail partnerships, or press inquiries."
 >
 
-  <section class="py-16 lg:py-24 bg-warm-white">
-    <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-        <!-- Info -->
-        <div class="reveal">
-          <p class="text-klovo-amber font-semibold text-sm uppercase tracking-widest mb-4">
-            Get in Touch
-          </p>
-          <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-6 leading-tight">
-            We'd love to hear from you.
-          </h1>
-          <p class="text-lg text-charcoal/70 leading-relaxed mb-10">
-            Whether you're a homeowner with questions, a retailer interested in partnerships, or press looking for a story — we're here.
-          </p>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Get in Touch</span>
+      <h1 class="page-h1" style="margin:12px 0 0; max-width:520px;">We'd love to hear <em>from you.</em></h1>
+      <p style="font-family:var(--sans); color:var(--muted); font-size:17px; line-height:1.65; margin:16px 0 0; max-width:520px;">
+        Whether you're a homeowner with questions, a retailer interested in partnerships, or press looking for a story — we're here.
+      </p>
+    </div>
+  </section>
 
-          <div class="space-y-6">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-klovo-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-klovo-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <p class="font-semibold text-charcoal">Email</p>
-                <a href="mailto:hello@klovo.com" class="text-klovo-blue hover:text-klovo-blue-dark">hello@klovo.com</a>
-              </div>
-            </div>
+  <!-- Contact content -->
+  <section class="section section--cream">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
 
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-klovo-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-klovo-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <p class="font-semibold text-charcoal">Retailer inquiries</p>
-                <a href="mailto:retailers@klovo.com" class="text-klovo-blue hover:text-klovo-blue-dark">retailers@klovo.com</a>
-              </div>
-            </div>
+        <!-- Left: contact list -->
+        <div>
+          <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:24px;">
 
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-klovo-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-klovo-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
+            <li style="display:flex; align-items:baseline; gap:12px;">
+              <span style="width:8px; height:8px; border-radius:50%; background:var(--amber); flex-shrink:0; margin-top:6px;"></span>
               <div>
-                <p class="font-semibold text-charcoal">Location</p>
-                <p class="text-charcoal/70">
+                <p style="font-family:var(--display); font-weight:600; color:var(--ink); font-size:16px; margin:0 0 4px;">Email</p>
+                <a href="mailto:hello@klovo.com" style="font-family:var(--sans); color:var(--klovo-blue); font-size:16px;">hello@klovo.com</a>
+              </div>
+            </li>
+
+            <li style="display:flex; align-items:baseline; gap:12px;">
+              <span style="width:8px; height:8px; border-radius:50%; background:var(--amber); flex-shrink:0; margin-top:6px;"></span>
+              <div>
+                <p style="font-family:var(--display); font-weight:600; color:var(--ink); font-size:16px; margin:0 0 4px;">Retailer inquiries</p>
+                <a href="mailto:retailers@klovo.com" style="font-family:var(--sans); color:var(--klovo-blue); font-size:16px;">retailers@klovo.com</a>
+              </div>
+            </li>
+
+            <li style="display:flex; align-items:baseline; gap:12px;">
+              <span style="width:8px; height:8px; border-radius:50%; background:var(--amber); flex-shrink:0; margin-top:6px;"></span>
+              <div>
+                <p style="font-family:var(--display); font-weight:600; color:var(--ink); font-size:16px; margin:0 0 4px;">Location</p>
+                <p style="font-family:var(--sans); color:var(--muted); font-size:16px; line-height:1.65; margin:0;">
                   2 Ravinia Dr, Suite 1600<br />
                   Atlanta, GA 30346<br />
                   United States
                 </p>
               </div>
-            </div>
+            </li>
 
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-klovo-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-klovo-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/></svg>
-              </div>
+            <li style="display:flex; align-items:baseline; gap:12px;">
+              <span style="width:8px; height:8px; border-radius:50%; background:var(--amber); flex-shrink:0; margin-top:6px;"></span>
               <div>
-                <p class="font-semibold text-charcoal">Social</p>
-                <div class="flex gap-3 text-klovo-blue">
-                  <a href="https://www.instagram.com/klovostorage/" target="_blank" rel="noopener noreferrer" class="hover:text-klovo-blue-dark">Instagram</a>
-                  <span class="text-klovo-grey">&middot;</span>
-                  <a href="https://x.com/KlovoStorage" target="_blank" rel="noopener noreferrer" class="hover:text-klovo-blue-dark">X</a>
-                  <span class="text-klovo-grey">&middot;</span>
-                  <a href="https://www.linkedin.com/company/klovo/" target="_blank" rel="noopener noreferrer" class="hover:text-klovo-blue-dark">LinkedIn</a>
+                <p style="font-family:var(--display); font-weight:600; color:var(--ink); font-size:16px; margin:0 0 4px;">Social</p>
+                <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                  <a href="https://www.instagram.com/klovostorage/" target="_blank" rel="noopener noreferrer" style="font-family:var(--sans); color:var(--klovo-blue); font-size:16px;">Instagram</a>
+                  <span style="color:var(--line);">&middot;</span>
+                  <a href="https://x.com/KlovoStorage" target="_blank" rel="noopener noreferrer" style="font-family:var(--sans); color:var(--klovo-blue); font-size:16px;">X</a>
+                  <span style="color:var(--line);">&middot;</span>
+                  <a href="https://www.linkedin.com/company/klovo/" target="_blank" rel="noopener noreferrer" style="font-family:var(--sans); color:var(--klovo-blue); font-size:16px;">LinkedIn</a>
                 </div>
               </div>
-            </div>
-          </div>
+            </li>
+
+          </ul>
         </div>
 
-        <!-- Form -->
-        <div class="reveal reveal-delay-1">
-          <form class="bg-warm-neutral rounded-xl p-8 lg:p-10" action="#" method="POST">
-            <div class="space-y-5">
-              <div>
-                <label for="name" class="block text-sm font-medium text-charcoal mb-1.5">Name</label>
-                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-pure-white border border-warm-neutral rounded text-charcoal placeholder:text-klovo-grey focus:outline-none focus:border-klovo-blue focus:ring-1 focus:ring-klovo-blue transition-colors" />
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-medium text-charcoal mb-1.5">Email</label>
-                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-pure-white border border-warm-neutral rounded text-charcoal placeholder:text-klovo-grey focus:outline-none focus:border-klovo-blue focus:ring-1 focus:ring-klovo-blue transition-colors" />
-              </div>
-              <div>
-                <label for="type" class="block text-sm font-medium text-charcoal mb-1.5">I'm a...</label>
-                <select id="type" name="type" class="w-full px-4 py-3 bg-pure-white border border-warm-neutral rounded text-charcoal focus:outline-none focus:border-klovo-blue focus:ring-1 focus:ring-klovo-blue transition-colors">
-                  <option value="homeowner">Homeowner / DIYer</option>
-                  <option value="retailer">Retailer</option>
-                  <option value="press">Press / Media</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div>
-                <label for="message" class="block text-sm font-medium text-charcoal mb-1.5">Message</label>
-                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-pure-white border border-warm-neutral rounded text-charcoal placeholder:text-klovo-grey focus:outline-none focus:border-klovo-blue focus:ring-1 focus:ring-klovo-blue transition-colors resize-none"></textarea>
-              </div>
-              <button type="submit" class="btn-primary w-full justify-center">
-                Send Message
-              </button>
-            </div>
-          </form>
+        <!-- Right: B2B card -->
+        <div class="page-card" style="background:var(--neutral); border-radius:12px; padding:36px 32px; border:1px solid var(--line);">
+          <span class="eyebrow" style="display:block; margin-bottom:12px;">For Retailers &amp; B2B</span>
+          <h2 style="font-family:var(--display); font-size:24px; font-weight:700; color:var(--ink); margin:0 0 12px;">Interested in carrying Klovo?</h2>
+          <p style="font-family:var(--sans); color:var(--muted); font-size:16px; line-height:1.65; margin:0 0 24px;">
+            We're actively partnering with retailers who want to own the premium garage category. Strong margins, in-store demos, and a buyer profile that drives high AOV.
+          </p>
+          <a href="/for-retailers/" class="btn btn--primary">Become a Partner &rarr;</a>
         </div>
+
       </div>
     </div>
   </section>
 
-</BaseLayout>
+</PageLayout>
+
+<style>
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

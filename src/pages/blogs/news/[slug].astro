@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageLayout from '../../../layouts/PageLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -38,12 +38,7 @@ const articleLd = {
 };
 ---
 
-<BaseLayout
-  title={post.data.title}
-  description={post.data.description}
-  ogImage={post.data.image}
-  canonical={canonical}
->
+<PageLayout title={post.data.title} description={post.data.description} ogImage={post.data.image} canonical={canonical}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(articleLd)} />
   <meta slot="head" property="article:published_time" content={publishedISO} />
   <meta slot="head" property="article:author" content={post.data.author} />
@@ -51,62 +46,57 @@ const articleLd = {
     <meta slot="head" property="article:tag" content={tag} />
   ))}
 
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-    <nav class="text-sm mb-6" aria-label="Breadcrumb">
-      <a href="/" class="hover:underline">Home</a>
-      <span class="mx-2">/</span>
-      <a href="/blogs/news" class="hover:underline">News</a>
-    </nav>
-
-    <header class="mb-8">
-      <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">{post.data.title}</h1>
-      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600">
-        <time datetime={publishedISO}>
-          {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </time>
-        <span>·</span>
-        <span>{post.data.author}</span>
-      </div>
-      {post.data.tags.length > 0 && (
-        <ul class="flex flex-wrap gap-2 mt-4">
-          {post.data.tags.map((tag: string) => (
-            <li class="text-xs bg-gray-100 rounded-full px-3 py-1">{tag}</li>
-          ))}
-        </ul>
+  <section class="page-hero page-hero--neutral">
+    <div class="container" style="max-width:800px;">
+      <nav style="font-family:var(--sans); font-size:13px; color:var(--muted); margin-bottom:24px;">
+        <a href="/" style="color:var(--muted);">Home</a>
+        <span style="margin:0 8px;">/</span>
+        <a href="/blogs/news/" style="color:var(--muted);">From the Workshop</a>
+      </nav>
+      {post.data.tags && post.data.tags.length > 0 && (
+        <span class="eyebrow">{post.data.tags[0]}</span>
       )}
-    </header>
-
-    {post.data.image && (
-      <img
-        src={post.data.image}
-        alt={post.data.imageAlt || post.data.title}
-        class="w-full rounded-lg mb-8"
-        loading="eager"
-      />
-    )}
-
-    <div class="prose prose-lg max-w-none blog-body">
-      <Content />
+      <h1 class="page-h1">{post.data.title}</h1>
+      <p style="font-family:var(--sans); color:var(--muted); font-size:14px; margin-top:16px;">
+        {post.data.author} · {new Date(post.data.date).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'})}
+      </p>
     </div>
+  </section>
 
-    <footer class="mt-12 pt-8 border-t">
-      <a href="/blogs/news" class="inline-block text-klovo-blue hover:underline">← Back to all posts</a>
-    </footer>
-  </article>
-</BaseLayout>
+  {post.data.image && (
+    <div style="background:var(--neutral); padding:0;">
+      <div class="container" style="max-width:800px; padding-top:0;">
+        <img src={post.data.image} alt={post.data.title} style="width:100%; max-height:480px; object-fit:cover;" />
+      </div>
+    </div>
+  )}
+
+  <section class="section section--cream">
+    <div class="container" style="max-width:800px;">
+      <article class="prose-klovo">
+        <Content />
+      </article>
+      <div style="margin-top:48px; padding-top:32px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <a href="/blogs/news/" style="font-family:var(--sans); font-size:14px; color:var(--muted);">&larr; All articles</a>
+        <a href="/sets/" class="btn btn--primary">View sets &rarr;</a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
 
 <style is:global>
-  .blog-body h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-  .blog-body h3 { font-size: 1.35rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-  .blog-body p { margin-bottom: 1rem; line-height: 1.75; }
-  .blog-body ul, .blog-body ol { margin-left: 1.5rem; margin-bottom: 1rem; }
-  .blog-body ul { list-style: disc; }
-  .blog-body ol { list-style: decimal; }
-  .blog-body li { margin-bottom: 0.35rem; }
-  .blog-body a { color: #0057ff; text-decoration: underline; }
-  .blog-body img { border-radius: 0.5rem; margin: 1.5rem 0; }
-  .blog-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-  .blog-body th, .blog-body td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; }
-  .blog-body th { background: #f9fafb; font-weight: 600; }
-  .blog-body blockquote { border-left: 4px solid #e5e7eb; padding-left: 1rem; font-style: italic; color: #4b5563; margin: 1.5rem 0; }
+.prose-klovo { font-family: var(--sans); color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+.prose-klovo h2 { font-family: var(--display); font-weight: 700; font-size: clamp(22px,2.8vw,30px); color: var(--ink); margin: 48px 0 16px; }
+.prose-klovo h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 36px 0 12px; }
+.prose-klovo p { margin: 0 0 20px; }
+.prose-klovo ul, .prose-klovo ol { padding-left: 24px; margin-bottom: 20px; }
+.prose-klovo li { margin-bottom: 8px; }
+.prose-klovo strong { color: var(--ink); font-weight: 600; }
+.prose-klovo a { color: var(--klovo-blue); text-decoration: underline; text-underline-offset: 2px; }
+.prose-klovo a:hover { color: var(--ink); }
+.prose-klovo table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
+.prose-klovo th { background: var(--neutral); font-family: var(--display); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+.prose-klovo td { padding: 12px 14px; border-bottom: 1px solid var(--line-soft); color: var(--ink-soft); }
+.prose-klovo tbody tr:last-child td { border-bottom: none; }
+.prose-klovo blockquote { border-left: 3px solid var(--amber); padding: 4px 0 4px 24px; font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 32px 0; }
 </style>

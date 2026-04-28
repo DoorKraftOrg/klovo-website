@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -215,96 +215,109 @@ const worktopMm = worktopInches ? Math.round(worktopInches * 25.4) : 0;
 // Approx set weight: very rough — each piece ~80 lb average
 const approxSetWeight = pieces * 80;
 
+// imagesAvailable: true if image exists and doesn't point to placeholder
+const imagesAvailable = !!image && !image.includes('og-default');
+
 // Serialize for client-side SVG rendering
 const clientBom = bomCols;
 const clientRelated = related;
 ---
 
-<BaseLayout title={seoPageTitle} description={metaDesc} ogImage={imageURL} canonical={canonicalURL}>
+<PageLayout title={seoPageTitle + ' | Klovo'} description={metaDesc} ogImage={imageURL} canonical={canonicalURL}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     {keywords && <meta name="keywords" content={keywords} />}
   </Fragment>
 
-  <section class="ksd-breadcrumb-wrap">
-    <div class="section-container">
-      <nav class="ksd-crumb" aria-label="Breadcrumb">
-        <a href="/sets/">Sets</a>
-        <span class="sep">/</span>
-        <span>{primaryTagLabel}</span>
-        <span class="sep">/</span>
-        <span>{title}</span>
-      </nav>
-    </div>
-  </section>
-
-  <!-- HERO -->
-  <section class="ksd-hero" id="overview">
-    <div class="section-container">
-      <div class="ksd-hero-grid">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
         <div>
-          <div class="ksd-tags">
-            {(specialFeatures ?? []).slice(0, 1).map((sf: string) => (
-              <span class="ksd-tag-pill accent"><span class="dot"></span>{sf}</span>
-            ))}
-            <span class="ksd-tag-pill"><span class="dot"></span>{primaryTagLabel}</span>
-          </div>
-          <p class="ksd-kicker">The Collection · {widthFt} ft</p>
-          <h1 class="ksd-h1">{title}</h1>
-
-          <div class="ksd-stat-row">
-            <div class="ksd-stat"><div class="val">{widthFt}<span class="uu">ft</span></div><div class="lbl">Wall Width</div></div>
-            <div class="ksd-stat"><div class="val">{heightIn}<span class="uu">in</span></div><div class="lbl">Height</div></div>
-            <div class="ksd-stat"><div class="val">{depthIn}<span class="uu">in</span></div><div class="lbl">Depth</div></div>
-            <div class="ksd-stat"><div class="val">{pieces}</div><div class="lbl">Pieces</div></div>
-            {drawers > 0 && (
-              <div class="ksd-stat"><div class="val">{drawers}</div><div class="lbl">Drawers</div></div>
-            )}
-            <div class="ksd-stat"><div class="val">500<span class="uu">lb</span></div><div class="lbl">Per Cabinet</div></div>
-          </div>
-
-          <div class="ksd-elev-card">
-            <div class="ksd-elev-svg-wrap" id="ksd-elev-main"></div>
-            <div class="ksd-ruler-wrap">
-              <div class="ksd-ruler" id="ksd-ruler-main"></div>
-            </div>
-          </div>
+          <span class="eyebrow">{widthFt} ft set</span>
+          <h1 class="page-h1" style="margin:12px 0 20px;">{title}</h1>
+          <p style="font-family:var(--sans); color:var(--ink-soft); font-size:17px; line-height:1.6; margin-bottom:24px;">{shortDescription}</p>
+          {msrp && <p style="font-family:var(--display); font-size:32px; font-weight:700; color:var(--ink); margin-bottom:24px;">${msrp.toLocaleString()}</p>}
+          <a href="/where-to-buy/" class="btn btn--primary">Where to Buy &rarr;</a>
         </div>
-
-        <aside>
-          <div class="ksd-buy-rail">
-            <div class="ksd-mono-label">MSRP</div>
-            <div class="ksd-msrp">{fmtPrice(msrp)}<span class="ex">set of {pieces}</span></div>
-
-            <div class="ksd-rail-divider"></div>
-
-            <div class="ksd-rail-row"><span class="k">Install time</span><span class="v">~ {Math.max(1, Math.ceil(pieces / 5))} hr</span></div>
-            <div class="ksd-rail-row"><span class="k">Total weight</span><span class="v">{approxSetWeight} lb</span></div>
-            <div class="ksd-rail-row"><span class="k">Warranty</span><span class="v">10 yr limited</span></div>
-            <div class="ksd-rail-row"><span class="k">Finish</span><span class="v">White</span></div>
-
-            <div class="ksd-rail-divider"></div>
-
-            <div class="ksd-actions">
-              <a class="ksd-btn-primary" href="/where-to-buy/">Find a Retailer →</a>
+        <div>
+          {imagesAvailable ? (
+            <img src={image} alt={title} style="width:100%; border-radius:4px;" />
+          ) : (
+            <div style="aspect-ratio:4/3; background:var(--neutral); display:flex; align-items:center; justify-content:center; border-radius:4px;">
+              <span style="font-family:var(--sans); color:var(--muted); font-size:14px;">Photos coming soon</span>
             </div>
-
-            <div class="ksd-rail-meta">
-              <span>Made in USA</span>
-            </div>
-          </div>
-        </aside>
+          )}
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PIECES -->
-  <section class="ksd-block alt" id="pieces">
-    <div class="section-container">
-      <p class="ksd-kicker">What's in the box</p>
-      <h2 class="ksd-h2">{pieces} pieces, one wall.</h2>
-      <p class="ksd-sub">Every piece ships flat and snaps together with Klovo's GlideLock system. Four screws per cabinet to finish.</p>
+  <!-- Specs strip -->
+  <section class="section section--neutral">
+    <div class="container">
+      <div class="page-stat-row">
+        <div class="page-stat"><div class="page-stat-val">{widthFt} ft</div><div class="page-stat-label">Width</div></div>
+        <div class="page-stat"><div class="page-stat-val">{heightIn}"</div><div class="page-stat-label">Height</div></div>
+        <div class="page-stat"><div class="page-stat-val">{depthIn}"</div><div class="page-stat-label">Depth</div></div>
+        <div class="page-stat"><div class="page-stat-val">500 lb</div><div class="page-stat-label">Per cabinet</div></div>
+        <div class="page-stat"><div class="page-stat-val">{pieces}</div><div class="page-stat-label">Pieces</div></div>
+        {drawers > 0 && (
+          <div class="page-stat"><div class="page-stat-val">{drawers}</div><div class="page-stat-label">Drawers</div></div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features + what's included -->
+  <section class="section section--cream">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px;">
+        <div>
+          <span class="eyebrow">What's Included</span>
+          <h2 class="h-section" style="margin:12px 0 24px;">Everything in <em>the box.</em></h2>
+          <p style="font-family:var(--sans); color:var(--ink-soft); font-size:16px; line-height:1.65;">{includedComponents}</p>
+        </div>
+        <div>
+          <span class="eyebrow">Key Features</span>
+          <h2 class="h-section" style="margin:12px 0 24px;">Built for <em>real use.</em></h2>
+          <ul class="page-tick-list">
+            {features.map((f: string) => (
+              <li><span class="page-tick">&#10003;</span><span>{f}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed specs table -->
+  <section class="section section--neutral">
+    <div class="container">
+      <span class="eyebrow">Specifications</span>
+      <h2 class="h-section" style="margin:12px 0 24px;">Dimensions &amp; <em>load ratings.</em></h2>
+      <div class="ksd-spec-grid">
+        <div><div class="k">Total Width</div><div class="v">{widthFt}<span class="unit">ft · {widthIn} in · {widthMm} mm</span></div></div>
+        <div><div class="k">Height</div><div class="v">{heightIn}<span class="unit">in · {heightMm} mm</span></div></div>
+        <div><div class="k">Depth</div><div class="v">{depthIn}<span class="unit">in · {depthMm} mm</span></div></div>
+        {worktopInches > 0 && (
+          <div><div class="k">Worktop Length</div><div class="v">{worktopInches}<span class="unit">in · {worktopMm} mm</span></div></div>
+        )}
+        <div><div class="k">Load per Cabinet</div><div class="v">500<span class="unit">lb · 227 kg</span></div></div>
+        <div><div class="k">Shelf Load</div><div class="v">300<span class="unit">lb · 136 kg</span></div></div>
+        <div><div class="k">Drawer Load</div><div class="v">99<span class="unit">lb · 45 kg</span></div></div>
+        <div><div class="k">Set Weight</div><div class="v">{approxSetWeight}<span class="unit">lb</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pieces / BOM -->
+  <section class="section section--cream" id="pieces">
+    <div class="container">
+      <span class="eyebrow">What's in the box</span>
+      <h2 class="h-section" style="margin:12px 0 8px;">{pieces} pieces, <em>one wall.</em></h2>
+      <p style="font-family:var(--sans); color:var(--muted); font-size:16px; margin-bottom:28px; max-width:640px;">Every piece ships flat and snaps together with Klovo's GlideLock system. Four screws per cabinet to finish.</p>
 
       <div class="ksd-pieces-grid">
         <div class="ksd-pieces-mini-elev" id="ksd-pieces-mini-elev"></div>
@@ -334,70 +347,62 @@ const clientRelated = related;
     </div>
   </section>
 
-  <!-- DIMENSIONS -->
-  <section class="ksd-block tight" id="dimensions">
-    <div class="section-container">
-      <p class="ksd-kicker">Specs</p>
-      <h2 class="ksd-h2">Dimensions &amp; load.</h2>
-      <p class="ksd-sub">Metric and imperial, per-cabinet and per-set.</p>
-
-      <div class="ksd-spec-grid">
-        <div><div class="k">Total Width</div><div class="v">{widthFt}<span class="unit">ft · {widthIn} in · {widthMm} mm</span></div></div>
-        <div><div class="k">Height</div><div class="v">{heightIn}<span class="unit">in · {heightMm} mm</span></div></div>
-        <div><div class="k">Depth</div><div class="v">{depthIn}<span class="unit">in · {depthMm} mm</span></div></div>
-        {worktopInches > 0 && (
-          <div><div class="k">Worktop Length</div><div class="v">{worktopInches}<span class="unit">in · {worktopMm} mm</span></div></div>
-        )}
-        <div><div class="k">Load per Cabinet</div><div class="v">500<span class="unit">lb · 227 kg</span></div></div>
-        <div><div class="k">Shelf Load</div><div class="v">300<span class="unit">lb · 136 kg</span></div></div>
-        <div><div class="k">Drawer Load</div><div class="v">99<span class="unit">lb · 45 kg</span></div></div>
-        <div><div class="k">Set Weight</div><div class="v">{approxSetWeight}<span class="unit">lb</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="ksd-block dark">
-    <div class="section-container">
-      <p class="ksd-kicker">Built for the garage</p>
-      <h2 class="ksd-h2" style="color: var(--warm-white);">Three things that matter.</h2>
-      <p class="ksd-sub">Not marketing copy — the decisions that make this set outlast its neighbours.</p>
-
-      <div class="ksd-features-3">
-        <div class="ksd-feat">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          </div>
-          <h3>GlideLock assembly</h3>
-          <p class="blurb">Patent-pending edge locks. Panels slide together and hold by hand. Four screws per cabinet to finish — that's it.</p>
-          <div class="spec-line">≈ {Math.max(1, Math.ceil(pieces / 5))} hr · no Allen keys · no contractor</div>
-        </div>
-        <div class="ksd-feat">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/></svg>
-          </div>
-          <h3>500 lb per cabinet</h3>
-          <p class="blurb">Rated to the kind of load you actually put in a garage — tires, tool boxes, car parts, gear — not dish sets.</p>
-          <div class="spec-line">Shelf 300 lb · Drawer 99 lb · Set {approxSetWeight} lb</div>
-        </div>
-        <div class="ksd-feat">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-          </div>
-          <h3>Moisture-resistant build</h3>
-          <p class="blurb">Engineered wood with thermally fused laminate and 1 mm PVC edge-banding. Survives humid garages and cold basements.</p>
-          <div class="spec-line">TFL · 1 mm PVC edge · rated for unconditioned space</div>
+  <!-- Elevation diagram -->
+  <section class="section section--neutral" id="overview">
+    <div class="container">
+      <span class="eyebrow">Elevation View</span>
+      <h2 class="h-section" style="margin:12px 0 24px;">See your <em>wall layout.</em></h2>
+      <div class="ksd-elev-card">
+        <div class="ksd-elev-svg-wrap" id="ksd-elev-main"></div>
+        <div class="ksd-ruler-wrap">
+          <div class="ksd-ruler" id="ksd-ruler-main"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FITS YOUR WALL -->
-  <section class="ksd-block tight">
-    <div class="section-container">
-      <p class="ksd-kicker">Before you buy</p>
-      <h2 class="ksd-h2">Fits your wall?</h2>
-      <p class="ksd-sub">Type your wall width. We'll tell you if the {widthFt}-foot set works, or suggest the next size.</p>
+  <!-- Assembly steps -->
+  <section class="section section--cream" id="assembly">
+    <div class="container">
+      <span class="eyebrow">GlideLock in practice</span>
+      <h2 class="h-section" style="margin:12px 0 8px;">Four steps. About <em>{Math.max(1, Math.ceil(pieces / 5))} hours.</em></h2>
+      <p style="font-family:var(--sans); color:var(--muted); font-size:16px; margin-bottom:28px; max-width:640px;">Same system on every Klovo cabinet. Learn it once — everything else is repetition.</p>
+
+      <div class="ksd-asm-strip">
+        <div class="ksd-asm-step">
+          <svg viewBox="0 0 160 100"><rect x="30" y="20" width="55" height="70" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.8"/><rect x="90" y="20" width="55" height="70" fill="none" stroke="#1F1B14" stroke-width="0.8" stroke-dasharray="2 2"/><line x1="85" y1="40" x2="110" y2="40" stroke="#D4923B" stroke-width="1.2"/><polygon points="108,37 113,40 108,43" fill="#D4923B"/></svg>
+          <div class="step-num">STEP 01</div>
+          <h4>Unbox flat</h4>
+          <p>Every cabinet ships as a flat stack. Slide panels out, no tools yet.</p>
+        </div>
+        <div class="ksd-asm-step">
+          <svg viewBox="0 0 160 100"><path d="M20,70 L60,70 L60,40 L20,40 Z" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.8"/><path d="M60,40 L100,40 L100,70 L60,70 Z" fill="#F4ECDB" stroke="#1F1B14" stroke-width="0.8"/><path d="M100,70 L140,70 L140,40 L100,40 Z" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.8"/><circle cx="60" cy="55" r="2" fill="#F2A427" stroke="#1F1B14" stroke-width="0.4"/><circle cx="100" cy="55" r="2" fill="#F2A427" stroke="#1F1B14" stroke-width="0.4"/></svg>
+          <div class="step-num">STEP 02</div>
+          <h4>GlideLock panels</h4>
+          <p>Slide edges together. Locks engage by hand. Hold by themselves.</p>
+        </div>
+        <div class="ksd-asm-step">
+          <svg viewBox="0 0 160 100"><rect x="40" y="20" width="80" height="60" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.8"/><circle cx="50" cy="30" r="2" fill="#D4923B"/><circle cx="110" cy="30" r="2" fill="#D4923B"/><circle cx="50" cy="70" r="2" fill="#D4923B"/><circle cx="110" cy="70" r="2" fill="#D4923B"/></svg>
+          <div class="step-num">STEP 03</div>
+          <h4>Four screws</h4>
+          <p>One screw at each corner. Driver only. No Allen keys, ever.</p>
+        </div>
+        <div class="ksd-asm-step">
+          <svg viewBox="0 0 160 100"><rect x="20" y="20" width="35" height="70" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.8"/><rect x="55" y="20" width="35" height="70" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.8"/><rect x="90" y="20" width="35" height="70" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.8"/><rect x="125" y="20" width="15" height="70" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.8"/><rect x="18" y="88" width="124" height="3" fill="#F2A427"/></svg>
+          <div class="step-num">STEP 04</div>
+          <h4>Line them up</h4>
+          <p>Every Klovo cabinet shares the same connection. Keep building.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fits your wall -->
+  <section class="section section--neutral">
+    <div class="container">
+      <span class="eyebrow">Before you buy</span>
+      <h2 class="h-section" style="margin:12px 0 8px;">Fits your <em>wall?</em></h2>
+      <p style="font-family:var(--sans); color:var(--muted); font-size:16px; margin-bottom:28px; max-width:640px;">Type your wall width. We'll tell you if the {widthFt}-foot set works, or suggest the next size.</p>
 
       <div class="ksd-fits-card">
         <div>
@@ -418,981 +423,601 @@ const clientRelated = related;
         </div>
 
         <div style="text-align: right;">
-          <div class="ksd-mono-label" style="margin-bottom: 6px;">Set footprint</div>
+          <div style="font-family:var(--sans); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:6px;">Set footprint</div>
           <div class="ksd-foot-big">{widthIn}"</div>
-          <div class="ksd-mono-label" style="margin-top: 2px;">{widthFt} ft · {widthMm} mm</div>
+          <div style="font-family:var(--sans); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-top:2px;">{widthFt} ft · {widthMm} mm</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ASSEMBLY -->
-  <section class="ksd-block alt" id="assembly">
-    <div class="section-container">
-      <p class="ksd-kicker">GlideLock in practice</p>
-      <h2 class="ksd-h2">Four steps. About {Math.max(1, Math.ceil(pieces / 5))} hours.</h2>
-      <p class="ksd-sub">Same system on every Klovo cabinet. Learn it once — everything else is repetition.</p>
-
-      <div class="ksd-asm-strip">
-        <div class="ksd-asm-step">
-          <svg viewBox="0 0 160 100"><rect x="30" y="20" width="55" height="70" fill="#FFFFFF" stroke="#272727" stroke-width="0.8"/><rect x="90" y="20" width="55" height="70" fill="none" stroke="#272727" stroke-width="0.8" stroke-dasharray="2 2"/><line x1="85" y1="40" x2="110" y2="40" stroke="#0E4C8B" stroke-width="1.2"/><polygon points="108,37 113,40 108,43" fill="#0E4C8B"/></svg>
-          <div class="step-num">STEP 01</div>
-          <h4>Unbox flat</h4>
-          <p>Every cabinet ships as a flat stack. Slide panels out, no tools yet.</p>
-        </div>
-        <div class="ksd-asm-step">
-          <svg viewBox="0 0 160 100"><path d="M20,70 L60,70 L60,40 L20,40 Z" fill="#FFFFFF" stroke="#272727" stroke-width="0.8"/><path d="M60,40 L100,40 L100,70 L60,70 Z" fill="#F8F5F0" stroke="#272727" stroke-width="0.8"/><path d="M100,70 L140,70 L140,40 L100,40 Z" fill="#FFFFFF" stroke="#272727" stroke-width="0.8"/><circle cx="60" cy="55" r="2" fill="#F7C948" stroke="#272727" stroke-width="0.4"/><circle cx="100" cy="55" r="2" fill="#F7C948" stroke="#272727" stroke-width="0.4"/></svg>
-          <div class="step-num">STEP 02</div>
-          <h4>GlideLock panels</h4>
-          <p>Slide edges together. Locks engage by hand. Hold by themselves.</p>
-        </div>
-        <div class="ksd-asm-step">
-          <svg viewBox="0 0 160 100"><rect x="40" y="20" width="80" height="60" fill="#FFFFFF" stroke="#272727" stroke-width="0.8"/><circle cx="50" cy="30" r="2" fill="#0E4C8B"/><circle cx="110" cy="30" r="2" fill="#0E4C8B"/><circle cx="50" cy="70" r="2" fill="#0E4C8B"/><circle cx="110" cy="70" r="2" fill="#0E4C8B"/></svg>
-          <div class="step-num">STEP 03</div>
-          <h4>Four screws</h4>
-          <p>One screw at each corner. Driver only. No Allen keys, ever.</p>
-        </div>
-        <div class="ksd-asm-step">
-          <svg viewBox="0 0 160 100"><rect x="20" y="20" width="35" height="70" fill="#FFFFFF" stroke="#272727" stroke-width="0.8"/><rect x="55" y="20" width="35" height="70" fill="#FFFFFF" stroke="#272727" stroke-width="0.8"/><rect x="90" y="20" width="35" height="70" fill="#FFFFFF" stroke="#272727" stroke-width="0.8"/><rect x="125" y="20" width="15" height="70" fill="#FFFFFF" stroke="#272727" stroke-width="0.8"/><rect x="18" y="88" width="124" height="3" fill="#F7C948"/></svg>
-          <div class="step-num">STEP 04</div>
-          <h4>Line them up</h4>
-          <p>Every Klovo cabinet shares the same connection. Keep building.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- Related sets -->
   {related.length > 0 && (
-    <section class="ksd-block tight" id="related">
-      <div class="section-container">
-        <p class="ksd-kicker">You might also consider</p>
-        <h2 class="ksd-h2">Other sets to compare.</h2>
-        <p class="ksd-sub">Related by size and use case.</p>
-
+    <section class="section section--cream" id="related">
+      <div class="container">
+        <span class="eyebrow">You might also consider</span>
+        <h2 class="h-section" style="margin:12px 0 8px;">Other sets <em>to compare.</em></h2>
+        <p style="font-family:var(--sans); color:var(--muted); font-size:16px; margin-bottom:28px;">Related by size and use case.</p>
         <div class="ksd-related-grid" id="ksd-related-grid"></div>
       </div>
     </section>
   )}
 
-  <section class="ksd-final-cta">
-    <div class="section-container">
-      <h2>Ready for the {widthFt}-foot wall?</h2>
-      <p>Find a Klovo retailer near you.</p>
-      <a href="/where-to-buy/" class="ksd-btn-primary">Find a Retailer →</a>
+  <!-- Markdown content if any -->
+  <section class="section section--neutral">
+    <div class="container" style="max-width:800px;">
+      <article class="prose-klovo"><Content /></article>
     </div>
   </section>
 
-  <style is:global>
-    .ksd-breadcrumb-wrap,
-    .ksd-hero,
-    .ksd-block,
-    .ksd-final-cta {
-      --klovo-blue: #0E4C8B;
-      --klovo-blue-dark: #0A3A6B;
-      --klovo-amber: #F7C948;
-      --klovo-amber-dark: #E5B530;
-      --charcoal: #272727;
-      --dark-charcoal: #3C4144;
-      --warm-white: #F8F5F0;
-      --warm-neutral: #E8E2D9;
-      --pure-white: #FFFFFF;
-      --klovo-grey: #858485;
-      --success: #708E5C;
-      --font-primary: 'Jost', system-ui, sans-serif;
-      --font-accent: 'Orbitron', monospace;
-      --font-tech: 'Oxanium', sans-serif;
-    }
+  <!-- Final CTA -->
+  <section class="section section--final">
+    <div class="container final-inner">
+      <h2 class="h-final">Ready to transform<br/><em>your garage?</em></h2>
+      <p class="final-body">Find a retailer near you carrying Klovo sets.</p>
+      <div class="final-ctas">
+        <a href="/where-to-buy/" class="btn btn--primary">Find a retailer &rarr;</a>
+        <a href="/sets/" class="btn btn--ghost--dark">See all sets</a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
 
-    .ksd-kicker {
-      color: var(--klovo-amber);
-      font-family: var(--font-tech);
-      font-weight: 600;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-    }
-    .ksd-mono-label {
-      font-family: var(--font-tech);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--klovo-grey);
-    }
-    .ksd-btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 26px;
-      background: var(--klovo-blue);
-      color: var(--pure-white);
-      font-weight: 600;
-      font-size: 15px;
-      border-radius: 4px;
-      border: 0;
-      cursor: pointer;
-      transition: all 150ms ease;
-      text-decoration: none;
-    }
-    .ksd-btn-primary:hover { background: var(--klovo-blue-dark); transform: scale(1.01); }
+<style is:global>
+.prose-klovo { font-family: var(--sans); color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+.prose-klovo h2 { font-family: var(--display); font-weight: 700; font-size: clamp(22px,2.8vw,30px); color: var(--ink); margin: 48px 0 16px; }
+.prose-klovo h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 36px 0 12px; }
+.prose-klovo p { margin: 0 0 20px; }
+.prose-klovo ul, .prose-klovo ol { padding-left: 24px; margin-bottom: 20px; }
+.prose-klovo li { margin-bottom: 8px; }
+.prose-klovo strong { color: var(--ink); font-weight: 600; }
+.prose-klovo a { color: var(--klovo-blue); text-decoration: underline; text-underline-offset: 2px; }
+.prose-klovo a:hover { color: var(--ink); }
+.prose-klovo table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
+.prose-klovo th { background: var(--neutral); font-family: var(--display); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+.prose-klovo td { padding: 12px 14px; border-bottom: 1px solid var(--line-soft); color: var(--ink-soft); }
+.prose-klovo tbody tr:last-child td { border-bottom: none; }
+.prose-klovo blockquote { border-left: 3px solid var(--amber); padding: 4px 0 4px 24px; font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 32px 0; }
 
-    .ksd-breadcrumb-wrap { padding-top: 20px; background: var(--warm-white); }
-    .ksd-crumb {
-      font-family: var(--font-tech);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--klovo-grey);
-    }
-    .ksd-crumb a { color: var(--klovo-grey); text-decoration: none; }
-    .ksd-crumb a:hover { color: var(--klovo-blue); }
-    .ksd-crumb .sep { margin: 0 8px; opacity: 0.5; }
+/* Spec grid */
+.ksd-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.ksd-spec-grid > div {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 20px;
+  background: var(--paper);
+}
+.ksd-spec-grid .k {
+  margin-bottom: 6px;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ksd-spec-grid .v {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.ksd-spec-grid .unit {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: 4px;
+  font-weight: 500;
+}
+@media (max-width: 900px) { .ksd-spec-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    .ksd-hero { padding: 16px 0 56px; background: var(--warm-white); }
-    .ksd-hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
-      gap: 48px;
-      align-items: flex-start;
-    }
-    @media (max-width: 1024px) { .ksd-hero-grid { grid-template-columns: 1fr; } }
+/* Pieces grid */
+.ksd-pieces-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: flex-start;
+}
+@media (max-width: 1024px) { .ksd-pieces-grid { grid-template-columns: 1fr; gap: 24px; } }
+.ksd-pieces-mini-elev {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 24px;
+  height: 360px;
+}
+@media (max-width: 640px) { .ksd-pieces-mini-elev { height: 240px; padding: 16px; } }
+.ksd-pieces-mini-elev svg { width: 100%; height: 100%; overflow: visible; }
 
-    .ksd-h1 {
-      font-size: clamp(30px, 4.4vw, 54px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      margin: 10px 0 20px;
-      color: var(--charcoal);
-    }
+/* BOM table */
+table.ksd-bom {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+table.ksd-bom th,
+table.ksd-bom td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+table.ksd-bom th {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--neutral);
+}
+table.ksd-bom tr:last-child td { border-bottom: none; }
+table.ksd-bom td.num {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--amber);
+  width: 40px;
+}
+table.ksd-bom td.qty {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+}
+table.ksd-bom .name { font-weight: 600; color: var(--ink); }
+table.ksd-bom .desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-    .ksd-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
-    .ksd-tag-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
-      background: var(--pure-white);
-      border: 1px solid var(--warm-neutral);
-      border-radius: 99px;
-      font-family: var(--font-tech);
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--dark-charcoal);
-    }
-    .ksd-tag-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--klovo-blue); }
-    .ksd-tag-pill.accent .dot { background: var(--klovo-amber); }
+/* Elevation card */
+.ksd-elev-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 28px 28px 24px;
+}
+.ksd-elev-svg-wrap { display: block; width: 100%; height: 420px; position: relative; }
+.ksd-elev-svg-wrap svg { width: 100%; height: 100%; overflow: visible; }
+@media (max-width: 640px) { .ksd-elev-svg-wrap { height: 280px; } }
 
-    .ksd-stat-row {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--warm-neutral);
-      border: 1px solid var(--warm-neutral);
-      border-radius: 8px;
-      overflow: hidden;
-      margin: 22px 0 36px;
-    }
-    .ksd-stat { background: var(--pure-white); padding: 18px 16px 16px; }
-    .ksd-stat .val {
-      font-family: var(--font-accent);
-      font-weight: 700;
-      font-size: 24px;
-      color: var(--charcoal);
-      line-height: 1;
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
-    }
-    .ksd-stat .val .uu {
-      font-size: 13px;
-      color: var(--klovo-grey);
-      font-family: var(--font-tech);
-      margin-left: 4px;
-      font-weight: 500;
-    }
-    .ksd-stat .lbl {
-      font-family: var(--font-tech);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--klovo-grey);
-    }
-    @media (max-width: 900px) { .ksd-stat-row { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 480px) { .ksd-stat-row { grid-template-columns: repeat(2, 1fr); } }
+.elev-rect { fill: var(--paper); stroke: var(--ink); stroke-width: 0.6; }
+.elev-rect.open-fill { fill: var(--cream); }
+.elev-rect.toe { fill: var(--neutral); }
+.elev-line { stroke: var(--ink); stroke-width: 0.4; fill: none; }
+.elev-shelf { stroke: var(--ink); stroke-width: 0.3; fill: none; }
+.elev-worktop { fill: var(--amber); }
+.elev-floor { stroke: var(--amber); stroke-width: 1.2; }
 
-    .ksd-elev-card {
-      background: var(--pure-white);
-      border: 1px solid var(--warm-neutral);
-      border-radius: 8px;
-      padding: 28px 28px 24px;
-    }
-    .ksd-elev-svg-wrap { display: block; width: 100%; height: 420px; position: relative; }
-    .ksd-elev-svg-wrap svg { width: 100%; height: 100%; overflow: visible; }
-    @media (max-width: 640px) { .ksd-elev-svg-wrap { height: 280px; } }
+.ksd-ruler-wrap {
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--line);
+}
+.ksd-ruler { width: 100%; height: 34px; }
+.ksd-ruler svg { width: 100%; height: 100%; overflow: visible; }
+.ruler-tick { stroke: var(--muted); stroke-width: 0.3; }
+.ruler-total { stroke: var(--amber); stroke-width: 0.6; }
+.ruler-cap { stroke: var(--amber); stroke-width: 0.6; }
+.ruler-txt { font-family: var(--sans); font-weight: 600; font-size: 3.2px; fill: var(--muted); letter-spacing: 0.1em; }
+.ruler-total-txt { font-family: var(--display); font-weight: 700; font-size: 3.6px; fill: var(--ink); }
 
-    .elev-rect { fill: var(--pure-white); stroke: var(--charcoal); stroke-width: 0.6; }
-    .elev-rect.open-fill { fill: var(--warm-white); }
-    .elev-rect.toe { fill: var(--warm-neutral); }
-    .elev-line { stroke: var(--charcoal); stroke-width: 0.4; fill: none; }
-    .elev-shelf { stroke: var(--charcoal); stroke-width: 0.3; fill: none; }
-    .elev-worktop { fill: var(--klovo-amber); }
-    .elev-floor { stroke: var(--klovo-amber); stroke-width: 1.2; }
+/* Assembly steps */
+.ksd-asm-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 900px) { .ksd-asm-strip { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .ksd-asm-strip { grid-template-columns: 1fr; } }
+.ksd-asm-step { background: var(--neutral); border-radius: 4px; padding: 24px; }
+.ksd-asm-step svg { width: 100%; height: 120px; overflow: visible; display: block; margin-bottom: 16px; }
+.ksd-asm-step .step-num {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--amber);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.ksd-asm-step h4 { font-family: var(--display); font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+.ksd-asm-step p { font-family: var(--sans); font-size: 13px; color: var(--muted); line-height: 1.45; }
 
-    .ksd-ruler-wrap {
-      margin-top: 6px;
-      padding-top: 18px;
-      border-top: 1px dashed rgba(39, 39, 39, 0.15);
-    }
-    .ksd-ruler { width: 100%; height: 34px; }
-    .ksd-ruler svg { width: 100%; height: 100%; overflow: visible; }
-    .ruler-tick { stroke: var(--klovo-grey); stroke-width: 0.3; }
-    .ruler-total { stroke: var(--klovo-blue); stroke-width: 0.6; }
-    .ruler-cap { stroke: var(--klovo-blue); stroke-width: 0.6; }
-    .ruler-txt { font-family: var(--font-tech); font-weight: 600; font-size: 3.2px; fill: var(--klovo-grey); letter-spacing: 0.1em; }
-    .ruler-total-txt { font-family: var(--font-accent); font-weight: 700; font-size: 3.6px; fill: var(--klovo-blue); }
+/* Fits your wall */
+.ksd-fits-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: center;
+}
+@media (max-width: 900px) { .ksd-fits-card { grid-template-columns: 1fr; padding: 24px; } }
+.ksd-fits-input-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.ksd-fits-input-row .inp {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+.ksd-fits-input-row input[type="number"] {
+  width: 70px;
+  border: 0;
+  background: transparent;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--ink);
+  outline: none;
+  -moz-appearance: textfield;
+}
+.ksd-fits-input-row input::-webkit-outer-spin-button,
+.ksd-fits-input-row input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.ksd-fits-input-row .uu {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+.ksd-fits-verdict {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 4px;
+}
+.ksd-fits-verdict.ok { background: rgba(112, 142, 92, 0.12); color: #708E5C; }
+.ksd-fits-verdict.warn { background: rgba(212, 146, 59, 0.12); color: var(--amber); }
+.ksd-fits-bar { position: relative; height: 56px; display: flex; align-items: flex-end; }
+.ksd-fits-bar .wall { flex: 1; height: 4px; background: var(--neutral); border-radius: 2px; position: relative; }
+.ksd-fits-bar .fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 4px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: width 200ms ease;
+}
+.ksd-fits-bar .marker { position: absolute; bottom: -2px; width: 2px; height: 16px; background: var(--amber); }
+.ksd-fits-bar .marker .lbl {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -6px);
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  white-space: nowrap;
+}
+.ksd-fits-suggest {
+  margin-top: 14px;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ksd-fits-suggest a { color: var(--ink); font-weight: 600; }
+.ksd-foot-big {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 34px;
+  color: var(--ink);
+}
 
-    .ksd-buy-rail {
-      position: sticky;
-      top: 96px;
-      background: var(--pure-white);
-      border: 1px solid var(--warm-neutral);
-      border-radius: 8px;
-      padding: 24px 24px 20px;
-    }
-    @media (max-width: 1024px) { .ksd-buy-rail { position: static; } }
-    .ksd-msrp {
-      font-family: var(--font-accent);
-      font-weight: 700;
-      font-size: 32px;
-      color: var(--charcoal);
-      letter-spacing: -0.01em;
-      margin-top: 4px;
-    }
-    .ksd-msrp .ex {
-      font-family: var(--font-tech);
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--klovo-grey);
-      letter-spacing: 0.1em;
-      margin-left: 6px;
-    }
-    .ksd-rail-divider { height: 1px; background: var(--warm-neutral); margin: 18px -24px; }
-    .ksd-rail-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      font-size: 14px;
-    }
-    .ksd-rail-row .k {
-      font-family: var(--font-tech);
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--klovo-grey);
-    }
-    .ksd-rail-row .v { font-weight: 600; color: var(--charcoal); font-size: 14px; }
-    .ksd-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
-    .ksd-actions .ksd-btn-primary { width: 100%; justify-content: center; padding: 16px 20px; font-size: 15px; }
-    .ksd-rail-meta {
-      display: flex;
-      gap: 14px;
-      margin-top: 14px;
-      flex-wrap: wrap;
-      font-family: var(--font-tech);
-      font-size: 11px;
-      color: var(--klovo-grey);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .ksd-rail-meta span::before { content: '■'; color: var(--klovo-amber); margin-right: 6px; }
+/* Related grid */
+.ksd-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) { .ksd-related-grid { grid-template-columns: 1fr; } }
+.ksd-rel-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 200ms, transform 200ms;
+  text-decoration: none;
+  color: inherit;
+}
+.ksd-rel-card:hover { box-shadow: 0 8px 24px rgba(31, 27, 20, 0.08); transform: translateY(-2px); }
+.ksd-rel-rel {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--amber);
+  padding: 14px 20px 0;
+}
+.ksd-rel-diag { height: 140px; padding: 0 20px; }
+.ksd-rel-diag svg { width: 100%; height: 100%; overflow: visible; }
+.ksd-rel-body {
+  padding: 12px 20px 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.ksd-rel-body h3 { font-family: var(--display); font-size: 17px; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.01em; color: var(--ink); }
+.ksd-rel-body .meta {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.ksd-rel-body .price {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 15px;
+  margin-top: auto;
+}
+</style>
 
-    .ksd-block { padding: 64px 0; }
-    .ksd-block.tight { padding: 48px 0; }
-    .ksd-block.alt { background: var(--warm-neutral); }
-    .ksd-block.dark { background: var(--charcoal); color: var(--warm-white); }
-    .ksd-h2 {
-      font-size: 30px;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      margin: 8px 0;
-      color: var(--charcoal);
-    }
-    .ksd-block.dark .ksd-h2 { color: var(--warm-white); }
-    .ksd-sub {
-      color: var(--klovo-grey);
-      font-size: 16px;
-      max-width: 640px;
-      margin-bottom: 28px;
-      line-height: 1.55;
-    }
-    .ksd-block.dark .ksd-sub { color: rgba(248, 245, 240, 0.7); }
+<script is:inline define:vars={{ bomCols: clientBom, widthIn, widthFt, widthMm, setTitle: title, related: clientRelated }}>
+  // ============ Elevation renderer ============
+  const HEIGHT_IN = 84;
+  const BASE_H = 34.5;
+  const UPPER_H = 30;
+  const WORKTOP_H = 1.5;
+  const TOE_H = 4;
 
-    .ksd-pieces-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 48px;
-      align-items: flex-start;
-    }
-    @media (max-width: 1024px) { .ksd-pieces-grid { grid-template-columns: 1fr; gap: 24px; } }
-    .ksd-pieces-mini-elev {
-      background: var(--pure-white);
-      border: 1px solid var(--warm-neutral);
-      border-radius: 8px;
-      padding: 24px;
-      height: 360px;
-    }
-    @media (max-width: 640px) { .ksd-pieces-mini-elev { height: 240px; padding: 16px; } }
-    .ksd-pieces-mini-elev svg { width: 100%; height: 100%; overflow: visible; }
+  function buildElevation(container, { showNums = true } = {}) {
+    if (!container) return;
+    const envW = 320;
+    const envH = 200;
+    const scale = (envW - 20) / widthIn;
+    const wallHeightSvg = HEIGHT_IN * scale;
+    const floorY = envH - 18;
+    const topY = floorY - wallHeightSvg;
+    const offsetX = (envW - widthIn * scale) / 2;
 
-    table.ksd-bom {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--pure-white);
-      border: 1px solid var(--warm-neutral);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    table.ksd-bom th,
-    table.ksd-bom td {
-      padding: 12px 16px;
-      text-align: left;
-      font-size: 14px;
-      border-bottom: 1px solid var(--warm-neutral);
-      vertical-align: middle;
-    }
-    table.ksd-bom th {
-      font-family: var(--font-tech);
-      font-weight: 600;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--klovo-grey);
-      background: var(--warm-white);
-    }
-    table.ksd-bom tr:last-child td { border-bottom: none; }
-    table.ksd-bom td.num {
-      font-family: var(--font-accent);
-      font-weight: 700;
-      color: var(--klovo-blue);
-      width: 40px;
-    }
-    table.ksd-bom td.qty {
-      font-family: var(--font-accent);
-      font-weight: 700;
-      font-size: 15px;
-      text-align: center;
-    }
-    table.ksd-bom .name { font-weight: 600; color: var(--charcoal); }
-    table.ksd-bom .desc { font-size: 12px; color: var(--klovo-grey); margin-top: 2px; }
+    let cursor = offsetX;
+    const placed = bomCols.map((c) => {
+      const w = (c.width ?? 24) * scale;
+      const entry = { col: c, x: cursor, w, tall: null, upper: null, base: null, worktop: null };
+      if (c.tall) { entry.tall = { x: cursor, y: topY, w, h: wallHeightSvg }; }
+      if (c.upper) { entry.upper = { x: cursor, y: topY, w, h: UPPER_H * scale }; }
+      if (c.base) { entry.base = { x: cursor, y: floorY - BASE_H * scale, w, h: BASE_H * scale }; }
+      if (c.worktop) { entry.worktop = { x: cursor, y: floorY - (BASE_H + WORKTOP_H) * scale, w, h: WORKTOP_H * scale }; }
+      cursor += w;
+      return entry;
+    });
 
-    .ksd-spec-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--warm-neutral);
-      border-left: 1px solid var(--warm-neutral);
-    }
-    .ksd-spec-grid > div {
-      border-right: 1px solid var(--warm-neutral);
-      border-bottom: 1px solid var(--warm-neutral);
-      padding: 24px 20px;
-      background: var(--pure-white);
-    }
-    .ksd-spec-grid .k {
-      margin-bottom: 6px;
-      font-family: var(--font-tech);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--klovo-grey);
-    }
-    .ksd-spec-grid .v {
-      font-family: var(--font-accent);
-      font-weight: 700;
-      font-size: 22px;
-      color: var(--charcoal);
-      letter-spacing: -0.01em;
-    }
-    .ksd-spec-grid .unit {
-      font-family: var(--font-tech);
-      font-size: 13px;
-      color: var(--klovo-grey);
-      margin-left: 4px;
-      font-weight: 500;
-    }
-    @media (max-width: 900px) { .ksd-spec-grid { grid-template-columns: repeat(2, 1fr); } }
+    const parts = [];
+    parts.push(`<rect x="0" y="${topY}" width="${envW}" height="${wallHeightSvg}" fill="#E6DCC6" opacity="0.18"/>`);
+    parts.push(`<line x1="0" y1="${floorY}" x2="${envW}" y2="${floorY}" class="elev-line" stroke-width="0.6"/>`);
 
-    .ksd-features-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--dark-charcoal);
-    }
-    .ksd-feat { background: var(--charcoal); padding: 40px 32px; }
-    .ksd-feat .icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 4px;
-      background: rgba(247, 201, 72, 0.15);
-      color: var(--klovo-amber);
-      display: grid;
-      place-items: center;
-      margin-bottom: 24px;
-    }
-    .ksd-feat .icon svg { width: 24px; height: 24px; }
-    .ksd-feat h3 {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-      color: var(--warm-white);
-    }
-    .ksd-feat .blurb {
-      font-size: 14px;
-      color: rgba(248, 245, 240, 0.65);
-      line-height: 1.55;
-      margin-bottom: 16px;
-    }
-    .ksd-feat .spec-line {
-      font-family: var(--font-tech);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--klovo-amber);
-      padding-top: 14px;
-      border-top: 1px dashed rgba(248, 245, 240, 0.2);
-    }
-    @media (max-width: 900px) { .ksd-features-3 { grid-template-columns: 1fr; } }
-
-    .ksd-fits-card {
-      background: var(--pure-white);
-      border: 1px solid var(--warm-neutral);
-      border-radius: 8px;
-      padding: 32px 36px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 40px;
-      align-items: center;
-    }
-    @media (max-width: 900px) { .ksd-fits-card { grid-template-columns: 1fr; padding: 24px; } }
-    .ksd-fits-input-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
-    .ksd-fits-input-row .inp {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      background: var(--warm-white);
-      border: 1px solid var(--warm-neutral);
-      border-radius: 6px;
-      padding: 12px 16px;
-    }
-    .ksd-fits-input-row input[type="number"] {
-      width: 70px;
-      border: 0;
-      background: transparent;
-      font-family: var(--font-accent);
-      font-weight: 700;
-      font-size: 28px;
-      color: var(--charcoal);
-      outline: none;
-      -moz-appearance: textfield;
-    }
-    .ksd-fits-input-row input::-webkit-outer-spin-button,
-    .ksd-fits-input-row input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-    .ksd-fits-input-row .uu {
-      font-family: var(--font-tech);
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--klovo-grey);
-      font-weight: 600;
-    }
-    .ksd-fits-verdict {
-      font-family: var(--font-tech);
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding: 10px 14px;
-      border-radius: 6px;
-    }
-    .ksd-fits-verdict.ok { background: rgba(112, 142, 92, 0.12); color: var(--success); }
-    .ksd-fits-verdict.warn { background: rgba(227, 126, 22, 0.12); color: #E37E16; }
-    .ksd-fits-bar { position: relative; height: 56px; display: flex; align-items: flex-end; }
-    .ksd-fits-bar .wall { flex: 1; height: 4px; background: var(--warm-neutral); border-radius: 2px; position: relative; }
-    .ksd-fits-bar .fill {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 4px;
-      background: var(--klovo-blue);
-      border-radius: 2px;
-      transition: width 200ms ease;
-    }
-    .ksd-fits-bar .marker { position: absolute; bottom: -2px; width: 2px; height: 16px; background: var(--klovo-amber); }
-    .ksd-fits-bar .marker .lbl {
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translate(-50%, -6px);
-      font-family: var(--font-tech);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--klovo-amber);
-      white-space: nowrap;
-    }
-    .ksd-fits-suggest {
-      margin-top: 14px;
-      font-family: var(--font-tech);
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--klovo-grey);
-    }
-    .ksd-fits-suggest a { color: var(--klovo-blue); font-weight: 600; }
-    .ksd-foot-big {
-      font-family: var(--font-accent);
-      font-weight: 700;
-      font-size: 34px;
-      color: var(--klovo-blue);
-    }
-
-    .ksd-asm-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    @media (max-width: 900px) { .ksd-asm-strip { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 520px) { .ksd-asm-strip { grid-template-columns: 1fr; } }
-    .ksd-asm-step { background: var(--warm-white); border-radius: 8px; padding: 24px; }
-    .ksd-asm-step svg { width: 100%; height: 120px; overflow: visible; display: block; margin-bottom: 16px; }
-    .ksd-asm-step .step-num {
-      font-family: var(--font-accent);
-      font-weight: 700;
-      color: var(--klovo-amber);
-      font-size: 14px;
-      letter-spacing: 0.1em;
-      margin-bottom: 4px;
-    }
-    .ksd-asm-step h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--charcoal); }
-    .ksd-asm-step p { font-size: 13px; color: var(--klovo-grey); line-height: 1.45; }
-
-    .ksd-related-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    @media (max-width: 900px) { .ksd-related-grid { grid-template-columns: 1fr; } }
-    .ksd-rel-card {
-      background: var(--pure-white);
-      border: 1px solid var(--warm-neutral);
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      transition: box-shadow 200ms, transform 200ms;
-      text-decoration: none;
-      color: inherit;
-    }
-    .ksd-rel-card:hover { box-shadow: 0 8px 24px rgba(39, 39, 39, 0.08); transform: translateY(-2px); }
-    .ksd-rel-rel {
-      font-family: var(--font-tech);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--klovo-blue);
-      padding: 14px 20px 0;
-    }
-    .ksd-rel-diag { height: 140px; padding: 0 20px; }
-    .ksd-rel-diag svg { width: 100%; height: 100%; overflow: visible; }
-    .ksd-rel-body {
-      padding: 12px 20px 20px;
-      border-top: 1px solid var(--warm-neutral);
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .ksd-rel-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.01em; }
-    .ksd-rel-body .meta {
-      font-family: var(--font-tech);
-      font-size: 11px;
-      color: var(--klovo-grey);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .ksd-rel-body .price {
-      font-family: var(--font-accent);
-      font-weight: 700;
-      color: var(--klovo-blue);
-      font-size: 15px;
-      margin-top: auto;
-    }
-
-    .ksd-final-cta {
-      background: var(--klovo-blue);
-      color: var(--pure-white);
-      padding: 64px 0;
-      text-align: center;
-    }
-    .ksd-final-cta h2 {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      color: var(--pure-white);
-      margin-bottom: 12px;
-    }
-    .ksd-final-cta p {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 16px;
-      margin-bottom: 24px;
-    }
-    .ksd-final-cta .ksd-btn-primary {
-      background: var(--klovo-amber);
-      color: var(--charcoal);
-    }
-    .ksd-final-cta .ksd-btn-primary:hover { background: var(--klovo-amber-dark); }
-
-    @media (max-width: 640px) {
-      .ksd-hero { padding: 8px 0 24px; }
-      .ksd-h1 { font-size: 28px; margin: 8px 0 14px; }
-      .ksd-kicker { font-size: 11px; }
-      .ksd-tags { gap: 6px; margin-bottom: 10px; }
-      .ksd-tag-pill { padding: 4px 8px; font-size: 10px; letter-spacing: 0.1em; }
-
-      .ksd-stat-row { margin: 16px 0 22px; }
-      .ksd-stat { padding: 12px 10px 10px; }
-      .ksd-stat .val { font-size: 20px; }
-      .ksd-stat .val .uu { font-size: 11px; }
-      .ksd-stat .lbl { font-size: 9px; letter-spacing: 0.14em; }
-
-      .ksd-block { padding: 36px 0; }
-      .ksd-block.tight { padding: 28px 0; }
-      .ksd-h2 { font-size: 22px; }
-      .ksd-sub { font-size: 14px; margin-bottom: 20px; }
-
-      .ksd-elev-card { padding: 16px 14px 12px; }
-      .ksd-elev-svg-wrap { height: 220px; }
-      .ksd-ruler-wrap { padding-top: 12px; }
-
-      .ksd-buy-rail { padding: 20px 18px 18px; }
-      .ksd-msrp { font-size: 26px; }
-      .ksd-rail-divider { margin: 14px -18px; }
-      .ksd-rail-row { padding: 6px 0; font-size: 13px; }
-      .ksd-rail-row .k { font-size: 10px; }
-      .ksd-rail-row .v { font-size: 13px; }
-
-      table.ksd-bom th, table.ksd-bom td { padding: 10px 12px; font-size: 13px; }
-      table.ksd-bom td.num { width: 34px; font-size: 13px; }
-      table.ksd-bom .name { font-size: 14px; }
-      table.ksd-bom .desc { font-size: 11px; }
-
-      .ksd-spec-grid .v { font-size: 19px; display: flex; flex-wrap: wrap; align-items: baseline; }
-      .ksd-spec-grid .unit { font-size: 11px; letter-spacing: 0.04em; margin-left: 4px; flex-basis: 100%; margin-top: 2px; }
-      .ksd-spec-grid > div { padding: 16px 14px; }
-      .ksd-spec-grid .k { font-size: 9px; letter-spacing: 0.14em; }
-
-      .ksd-feat { padding: 28px 22px; }
-      .ksd-feat h3 { font-size: 18px; }
-      .ksd-feat .blurb { font-size: 13px; }
-      .ksd-feat .spec-line { font-size: 10px; letter-spacing: 0.1em; }
-
-      .ksd-fits-card { padding: 18px 16px; gap: 20px; }
-      .ksd-fits-input-row .inp { padding: 10px 14px; }
-      .ksd-fits-input-row input[type="number"] { font-size: 22px; width: 60px; }
-      .ksd-fits-input-row .uu { font-size: 11px; }
-      .ksd-fits-verdict { font-size: 10px; letter-spacing: 0.1em; padding: 8px 10px; }
-      .ksd-fits-card > div:last-child { text-align: left !important; }
-      .ksd-foot-big { font-size: 28px; }
-
-      .ksd-asm-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .ksd-asm-step { padding: 16px 14px; }
-      .ksd-asm-step svg { height: 80px; margin-bottom: 10px; }
-      .ksd-asm-step .step-num { font-size: 11px; }
-      .ksd-asm-step h4 { font-size: 14px; }
-      .ksd-asm-step p { font-size: 12px; }
-
-      .ksd-rel-diag { height: 110px; padding: 0 14px; }
-      .ksd-rel-body { padding: 10px 16px 16px; }
-      .ksd-rel-body h3 { font-size: 16px; }
-      .ksd-rel-rel { padding: 12px 16px 0; font-size: 9px; }
-
-      .ksd-crumb { font-size: 10px; letter-spacing: 0.14em; }
-      .ksd-crumb .sep { margin: 0 6px; }
-
-      .ksd-final-cta { padding: 40px 0; }
-      .ksd-final-cta h2 { font-size: 22px; }
-      .ksd-final-cta p { font-size: 14px; }
-    }
-
-    @media (max-width: 520px) {
-      .ksd-asm-strip { grid-template-columns: repeat(2, 1fr); }
-    }
-  </style>
-
-  <script is:inline define:vars={{ bomCols: clientBom, widthIn, widthFt, widthMm, setTitle: title, related: clientRelated }}>
-    // ============ Elevation renderer ============
-    const HEIGHT_IN = 84;
-    const BASE_H = 34.5;
-    const UPPER_H = 30;
-    const WORKTOP_H = 1.5;
-    const TOE_H = 4;
-
-    function buildElevation(container, { showNums = true } = {}) {
-      if (!container) return;
-      const envW = 320;
-      const envH = 200;
-      const scale = (envW - 20) / widthIn;
-      const wallHeightSvg = HEIGHT_IN * scale;
-      const floorY = envH - 18;
-      const topY = floorY - wallHeightSvg;
-      const offsetX = (envW - widthIn * scale) / 2;
-
-      // Place columns L→R
-      let cursor = offsetX;
-      const placed = bomCols.map((c) => {
-        const w = (c.width ?? 24) * scale;
-        const entry = { col: c, x: cursor, w, tall: null, upper: null, base: null, worktop: null };
-        if (c.tall) {
-          entry.tall = { x: cursor, y: topY, w, h: wallHeightSvg };
-        }
-        if (c.upper) {
-          entry.upper = { x: cursor, y: topY, w, h: UPPER_H * scale };
-        }
-        if (c.base) {
-          entry.base = { x: cursor, y: floorY - BASE_H * scale, w, h: BASE_H * scale };
-        }
-        if (c.worktop) {
-          entry.worktop = { x: cursor, y: floorY - (BASE_H + WORKTOP_H) * scale, w, h: WORKTOP_H * scale };
-        }
-        cursor += w;
-        return entry;
-      });
-
-      const parts = [];
-      parts.push(`<rect x="0" y="${topY}" width="${envW}" height="${wallHeightSvg}" fill="#E8E2D9" opacity="0.18"/>`);
-      parts.push(`<line x1="0" y1="${floorY}" x2="${envW}" y2="${floorY}" class="elev-line" stroke-width="0.6"/>`);
-
-      let pieceNum = 1;
-      // Tall lockers first
-      placed.forEach((p) => {
-        if (!p.tall) return;
-        const { x, y, w, h } = p.tall;
-        parts.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" class="elev-rect"/>`);
-        parts.push(`<line x1="${x + w / 2}" y1="${y + 1}" x2="${x + w / 2}" y2="${y + h - 1}" class="elev-line"/>`);
-        const code = p.col.tall;
-        const drawers = code === 'UC2484DB3' ? 3 : code === 'UC2484DB4' ? 4 : code === 'UC2484DB5' ? 5 : 0;
-        if (drawers) {
-          const dBandH = drawers * 6 * scale;
-          const dTop = y + h - dBandH;
-          parts.push(`<line x1="${x}" y1="${dTop}" x2="${x + w}" y2="${dTop}" class="elev-line"/>`);
-          for (let i = 1; i < drawers; i++) {
-            const dy = dTop + (i * dBandH) / drawers;
-            parts.push(`<line x1="${x}" y1="${dy}" x2="${x + w}" y2="${dy}" class="elev-shelf"/>`);
-          }
-        }
-        if (showNums) {
-          const cx = x + w / 2;
-          const cy = y + 6;
-          parts.push(`<circle cx="${cx}" cy="${cy}" r="3" fill="#F7C948" stroke="#272727" stroke-width="0.3"/>`);
-          parts.push(`<text x="${cx}" y="${cy + 1.2}" text-anchor="middle" font-family="Orbitron, monospace" font-weight="700" font-size="3.4" fill="#272727">${pieceNum}</text>`);
-        }
-        pieceNum++;
-      });
-      // Bases
-      placed.forEach((p) => {
-        if (!p.base) return;
-        const { x, y, w, h } = p.base;
-        const code = p.col.base;
-        const openShelf = code.endsWith('-OS');
-        const door = code.endsWith('-FH');
-        const drawers = code === 'DB324' ? 3 : code === 'DB424' ? 4 : code === 'DB524' ? 5 : 0;
-        parts.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" class="elev-rect ${openShelf ? 'open-fill' : ''}"/>`);
-        parts.push(`<rect x="${x}" y="${floorY - TOE_H * scale}" width="${w}" height="${TOE_H * scale}" class="elev-rect toe"/>`);
-        if (openShelf) parts.push(`<line x1="${x + 1}" y1="${y + h / 2 - 3}" x2="${x + w - 1}" y2="${y + h / 2 - 3}" class="elev-shelf"/>`);
-        if (door)      parts.push(`<line x1="${x + w / 2}" y1="${y + 1}" x2="${x + w / 2}" y2="${floorY - TOE_H * scale - 1}" class="elev-line"/>`);
-        if (drawers) for (let i = 1; i < drawers; i++) {
-          const dy = y + (i * (h - TOE_H * scale)) / drawers;
+    let pieceNum = 1;
+    placed.forEach((p) => {
+      if (!p.tall) return;
+      const { x, y, w, h } = p.tall;
+      parts.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" class="elev-rect"/>`);
+      parts.push(`<line x1="${x + w / 2}" y1="${y + 1}" x2="${x + w / 2}" y2="${y + h - 1}" class="elev-line"/>`);
+      const code = p.col.tall;
+      const drawers = code === 'UC2484DB3' ? 3 : code === 'UC2484DB4' ? 4 : code === 'UC2484DB5' ? 5 : 0;
+      if (drawers) {
+        const dBandH = drawers * 6 * scale;
+        const dTop = y + h - dBandH;
+        parts.push(`<line x1="${x}" y1="${dTop}" x2="${x + w}" y2="${dTop}" class="elev-line"/>`);
+        for (let i = 1; i < drawers; i++) {
+          const dy = dTop + (i * dBandH) / drawers;
           parts.push(`<line x1="${x}" y1="${dy}" x2="${x + w}" y2="${dy}" class="elev-shelf"/>`);
         }
-        if (showNums) {
-          const cx = x + w / 2;
-          const cy = y + 4;
-          parts.push(`<circle cx="${cx}" cy="${cy}" r="3" fill="#F7C948" stroke="#272727" stroke-width="0.3"/>`);
-          parts.push(`<text x="${cx}" y="${cy + 1.2}" text-anchor="middle" font-family="Orbitron, monospace" font-weight="700" font-size="3.4" fill="#272727">${pieceNum}</text>`);
-        }
-        pieceNum++;
-      });
-      // Worktop slab (merged runs)
-      const wtRuns = [];
-      let run = null;
-      placed.forEach((p) => {
-        if (p.worktop) {
-          if (!run) run = { x0: p.worktop.x, x1: p.worktop.x + p.worktop.w, y: p.worktop.y, h: p.worktop.h };
-          else run.x1 = p.worktop.x + p.worktop.w;
-        } else if (run) {
-          wtRuns.push(run); run = null;
-        }
-      });
-      if (run) wtRuns.push(run);
-      if (wtRuns.length) {
-        wtRuns.forEach((r) => {
-          parts.push(`<rect x="${r.x0}" y="${r.y}" width="${r.x1 - r.x0}" height="${r.h}" class="elev-worktop"/>`);
-          if (showNums) {
-            const cx = (r.x0 + r.x1) / 2;
-            const cy = r.y - 2;
-            parts.push(`<circle cx="${cx}" cy="${cy}" r="3" fill="#F7C948" stroke="#272727" stroke-width="0.3"/>`);
-            parts.push(`<text x="${cx}" y="${cy + 1.2}" text-anchor="middle" font-family="Orbitron, monospace" font-weight="700" font-size="3.4" fill="#272727">${pieceNum}</text>`);
-          }
-        });
-        pieceNum++;
       }
-      // Uppers
-      placed.forEach((p) => {
-        if (!p.upper) return;
-        const { x, y, w, h } = p.upper;
-        const openShelf = p.col.upper === 'W3630-OS';
-        parts.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" class="elev-rect ${openShelf ? 'open-fill' : ''}"/>`);
-        if (openShelf) parts.push(`<line x1="${x + 1}" y1="${y + h / 2}" x2="${x + w - 1}" y2="${y + h / 2}" class="elev-shelf"/>`);
-        else parts.push(`<line x1="${x + w / 2}" y1="${y + 1}" x2="${x + w / 2}" y2="${y + h - 1}" class="elev-line"/>`);
-        if (showNums) {
-          const cx = x + w / 2;
-          const cy = y + 6;
-          parts.push(`<circle cx="${cx}" cy="${cy}" r="3" fill="#F7C948" stroke="#272727" stroke-width="0.3"/>`);
-          parts.push(`<text x="${cx}" y="${cy + 1.2}" text-anchor="middle" font-family="Orbitron, monospace" font-weight="700" font-size="3.4" fill="#272727">${pieceNum}</text>`);
-        }
-        pieceNum++;
-      });
-
-      parts.push(`<line x1="${offsetX}" y1="${floorY + 1.5}" x2="${offsetX + widthIn * scale}" y2="${floorY + 1.5}" class="elev-floor"/>`);
-
-      container.innerHTML = `<svg viewBox="0 0 ${envW} ${envH}" preserveAspectRatio="xMidYMid meet">${parts.join('')}</svg>`;
-    }
-
-    function buildRuler(container) {
-      if (!container) return;
-      const envW = 320, envH = 34;
-      const scale = (envW - 20) / widthIn;
-      const offsetX = (envW - widthIn * scale) / 2;
-      const y = 8;
-      const parts = [];
-      parts.push(`<line x1="${offsetX - 2}" y1="${y}" x2="${offsetX + widthIn * scale + 2}" y2="${y}" class="ruler-total"/>`);
-      parts.push(`<line x1="${offsetX}" y1="${y - 3}" x2="${offsetX}" y2="${y + 3}" class="ruler-cap"/>`);
-      parts.push(`<line x1="${offsetX + widthIn * scale}" y1="${y - 3}" x2="${offsetX + widthIn * scale}" y2="${y + 3}" class="ruler-cap"/>`);
-      let cur = offsetX;
-      bomCols.forEach((c, i) => {
-        const mw = c.width ?? 24;
-        const x1 = cur + mw * scale;
-        if (i < bomCols.length - 1) parts.push(`<line x1="${x1}" y1="${y}" x2="${x1}" y2="${y + 4}" class="ruler-tick"/>`);
-        parts.push(`<text class="ruler-txt" x="${(cur + x1) / 2}" y="${y + 10}" text-anchor="middle">${mw}"</text>`);
-        cur = x1;
-      });
-      parts.push(`<text class="ruler-total-txt" x="${offsetX + widthIn * scale / 2}" y="${y - 4}" text-anchor="middle">${widthIn}" · ${widthFt} ft · ${widthMm} mm</text>`);
-      container.innerHTML = `<svg viewBox="0 0 ${envW} ${envH}" preserveAspectRatio="xMidYMid meet">${parts.join('')}</svg>`;
-    }
-
-    // ============ Mini elevation (pieces section) ============
-    function buildMini(container) {
-      buildElevation(container, { showNums: false });
-    }
-
-    // ============ Related renderer ============
-    function miniSvg(cols) {
-      const envW = 192, envH = 102, FLOOR = 96;
-      const total = cols.reduce((s, c) => s + (c.width ?? 24), 0);
-      if (!total) return '';
-      const px = (envW - 16) / total;
-      const offset = (envW - total * px) / 2;
-      const parts = [
-        `<rect x="0" y="0" width="${envW}" height="${FLOOR}" fill="#E8E2D9" opacity="0.22"/>`,
-        `<line x1="0" y1="${FLOOR}" x2="${envW}" y2="${FLOOR}" stroke="#272727" stroke-width="0.6"/>`,
-      ];
-      let cur = offset;
-      const runs = []; let run = null;
-      cols.forEach((c) => {
-        const w = (c.width ?? 24) * px;
-        if (c.tall) {
-          parts.push(`<rect x="${cur}" y="${FLOOR - 84}" width="${w}" height="84" fill="#FFFFFF" stroke="#272727" stroke-width="0.6"/>`);
-          parts.push(`<line x1="${cur + w / 2}" y1="${FLOOR - 83}" x2="${cur + w / 2}" y2="${FLOOR - 1}" stroke="#272727" stroke-width="0.4"/>`);
-        }
-        if (c.upper) {
-          parts.push(`<rect x="${cur}" y="${FLOOR - 90}" width="${w}" height="30" fill="#FFFFFF" stroke="#272727" stroke-width="0.6"/>`);
-        }
-        if (c.base) {
-          parts.push(`<rect x="${cur}" y="${FLOOR - 34.5}" width="${w}" height="34.5" fill="#FFFFFF" stroke="#272727" stroke-width="0.6"/>`);
-          parts.push(`<rect x="${cur}" y="${FLOOR - 4}" width="${w}" height="4" fill="#E8E2D9" stroke="#272727" stroke-width="0.4"/>`);
-        }
-        if (c.worktop) {
-          if (!run) run = { x0: cur, x1: cur + w };
-          else run.x1 = cur + w;
-        } else if (run) { runs.push(run); run = null; }
-        cur += w;
-      });
-      if (run) runs.push(run);
-      runs.forEach((r) => parts.push(`<rect x="${r.x0 - 0.5}" y="${FLOOR - 36}" width="${r.x1 - r.x0 + 1}" height="1.5" fill="#F7C948"/>`));
-      parts.push(`<line x1="${offset}" y1="${FLOOR + 2.5}" x2="${offset + total * px}" y2="${FLOOR + 2.5}" stroke="#F7C948" stroke-width="1.2"/>`);
-      return `<svg viewBox="0 0 ${envW} ${envH}" preserveAspectRatio="xMidYMax meet">${parts.join('')}</svg>`;
-    }
-    function renderRelated() {
-      const grid = document.getElementById('ksd-related-grid');
-      if (!grid || !related.length) return;
-      grid.innerHTML = related.map((r) => `
-        <a class="ksd-rel-card" href="/sets/${r.slug}/">
-          <div class="ksd-rel-rel">${r.tag}</div>
-          <div class="ksd-rel-diag">${miniSvg(r.bom)}</div>
-          <div class="ksd-rel-body">
-            <h3>${r.title}</h3>
-            <div class="meta">${r.widthFt} ft · ${r.pieces} pc</div>
-            <div class="price">$${r.msrp.toLocaleString()}</div>
-          </div>
-        </a>
-      `).join('');
-    }
-
-    // ============ Fits your wall ============
-    function renderFits() {
-      const input = document.getElementById('ksd-wall-input');
-      const fill = document.getElementById('ksd-fits-fill');
-      const marker = document.getElementById('ksd-fits-marker');
-      const verdict = document.getElementById('ksd-fits-verdict');
-      const suggest = document.getElementById('ksd-fits-suggest');
-      if (!input) return;
-
-      function update() {
-        const ft = parseFloat(input.value) || 0;
-        const SET = widthFt;
-        const maxVis = Math.max(SET + 4, ft);
-        const setPct = Math.min(100, (SET / maxVis) * 100);
-        const wallPct = Math.min(100, (ft / maxVis) * 100);
-        fill.style.width = wallPct + '%';
-        marker.style.left = setPct + '%';
-        if (ft >= SET) {
-          const inches = Math.round((ft - SET) * 12);
-          verdict.className = 'ksd-fits-verdict ok';
-          verdict.textContent = inches === 0 ? 'Fits exact' : `Fits — ${inches} in to spare`;
-          suggest.innerHTML = inches > 24 ? `Lots of room? Explore <a href="/sets/">larger sets</a>.` : '';
-        } else {
-          const short = Math.round((SET - ft) * 12);
-          verdict.className = 'ksd-fits-verdict warn';
-          verdict.textContent = `Short by ${short} in`;
-          suggest.innerHTML = `Tight on wall? Browse <a href="/sets/">smaller sets</a>.`;
-        }
+      if (showNums) {
+        const cx = x + w / 2;
+        const cy = y + 6;
+        parts.push(`<circle cx="${cx}" cy="${cy}" r="3" fill="#F2A427" stroke="#1F1B14" stroke-width="0.3"/>`);
+        parts.push(`<text x="${cx}" y="${cy + 1.2}" text-anchor="middle" font-family="Inter Tight, sans-serif" font-weight="700" font-size="3.4" fill="#1F1B14">${pieceNum}</text>`);
       }
-      input.addEventListener('input', update);
-      update();
+      pieceNum++;
+    });
+    placed.forEach((p) => {
+      if (!p.base) return;
+      const { x, y, w, h } = p.base;
+      const code = p.col.base;
+      const openShelf = code.endsWith('-OS');
+      const door = code.endsWith('-FH');
+      const drawers = code === 'DB324' ? 3 : code === 'DB424' ? 4 : code === 'DB524' ? 5 : 0;
+      parts.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" class="elev-rect ${openShelf ? 'open-fill' : ''}"/>`);
+      parts.push(`<rect x="${x}" y="${floorY - TOE_H * scale}" width="${w}" height="${TOE_H * scale}" class="elev-rect toe"/>`);
+      if (openShelf) parts.push(`<line x1="${x + 1}" y1="${y + h / 2 - 3}" x2="${x + w - 1}" y2="${y + h / 2 - 3}" class="elev-shelf"/>`);
+      if (door)      parts.push(`<line x1="${x + w / 2}" y1="${y + 1}" x2="${x + w / 2}" y2="${floorY - TOE_H * scale - 1}" class="elev-line"/>`);
+      if (drawers) for (let i = 1; i < drawers; i++) {
+        const dy = y + (i * (h - TOE_H * scale)) / drawers;
+        parts.push(`<line x1="${x}" y1="${dy}" x2="${x + w}" y2="${dy}" class="elev-shelf"/>`);
+      }
+      if (showNums) {
+        const cx = x + w / 2;
+        const cy = y + 4;
+        parts.push(`<circle cx="${cx}" cy="${cy}" r="3" fill="#F2A427" stroke="#1F1B14" stroke-width="0.3"/>`);
+        parts.push(`<text x="${cx}" y="${cy + 1.2}" text-anchor="middle" font-family="Inter Tight, sans-serif" font-weight="700" font-size="3.4" fill="#1F1B14">${pieceNum}</text>`);
+      }
+      pieceNum++;
+    });
+    const wtRuns = [];
+    let run = null;
+    placed.forEach((p) => {
+      if (p.worktop) {
+        if (!run) run = { x0: p.worktop.x, x1: p.worktop.x + p.worktop.w, y: p.worktop.y, h: p.worktop.h };
+        else run.x1 = p.worktop.x + p.worktop.w;
+      } else if (run) { wtRuns.push(run); run = null; }
+    });
+    if (run) wtRuns.push(run);
+    if (wtRuns.length) {
+      wtRuns.forEach((r) => {
+        parts.push(`<rect x="${r.x0}" y="${r.y}" width="${r.x1 - r.x0}" height="${r.h}" class="elev-worktop"/>`);
+        if (showNums) {
+          const cx = (r.x0 + r.x1) / 2;
+          const cy = r.y - 2;
+          parts.push(`<circle cx="${cx}" cy="${cy}" r="3" fill="#F2A427" stroke="#1F1B14" stroke-width="0.3"/>`);
+          parts.push(`<text x="${cx}" y="${cy + 1.2}" text-anchor="middle" font-family="Inter Tight, sans-serif" font-weight="700" font-size="3.4" fill="#1F1B14">${pieceNum}</text>`);
+        }
+      });
+      pieceNum++;
     }
+    placed.forEach((p) => {
+      if (!p.upper) return;
+      const { x, y, w, h } = p.upper;
+      const openShelf = p.col.upper === 'W3630-OS';
+      parts.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" class="elev-rect ${openShelf ? 'open-fill' : ''}"/>`);
+      if (openShelf) parts.push(`<line x1="${x + 1}" y1="${y + h / 2}" x2="${x + w - 1}" y2="${y + h / 2}" class="elev-shelf"/>`);
+      else parts.push(`<line x1="${x + w / 2}" y1="${y + 1}" x2="${x + w / 2}" y2="${y + h - 1}" class="elev-line"/>`);
+      if (showNums) {
+        const cx = x + w / 2;
+        const cy = y + 6;
+        parts.push(`<circle cx="${cx}" cy="${cy}" r="3" fill="#F2A427" stroke="#1F1B14" stroke-width="0.3"/>`);
+        parts.push(`<text x="${cx}" y="${cy + 1.2}" text-anchor="middle" font-family="Inter Tight, sans-serif" font-weight="700" font-size="3.4" fill="#1F1B14">${pieceNum}</text>`);
+      }
+      pieceNum++;
+    });
 
-    // Init
-    buildElevation(document.getElementById('ksd-elev-main'), { showNums: true });
-    buildRuler(document.getElementById('ksd-ruler-main'));
-    buildMini(document.getElementById('ksd-pieces-mini-elev'));
-    renderRelated();
-    renderFits();
-  </script>
-</BaseLayout>
+    parts.push(`<line x1="${offsetX}" y1="${floorY + 1.5}" x2="${offsetX + widthIn * scale}" y2="${floorY + 1.5}" class="elev-floor"/>`);
+    container.innerHTML = `<svg viewBox="0 0 ${envW} ${envH}" preserveAspectRatio="xMidYMid meet">${parts.join('')}</svg>`;
+  }
+
+  function buildRuler(container) {
+    if (!container) return;
+    const envW = 320, envH = 34;
+    const scale = (envW - 20) / widthIn;
+    const offsetX = (envW - widthIn * scale) / 2;
+    const y = 8;
+    const parts = [];
+    parts.push(`<line x1="${offsetX - 2}" y1="${y}" x2="${offsetX + widthIn * scale + 2}" y2="${y}" class="ruler-total"/>`);
+    parts.push(`<line x1="${offsetX}" y1="${y - 3}" x2="${offsetX}" y2="${y + 3}" class="ruler-cap"/>`);
+    parts.push(`<line x1="${offsetX + widthIn * scale}" y1="${y - 3}" x2="${offsetX + widthIn * scale}" y2="${y + 3}" class="ruler-cap"/>`);
+    let cur = offsetX;
+    bomCols.forEach((c, i) => {
+      const mw = c.width ?? 24;
+      const x1 = cur + mw * scale;
+      if (i < bomCols.length - 1) parts.push(`<line x1="${x1}" y1="${y}" x2="${x1}" y2="${y + 4}" class="ruler-tick"/>`);
+      parts.push(`<text class="ruler-txt" x="${(cur + x1) / 2}" y="${y + 10}" text-anchor="middle">${mw}"</text>`);
+      cur = x1;
+    });
+    parts.push(`<text class="ruler-total-txt" x="${offsetX + widthIn * scale / 2}" y="${y - 4}" text-anchor="middle">${widthIn}" · ${widthFt} ft · ${widthMm} mm</text>`);
+    container.innerHTML = `<svg viewBox="0 0 ${envW} ${envH}" preserveAspectRatio="xMidYMid meet">${parts.join('')}</svg>`;
+  }
+
+  function buildMini(container) {
+    buildElevation(container, { showNums: false });
+  }
+
+  function miniSvg(cols) {
+    const envW = 192, envH = 102, FLOOR = 96;
+    const total = cols.reduce((s, c) => s + (c.width ?? 24), 0);
+    if (!total) return '';
+    const px = (envW - 16) / total;
+    const offset = (envW - total * px) / 2;
+    const parts = [
+      `<rect x="0" y="0" width="${envW}" height="${FLOOR}" fill="#E6DCC6" opacity="0.22"/>`,
+      `<line x1="0" y1="${FLOOR}" x2="${envW}" y2="${FLOOR}" stroke="#1F1B14" stroke-width="0.6"/>`,
+    ];
+    let cur = offset;
+    const runs = []; let run = null;
+    cols.forEach((c) => {
+      const w = (c.width ?? 24) * px;
+      if (c.tall) {
+        parts.push(`<rect x="${cur}" y="${FLOOR - 84}" width="${w}" height="84" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.6"/>`);
+        parts.push(`<line x1="${cur + w / 2}" y1="${FLOOR - 83}" x2="${cur + w / 2}" y2="${FLOOR - 1}" stroke="#1F1B14" stroke-width="0.4"/>`);
+      }
+      if (c.upper) {
+        parts.push(`<rect x="${cur}" y="${FLOOR - 90}" width="${w}" height="30" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.6"/>`);
+      }
+      if (c.base) {
+        parts.push(`<rect x="${cur}" y="${FLOOR - 34.5}" width="${w}" height="34.5" fill="#FBF6EA" stroke="#1F1B14" stroke-width="0.6"/>`);
+        parts.push(`<rect x="${cur}" y="${FLOOR - 4}" width="${w}" height="4" fill="#E6DCC6" stroke="#1F1B14" stroke-width="0.4"/>`);
+      }
+      if (c.worktop) {
+        if (!run) run = { x0: cur, x1: cur + w };
+        else run.x1 = cur + w;
+      } else if (run) { runs.push(run); run = null; }
+      cur += w;
+    });
+    if (run) runs.push(run);
+    runs.forEach((r) => parts.push(`<rect x="${r.x0 - 0.5}" y="${FLOOR - 36}" width="${r.x1 - r.x0 + 1}" height="1.5" fill="#F2A427"/>`));
+    parts.push(`<line x1="${offset}" y1="${FLOOR + 2.5}" x2="${offset + total * px}" y2="${FLOOR + 2.5}" stroke="#F2A427" stroke-width="1.2"/>`);
+    return `<svg viewBox="0 0 ${envW} ${envH}" preserveAspectRatio="xMidYMax meet">${parts.join('')}</svg>`;
+  }
+
+  function renderRelated() {
+    const grid = document.getElementById('ksd-related-grid');
+    if (!grid || !related.length) return;
+    grid.innerHTML = related.map((r) => `
+      <a class="ksd-rel-card" href="/sets/${r.slug}/">
+        <div class="ksd-rel-rel">${r.tag}</div>
+        <div class="ksd-rel-diag">${miniSvg(r.bom)}</div>
+        <div class="ksd-rel-body">
+          <h3>${r.title}</h3>
+          <div class="meta">${r.widthFt} ft · ${r.pieces} pc</div>
+          <div class="price">$${r.msrp.toLocaleString()}</div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  function renderFits() {
+    const input = document.getElementById('ksd-wall-input');
+    const fill = document.getElementById('ksd-fits-fill');
+    const marker = document.getElementById('ksd-fits-marker');
+    const verdict = document.getElementById('ksd-fits-verdict');
+    const suggest = document.getElementById('ksd-fits-suggest');
+    if (!input) return;
+
+    function update() {
+      const ft = parseFloat(input.value) || 0;
+      const SET = widthFt;
+      const maxVis = Math.max(SET + 4, ft);
+      const setPct = Math.min(100, (SET / maxVis) * 100);
+      const wallPct = Math.min(100, (ft / maxVis) * 100);
+      fill.style.width = wallPct + '%';
+      marker.style.left = setPct + '%';
+      if (ft >= SET) {
+        const inches = Math.round((ft - SET) * 12);
+        verdict.className = 'ksd-fits-verdict ok';
+        verdict.textContent = inches === 0 ? 'Fits exact' : `Fits — ${inches} in to spare`;
+        suggest.innerHTML = inches > 24 ? `Lots of room? Explore <a href="/sets/">larger sets</a>.` : '';
+      } else {
+        const short = Math.round((SET - ft) * 12);
+        verdict.className = 'ksd-fits-verdict warn';
+        verdict.textContent = `Short by ${short} in`;
+        suggest.innerHTML = `Tight on wall? Browse <a href="/sets/">smaller sets</a>.`;
+      }
+    }
+    input.addEventListener('input', update);
+    update();
+  }
+
+  buildElevation(document.getElementById('ksd-elev-main'), { showNums: true });
+  buildRuler(document.getElementById('ksd-ruler-main'));
+  buildMini(document.getElementById('ksd-pieces-mini-elev'));
+  renderRelated();
+  renderFits();
+</script>

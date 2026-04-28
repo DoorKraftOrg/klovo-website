@@ -1,17 +1,9 @@
 /* =========================================================
    KLOVO — Inner Page Styles (page-v5.css)
-   Loaded alongside homepage-v5.css on every inner page.
-   Adds sticky nav, page-hero, page utilities.
+   Loaded alongside homepage-v9.css on every inner page.
+   Adds page-hero, page utilities, section patterns.
+   Nav stickiness handled by .nav-wrap in homepage-v9.css.
    ========================================================= */
-
-/* ---- Sticky nav override for inner pages ---- */
-.page-layout .nav {
-  position: sticky;
-  top: 0;
-  background: var(--ink);
-  z-index: 50;
-  box-shadow: 0 1px 0 rgba(201,189,159,0.15);
-}
 
 /* ---- Page hero (no full-bleed image) ---- */
 .page-hero {
@@ -21,30 +13,19 @@
 .page-hero--neutral { background: var(--neutral); }
 
 .page-h1 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(40px, 5.5vw, 72px);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
   color: var(--ink);
   margin: 18px 0 0;
   text-wrap: balance;
 }
 .page-h1 em {
-  font-style: italic;
-  font-weight: 400;
-  color: var(--amber-deep);
-  display: inline-block;
-  position: relative;
-  padding-bottom: 4px;
-}
-.page-h1 em::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 2px;
-  background: var(--amber);
-  opacity: 0.85;
+  font-style: normal;
+  font-weight: 800;
+  color: var(--klovo-amber);
 }
 
 .page-lede {
@@ -73,7 +54,7 @@
 .page-stat:first-child { padding-left: 0; }
 .page-stat:last-child { border-right: none; }
 .page-stat-val {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 400;
   color: var(--ink);
@@ -151,9 +132,10 @@
 
 /* ---- Pull quote ---- */
 .page-pull-quote {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(22px, 2.8vw, 30px);
+  font-family: var(--display);
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(20px, 2.5vw, 28px);
   color: var(--ink);
   line-height: 1.35;
   border-left: 3px solid var(--amber);
@@ -288,7 +270,7 @@
 }
 .page-step:last-child { border-bottom: none; }
 .page-step-num {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 56px;
   font-weight: 400;
   color: var(--amber);
@@ -299,7 +281,7 @@
   margin-top: -4px;
 }
 .page-step-body h3 {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 22px;
   font-weight: 400;
   color: var(--ink);

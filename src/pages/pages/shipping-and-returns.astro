@@ -1,40 +1,57 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 
 const title = "Shipping & Returns";
-const description = "Shipping & Returns Policy Last updated: April 2026 Shipping KLOVO ships all orders from our manufacturing facility in Georgia, USA. Standard processing...";
+const description = "Klovo shipping and returns policy. Free shipping on all cabinet system orders within the contiguous United States. 30-day return window on unopened products.";
 ---
 
-<BaseLayout title={title} description={description}>
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-8">{title}</h1>
-    <div class="prose prose-lg max-w-none shopify-body" set:html={`<h2>Shipping & Returns Policy</h2>
-<p><em>Last updated: April 2026</em></p>
-<h3>Shipping</h3>
-<p>KLOVO ships all orders from our manufacturing facility in Georgia, USA. Standard processing time is 5–7 business days. We ship to all 50 U.S. states. Freight shipments require a delivery appointment — you will be contacted by the carrier to schedule.</p>
-<h3>Free Shipping</h3>
-<p>KLOVO offers free standard shipping on all cabinet system orders within the contiguous United States.</p>
-<h3>Returns</h3>
-<p>KLOVO accepts returns of unopened, undamaged products within 30 days of delivery. To initiate a return, contact our customer service team through klovo.com. Return shipping costs are the responsibility of the customer unless the return is due to a manufacturing defect or shipping damage.</p>
-<h3>Damaged or Defective Products</h3>
-<p>If your order arrives damaged or with a manufacturing defect, contact KLOVO within 7 days of delivery with photos of the damage. We will arrange replacement of affected components at no cost to you.</p>
-<h3>Warranty</h3>
-<p>KLOVO cabinets carry a 1-year limited warranty against manufacturing defects in materials and workmanship under normal residential use. Replacement parts are available for all components. The warranty does not cover damage from misuse, improper installation, or acts of nature.</p>
-<h3>Contact</h3>
-<p>For shipping and return inquiries, use the contact form at klovo.com or email our support team directly.</p>`} />
-  </article>
-</BaseLayout>
+<PageLayout title={title} description={description}>
+  <section class="page-hero page-hero--neutral">
+    <div class="container" style="max-width:800px;">
+      <span class="eyebrow">Policies</span>
+      <h1 class="page-h1">{title}</h1>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container" style="max-width:800px;">
+      <article class="prose-klovo">
+
+        <p style="font-family:var(--sans); font-size:14px; color:var(--muted);"><em>Last updated: April 2026</em></p>
+
+        <h2>Shipping &amp; Returns Policy</h2>
+
+        <h3>Shipping</h3>
+        <p>Klovo ships all orders from our manufacturing facility in Georgia, USA. Standard processing time is 5–7 business days. We ship to all 50 U.S. states. Freight shipments require a delivery appointment — you will be contacted by the carrier to schedule.</p>
+
+        <h3>Free Shipping</h3>
+        <p>Klovo offers free standard shipping on all cabinet system orders within the contiguous United States.</p>
+
+        <h3>Returns</h3>
+        <p>Klovo accepts returns of unopened, undamaged products within 30 days of delivery. To initiate a return, contact our customer service team through klovo.com. Return shipping costs are the responsibility of the customer unless the return is due to a manufacturing defect or shipping damage.</p>
+
+        <h3>Damaged or Defective Products</h3>
+        <p>If your order arrives damaged or with a manufacturing defect, contact Klovo within 7 days of delivery with photos of the damage. We will arrange replacement of affected components at no cost to you.</p>
+
+        <h3>Warranty</h3>
+        <p>Klovo cabinets carry a 1-year limited warranty against manufacturing defects in materials and workmanship under normal residential use. Replacement parts are available for all components. The warranty does not cover damage from misuse, improper installation, or acts of nature.</p>
+
+        <h3>Contact</h3>
+        <p>For shipping and return inquiries, use the contact form at klovo.com or email our support team directly.</p>
+
+      </article>
+    </div>
+  </section>
+</PageLayout>
 
 <style is:global>
-  .shopify-body h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-  .shopify-body h3 { font-size: 1.35rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-  .shopify-body p { margin-bottom: 1rem; line-height: 1.75; }
-  .shopify-body ul, .shopify-body ol { margin-left: 1.5rem; margin-bottom: 1rem; }
-  .shopify-body ul { list-style: disc; }
-  .shopify-body ol { list-style: decimal; }
-  .shopify-body li { margin-bottom: 0.35rem; }
-  .shopify-body a { color: #0057ff; text-decoration: underline; }
-  .shopify-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-  .shopify-body th, .shopify-body td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; }
-  .shopify-body th { background: #f9fafb; font-weight: 600; }
+.prose-klovo { font-family: var(--sans); color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+.prose-klovo h2 { font-family: var(--display); font-weight: 700; font-size: clamp(22px,2.8vw,30px); color: var(--ink); margin: 48px 0 16px; }
+.prose-klovo h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 36px 0 12px; }
+.prose-klovo p { margin: 0 0 20px; }
+.prose-klovo ul, .prose-klovo ol { padding-left: 24px; margin-bottom: 20px; }
+.prose-klovo li { margin-bottom: 8px; }
+.prose-klovo strong { color: var(--ink); font-weight: 600; }
+.prose-klovo a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
+.prose-klovo a:hover { color: var(--ink); }
 </style>

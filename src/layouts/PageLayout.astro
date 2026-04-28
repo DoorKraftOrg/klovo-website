@@ -1,5 +1,5 @@
 ---
-import '../styles/homepage-v5.css';
+import '../styles/homepage-v9.css';
 import '../styles/page-v5.css';
 
 interface Props {
@@ -39,11 +39,11 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Fonts: Newsreader (serif) + Geist (sans) -->
+    <!-- Fonts: Space Grotesk (body) + Inter Tight (display/headings) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&family=Geist:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -84,32 +84,34 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
     <slot name="head" />
   </head>
   <body class="page-layout">
-    <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" onfocus="this.style.cssText='position:fixed;top:1rem;left:1rem;z-index:9999;padding:.5rem 1rem;background:#1F1B14;color:#F4ECDB;border-radius:4px;font-size:.875rem;font-weight:600;'">Skip to content</a>
+    <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" onfocus="this.style.cssText='position:fixed;top:1rem;left:1rem;z-index:9999;padding:.5rem 1rem;background:var(--ink);color:var(--cream);border-radius:4px;font-size:.875rem;font-weight:600;'">Skip to content</a>
 
-    <!-- STICKY NAV -->
-    <nav class="nav" id="site-nav">
-      <a href="/" class="nav-logo" aria-label="Klovo home">
-        <img src="/images/klovo-logo-official.png" alt="Klovo" />
-      </a>
-      <div class="nav-links" id="nav-links">
-        <a href="/sets/">Sets</a>
-        <a href="/assembly/">Assembly</a>
-        <a href="/specs/">Specs</a>
-        <a href="/gallery/">Gallery</a>
-        <a href="/about/">About</a>
-        <a href="/for-retailers/">For Retailers</a>
-      </div>
-      <a href="/where-to-buy/" class="nav-cta">Where to Buy</a>
-      <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-        <i></i><i></i><i></i>
-      </button>
-    </nav>
+    <!-- NAV — soft grey chrome, sticky -->
+    <div class="nav-wrap">
+      <nav class="nav" id="site-nav">
+        <a href="/" class="nav-logo" aria-label="Klovo home">
+          <img src="/images/klovo-logo-official.png" alt="Klovo" />
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="/sets/">Sets</a>
+          <a href="/assembly/">Assembly</a>
+          <a href="/specs/">Specs</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/about/">About</a>
+          <a href="/for-retailers/">For Retailers</a>
+        </div>
+        <a href="/where-to-buy/" class="nav-cta">Where to Buy</a>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <i></i><i></i><i></i>
+        </button>
+      </nav>
+    </div>
 
     <main id="main-content">
       <slot />
     </main>
 
-    <!-- DARK FOOTER -->
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
@@ -172,41 +174,14 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
       </div>
     </footer>
 
-    <style>
-      .footer-social {
-        display: flex;
-        gap: 14px;
-        margin-top: 16px;
-        align-items: center;
-      }
-      .footer-social a {
-        color: rgba(244,236,219,0.5);
-        transition: color 0.2s;
-        display: flex;
-        align-items: center;
-      }
-      .footer-social a:hover {
-        color: var(--amber);
-      }
-    </style>
     <script is:inline>
       (function () {
-        // Mobile nav burger
         var burger = document.getElementById('nav-burger');
         var navLinks = document.getElementById('nav-links');
         if (burger && navLinks) {
           burger.addEventListener('click', function () {
-            var isOpen = navLinks.style.display === 'flex';
-            navLinks.style.display = isOpen ? '' : 'flex';
-            navLinks.style.flexDirection = isOpen ? '' : 'column';
-            navLinks.style.position = isOpen ? '' : 'absolute';
-            navLinks.style.top = isOpen ? '' : '100%';
-            navLinks.style.left = isOpen ? '' : '0';
-            navLinks.style.right = isOpen ? '' : '0';
-            navLinks.style.background = isOpen ? '' : 'var(--ink)';
-            navLinks.style.padding = isOpen ? '' : '16px 24px 24px';
-            navLinks.style.gap = isOpen ? '' : '0';
-            navLinks.style.zIndex = isOpen ? '' : '100';
+            var isOpen = navLinks.classList.contains('nav-open');
+            navLinks.classList.toggle('nav-open', !isOpen);
             burger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
           });
         }
