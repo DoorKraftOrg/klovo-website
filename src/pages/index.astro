@@ -8,24 +8,26 @@ import HomeLayout from '../layouts/HomeLayout.astro';
   keywords="modular garage cabinets, garage cabinet sets, DIY garage cabinet kit, RTA garage cabinet, push-to-open garage cabinets, soft-close garage cabinets, engineered wood garage cabinets, garage organization set, garage shelving system, garage storage cabinets, GlideLock, made in USA garage cabinets"
 >
 
-  <!-- NAV -->
-  <nav class="nav" id="site-nav">
-    <a href="/" class="nav-logo" aria-label="Klovo home">
-      <img src="/images/klovo-logo-official.png" alt="Klovo" />
-    </a>
-    <div class="nav-links" id="nav-links">
-      <a href="/sets/">Sets</a>
-      <a href="/assembly/">Assembly</a>
-      <a href="/specs/">Specs</a>
-      <a href="/gallery/">Gallery</a>
-      <a href="/about/">About</a>
-      <a href="/for-retailers/">For Retailers</a>
-    </div>
-    <a href="/where-to-buy/" class="nav-cta">Where to Buy</a>
-    <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-      <i></i><i></i><i></i>
-    </button>
-  </nav>
+  <!-- NAV — soft grey chrome with color logo -->
+  <div class="nav-wrap">
+    <nav class="nav">
+      <a href="/" class="nav-logo" aria-label="Klovo home">
+        <img src="/images/klovo-logo-official.png" alt="Klovo" />
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="/sets/">Sets</a>
+        <a href="/assembly/">Assembly</a>
+        <a href="/specs/">Specs</a>
+        <a href="/gallery/">Gallery</a>
+        <a href="/about/">About</a>
+        <a href="/for-retailers/">For Retailers</a>
+      </div>
+      <a href="/where-to-buy/" class="nav-cta">Where to Buy</a>
+      <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <i></i><i></i><i></i>
+      </button>
+    </nav>
+  </div>
 
   <main id="main-content">
 
@@ -44,20 +46,11 @@ import HomeLayout from '../layouts/HomeLayout.astro';
           <p class="hero-sub">
             Pre-designed systems, sized for your wall. Assemble a full set in under an hour. Load capacity of 500 lbs per cabinet. 100% Made in USA.
           </p>
-          <div class="hero-price">
-            <span class="hero-price-label">Sets from</span>
-            <span class="hero-price-val"><em>$589</em></span>
-            <span class="hero-price-note">single locker · full walls to $5,008</span>
-          </div>
           <div class="hero-ctas">
-            <a href="/sets/" class="btn btn--primary">See our sets &rarr;</a>
+            <a href="/sets/" class="btn btn--amber">See our sets &rarr;</a>
             <a href="/where-to-buy/" class="btn btn--ghost">Where to buy</a>
           </div>
         </div>
-      </div>
-      <div class="hero-scroll" aria-hidden="true">
-        <span class="hero-scroll-line"></span>
-        <span class="hero-scroll-text">Scroll</span>
       </div>
     </section>
 
@@ -67,7 +60,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
         <div class="section-head">
           <span class="eyebrow">The Collection</span>
           <h2 class="h-section">
-            Pre-designed systems from 2 feet to&nbsp;16&nbsp;feet.<br/>
+            Pre-designed systems from 16 feet to&nbsp;2&nbsp;feet.<br/>
             <em>Sized for your wall.</em>
           </h2>
           <p class="section-lede">
@@ -76,16 +69,16 @@ import HomeLayout from '../layouts/HomeLayout.astro';
         </div>
 
         <div class="collection-grid">
-          <a href="/sets/#width-2ft" class="collection-card">
-            <div class="collection-card-img collection-card-img--small">
-              <img src="/images/products/tall-cabinet-solo.png" alt="2 ft. Klovo set" loading="lazy" />
+          <a href="/sets/#width-16ft" class="collection-card">
+            <div class="collection-card-img">
+              <img src="/images/sets/set-16-hero.jpg" alt="16 ft. Klovo set" loading="lazy" />
             </div>
             <div class="collection-card-body">
-              <span class="collection-card-tag">2 feet</span>
+              <span class="collection-card-tag">16 <em>ft</em></span>
               <p class="collection-card-desc">
-                The smallest set. A single tall cabinet — perfect for a corner, mudroom drop zone, or standalone utility locker.
+                The maximum setup. A complete family hub, full workshop with worktop, or a pro-level home gym.
               </p>
-              <span class="collection-card-link">Shop 2 ft sets &rarr;</span>
+              <span class="collection-card-link">Shop 16 ft sets &rarr;</span>
             </div>
           </a>
 
@@ -94,7 +87,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
               <img src="/images/sets/set-08-hero.jpg" alt="8 ft. Klovo set" loading="lazy" />
             </div>
             <div class="collection-card-body">
-              <span class="collection-card-tag">8 feet</span>
+              <span class="collection-card-tag">8 <em>ft</em></span>
               <p class="collection-card-desc">
                 A full wall. Big enough for a home office, a dedicated workshop, or most of a home gym.
               </p>
@@ -102,16 +95,16 @@ import HomeLayout from '../layouts/HomeLayout.astro';
             </div>
           </a>
 
-          <a href="/sets/#width-16ft" class="collection-card">
-            <div class="collection-card-img">
-              <img src="/images/sets/set-16-hero.jpg" alt="16 ft. Klovo set" loading="lazy" />
+          <a href="/sets/#width-2ft" class="collection-card">
+            <div class="collection-card-img collection-card-img--small">
+              <img src="/images/products/tall-cabinet-solo.png" alt="2 ft. Klovo set" loading="lazy" />
             </div>
             <div class="collection-card-body">
-              <span class="collection-card-tag">16 feet</span>
+              <span class="collection-card-tag">2 <em>ft</em></span>
               <p class="collection-card-desc">
-                The maximum setup. A complete family hub, full workshop with worktop, or a pro-level home gym.
+                The smallest set. A single tall cabinet — perfect for a corner, mudroom drop zone, or standalone utility locker.
               </p>
-              <span class="collection-card-link">Shop 16 ft sets &rarr;</span>
+              <span class="collection-card-link">Shop 2 ft sets &rarr;</span>
             </div>
           </a>
         </div>
@@ -123,20 +116,20 @@ import HomeLayout from '../layouts/HomeLayout.astro';
     </section>
 
     <!-- SECTION 3 — FAST ASSEMBLY -->
-    <section class="section section--neutral">
+    <section class="section section--assembly">
       <div class="container">
-        <div class="split split--video-left">
+        <div class="split split--video-left split--dark">
           <div class="split-media">
             <div class="video-card">
               <img src="/images/assembly/hands-pressing.png" alt="Hands pressing Klovo cabinet panels together" loading="lazy" />
               <button class="video-play" data-video-open aria-label="Play assembly video">
                 <svg viewBox="0 0 32 36" width="22" height="26" aria-hidden="true">
-                  <path d="M0 0 L32 18 L0 36 Z" fill="#0A2A52"/>
+                  <path d="M0 0 L32 18 L0 36 Z" fill="#1F1B14"/>
                 </svg>
               </button>
               <div class="video-badge">
                 <span class="video-badge-dot"></span>
-                Watch &middot; 0:41
+                Watch &middot; 00:41
               </div>
             </div>
           </div>
@@ -150,18 +143,16 @@ import HomeLayout from '../layouts/HomeLayout.astro';
             </p>
             <div class="stats-row">
               <div class="stat">
-                <div class="stat-val">3 min</div>
+                <div class="stat-val"><em>3 min</em></div>
                 <div class="stat-label">per cabinet</div>
               </div>
-              <span class="stat-sep" aria-hidden="true"></span>
               <div class="stat">
-                <div class="stat-val">Less than 1 hr</div>
+                <div class="stat-val"><em>less than 1 hr</em></div>
                 <div class="stat-label">full set</div>
               </div>
-              <span class="stat-sep" aria-hidden="true"></span>
               <div class="stat">
-                <div class="stat-val">500 lbs</div>
-                <div class="stat-label">load capacity, per cabinet</div>
+                <div class="stat-val"><em>500 lb</em></div>
+                <div class="stat-label">capacity</div>
               </div>
             </div>
             <a href="/assembly/" class="btn btn--primary">See how it works &rarr;</a>
@@ -171,19 +162,10 @@ import HomeLayout from '../layouts/HomeLayout.astro';
     </section>
 
     <!-- SECTION 4 — WHY KLOVO -->
-    <section class="section section--cream">
+    <section class="section section--cream section--why">
       <div class="container">
-        <div class="split">
-          <div class="split-media">
-            <div class="why-photo">
-              <img src="/images/scenes/base-wall-pegboard.png" alt="Klovo base cabinets with pegboard workspace" loading="lazy" />
-              <div class="why-photo-corner">
-                <span>Made for</span>
-                <strong>real garages.</strong>
-              </div>
-            </div>
-          </div>
-          <div class="split-text">
+        <div class="why-grid">
+          <div class="why-text">
             <span class="eyebrow">Why Klovo</span>
             <h2 class="h-section">
               Built for garages.<br/><em>Not kitchens.</em>
@@ -193,23 +175,26 @@ import HomeLayout from '../layouts/HomeLayout.astro';
             </p>
             <ul class="check-list">
               <li>
-                <span class="check-mark" aria-hidden="true">&#10003;</span>
+                <span class="check-mark" aria-hidden="true">✓</span>
                 <span><strong>18-inch depth</strong> — built for garages, not kitchens</span>
               </li>
               <li>
-                <span class="check-mark" aria-hidden="true">&#10003;</span>
+                <span class="check-mark" aria-hidden="true">✓</span>
                 <span><strong>Sealed with 1mm PVC edgebanding</strong> on all exposed edges — moisture-resistant</span>
               </li>
               <li>
-                <span class="check-mark" aria-hidden="true">&#10003;</span>
+                <span class="check-mark" aria-hidden="true">✓</span>
                 <span><strong>Scratch-resistant laminate</strong> — takes extreme daily use, not dents</span>
               </li>
               <li>
-                <span class="check-mark" aria-hidden="true">&#10003;</span>
+                <span class="check-mark" aria-hidden="true">✓</span>
                 <span><strong>Push-to-open drawers and doors</strong> — no handles that take up space</span>
               </li>
             </ul>
             <a href="/specs/" class="btn btn--primary">See all specs &rarr;</a>
+          </div>
+          <div class="why-photo-block">
+            <img src="/images/scenes/base-wall-pegboard.png" alt="Klovo base cabinets with pegboard workspace" loading="lazy" />
           </div>
         </div>
       </div>
@@ -223,19 +208,19 @@ import HomeLayout from '../layouts/HomeLayout.astro';
         </h2>
         <div class="big-stats">
           <div class="big-stat">
-            <div class="big-stat-val">Less than 1%</div>
-            <div class="big-stat-label">of US garages have finished storage</div>
+            <div class="big-stat-val"><em>less than 1%</em></div>
+            <div class="big-stat-label">of US garages are kitted with storage</div>
           </div>
           <div class="big-stat">
-            <div class="big-stat-val">68%</div>
+            <div class="big-stat-val"><em>68%</em></div>
             <div class="big-stat-label">of urban homeowners say they don't have enough storage</div>
           </div>
           <div class="big-stat">
-            <div class="big-stat-val">78M</div>
+            <div class="big-stat-val"><em>78M</em></div>
             <div class="big-stat-label">Americans with home fitness equipment</div>
           </div>
           <div class="big-stat">
-            <div class="big-stat-val">55%</div>
+            <div class="big-stat-val"><em>55%</em></div>
             <div class="big-stat-label">of Americans work on garage projects weekly</div>
           </div>
         </div>
@@ -271,7 +256,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
           </figure>
         </div>
         <div class="section-cta">
-          <a href="/gallery/" class="btn btn--ghost btn--ghost--dark">See the gallery &rarr;</a>
+          <a href="/gallery/" class="btn btn--ghost--dark">See the gallery &rarr;</a>
         </div>
       </div>
     </section>
@@ -295,7 +280,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
             </div>
             <h3 class="journal-card-title">How to choose a garage cabinet that <em>actually</em> lasts.</h3>
             <p class="journal-card-blurb">Plywood vs. particleboard, edge banding, hinge cycles — what to ask before you buy.</p>
-            <span class="journal-card-link">Read the guide &rarr;</span>
+            <span class="journal-card-link">Read guide &rarr;</span>
           </a>
           <a href="/blogs/news/klovo-vs-steel-cabinet-brands" class="journal-card">
             <div class="journal-card-meta">
@@ -305,7 +290,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
             </div>
             <h3 class="journal-card-title">Klovo vs. the steel cabinet brands you already <em>know.</em></h3>
             <p class="journal-card-blurb">Honest side-by-side: weight capacity, depth, finish, assembly, and what the price actually gets you.</p>
-            <span class="journal-card-link">See the comparison &rarr;</span>
+            <span class="journal-card-link">Compare &rarr;</span>
           </a>
           <a href="/blogs/news/setting-up-a-family-friendly-garage-in-one-weekend" class="journal-card">
             <div class="journal-card-meta">
@@ -315,13 +300,13 @@ import HomeLayout from '../layouts/HomeLayout.astro';
             </div>
             <h3 class="journal-card-title">Setting up a family-friendly garage in <em>one weekend.</em></h3>
             <p class="journal-card-blurb">Drop zones, kid-safe heights, sports-gear storage — a real plan for a real Saturday.</p>
-            <span class="journal-card-link">Read the post &rarr;</span>
+            <span class="journal-card-link">Read post &rarr;</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 7 — SHOP KLOVO (Retailer CTA) -->
+    <!-- SECTION 7 — RETAILER CTA -->
     <section class="section section--neutral retailer-band">
       <div class="container retailer-inner">
         <span class="eyebrow">Shop Klovo</span>
@@ -342,7 +327,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
         <p class="final-body">15+ pre-designed sets. One for how you actually use the space.</p>
         <div class="final-ctas">
           <a href="/sets/" class="btn btn--primary">View sets &rarr;</a>
-          <a href="/sets/" class="btn btn--ghost btn--ghost--dark">Find your set</a>
+          <a href="/sets/" class="btn btn--ghost--dark">Find your set</a>
         </div>
       </div>
     </section>
@@ -356,17 +341,17 @@ import HomeLayout from '../layouts/HomeLayout.astro';
         <div class="footer-brand">
           <img src="/images/klovo-logo-official.png" alt="Klovo" class="footer-logo" />
           <p class="footer-tag">Cabinet sets for the modern garage. <br/>Made in the USA — factory in Georgia.</p>
-          <div style="display:flex; gap:14px; margin-top:16px; align-items:center;">
-            <a href="https://www.instagram.com/klovostorage/" target="_blank" rel="noopener noreferrer" aria-label="Klovo on Instagram" style="color:rgba(244,236,219,0.5); transition:color 0.2s; display:flex; align-items:center;" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(244,236,219,0.5)'">
+          <div class="footer-social">
+            <a href="https://www.instagram.com/klovostorage/" target="_blank" rel="noopener noreferrer" aria-label="Klovo on Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a href="https://www.tiktok.com/@klovostorage" target="_blank" rel="noopener noreferrer" aria-label="Klovo on TikTok" style="color:rgba(244,236,219,0.5); transition:color 0.2s; display:flex; align-items:center;" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(244,236,219,0.5)'">
+            <a href="https://www.tiktok.com/@klovostorage" target="_blank" rel="noopener noreferrer" aria-label="Klovo on TikTok">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.7a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
             </a>
-            <a href="https://x.com/KlovoStorage" target="_blank" rel="noopener noreferrer" aria-label="Klovo on X" style="color:rgba(244,236,219,0.5); transition:color 0.2s; display:flex; align-items:center;" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(244,236,219,0.5)'">
+            <a href="https://x.com/KlovoStorage" target="_blank" rel="noopener noreferrer" aria-label="Klovo on X">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://www.facebook.com/klovostorage" target="_blank" rel="noopener noreferrer" aria-label="Klovo on Facebook" style="color:rgba(244,236,219,0.5); transition:color 0.2s; display:flex; align-items:center;" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(244,236,219,0.5)'">
+            <a href="https://www.facebook.com/klovostorage" target="_blank" rel="noopener noreferrer" aria-label="Klovo on Facebook">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
           </div>
@@ -478,17 +463,8 @@ import HomeLayout from '../layouts/HomeLayout.astro';
       var navLinks = document.getElementById('nav-links');
       if (burger && navLinks) {
         burger.addEventListener('click', function () {
-          var isOpen = navLinks.style.display === 'flex';
-          navLinks.style.display = isOpen ? '' : 'flex';
-          navLinks.style.flexDirection = isOpen ? '' : 'column';
-          navLinks.style.position = isOpen ? '' : 'absolute';
-          navLinks.style.top = isOpen ? '' : '100%';
-          navLinks.style.left = isOpen ? '' : '0';
-          navLinks.style.right = isOpen ? '' : '0';
-          navLinks.style.background = isOpen ? '' : 'var(--ink)';
-          navLinks.style.padding = isOpen ? '' : '16px 24px 24px';
-          navLinks.style.gap = isOpen ? '' : '0';
-          navLinks.style.zIndex = isOpen ? '' : '100';
+          var isOpen = navLinks.classList.contains('nav-open');
+          navLinks.classList.toggle('nav-open', !isOpen);
           burger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
         });
       }
